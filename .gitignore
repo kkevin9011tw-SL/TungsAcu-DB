@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+ocr_output/
+word_output/
+vectordb/
+ocr_pdf.py
+txt_to_word.py
+structure_db.py
+parse_dongzhen.py
+add_page_numbers.py
