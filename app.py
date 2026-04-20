@@ -85,6 +85,16 @@ def q1(sql, params=()):
 def qo(sql, params=()):
     return get_old_conn().execute(sql, params).fetchall()
 
+def update_acupoint(ap_id: int, fields: dict):
+    conn = get_conn()
+    set_clause = ", ".join(f"{k}=?" for k in fields)
+    vals = list(fields.values()) + [ap_id]
+    conn.execute(f"UPDATE acupoints SET {set_clause} WHERE id=?", vals)
+    conn.commit()
+    load_acupoint.clear()
+    load_acupoints_by_region.clear()
+    search_acupoints.clear()
+
 
 # ── 資料查詢 ──────────────────────────────────────────
 @st.cache_data
@@ -126,6 +136,16 @@ def load_acupoint(ap_id):
         return None, {}
     cols = [d[0] for d in cur.description]
     return row, dict(zip(cols, row))
+
+@st.cache_data
+def load_acupoint_images(ap_id: int):
+    try:
+        return q(
+            "SELECT image_data, caption, figure_ref FROM acupoint_images WHERE acupoint_id=?",
+            (ap_id,)
+        )
+    except Exception:
+        return []
 
 @st.cache_data
 def load_pairs_for_acupoint(name: str):
@@ -183,9 +203,12 @@ def show_acupoint_detail(ap_id: int):
                 unsafe_allow_html=True)
     st.markdown(f"# {ap_name}{page_badge}", unsafe_allow_html=True)
 
-    tab_dong, tab_jie, tab_sym, tab_pairs = st.tabs(
-        ["📜 董師原文", "🔬 詮解發揮", "💊 其他書籍主治", "🔗 對針組合"]
-    )
+    is_admin = st.session_state.get("admin_mode", False)
+    tab_labels = ["📜 董師原文", "🔬 詮解發揮", "🖼 穴位圖", "💊 其他書籍主治", "🔗 對針組合"]
+    if is_admin:
+        tab_labels.append("✏️ 編輯資料")
+    tabs = st.tabs(tab_labels)
+    tab_dong, tab_jie, tab_img, tab_sym, tab_pairs = tabs[:5]
 
     # ── 董師原文 ──
     with tab_dong:
@@ -222,6 +245,25 @@ def show_acupoint_detail(ap_id: int):
                   <div class="field-label">{label}</div>
                   <div class="field-value">{val}</div>
                 </div>""", unsafe_allow_html=True)
+
+    # ── 穴位圖 ──
+    with tab_img:
+        import base64 as _base64
+        images = load_acupoint_images(ap_id)
+        if not images:
+            st.info("此穴位尚無圖片資料")
+        else:
+            for img_data, caption, fig_ref in images:
+                img_bytes = _base64.b64decode(img_data)
+                st.image(img_bytes, use_container_width=True)
+                if fig_ref:
+                    st.caption(f"圖號：{fig_ref}")
+                if caption:
+                    st.markdown(f"""
+                    <div class="detail-section">
+                      <div class="field-label">圖片描述</div>
+                      <div class="field-value">{caption}</div>
+                    </div>""", unsafe_allow_html=True)
 
     # ── 其他書籍主治 ──
     with tab_sym:
@@ -265,6 +307,37 @@ def show_acupoint_detail(ap_id: int):
                     if theory:     st.markdown(f"**理論：** {theory}")
                     if method:     st.markdown(f"**針法：** {method}")
                     if page_num:   st.caption(f"📄 {book} p.{page_num}")
+
+    # ── 編輯資料（Admin Only）──
+    if is_admin:
+        with tabs[5]:
+            st.caption("⚠️ 修改後直接寫入資料庫，請確認內容正確再儲存")
+            edit_fields = [
+                ("穴名闡釋",   "name_explanation"),
+                ("維傑新用",   "new_applications"),
+                ("解說及發揮", "commentary"),
+                ("比較",       "comparison_text"),
+                ("引申",       "extension_text"),
+                ("董師原文-注意", "dong_caution"),
+                ("董師原文-部位", "dong_location"),
+                ("董師原文-主治", "dong_indications"),
+                ("董師原文-取穴", "dong_method"),
+                ("董師原文-手術", "dong_needle"),
+                ("定位及取穴（詳）", "location_detail"),
+                ("現代解剖",   "anatomy"),
+            ]
+            edited = {}
+            for label, key in edit_fields:
+                val = d.get(key, "") or ""
+                new_val = st.text_area(label, value=val, height=120, key=f"edit_{ap_id}_{key}")
+                if new_val != val:
+                    edited[key] = new_val
+            if st.button("💾 儲存修改", type="primary", disabled=not edited):
+                update_acupoint(ap_id, edited)
+                st.success(f"已儲存 {len(edited)} 個欄位的修改")
+                st.rerun()
+            elif edited:
+                st.info(f"有 {len(edited)} 個欄位待儲存")
 
     if st.button("← 返回列表"):
         st.session_state.selected_ap = None
@@ -334,6 +407,24 @@ def render_sidebar():
     st.sidebar.divider()
     total = q1("SELECT COUNT(*) FROM acupoints")[0]
     st.sidebar.caption(f"共 {total} 個穴位")
+
+    # ── Admin Mode ──
+    st.sidebar.divider()
+    if st.session_state.get("admin_mode"):
+        st.sidebar.success("✏️ 編輯模式已開啟")
+        if st.sidebar.button("關閉編輯模式"):
+            st.session_state.admin_mode = False
+            st.rerun()
+    else:
+        with st.sidebar.expander("🔐 管理員登入"):
+            pw_input = st.text_input("密碼", type="password", key="admin_pw_input")
+            if st.button("登入", key="admin_login_btn"):
+                correct_pw = st.secrets.get("admin_password", "admin123")
+                if pw_input == correct_pw:
+                    st.session_state.admin_mode = True
+                    st.rerun()
+                else:
+                    st.error("密碼錯誤")
 
 
 # ── 主程式 ────────────────────────────────────────────
