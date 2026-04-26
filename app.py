@@ -149,15 +149,19 @@ def load_acupoint_images(ap_id: int):
 
 @st.cache_data
 def load_pairs_for_acupoint(name: str):
-    """從舊資料庫找此穴的對針組合"""
+    """從舊資料庫找此穴的對針組合，依出現頻次降序排列"""
     bare = name.replace("穴", "")
     like = f"%{bare}%"
     return qo("""
-        SELECT point1, point2, indication, theory, needle_method, source, page_number
+        SELECT point1, point2, indication, theory, needle_method,
+               GROUP_CONCAT(source, '、') as sources,
+               MIN(page_number) as page_number,
+               COUNT(*) as freq
         FROM acupoint_pairs
         WHERE (point1 LIKE ? OR point2 LIKE ?)
           AND source LIKE '楊維傑-%'
-        ORDER BY source
+        GROUP BY point1, point2
+        ORDER BY freq DESC, point1
         LIMIT 40
     """, (like, like))
 
@@ -220,12 +224,19 @@ def show_acupoint_detail(ap_id: int):
             ("注意", "dong_caution"),
         ]:
             val = d.get(key, "")
-            if val:
-                st.markdown(f"""
-                <div class="detail-section">
-                  <div class="field-label">{label}</div>
-                  <div class="field-value">{val}</div>
-                </div>""", unsafe_allow_html=True)
+            if not val:
+                continue
+            # 主治欄：若有精煉關鍵字，顯示「關鍵字（原文）」格式
+            if key == "dong_indications":
+                kw = d.get("indications_kw", "")
+                display_val = f"{kw}（{val}）" if kw else val
+            else:
+                display_val = val
+            st.markdown(f"""
+            <div class="detail-section">
+              <div class="field-label">{label}</div>
+              <div class="field-value">{display_val}</div>
+            </div>""", unsafe_allow_html=True)
 
     # ── 詮解發揮 ──
     with tab_jie:
@@ -291,15 +302,10 @@ def show_acupoint_detail(ap_id: int):
         if not rows:
             st.info("其他著作中未找到含此穴的對針組合")
         else:
-            st.caption(f"以下資料來自楊維傑醫師其他著作，共 {len(rows)} 筆")
-            cur_src = None
-            for p1, p2, indication, theory, method, source, page_num in rows:
-                book = source.replace("楊維傑-楊維傑", "").replace("楊維傑-", "")
-                if book != cur_src:
-                    st.markdown(f"**📖 {book}**")
-                    cur_src = book
-                page_tag = f"　p.{page_num}" if page_num else ""
-                with st.expander(f"**{p1}  ✦  {p2}**　｜　{(indication or '')[:50]}{page_tag}"):
+            st.caption(f"以下資料來自楊維傑醫師其他著作，共 {len(rows)} 組，依出現頻次排序")
+            for p1, p2, indication, theory, method, sources, page_num, freq in rows:
+                freq_tag = f"　<span style='color:#768390;font-size:0.8em'>× {freq} 本</span>" if freq > 1 else ""
+                with st.expander(f"**{p1}  ✦  {p2}**　｜　{(indication or '')[:50]}"):
                     c1, c2 = st.columns(2)
                     c1.markdown(f"**穴1：** {p1}")
                     c2.markdown(f"**穴2：** {p2}")
@@ -313,6 +319,7 @@ def show_acupoint_detail(ap_id: int):
         with tabs[5]:
             st.caption("⚠️ 修改後直接寫入資料庫，請確認內容正確再儲存")
             edit_fields = [
+                ("主治關鍵字（精煉版）", "indications_kw"),
                 ("穴名闡釋",   "name_explanation"),
                 ("維傑新用",   "new_applications"),
                 ("解說及發揮", "commentary"),
