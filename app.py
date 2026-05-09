@@ -797,6 +797,7 @@ def load_ocr_chunk(name):
 
 
 # ── 詳情面板 ──────────────────────────────────────────────────────────────────
+@st.fragment
 def show_detail(ap_id):
     d = load_acupoint(ap_id)
     if not d:
@@ -858,27 +859,31 @@ def show_detail(ap_id):
     tabs = st.tabs(tab_labels)
 
     with tabs[0]:
-        if loc or method:
-            st.markdown("<div class='section-label'>位置</div>", unsafe_allow_html=True)
-            body_parts = [p for p in [loc, method] if p]
-            st.markdown(f"<div class='section-body'>{'；'.join(body_parts)}</div>",
-                        unsafe_allow_html=True)
-        if needle:
-            st.markdown("<div class='section-label'>針法</div>", unsafe_allow_html=True)
-            st.markdown(f"""
+        col_text, col_img = st.columns([1, 1], gap="large")
+        with col_text:
+            if loc or method:
+                st.markdown("<div class='section-label'>位置</div>", unsafe_allow_html=True)
+                body_parts = [p for p in [loc, method] if p]
+                st.markdown(f"<div class='section-body'>{'；'.join(body_parts)}</div>",
+                            unsafe_allow_html=True)
+            if needle:
+                st.markdown("<div class='section-label'>針法</div>", unsafe_allow_html=True)
+                st.markdown(f"""
 <div class="needle-card">
   <div class="needle-row"><span class="needle-lbl">針法</span><span class="needle-val">{needle}</span></div>
 </div>""", unsafe_allow_html=True)
-        if images:
-            st.markdown("<div class='section-label'>穴位圖</div>", unsafe_allow_html=True)
-            img_cols = st.columns(len(images))
-            for i, (img_data, caption, fig_r) in enumerate(images):
-                with img_cols[i]:
-                    st.image(_b64.b64decode(img_data), use_container_width=True)
+        with col_img:
+            if images:
+                st.markdown("<div class='section-label'>穴位圖</div>", unsafe_allow_html=True)
+                for img_data, caption, fig_r in images:
+                    st.image(_b64.b64decode(img_data), width=320)
                     if fig_r:
                         st.caption(fig_r)
                     elif caption:
                         st.caption(caption)
+            else:
+                st.markdown("<div class='section-label'>穴位圖</div>", unsafe_allow_html=True)
+                st.caption("此穴尚無圖")
         if anatomy:
             st.markdown("<div class='section-label'>現代解剖</div>", unsafe_allow_html=True)
             st.markdown(f"<div class='section-body'>{anatomy}</div>",
@@ -918,13 +923,15 @@ def show_detail(ap_id):
         ]
         principle_items = [(label, body) for label, body in principle_items if body]
         if principle_items:
-            st.markdown("<div class='section-label'>原理與發揮</div>", unsafe_allow_html=True)
-            for label, body in principle_items:
-                st.markdown(
-                    f"<div class='principle-tag'>{label}</div>"
-                    f"<div class='section-body'>{body}</div>",
-                    unsafe_allow_html=True,
-                )
+            blocks = "".join(
+                f"<div class='principle-tag'>{label}</div>"
+                f"<div class='section-body'>{body}</div>"
+                for label, body in principle_items
+            )
+            st.markdown(
+                "<div class='section-label'>原理與發揮</div>" + blocks,
+                unsafe_allow_html=True,
+            )
         else:
             st.caption("此穴暫無原理相關補充")
 
@@ -943,42 +950,62 @@ def show_detail(ap_id):
                     if theory: st.markdown(f"**理論：** {theory}")
                     if method: st.markdown(f"**針法：** {method}")
                     if pg:     st.caption(f"p.{pg}　（出現 {freq} 次）")
-        st.markdown("<div class='section-label'>常見病</div>", unsafe_allow_html=True)
-        if common_rows:
-            for sym, treat, src, pg in common_rows:
+        def _src_html(rows):
+            parts = []
+            for sym, treat, src, pg in rows:
                 sym, treat = t(sym), t(treat)
                 pg_s = f" <small style='color:var(--ink-mute)'>p.{pg}</small>" if pg else ""
-                st.markdown(f"<div class='src-block'>🩺 <b>{sym}</b>{pg_s}<br>推薦穴位：{treat}</div>",
-                            unsafe_allow_html=True)
+                parts.append(
+                    f"<div class='src-block'>🩺 <b>{sym}</b>{pg_s}<br>推薦穴位：{treat}</div>"
+                )
+            return "".join(parts)
+
+        if common_rows:
+            st.markdown(
+                "<div class='section-label'>常見病</div>" + _src_html(common_rows),
+                unsafe_allow_html=True,
+            )
         else:
+            st.markdown("<div class='section-label'>常見病</div>", unsafe_allow_html=True)
             st.caption("常見病資料暫缺")
 
-        st.markdown("<div class='section-label'>痛症</div>", unsafe_allow_html=True)
         if pain_rows:
-            for sym, treat, src, pg in pain_rows:
-                sym, treat = t(sym), t(treat)
-                pg_s = f" <small style='color:var(--ink-mute)'>p.{pg}</small>" if pg else ""
-                st.markdown(f"<div class='src-block'>🩺 <b>{sym}</b>{pg_s}<br>推薦穴位：{treat}</div>",
-                            unsafe_allow_html=True)
+            st.markdown(
+                "<div class='section-label'>痛症</div>" + _src_html(pain_rows),
+                unsafe_allow_html=True,
+            )
         else:
+            st.markdown("<div class='section-label'>痛症</div>", unsafe_allow_html=True)
             st.caption("痛症資料暫缺")
 
-        st.markdown("<div class='section-label'>其他著作</div>", unsafe_allow_html=True)
-        if other_book_rows:
-            cur_src = None
-            for sym, treat, src, pg in other_book_rows:
-                book = src.replace("楊維傑-楊維傑","").replace("楊維傑-","")
-                if book in {"楊維傑區位易象特效對針", "楊維傑常見病特效一針療法", "楊維傑痛證特效一針療法"}:
-                    continue
-                if book != cur_src:
-                    st.markdown(f"<div class='src-book-title'>📖 {book}</div>",
-                                unsafe_allow_html=True)
-                    cur_src = book
-                sym, treat = t(sym), t(treat)
-                pg_s = f" <small style='color:var(--ink-mute)'>p.{pg}</small>" if pg else ""
-                st.markdown(f"<div class='src-block'>🩺 <b>{sym}</b>{pg_s}<br>推薦穴位：{treat}</div>",
-                            unsafe_allow_html=True)
+        excluded_books = {
+            "楊維傑區位易象特效對針",
+            "楊維傑常見病特效一針療法",
+            "楊維傑痛證特效一針療法",
+        }
+        grouped = []
+        cur_book = None
+        cur_rows = []
+        for sym, treat, src, pg in other_book_rows:
+            book = src.replace("楊維傑-楊維傑", "").replace("楊維傑-", "")
+            if book in excluded_books:
+                continue
+            if book != cur_book:
+                if cur_rows:
+                    grouped.append((cur_book, cur_rows))
+                cur_book, cur_rows = book, []
+            cur_rows.append((sym, treat, src, pg))
+        if cur_rows:
+            grouped.append((cur_book, cur_rows))
+
+        if grouped:
+            chunks = ["<div class='section-label'>其他著作</div>"]
+            for book, rows in grouped:
+                chunks.append(f"<div class='src-book-title'>📖 {book}</div>")
+                chunks.append(_src_html(rows))
+            st.markdown("".join(chunks), unsafe_allow_html=True)
         else:
+            st.markdown("<div class='section-label'>其他著作</div>", unsafe_allow_html=True)
             st.caption("其他著作資料暫缺")
 
     if st.session_state.get("admin_mode") and len(tabs) > 2:
@@ -1002,8 +1029,9 @@ def show_detail(ap_id):
                 st.success(f"已儲存 {len(edited)} 個欄位")
                 st.rerun()
 
-    st.button("← 返回",
-              on_click=lambda: st.session_state.update(selected_ap=None))
+    if st.button("← 返回", key=f"detail_back_{ap_id}"):
+        st.session_state.selected_ap = None
+        st.rerun()  # 顯式 full-app rerun（fragment 內必要）
 
 
 # ── 穴位卡片列表（主區域）─────────────────────────────────────────────────────
