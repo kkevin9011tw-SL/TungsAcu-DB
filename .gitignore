@@ -1,9 +1,15 @@
 venv/
+venv_mineru/
 __pycache__/
 *.pyc
 ocr_output/
 word_output/
 vectordb/
+extracted_images/
+.streamlit/secrets.toml
+onenote_export/
+*.rtf
+*.tmp
 ocr_pdf.py
 txt_to_word.py
 structure_db.py
