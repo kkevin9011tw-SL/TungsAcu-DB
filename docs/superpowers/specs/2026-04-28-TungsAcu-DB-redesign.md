@@ -1,5 +1,8 @@
 # TungsAcu-DB 重新設計 Spec
 
+> **狀態：✅ 已實作（2026-05-12）**  
+> 當前架構文件請看 `2026-05-12-CSV-backend-final.md`。本份保留作為歷史規劃參考。
+
 **日期**：2026-04-28  
 **目標**：以 CSV + MD 檔取代 SQLite，讓資料可直接用 Excel 維護，搭配 MinerU OCR + AI 解析自動建立初版資料，Streamlit 前端讀取呈現。
 
