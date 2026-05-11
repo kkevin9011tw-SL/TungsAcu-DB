@@ -1,5 +1,6 @@
 venv/
 venv_mineru/
+.DS_Store
 __pycache__/
 *.pyc
 ocr_output/
