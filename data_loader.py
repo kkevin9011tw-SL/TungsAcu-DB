@@ -18,6 +18,8 @@ CSV_ACUPOINTS = DATA_DIR / "穴位表.csv"
 CSV_PAIRS = DATA_DIR / "對針表.csv"
 CSV_SYMPTOMS = DATA_DIR / "症狀治療.csv"
 CSV_REGIONS = DATA_DIR / "部位表.csv"
+CSV_SYMPTOM_STANDARDS = DATA_DIR / "症狀標準詞表.csv"
+CSV_SYMPTOM_MAPPINGS = DATA_DIR / "症狀映射表.csv"
 IMG_DIR = DATA_DIR / "images"
 NOTES_DIR = DATA_DIR / "notes"
 
@@ -38,7 +40,11 @@ def load_regions_df() -> pd.DataFrame:
 @st.cache_data
 def load_pairs_df() -> pd.DataFrame:
     df = pd.read_csv(CSV_PAIRS, dtype=str).fillna("")
-    df["排序"] = pd.to_numeric(df["排序"], errors="coerce").fillna(99).astype(int)
+    if "目錄排序" in df.columns:
+        df["目錄排序"] = pd.to_numeric(df["目錄排序"], errors="coerce").fillna(9999).astype(int)
+    else:
+        df["目錄排序"] = 9999
+    df["排序"] = df["目錄排序"]
     return df
 
 
@@ -47,11 +53,25 @@ def load_symptoms_df() -> pd.DataFrame:
     return pd.read_csv(CSV_SYMPTOMS, dtype=str).fillna("")
 
 
+@st.cache_data
+def load_symptom_standards_df() -> pd.DataFrame:
+    df = pd.read_csv(CSV_SYMPTOM_STANDARDS, dtype=str).fillna("")
+    df["排序"] = pd.to_numeric(df["排序"], errors="coerce").fillna(9999).astype(int)
+    return df
+
+
+@st.cache_data
+def load_symptom_mappings_df() -> pd.DataFrame:
+    return pd.read_csv(CSV_SYMPTOM_MAPPINGS, dtype=str).fillna("")
+
+
 def invalidate_cache():
     load_acupoints_df.clear()
     load_regions_df.clear()
     load_pairs_df.clear()
     load_symptoms_df.clear()
+    load_symptom_standards_df.clear()
+    load_symptom_mappings_df.clear()
     load_note.clear()
 
 
@@ -97,6 +117,20 @@ def get_acupoint_by_name(name: str) -> dict:
     return row.iloc[0].to_dict()
 
 
+def same_acupoint_refs(text: str) -> list[dict]:
+    """解析「同XX穴」類主治關鍵字，回傳可跳轉的穴位列。"""
+    if not text or "同" not in text or "穴" not in text:
+        return []
+    refs: list[dict] = []
+    seen = set()
+    for target in re.findall(r"同([^，,、；;及又\s]+穴)", text):
+        row = get_acupoint_by_name(target)
+        if row and row.get("穴名") not in seen:
+            seen.add(row.get("穴名"))
+            refs.append(row)
+    return refs
+
+
 def search_acupoints_df(keyword: str) -> pd.DataFrame:
     df = load_acupoints_df()
     if not keyword:
@@ -110,57 +144,175 @@ def search_acupoints_df(keyword: str) -> pd.DataFrame:
     return df[mask].head(80)
 
 
-def search_symptoms_in_acupoints(keyword: str) -> pd.DataFrame:
-    """依關鍵字搜出含此關鍵字主治的穴位"""
-    df = load_acupoints_df()
+def resolve_symptom_query(keyword: str) -> list[str]:
+    """把使用者輸入轉成正式症狀詞與相關別名，保留原輸入作 fallback。"""
+    keyword = (keyword or "").strip()
     if not keyword:
+        return []
+    terms = [keyword]
+    std = load_symptom_standards_df()
+    mappings = load_symptom_mappings_df()
+
+    exact = mappings[mappings["關鍵字"].str.casefold() == keyword.casefold()]
+    for value in exact["標準症狀"].tolist():
+        if value and value not in terms:
+            terms.append(value)
+
+    exact_std = std[std["標準症狀"].str.casefold() == keyword.casefold()]
+    for value in exact_std["標準症狀"].tolist():
+        if value and value not in terms:
+            terms.append(value)
+
+    partial = mappings[
+        mappings["關鍵字"].str.contains(keyword, case=False, na=False, regex=False)
+        | mappings["標準症狀"].str.contains(keyword, case=False, na=False, regex=False)
+    ]
+    for col in ("標準症狀", "關鍵字"):
+        for value in partial[col].tolist():
+            if value and value not in terms:
+                terms.append(value)
+    return terms[:20]
+
+
+def standardize_keywords(keywords: list[str]) -> tuple[list[str], list[str]]:
+    """將原主治關鍵字拆成正式症狀詞與未映射補充詞。"""
+    std_names = set(load_symptom_standards_df()["標準症狀"].tolist())
+    mappings = load_symptom_mappings_df()
+    formal: list[str] = []
+    supplemental: list[str] = []
+
+    for kw in keywords:
+        kw = (kw or "").strip()
+        if not kw:
+            continue
+        mapped: list[str] = []
+        if kw in std_names:
+            mapped.append(kw)
+
+        exact = mappings[mappings["關鍵字"].str.casefold() == kw.casefold()]
+        for value in exact["標準症狀"].tolist():
+            if value in std_names and value not in mapped:
+                mapped.append(value)
+
+        if mapped:
+            for value in mapped:
+                if value not in formal:
+                    formal.append(value)
+        elif kw not in supplemental:
+            supplemental.append(kw)
+
+    return formal, supplemental
+
+
+def standardize_text_keywords(text: str) -> list[str]:
+    """從長句主治文字中抓出可對齊的正式症狀詞。"""
+    text = text or ""
+    if not text:
+        return []
+    found: list[str] = []
+    std = load_symptom_standards_df().sort_values("排序")
+    mappings = load_symptom_mappings_df()
+    for _, row in std.iterrows():
+        name = row["標準症狀"]
+        if name and name in text and name not in found:
+            found.append(name)
+
+    for _, row in mappings.iterrows():
+        keyword = row.get("關鍵字", "")
+        target = row.get("標準症狀", "")
+        if keyword and target and keyword in text and target not in found:
+            found.append(target)
+    filtered: list[str] = []
+    for term in sorted(found, key=len, reverse=True):
+        if any(term != kept and term in kept for kept in filtered):
+            continue
+        filtered.append(term)
+    return sorted(filtered, key=found.index)[:12]
+
+
+def search_symptoms_in_acupoints(keyword: str) -> pd.DataFrame:
+    """依標準詞/映射詞搜出含此關鍵字主治的穴位。"""
+    df = load_acupoints_df()
+    terms = resolve_symptom_query(keyword)
+    if not terms:
         return df.head(0)
-    mask = (
-        df["主治關鍵字"].str.contains(keyword, na=False)
-        | df["董楊思維"].str.contains(keyword, na=False)
-    )
+    mask = pd.Series(False, index=df.index)
+    for term in terms:
+        mask = mask | df["主治關鍵字"].str.contains(term, na=False, regex=False)
+        mask = mask | df["董楊思維"].str.contains(term, na=False, regex=False)
     return df[mask].head(80)
 
 
 # ── 對針 ─────────────────────────────────────────────────────────────────
+@st.cache_data
+def pair_groups_df() -> pd.DataFrame:
+    df = load_pairs_df().sort_values(["目錄排序", "穴組名稱", "穴名"])
+    groups = []
+    for (order, name), group in df.groupby(["目錄排序", "穴組名稱"], sort=False):
+        group = group.reset_index(drop=True)
+        first = group.iloc[0].to_dict()
+        first["第一穴"] = group.iloc[0]["穴名"]
+        first["第二穴"] = group.iloc[1]["穴名"] if len(group) > 1 else ""
+        first["穴位"] = "、".join(group["穴名"].tolist())
+        first["排序"] = int(order)
+        groups.append(first)
+    return pd.DataFrame(groups).fillna("")
+
+
+def pair_rows_for_name(pair_name: str) -> pd.DataFrame:
+    df = load_pairs_df()
+    if not pair_name:
+        return df.head(0)
+    row = df[df["穴組名稱"] == pair_name]
+    if row.empty:
+        return df.head(0)
+    return row.sort_values(["目錄排序", "穴名"])
+
+
 def all_pair_combos():
-    """回傳 [(穴1, 穴2), ...] 依排序欄"""
-    df = load_pairs_df().sort_values("排序")
-    out = []
-    for points in df["穴位"]:
-        parts = [p.strip() for p in (points or "").split(",") if p.strip()]
-        if len(parts) >= 2:
-            out.append((parts[0], parts[1]))
-    return out
+    """回傳所有對針穴組名稱，依目錄排序"""
+    df = pair_groups_df().sort_values(["目錄排序", "穴組名稱"])
+    return df["穴組名稱"].tolist()
 
 
 def search_pairs_df(keyword: str) -> pd.DataFrame:
-    df = load_pairs_df()
+    df = pair_groups_df()
     if not keyword:
         return df.head(0)
+    terms = resolve_symptom_query(keyword)
     mask = (
-        df["穴組名稱"].str.contains(keyword, na=False)
-        | df["穴位"].str.contains(keyword, na=False)
-        | df["主治關鍵字"].str.contains(keyword, na=False)
+        df["穴組名稱"].str.contains(keyword, na=False, regex=False)
+        | df["穴位"].str.contains(keyword, na=False, regex=False)
+        | df["大類"].str.contains(keyword, na=False, regex=False)
+        | df["次分類"].str.contains(keyword, na=False, regex=False)
     )
-    return df[mask].sort_values("排序").head(40)
+    for term in terms:
+        mask = mask | df["主治關鍵字"].str.contains(term, na=False, regex=False)
+    return df[mask].sort_values(["目錄排序", "穴組名稱"]).head(40)
 
 
 def pairs_for_acupoint(name: str) -> pd.DataFrame:
     """含此穴的對針組合"""
-    df = load_pairs_df()
+    df = pair_groups_df()
     bare = name.replace("穴", "")
-    mask = df["穴位"].str.contains(bare, na=False) | df["穴位"].str.contains(name, na=False)
-    return df[mask].sort_values("排序")
+    mask = (
+        df["穴位"].str.contains(bare, na=False, regex=False)
+        | df["穴位"].str.contains(name, na=False, regex=False)
+        | df["穴組名稱"].str.contains(bare, na=False, regex=False)
+    )
+    return df[mask].sort_values(["目錄排序", "穴組名稱"])
 
 
 def find_pair(p1: str, p2: str) -> dict | None:
     df = load_pairs_df()
     target = {p1.replace("穴", ""), p2.replace("穴", "")}
-    for _, row in df.iterrows():
-        parts = [p.strip().replace("穴", "") for p in (row["穴位"] or "").split(",")]
-        if set(parts) == target:
-            return row.to_dict()
+    for (order, name), group in df.groupby(["目錄排序", "穴組名稱"], sort=False):
+        parts = {p.strip().replace("穴", "") for p in group["穴名"].tolist()}
+        if parts == target:
+            row = pair_groups_df()[pair_groups_df()["穴組名稱"] == name]
+            if not row.empty:
+                return row.iloc[0].to_dict()
+            return group.iloc[0].to_dict()
     return None
 
 
@@ -232,45 +384,31 @@ def split_kw(s: str) -> list[str]:
 
 
 # ── 預設清單 ─────────────────────────────────────────────────────────────
-SYMPTOM_REGION_ORDER = [
-    "頭面", "眼耳鼻喉", "頸肩", "上肢", "胸背",
-    "腰腹", "下肢", "生殖泌尿", "其他",
+SYMPTOM_CATEGORY_ORDER = [
+    "痛症", "內科", "頭面頸", "五官科", "婦兒科", "皮膚外科", "其他疾病",
 ]
-
-
-def _symptom_bucket(name: str) -> str:
-    rules = [
-        ("頭面", ("頭", "面", "顏", "臉", "口", "牙", "舌", "腮", "鼻樑", "鼻骨")),
-        ("眼耳鼻喉", ("眼", "目", "耳", "鼻", "喉", "咽", "扁桃", "聲", "聽")),
-        ("頸肩", ("頸", "項", "肩", "臂不舉", "落枕")),
-        ("上肢", ("手", "肘", "腕", "臂", "肩臂", "指", "掌")),
-        ("胸背", ("胸", "心", "肺", "乳", "背", "脊", "肋", "膈", "氣管")),
-        ("腰腹", ("腰", "腹", "胃", "腸", "肝", "膽", "脾", "胰", "臍", "小腹")),
-        ("下肢", ("腿", "膝", "踝", "腳", "足", "髖", "股", "臀", "下肢")),
-        ("生殖泌尿", ("子宮", "月經", "經痛", "白帶", "陰", "卵", "睪丸", "攝護腺",
-                  "前列腺", "尿", "腎", "膀胱", "生殖", "不孕")),
-    ]
-    for bucket, keywords in rules:
-        if any(k in name for k in keywords):
-            return bucket
-    return "其他"
 
 
 @st.cache_data
 def default_symptom_groups():
-    df = load_acupoints_df()
-    buckets = {n: [] for n in SYMPTOM_REGION_ORDER}
-    seen = set()
-    for raw in df["主治關鍵字"]:
-        for s in split_kw(raw):
-            s2 = re.sub(r"\s+", "", s)
-            if not s2 or s2 in seen or len(s2) > 12:
-                continue
-            seen.add(s2)
-            buckets[_symptom_bucket(s2)].append(s2)
+    df = load_symptom_standards_df().sort_values("排序")
+    buckets = {n: [] for n in SYMPTOM_CATEGORY_ORDER}
+    extras: dict[str, list[str]] = {}
+    for _, row in df.iterrows():
+        name = row.get("標準症狀", "")
+        category = row.get("分類", "") or "其他疾病"
+        if not name:
+            continue
+        if category in buckets:
+            buckets[category].append(name)
+        else:
+            extras.setdefault(category, []).append(name)
     out = []
-    for bucket in SYMPTOM_REGION_ORDER:
-        items = sorted(buckets[bucket])
+    for bucket in SYMPTOM_CATEGORY_ORDER:
+        items = buckets[bucket]
+        if items:
+            out.append((bucket, items))
+    for bucket, items in extras.items():
         if items:
             out.append((bucket, items))
     return out

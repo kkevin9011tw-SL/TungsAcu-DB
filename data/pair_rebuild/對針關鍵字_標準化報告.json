@@ -1,0 +1,19 @@
+{
+  "source": "data/pair_rebuild/對針表_重建草稿.csv",
+  "output": "data/pair_rebuild/對針表_關鍵字標準化.csv",
+  "row_count": 250,
+  "pair_count": 125,
+  "changed_pair_count": 8,
+  "changed_pairs": [
+    "偏正頭痛二針 A",
+    "偏正頭痛二針 B",
+    "冠心病二針",
+    "卒中後遺症（半身不遂）二針",
+    "心律失常二針",
+    "痛經二針",
+    "發熱二針",
+    "脅肋痛二針"
+  ],
+  "unmapped_keyword_count": 66,
+  "ignored_nonstandard_mapping_count": 326
+}

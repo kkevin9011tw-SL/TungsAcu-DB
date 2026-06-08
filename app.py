@@ -3,10 +3,12 @@
 資料：data/*.csv + data/notes/*.md + data/images/*.jpg
 """
 import base64 as _b64
+import html as _html
 import re
 import shutil
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 # 把 script 目錄加進 sys.path（Streamlit 1.30+ 不自動加）
 _BASE_DIR = Path(__file__).parent.resolve()
@@ -22,6 +24,11 @@ LOGO_PATH = BASE / "assets/logo-seal.png"
 EXTRACTED_DIR = BASE / "extracted_images"
 
 MODES = ["📍 穴位", "💊 症狀", "🔗 對針"]
+NAV_MODE = {
+    "acupoint": "📍 穴位",
+    "symptom": "💊 症狀",
+    "pair": "🔗 對針",
+}
 
 st.set_page_config(
     page_title="董氏奇穴",
@@ -62,7 +69,7 @@ html, body, [class*="css"], .stApp {
 [data-testid="stDecoration"] { display: none !important; }
 [data-testid="stHeader"] {
   position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important;
-  height: 64px !important;
+  height: 96px !important;
   background: linear-gradient(90deg, var(--vermillion-dk) 0%, var(--vermillion) 52%, #8C3825 100%) !important;
   box-shadow: 0 2px 14px rgba(44,28,16,.18) !important;
   z-index: 1002 !important;
@@ -72,8 +79,8 @@ html, body, [class*="css"], .stApp {
 
 .app-topbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1003;
-  height: 64px; display: flex; align-items: center; justify-content: space-between;
-  gap: 18px; padding: 8px 24px 8px 18px; pointer-events: none;
+  height: 96px; display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; padding: 12px 28px 12px 22px; pointer-events: none;
 }
 .app-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .app-logo {
@@ -89,27 +96,182 @@ html, body, [class*="css"], .stApp {
   font-size: .58em; letter-spacing: .08em; color: rgba(247,237,216,.8);
   margin-top: 2px; white-space: nowrap;
 }
-.app-topbar-count {
+.app-admin-link {
+  pointer-events: auto;
   background: rgba(247,237,216,.14); border: 1px solid rgba(247,237,216,.26);
-  border-radius: 999px; padding: 5px 12px; font-size: .82em; color: #F7EDD8;
-  line-height: 1.4; flex-shrink: 0;
+  border-radius: 999px; padding: 5px 14px; font-size: .82em; color: #F7EDD8;
+  line-height: 1.4; flex-shrink: 0; text-decoration: none !important;
+}
+.app-admin-link:hover {
+  background: rgba(247,237,216,.24); color: #fff;
 }
 
 [data-testid="stSidebar"] {
   background-color: var(--parchment-dk) !important;
   border-right: 1px solid var(--divider) !important;
+  display: block !important;
   min-width: 280px !important; max-width: 340px !important; z-index: 1000 !important;
+  transform: translateX(0) !important;
+  visibility: visible !important;
+  overflow: visible !important;
 }
-[data-testid="stSidebar"] > div:first-child { padding-top: 4.2rem !important; }
+[data-testid="stSidebar"][aria-expanded="false"] {
+  width: 300px !important;
+  min-width: 280px !important;
+  transform: translateX(0) !important;
+  visibility: visible !important;
+}
+[data-testid="stSidebar"] > div:first-child {
+  padding-top: 6.2rem !important;
+  display: block !important;
+  overflow: visible !important;
+}
 [data-testid="block-container"] {
   background-color: var(--parchment) !important;
-  padding: 5.3rem 2rem 1.5rem !important; max-width: 900px !important;
+  padding: 7.8rem 2rem 1.5rem !important; max-width: 900px !important;
 }
+
+.sidebar-layout-anchor { height: 22vh; min-height: 130px; }
+.sidebar-nav-shell { margin: 42px 0 0; position: relative; }
+.sidebar-nav { border: none; background: transparent; box-shadow: none; overflow: visible; }
+.sidebar-nav-item { position: relative; }
+.sidebar-nav-item + .sidebar-nav-item { border-top: none; margin-top: 34px; }
+.sidebar-nav-main {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 24px; color: var(--ink); text-decoration: none !important;
+  font-family: 'Noto Serif TC', serif; font-size: 1.18em; font-weight: 700;
+  letter-spacing: .06em;
+}
+.sidebar-nav-main span:first-child { border-bottom: 2px solid transparent; line-height: 1.35; }
+.sidebar-nav-item:hover .sidebar-nav-main span:first-child,
+.sidebar-nav-item.is-active .sidebar-nav-main span:first-child {
+  border-bottom-color: var(--gold); color: var(--vermillion);
+}
+.sidebar-nav-caret { display: none; }
+.sidebar-flyout {
+  display: none; position: absolute; left: 126px; top: -8px; width: 260px; max-height: none;
+  overflow: visible; background: rgba(255,252,244,.98); border: 1px solid var(--divider);
+  border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+  box-shadow: 8px 10px 24px rgba(44,28,16,.16); padding: 6px 0; z-index: 1004;
+}
+.sidebar-flyout::before {
+  content: ""; position: absolute; left: -22px; top: -16px; width: 22px; height: calc(100% + 32px);
+}
+.sidebar-nav-main:hover + .sidebar-flyout,
+.sidebar-flyout:hover { display: block; }
+.sidebar-flyout a,
+.sidebar-flyout-main {
+  display: block; padding: 10px 18px; color: var(--ink-lt); text-decoration: none !important;
+  font-family: 'Noto Serif TC', serif; font-size: .96em;
+  border-bottom: 1px solid rgba(212,184,135,.36); background: transparent;
+}
+.sidebar-flyout a:last-child,
+.sidebar-flyout-row:last-child .sidebar-flyout-main { border-bottom: none; }
+.sidebar-flyout a:hover,
+.sidebar-flyout-row:hover > .sidebar-flyout-main {
+  color: var(--vermillion); background: rgba(219,168,76,.14);
+}
+.sidebar-flyout-row { position: relative; }
+.sidebar-flyout-main { display: flex; align-items: center; justify-content: space-between; }
+.sidebar-flyout-main::after {
+  content: "›"; color: var(--gold); font-family: 'Noto Sans TC', sans-serif;
+}
+.sidebar-subflyout {
+  display: none; position: absolute; left: 100%; top: -7px; width: 270px; max-height: 58vh;
+  overflow-y: auto; background: rgba(255,252,244,.98); border: 1px solid var(--divider);
+  border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+  box-shadow: 8px 10px 24px rgba(44,28,16,.14); padding: 6px 0;
+}
+.sidebar-subflyout::before {
+  content: ""; position: absolute; left: -32px; top: -12px; width: 32px; height: calc(100% + 24px);
+}
+.sidebar-flyout-row:hover > .sidebar-subflyout,
+.sidebar-subflyout:hover { display: block; }
+
+.pair-result-list {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px; margin: 30px 0 10px;
+}
+.pair-result-card {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  width: 100%; min-height: 76px; padding: 12px 18px; text-align: center;
+  background: rgba(255,255,255,.62); border: 1px solid var(--divider);
+  border-radius: 7px; color: var(--vermillion); text-decoration: none !important;
+  font-family: 'Noto Serif TC', serif; box-shadow: none;
+}
+.pair-result-card:hover {
+  background: rgba(196,147,58,.14); border-color: var(--gold); color: var(--vermillion-dk);
+}
+.pair-result-title {
+  font-size: clamp(.95rem, 1.15vw, 1.08rem); font-weight: 700; line-height: 1.35;
+}
+.pair-result-points {
+  margin-top: 4px; font-size: clamp(.78rem, .95vw, .92rem); color: var(--ink-lt); line-height: 1.35;
+}
+.catalog-section-title {
+  font-family: 'Noto Serif TC', serif; font-size: 1.28rem; font-weight: 700;
+  color: var(--ink); margin: 24px 0 10px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--divider);
+}
+.catalog-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 14px; margin-bottom: 22px;
+}
+.catalog-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.catalog-card {
+  min-height: 48px; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 2px;
+  padding: 10px 12px; text-align: center; background: rgba(255,255,255,.62);
+  border: 1px solid var(--divider); border-radius: 7px; color: var(--vermillion);
+  text-decoration: none !important; font-family: 'Noto Serif TC', serif;
+  font-size: clamp(.86rem, 1vw, .98rem); font-weight: 600; line-height: 1.35;
+}
+.catalog-card:hover {
+  background: rgba(196,147,58,.14); border-color: var(--gold); color: var(--vermillion-dk);
+}
+.catalog-card small {
+  display: block; color: var(--ink-mute); font-family: 'Noto Sans TC', sans-serif;
+  font-size: .76em; font-weight: 400;
+}
+.result-top-space { height: 18px; }
 
 [data-testid="stTextInput"] > div > div > input {
   background: rgba(255,255,255,.7) !important; border: 1px solid var(--divider) !important;
   border-radius: 20px !important; color: var(--ink) !important;
   font-family: 'Noto Sans TC', sans-serif !important; padding: 6px 14px !important;
+}
+[data-testid="stTextInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-testid="stNumberInput"] input {
+  background-color: rgba(255,255,255,.74) !important;
+  border: 1px solid var(--divider) !important;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+  caret-color: var(--vermillion) !important;
+}
+[data-testid="stTextInput"] input::placeholder,
+[data-testid="stTextArea"] textarea::placeholder {
+  color: var(--ink-mute) !important;
+  opacity: .78 !important;
+}
+[data-testid="stSidebar"] [data-testid="stTextInput"] div[data-baseweb="input"] {
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid var(--divider) !important;
+  border-radius: 22px !important;
+  box-shadow: none !important;
+}
+[data-testid="stSidebar"] [data-testid="stTextInput"] div[data-baseweb="input"]:focus-within {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 2px rgba(196,147,58,.2) !important;
+}
+[data-testid="stSidebar"] [data-testid="stTextInput"] input {
+  background: transparent !important;
+  border: none !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+[data-testid="stSidebar"] [data-testid="stTextInput"] input::placeholder {
+  color: rgba(92,61,37,.55) !important;
 }
 [data-testid="stTextInput"] > div > div > input:focus {
   border-color: var(--gold) !important; box-shadow: 0 0 0 2px rgba(196,147,58,.2) !important;
@@ -117,6 +279,76 @@ html, body, [class*="css"], .stApp {
 [data-testid="stSelectbox"] > div > div {
   background: rgba(255,255,255,.5) !important; border: 1px solid var(--divider) !important;
   border-radius: 6px !important;
+}
+[data-baseweb="select"] > div,
+[data-baseweb="popover"] ul {
+  background-color: rgba(255,255,255,.96) !important;
+  border-color: var(--divider) !important;
+  color: var(--ink) !important;
+}
+[data-baseweb="select"] span,
+[data-baseweb="popover"] li,
+[data-baseweb="popover"] div {
+  color: var(--ink) !important;
+}
+[data-baseweb="checkbox"] span {
+  border-color: var(--divider) !important;
+}
+[data-baseweb="checkbox"] input:checked + div,
+[data-baseweb="checkbox"] div[aria-checked="true"] {
+  background-color: var(--vermillion) !important;
+  border-color: var(--vermillion) !important;
+}
+
+[data-testid="stButton"] > button,
+[data-testid="stFormSubmitButton"] > button,
+[data-testid="baseButton-secondary"],
+[data-testid="baseButton-primary"] {
+  background-color: rgba(255,255,255,.62) !important;
+  border: 1px solid var(--divider) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  color: var(--ink-lt) !important;
+  font-family: 'Noto Sans TC', sans-serif !important;
+  font-size: clamp(.78rem, .95vw, .95rem) !important;
+  font-weight: 500 !important;
+  min-height: 3.05rem !important;
+  white-space: normal !important;
+  line-height: 1.35 !important;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease !important;
+}
+[data-testid="stButton"] > button:hover,
+[data-testid="stFormSubmitButton"] > button:hover,
+[data-testid="baseButton-secondary"]:hover {
+  background-color: rgba(196,147,58,.14) !important;
+  border-color: var(--gold) !important;
+  color: var(--vermillion) !important;
+}
+[data-testid="stButton"] > button:focus,
+[data-testid="stFormSubmitButton"] > button:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 2px rgba(196,147,58,.22) !important;
+  color: var(--vermillion) !important;
+}
+[data-testid="baseButton-primary"],
+[data-testid="stFormSubmitButton"] button[kind="primary"],
+[data-testid="stButton"] button[kind="primary"] {
+  background-color: var(--vermillion) !important;
+  border-color: var(--vermillion-dk) !important;
+  color: var(--parchment) !important;
+}
+[data-testid="baseButton-primary"]:hover,
+[data-testid="stFormSubmitButton"] button[kind="primary"]:hover,
+[data-testid="stButton"] button[kind="primary"]:hover {
+  background-color: var(--vermillion-dk) !important;
+  border-color: var(--vermillion-dk) !important;
+  color: #fff8e8 !important;
+}
+[data-testid="stButton"] button:disabled,
+[data-testid="stFormSubmitButton"] button:disabled {
+  background-color: rgba(255,255,255,.34) !important;
+  border-color: rgba(212,184,135,.55) !important;
+  color: rgba(92,61,37,.55) !important;
 }
 
 hr { border: none !important; border-top: 1px solid var(--divider) !important; margin: 8px 0 !important; }
@@ -217,6 +449,243 @@ def _img_to_data_uri(path: Path) -> str:
     return f"data:{mime};base64,{_b64.b64encode(path.read_bytes()).decode('ascii')}"
 
 
+def _nav_href(nav: str, **params) -> str:
+    pairs = [("nav", nav)]
+    pairs.extend((k, v) for k, v in params.items() if v)
+    return "?" + "&".join(f"{k}={quote(str(v), safe='')}" for k, v in pairs)
+
+
+def _query_value(params, key: str) -> str:
+    val = params.get(key, "")
+    if isinstance(val, list):
+        return val[0] if val else ""
+    return val or ""
+
+
+def _apply_nav_query():
+    params = st.query_params
+    nav = _query_value(params, "nav")
+    if nav not in NAV_MODE:
+        return
+
+    mode = NAV_MODE[nav]
+    st.session_state.mode_idx = MODES.index(mode)
+    st.session_state.mode_select = mode
+    st.session_state.selected_ap = None
+    st.session_state.pop("_pending_pair_name", None)
+
+    sub = _query_value(params, "sub")
+    category = _query_value(params, "cat")
+    if nav == "acupoint":
+        st.session_state.search_kw = ""
+        st.session_state.pop("_pending_symptom", None)
+        ap_id = _query_value(params, "ap")
+        if ap_id:
+            try:
+                st.session_state.selected_ap = int(ap_id)
+            except ValueError:
+                st.session_state.selected_ap = None
+            st.session_state.selected_region_code = None
+        elif sub:
+            st.session_state.selected_region_code = sub
+    elif nav == "symptom":
+        st.session_state.selected_region_code = None
+        if sub:
+            st.session_state.search_kw = sub
+            st.session_state._pending_symptom = sub
+        else:
+            st.session_state.search_kw = ""
+            st.session_state.pop("_pending_symptom", None)
+    elif nav == "pair":
+        st.session_state.selected_region_code = None
+        st.session_state.pop("_pending_symptom", None)
+        pair_name = _query_value(params, "pair")
+        if pair_name:
+            st.session_state.search_kw = ""
+            st.session_state._pending_pair_name = pair_name
+        else:
+            st.session_state.search_kw = sub or category or ""
+
+    try:
+        st.query_params.clear()
+    except Exception:
+        pass
+
+
+def _apply_admin_query():
+    params = st.query_params
+    if not _query_value(params, "admin"):
+        return
+    st.session_state.admin_panel_open = True
+    try:
+        if not _query_value(params, "nav"):
+            st.query_params.clear()
+    except Exception:
+        pass
+
+
+def _render_sidebar_nav(active_mode: str):
+    region_items = []
+    for code, name, body_part in dl.list_regions():
+        label = f"{name}【{body_part}】" if body_part else name
+        region_items.append((label, _nav_href("acupoint", sub=code)))
+
+    symptom_items = [
+        (
+            section,
+            _nav_href("symptom", section=section),
+            [(item, _nav_href("symptom", sub=item)) for item in items],
+        )
+        for section, items in dl.default_symptom_groups()
+    ]
+    pair_items = [
+        ("總綱", _nav_href("pair", cat="總綱"),
+         [(x, _nav_href("pair", cat="總綱", sub=x)) for x in
+          ("前身", "側身", "後身", "腹", "下腹", "提神", "疑難雜症", "解毒")]),
+        ("內科", _nav_href("pair", cat="內科"),
+         [(x, _nav_href("pair", cat="內科", sub=x)) for x in
+          ("肺系", "心系", "胃腸系", "肝膽系", "內分泌")]),
+        ("婦男科", _nav_href("pair", cat="婦男科"),
+         [(x, _nav_href("pair", cat="婦男科", sub=x)) for x in ("婦科", "男科")]),
+        ("五官科", _nav_href("pair", cat="五官科"),
+         [(x, _nav_href("pair", cat="五官科", sub=x)) for x in
+          ("顏面", "眼", "耳", "鼻", "口", "咽")]),
+        ("皮膚及外科", _nav_href("pair", cat="皮膚及外科"),
+         [(x, _nav_href("pair", cat="皮膚及外科", sub=x)) for x in ("皮膚", "外科")]),
+        ("痛症", _nav_href("pair", cat="痛症"),
+         [(x, _nav_href("pair", cat="痛症", sub=x)) for x in
+          ("頭面", "肩背腰臀", "手足", "胸腹脅", "五官")]),
+    ]
+
+    nav_items = [
+        ("acupoint", "穴位詮解", "📍 穴位", "flat", region_items),
+        ("symptom", "治療析要", "💊 症狀", "nested", symptom_items),
+        ("pair", "區位對針", "🔗 對針", "nested", pair_items),
+    ]
+
+    blocks = []
+    for nav, label, mode, menu_type, items in nav_items:
+        active_class = " is-active" if mode == active_mode else ""
+        if menu_type == "nested":
+            links = "\n".join(
+                "<div class='sidebar-flyout-row'>"
+                f"<a class='sidebar-flyout-main' href='{href}' target='_self'>{_html.escape(text)}</a>"
+                "<div class='sidebar-subflyout'>"
+                + "\n".join(
+                    f"<a href='{child_href}' target='_self'>{_html.escape(child_text)}</a>"
+                    for child_text, child_href in children
+                )
+                + "</div></div>"
+                for text, href, children in items
+            )
+        else:
+            links = "\n".join(
+                f"<a href='{href}' target='_self'>{_html.escape(text)}</a>"
+                for text, href in items
+            )
+        blocks.append(f"""
+<div class="sidebar-nav-item nav-{nav}{active_class}">
+  <a class="sidebar-nav-main" href="{_nav_href(nav)}" target="_self">
+    <span>{_html.escape(label)}</span>
+    <span class="sidebar-nav-caret">›</span>
+  </a>
+  <div class="sidebar-flyout">
+    {links}
+  </div>
+</div>""")
+
+    st.sidebar.markdown(f"""
+<div class="sidebar-nav-shell">
+  <div class="sidebar-nav">
+    {''.join(blocks)}
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+
+def _render_symptom_grid(groups):
+    for section, items in groups:
+        st.markdown(f"<div class='catalog-section-title'>{section}</div>", unsafe_allow_html=True)
+        for row_start in range(0, len(items), 4):
+            chunk = items[row_start:row_start + 4]
+            cols = st.columns(len(chunk))
+            for idx, symptom in enumerate(chunk):
+                with cols[idx]:
+                    if st.button(
+                        symptom,
+                        key=f"sym_grid_{section}_{row_start}_{idx}",
+                        use_container_width=True,
+                    ):
+                        st.session_state._pending_mode = "💊 症狀"
+                        st.session_state._pending_symptom = symptom
+                        st.session_state._set_search_kw = symptom
+                        st.session_state.selected_ap = None
+                        st.rerun()
+
+
+def _render_catalog_grid(groups, nav: str, param: str = "sub"):
+    for section, items in groups:
+        cards = []
+        for label, value in items:
+            cards.append(
+                f"<a class='catalog-card' href='{_nav_href(nav, **{param: value})}' target='_self'>"
+                f"{_html.escape(label)}</a>"
+            )
+        st.markdown(
+            f"<div class='catalog-section-title'>{_html.escape(section)}</div>"
+            f"<div class='catalog-grid'>{''.join(cards)}</div>",
+            unsafe_allow_html=True,
+        )
+
+
+def _render_acupoint_cards_grid(df):
+    if df.empty:
+        st.caption("目前沒有符合條件的穴位")
+        return
+    cards = []
+    for _, row in df.iterrows():
+        label = row.get("穴名", "")
+        sub = row.get("部位", "") or row.get("身體分區", "")
+        content = f"<span>{_html.escape(label)}</span>"
+        if sub:
+            content += f"<small>{_html.escape(sub)}</small>"
+        cards.append(
+            f"<a class='catalog-card' href='{_nav_href('acupoint', ap=row.get('id'))}' target='_self'>"
+            f"{content}</a>"
+        )
+    st.markdown(
+        f"<div class='catalog-grid'>{''.join(cards)}</div>",
+        unsafe_allow_html=True,
+    )
+
+
+def _acupoint_catalog_groups():
+    df = dl.load_acupoints_df()
+    groups = []
+    for code, name, body_part in dl.list_regions():
+        section = f"{name}【{body_part.replace('穴位', '')}】" if body_part else name
+        rows = df[df["部位代碼"] == code]
+        items = [(row["穴名"], str(row["id"])) for _, row in rows.iterrows()]
+        if items:
+            groups.append((section, items))
+    return groups
+
+
+def _pair_catalog_groups():
+    df = dl.pair_groups_df().sort_values(["目錄排序", "穴組名稱"])
+    groups: list[tuple[str, list[tuple[str, str]]]] = []
+    for category, cat_df in df.groupby("大類", sort=False):
+        items = []
+        for _, row in cat_df.iterrows():
+            label = row["穴組名稱"]
+            if row.get("穴位", ""):
+                label = f"{label}｜{row['穴位']}"
+            items.append((label, row["穴組名稱"]))
+        if items:
+            groups.append((category or "其他", items))
+    return groups
+
+
 # ── 詳情面板 ───────────────────────────────────────────────────────────────
 @st.fragment
 def show_detail(ap_id: int):
@@ -250,6 +719,7 @@ def show_detail(ap_id: int):
     caution = d.get("備註", "")
     kw_raw = d.get("主治關鍵字", "")
     kws = dl.split_kw(kw_raw)
+    standard_kws, supplemental_kws = dl.standardize_keywords(kws)
     dy = d.get("董楊思維", "")
     img_rel = d.get("穴位圖", "")
     note_rel = d.get("詳細筆記", "")
@@ -312,20 +782,42 @@ def show_detail(ap_id: int):
 
     # ── Tab 1：主治原理 ──
     with tabs[1]:
-        if kws:
-            st.markdown("<div class='section-label'>主治關鍵字</div>", unsafe_allow_html=True)
+        if standard_kws:
+            st.markdown("<div class='section-label'>標準主治症狀</div>", unsafe_allow_html=True)
             n_cols = 4
             cols = st.columns(n_cols)
-            for i, kw in enumerate(kws):
+            for i, kw in enumerate(standard_kws):
                 with cols[i % n_cols]:
-                    if st.button(kw, key=f"kw_{ap_id}_{i}", use_container_width=True):
+                    if st.button(kw, key=f"std_kw_{ap_id}_{i}", use_container_width=True):
                         st.session_state._pending_mode = "💊 症狀"
                         st.session_state._pending_symptom = kw
                         st.session_state._set_search_kw = kw
                         st.session_state.selected_ap = None
                         st.rerun()
         else:
-            st.caption("此穴暫無主治關鍵字")
+            st.caption("此穴暫無已對齊的標準主治症狀")
+
+        if supplemental_kws:
+            container = st.expander("相關關鍵字") if standard_kws else st.container()
+            with container:
+                st.markdown("<div class='section-label'>相關關鍵字</div>", unsafe_allow_html=True)
+                if standard_kws:
+                    st.caption("原始主治關鍵字中尚未對齊標準症狀詞的補充提示")
+                n_cols = 4
+                cols = st.columns(n_cols)
+                for i, kw in enumerate(supplemental_kws):
+                    with cols[i % n_cols]:
+                        refs = dl.same_acupoint_refs(kw)
+                        label = f"{kw} → {refs[0]['穴名']}" if refs else kw
+                        if st.button(label, key=f"supp_kw_{ap_id}_{i}", use_container_width=True):
+                            if refs:
+                                st.session_state.selected_ap = int(refs[0]["id"])
+                            else:
+                                st.session_state._pending_mode = "💊 症狀"
+                                st.session_state._pending_symptom = kw
+                                st.session_state._set_search_kw = kw
+                                st.session_state.selected_ap = None
+                            st.rerun()
 
         if dy:
             st.markdown(
@@ -378,21 +870,22 @@ def show_detail(ap_id: int):
         else:
             st.caption(f"共 {len(pairs)} 組，依排序")
             for _, p in pairs.iterrows():
-                pts = [x.strip() for x in (p["穴位"] or "").split(",")]
-                p1 = pts[0] if pts else ""
-                p2 = pts[1] if len(pts) > 1 else ""
+                title = p.get("穴組名稱", "")
+                points = p.get("穴位", "")
                 ind = p.get("主治關鍵字", "")
-                theory = p.get("理論", "")
-                method = p.get("針法", "")
+                std_ind = dl.standardize_text_keywords(ind)
+                theory = p.get("理論與發揮", "")
                 pg = p.get("頁碼", "")
-                with st.expander(f"**{p1} ✦ {p2}**　｜　{(ind or '')[:50]}"):
-                    c1, c2 = st.columns(2)
-                    c1.markdown(f"**穴1：** {p1}")
-                    c2.markdown(f"**穴2：** {p2}")
+                with st.expander(f"**{title}**　｜　{points}"):
                     if ind: st.markdown(f"**主治：** {ind}")
-                    if theory: st.markdown(f"**理論：** {theory}")
-                    if method: st.markdown(f"**針法：** {method}")
+                    if std_ind: st.caption(f"標準症狀：{'、'.join(std_ind)}")
+                    if theory: st.markdown(f"**理論與發揮：** {theory[:240]}{'…' if len(theory) > 240 else ''}")
                     if pg: st.caption(f"p.{pg}")
+                    if st.button("查看這組對針", key=f"ap_pair_{p.get('目錄排序')}_{title}"):
+                        st.session_state.mode_idx = MODES.index("🔗 對針")
+                        st.session_state._pending_pair_name = title
+                        st.session_state.selected_ap = None
+                        st.rerun()
 
         # 常見病 / 痛症 / 其他著作
         sym_df = dl.symptoms_for_acupoint(name)
@@ -482,6 +975,67 @@ def show_detail(ap_id: int):
         st.rerun()
 
 
+def render_pair_group_detail(pair_name: str):
+    rows = dl.pair_rows_for_name(pair_name)
+    if rows.empty:
+        st.warning("找不到這組對針")
+        return
+
+    group = rows.iloc[0].to_dict()
+    title = group.get("穴組名稱", pair_name)
+    keywords = group.get("主治關鍵字", "")
+    theory = group.get("理論與發揮", "")
+    page = group.get("頁碼", "")
+
+    st.markdown("<div class='section-label'>對針組合查詢</div>", unsafe_allow_html=True)
+    st.markdown(
+        f"<h3 style='font-family:Noto Serif TC,serif;color:var(--vermillion);margin-bottom:0'>"
+        f"{title}</h3>",
+        unsafe_allow_html=True,
+    )
+    meta = []
+    if group.get("大類"):
+        meta.append(group["大類"])
+    if group.get("次分類"):
+        meta.append(group["次分類"])
+    if group.get("目錄排序"):
+        meta.append(f"排序 {group['目錄排序']}")
+    if page:
+        meta.append(f"p.{page}")
+    if meta:
+        st.caption(" ｜ ".join(meta))
+    if keywords:
+        st.markdown(f"**主治關鍵字：** {keywords}")
+
+    for idx, (_, row) in enumerate(rows.iterrows(), start=1):
+        point_name = row.get("穴名", "")
+        st.markdown(
+            f"<div class='section-label'>第 {idx} 穴：{point_name}</div>",
+            unsafe_allow_html=True,
+        )
+        c1, c2 = st.columns([1.15, 0.85])
+        with c1:
+            if row.get("位置"):
+                st.markdown(f"**位置**\n\n{row['位置']}")
+            if row.get("針法"):
+                st.markdown(f"**針法**\n\n{row['針法']}")
+        with c2:
+            img_rel = row.get("圖片") or ""
+            img_path = dl.image_abs_path(img_rel)
+            if img_path:
+                st.image(str(img_path), use_container_width=True)
+            else:
+                st.caption("暫無圖片")
+
+    st.markdown("<div class='section-label'>兩穴解析與理論與發揮</div>", unsafe_allow_html=True)
+    for idx, (_, row) in enumerate(rows.iterrows(), start=1):
+        if row.get("解析"):
+            st.markdown(f"**{idx}. {row.get('穴名', '')} 解析**\n\n{row.get('解析', '')}")
+    if theory:
+        st.markdown("**理論與發揮**")
+        st.markdown(theory)
+
+
 # ── 穴位卡片列表（主區域）──────────────────────────────────────────────────
 def show_cards_df(df):
     if df.empty:
@@ -520,179 +1074,75 @@ def show_cards_df(df):
 def render_sidebar():
     if "_set_search_kw" in st.session_state:
         st.session_state.search_kw = st.session_state.pop("_set_search_kw")
+    if "_set_pending_pair_name" in st.session_state:
+        st.session_state._pending_pair_name = st.session_state.pop("_set_pending_pair_name")
     if "_set_pending_pair" in st.session_state:
-        st.session_state._pending_pair = st.session_state.pop("_set_pending_pair")
+        legacy = st.session_state.pop("_set_pending_pair")
+        if isinstance(legacy, tuple) and len(legacy) == 2:
+            legacy_row = dl.find_pair(*legacy)
+            if legacy_row:
+                st.session_state._pending_pair_name = legacy_row.get("穴組名稱", "")
 
     mode_idx = st.session_state.get("mode_idx", 0)
-    sel = st.sidebar.selectbox("模式切換", MODES, index=mode_idx,
-                               key="mode_select", label_visibility="collapsed")
-    new_mode_idx = MODES.index(sel)
-    prev_mode_idx = st.session_state.get("_prev_mode_idx", new_mode_idx)
-    if prev_mode_idx != new_mode_idx:
-        for k in ("search_kw", "_pending_symptom", "_pending_pair", "_set_search_kw"):
+    sel = MODES[mode_idx]
+    prev_mode_idx = st.session_state.get("_prev_mode_idx", mode_idx)
+    if prev_mode_idx != mode_idx:
+        for k in ("search_kw", "_pending_symptom", "_pending_pair", "_pending_pair_name", "_set_search_kw", "_set_pending_pair_name"):
             st.session_state.pop(k, None)
         st.session_state.selected_ap = None
         st.session_state.selected_region = None
-        st.session_state.mode_idx = new_mode_idx
-        st.session_state._prev_mode_idx = new_mode_idx
-        st.rerun()
-    st.session_state.mode_idx = new_mode_idx
-    st.session_state._prev_mode_idx = new_mode_idx
+    st.session_state.mode_idx = mode_idx
+    st.session_state._prev_mode_idx = mode_idx
     mode = sel
 
     placeholder = {"📍 穴位": "輸入穴位名稱或編號…",
                    "💊 症狀": "輸入症狀關鍵字…",
                    "🔗 對針": "輸入症狀或穴位名稱…"}.get(mode, "")
-    search = st.sidebar.text_input("搜尋", placeholder=placeholder,
-                                   key="search_kw", label_visibility="collapsed")
-    st.sidebar.markdown("<hr>", unsafe_allow_html=True)
+    st.sidebar.markdown("<div class='sidebar-layout-anchor'></div>", unsafe_allow_html=True)
+    st.sidebar.text_input("搜尋", placeholder=placeholder,
+                          key="search_kw", label_visibility="collapsed")
+    _render_sidebar_nav(sel)
 
-    if mode == "📍 穴位":
-        if not search:
-            regions = dl.list_regions()
-            sel_reg = st.session_state.get("selected_region_code")
-            pills = [(code, name) for code, name, _ in regions]
-            for row_start in range(0, len(pills), 3):
-                chunk = pills[row_start:row_start + 3]
-                cols = st.sidebar.columns(len(chunk))
-                for ci, (code, _name) in enumerate(chunk):
-                    with cols[ci]:
-                        if st.button(code, key=f"pill_{code}", use_container_width=True):
-                            st.session_state.selected_region_code = code
-                            st.session_state.selected_ap = None
-                            st.rerun()
-            st.sidebar.markdown("<hr>", unsafe_allow_html=True)
-            if sel_reg:
-                rdf = dl.acupoints_in_region(sel_reg)
-                reg_info = dl.region_by_code(sel_reg)
-                if reg_info:
-                    st.sidebar.markdown(
-                        f"<div style='font-size:.78em;color:var(--gold);padding:4px 10px;"
-                        f"font-family:Noto Serif TC,serif'>{reg_info['部位']}</div>",
-                        unsafe_allow_html=True,
-                    )
-                for _, r in rdf.iterrows():
-                    fig_s = f"{r['穴號']} " if r["穴號"] else ""
-                    if st.sidebar.button(f"{fig_s}{r['穴名']}",
-                                         key=f"sb_{r['id']}", use_container_width=True):
-                        st.session_state.selected_ap = int(r["id"])
-                        st.rerun()
-            else:
-                st.sidebar.caption("選擇部位瀏覽穴位，或輸入關鍵字搜尋")
-        else:
-            results = dl.search_acupoints_df(search)
-            st.sidebar.caption(f"找到 {len(results)} 穴")
-            for _, r in results.iterrows():
-                fig_s = f"{r['穴號']} " if r["穴號"] else ""
-                if st.sidebar.button(f"{fig_s}{r['穴名']}",
-                                     key=f"ss_{r['id']}", use_container_width=True):
-                    st.session_state.selected_ap = int(r["id"])
-                    st.rerun()
 
-    elif mode == "💊 症狀":
-        symptom_kw = search or st.session_state.get("_pending_symptom", "")
-        if symptom_kw:
-            results = dl.search_symptoms_in_acupoints(symptom_kw)
-            st.sidebar.caption(f"「{symptom_kw}」— {len(results)} 穴")
-            for _, r in results.iterrows():
-                fig_s = f"{r['穴號']} " if r["穴號"] else ""
-                if st.sidebar.button(f"{fig_s}{r['穴名']}",
-                                     key=f"sym_{r['id']}", use_container_width=True):
-                    st.session_state.selected_ap = int(r["id"])
-                    st.rerun()
-        else:
-            groups = dl.default_symptom_groups()
-            total = sum(len(items) for _, items in groups)
-            st.sidebar.caption(f"症狀預設清單，共 {total} 項")
-            for section, items in groups:
-                st.sidebar.markdown(
-                    f"<div class='sidebar-section-title'>{section}</div>",
-                    unsafe_allow_html=True,
-                )
-                preview = "、".join(items[:18]) + ("…" if len(items) > 18 else "")
-                st.sidebar.markdown(
-                    f"<div class='sidebar-preview'>{preview}</div>",
-                    unsafe_allow_html=True,
-                )
-                selected_symptom = st.sidebar.selectbox(
-                    f"{section}預設症狀",
-                    [""] + items, index=0,
-                    key=f"sym_default_{section}",
-                    label_visibility="collapsed",
-                )
-                if selected_symptom and st.session_state.get("search_kw") != selected_symptom:
-                    st.session_state._set_search_kw = selected_symptom
-                    st.session_state._pending_symptom = selected_symptom
-                    st.session_state.selected_ap = None
-                    st.rerun()
+def render_admin_panel():
+    if not st.session_state.get("admin_panel_open") and not st.session_state.get("admin_mode"):
+        return
 
-    elif mode == "🔗 對針":
-        pending_pair = st.session_state.get("_pending_pair")
-        if search:
-            results = dl.search_pairs_df(search)
-            st.sidebar.caption(f"找到 {len(results)} 組對針")
-            for _, p in results.iterrows():
-                pts = [x.strip() for x in (p["穴位"] or "").split(",")]
-                p1 = pts[0] if pts else ""
-                p2 = pts[1] if len(pts) > 1 else ""
-                ind = p.get("主治關鍵字", "")
-                st.sidebar.markdown(
-                    f"<div style='font-size:.82em;padding:5px 8px;border-bottom:"
-                    f"1px solid var(--divider);color:var(--ink-lt)'>"
-                    f"<b>{p1} ✦ {p2}</b><br>"
-                    f"<span style='color:var(--ink-mute)'>{(ind or '')[:35]}</span></div>",
-                    unsafe_allow_html=True,
-                )
-        elif pending_pair:
-            p1, p2 = pending_pair
-            st.sidebar.caption(f"已選對針：{p1} ✦ {p2}")
-        else:
-            combos = dl.all_pair_combos()
-            st.sidebar.caption(f"對針預設清單，共 {len(combos)} 組")
-            preview = [f"{a} ✦ {b}" for a, b in combos[:24]]
-            st.sidebar.markdown(
-                f"<div class='sidebar-preview'>{'<br>'.join(preview)}"
-                f"{'<br>…' if len(combos) > 24 else ''}</div>",
-                unsafe_allow_html=True,
-            )
-            options = [""] + [f"{a} ✦ {b}" for a, b in combos]
-            selected = st.sidebar.selectbox(
-                "預設對針", options, index=0,
-                key="pair_default_select", label_visibility="collapsed",
-            )
-            if selected:
-                a, b = selected.split(" ✦ ", 1)
-                if st.session_state.get("_pending_pair") != (a, b):
-                    st.session_state._set_search_kw = ""
-                    st.session_state._set_pending_pair = (a, b)
-                    st.rerun()
+    with st.container(border=True):
+        if st.session_state.get("admin_mode"):
+            c1, c2, c3, c4 = st.columns([1.4, 1, 1, 1])
+            c1.markdown("**管理員模式已開啟**")
+            if c2.button("新增穴位", key="admin_create_top", use_container_width=True):
+                st.session_state.create_ap_open = True
+                st.session_state.image_review_open = False
+                st.rerun()
+            if c3.button("圖片審核", key="admin_image_top", use_container_width=True):
+                st.session_state.image_review_open = True
+                st.session_state.create_ap_open = False
+                st.rerun()
+            if c4.button("關閉", key="admin_close_top", use_container_width=True):
+                st.session_state.admin_mode = False
+                st.session_state.admin_panel_open = False
+                st.session_state.image_review_open = False
+                st.session_state.create_ap_open = False
+                st.rerun()
+            return
 
-    # Admin
-    st.sidebar.markdown("<hr>", unsafe_allow_html=True)
-    if st.session_state.get("admin_mode"):
-        st.sidebar.success("✏️ 編輯模式已開啟")
-        if st.sidebar.button("➕ 新增穴位", key="open_create_ap", use_container_width=True):
-            st.session_state.create_ap_open = True
-            st.session_state.image_review_open = False
-            st.rerun()
-        if st.sidebar.button("🖼 圖片審核", key="open_image_review", use_container_width=True):
-            st.session_state.image_review_open = True
-            st.session_state.create_ap_open = False
-            st.rerun()
-        if st.sidebar.button("關閉編輯模式", key="close_admin"):
-            st.session_state.admin_mode = False
-            st.session_state.image_review_open = False
-            st.session_state.create_ap_open = False
-            st.rerun()
-    else:
-        with st.sidebar.expander("🔐 管理員"):
-            pw = st.text_input("密碼", type="password", key="admin_pw")
-            if st.button("登入", key="admin_login"):
+        with st.form("admin_login_form"):
+            pw = st.text_input("管理員密碼", type="password")
+            c1, c2 = st.columns([1, 1])
+            login = c1.form_submit_button("登入", use_container_width=True)
+            close = c2.form_submit_button("取消", use_container_width=True)
+            if login:
                 if pw == st.secrets.get("admin_password", "admin123"):
                     st.session_state.admin_mode = True
+                    st.session_state.admin_panel_open = True
                     st.rerun()
                 else:
                     st.error("密碼錯誤")
+            if close:
+                st.session_state.admin_panel_open = False
+                st.rerun()
 
 
 # ── 圖片審核（admin）──────────────────────────────────────────────────────
@@ -915,68 +1365,60 @@ def render_main():
         kw = search or st.session_state.get("_pending_symptom", "")
         st.markdown("<div class='section-label'>按症狀查穴位</div>", unsafe_allow_html=True)
         if kw:
+            resolved_terms = dl.resolve_symptom_query(kw)
             results = dl.search_symptoms_in_acupoints(kw)
             st.markdown(f"**「{kw}」— 找到 {len(results)} 個穴位**")
+            if resolved_terms[1:]:
+                st.caption(f"對應標準詞／別名：{'、'.join(resolved_terms[1:8])}")
+            else:
+                st.caption("此詞目前尚未對齊標準症狀，先以原始關鍵字搜尋。")
             if st.button("← 返回症狀清單", key="symptom_back"):
                 st.session_state._set_search_kw = ""
                 st.session_state.pop("_pending_symptom", None)
                 st.rerun()
-            show_cards_df(results)
+            _render_acupoint_cards_grid(results)
         else:
             groups = dl.default_symptom_groups()
-            st.info("左側已展開症狀預設清單，可直接點選，或輸入症狀關鍵字查詢。")
-            for section, items in groups:
-                st.markdown(f"**{section}**")
-                st.caption("、".join(items[:24]) + ("…" if len(items) > 24 else ""))
+            _render_symptom_grid(groups)
         return
 
     if mode == "🔗 對針":
-        st.markdown("<div class='section-label'>對針組合查詢</div>", unsafe_allow_html=True)
-        pending_pair = st.session_state.get("_pending_pair")
+        pending_pair_name = st.session_state.get("_pending_pair_name")
         if search:
+            resolved_terms = dl.resolve_symptom_query(search)
             results = dl.search_pairs_df(search)
+            st.markdown("<div class='result-top-space'></div>", unsafe_allow_html=True)
             st.markdown(f"**「{search}」— 找到 {len(results)} 組對針**")
+            if resolved_terms[1:]:
+                st.caption(f"對應標準詞／別名：{'、'.join(resolved_terms[1:8])}")
+            cards = []
             for _, p in results.iterrows():
-                pts = [x.strip() for x in (p["穴位"] or "").split(",")]
-                p1 = pts[0] if pts else ""
-                p2 = pts[1] if len(pts) > 1 else ""
-                ind = p.get("主治關鍵字", "")
-                theory = p.get("理論", "")
-                method = p.get("針法", "")
-                pg = p.get("頁碼", "")
-                with st.expander(f"**{p1} ✦ {p2}**　｜　{(ind or '')[:60]}"):
-                    c1, c2 = st.columns(2)
-                    c1.markdown(f"**穴1：** {p1}")
-                    c2.markdown(f"**穴2：** {p2}")
-                    if ind: st.markdown(f"**主治：** {ind}")
-                    if theory: st.markdown(f"**理論：** {theory}")
-                    if method: st.markdown(f"**針法：** {method}")
-                    if pg: st.caption(f"p.{pg}")
-        elif pending_pair:
-            row = dl.find_pair(*pending_pair)
-            if row:
-                pts = [x.strip() for x in (row["穴位"] or "").split(",")]
-                p1 = pts[0] if pts else ""
-                p2 = pts[1] if len(pts) > 1 else ""
-                st.markdown(f"**{p1} ✦ {p2}**")
-                if row.get("主治關鍵字"): st.markdown(f"**主治：** {row['主治關鍵字']}")
-                if row.get("理論"): st.markdown(f"**理論：** {row['理論']}")
-                if row.get("針法"): st.markdown(f"**針法：** {row['針法']}")
-                if row.get("頁碼"): st.caption(f"p.{row['頁碼']}")
-                if st.button("← 返回對針清單", key="pair_back"):
-                    st.session_state.pop("_pending_pair", None)
-                    st.rerun()
-            else:
-                st.warning("找不到這組對針")
+                title = p.get("穴組名稱", "")
+                points = p.get("穴位", "")
+                cards.append(
+                    f"<a class='pair-result-card' href='{_nav_href('pair', pair=title)}' target='_self'>"
+                    f"<span class='pair-result-title'>{_html.escape(title)}</span>"
+                    f"<span class='pair-result-points'>{_html.escape(points)}</span>"
+                    "</a>"
+                )
+            st.markdown(
+                f"<div class='pair-result-list'>{''.join(cards)}</div>",
+                unsafe_allow_html=True,
+            )
+        elif pending_pair_name:
+            render_pair_group_detail(pending_pair_name)
+            if st.button("← 返回對針清單", key="pair_back"):
+                st.session_state.pop("_pending_pair_name", None)
+                st.rerun()
         else:
-            st.info("左側已展開對針預設清單，可直接點選，或輸入症狀／穴位名查詢。")
+            _render_catalog_grid(_pair_catalog_groups(), "pair", param="pair")
         return
 
     # 穴位模式
     if search:
         results = dl.search_acupoints_df(search)
         st.markdown(f"**搜尋「{search}」— 找到 {len(results)} 個穴位**")
-        show_cards_df(results)
+        _render_acupoint_cards_grid(results)
         return
 
     sel_reg = st.session_state.get("selected_region_code")
@@ -990,47 +1432,16 @@ def render_main():
                 unsafe_allow_html=True,
             )
         rdf = dl.acupoints_in_region(sel_reg)
-        show_cards_df(rdf)
+        _render_acupoint_cards_grid(rdf)
         return
 
-    # 首頁
-    st.markdown("""
-<div style="padding: 20px 0 30px">
-  <div style="font-family:'Noto Serif TC',serif;font-size:2.2em;
-    font-weight:700;color:var(--vermillion)">董氏奇穴查詢系統</div>
-  <div style="color:var(--ink-mute);font-size:.95em;margin-top:6px">
-    楊維傑醫師《董氏奇穴穴位詮釋解》及其他著作
-  </div>
-</div>
-<hr>""", unsafe_allow_html=True)
-
-    regions = dl.list_regions()
-    df_ap = dl.load_acupoints_df()
-    cols = st.columns(4)
-    for i, (code, name, body) in enumerate(regions):
-        count = len(df_ap[df_ap["部位代碼"] == code])
-        with cols[i % 4]:
-            st.markdown(f"""
-<div style="background:rgba(255,255,255,.55);border:1px solid var(--divider);
-  border-top:3px solid var(--gold);border-radius:6px;padding:14px 12px;
-  text-align:center;margin:4px 0">
-  <div style="font-family:'Noto Serif TC',serif;font-size:1em;
-    font-weight:600;color:var(--vermillion)">{name}</div>
-  <div style="font-size:.75em;color:var(--ink-mute);margin:2px 0">{body or ''}</div>
-  <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-top:4px">{count}</div>
-  <div style="font-size:.7em;color:var(--ink-mute)">穴</div>
-</div>""", unsafe_allow_html=True)
-            if st.button("瀏覽", key=f"home_{code}", use_container_width=True):
-                st.session_state.selected_region_code = code
-                st.session_state.selected_ap = None
-                st.rerun()
+    # 穴位首頁
+    _render_catalog_grid(_acupoint_catalog_groups(), "acupoint", param="ap")
 
 
 # ── 主程式 ────────────────────────────────────────────────────────────────
 def main():
     _inject_css()
-    df_ap = dl.load_acupoints_df()
-    total = len(df_ap)
     logo_uri = _img_to_data_uri(LOGO_PATH)
     logo_html = f"<img class='app-logo' src='{logo_uri}' alt='董氏奇穴印章'>" if logo_uri else ""
     st.markdown(f"""
@@ -1042,14 +1453,18 @@ def main():
       <div class="app-title-en">Tung's Acupuncture Points Reference</div>
     </div>
   </div>
-  <div class="app-topbar-count">{total} 穴</div>
+  <a class="app-admin-link" href="?admin=1" target="_self">管理員</a>
 </div>
 """, unsafe_allow_html=True)
 
     for k, v in [("selected_ap", None), ("selected_region_code", None),
                  ("mode_idx", 0), ("admin_mode", False),
-                 ("image_review_open", False), ("create_ap_open", False)]:
+                 ("image_review_open", False), ("create_ap_open", False),
+                 ("admin_panel_open", False)]:
         st.session_state.setdefault(k, v)
+
+    _apply_admin_query()
+    _apply_nav_query()
 
     if "_pending_mode" in st.session_state:
         pending = st.session_state.pop("_pending_mode")
@@ -1057,6 +1472,7 @@ def main():
         st.session_state.mode_select = pending
 
     render_sidebar()
+    render_admin_panel()
     render_main()
 
     if "_pending_symptom" in st.session_state and not st.session_state.get("selected_ap"):
@@ -1064,6 +1480,7 @@ def main():
             st.session_state.pop("_pending_symptom", None)
     if st.session_state.get("search_kw"):
         st.session_state.pop("_pending_pair", None)
+        st.session_state.pop("_pending_pair_name", None)
 
 
 if __name__ == "__main__":
