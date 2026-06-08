@@ -882,6 +882,51 @@ Phase 4：SQLite 退役 + push 上 Cloud
 - `app.py`、`data_loader.py` 語法檢查通過。
 
 ====================================================
+【2026-06-09】重建對針資料與新版檢索 UI 推送
+====================================================
+
+完成事項：
+- 依《區位易象特效對針》目錄與內容重建 `data/對針表.csv`：
+  - 新欄位包含 `大類`、`次分類`、`目錄排序`、`穴組名稱`、`穴名`、`位置`、`針法`、`解析`、`圖片`、`理論與發揮`、`主治關鍵字`、`頁碼`。
+  - 每組對針保留兩列穴位資料，前端再合併呈現兩穴與理論解析。
+  - 圖片欄先保留空白，未來另做穴位示意圖。
+- 建立對針重建與關鍵字標準化中介資料：
+  - `data/pair_rebuild/對針表_重建草稿.csv`
+  - `data/pair_rebuild/對針表_關鍵字標準化.csv`
+  - `data/pair_rebuild/對針關鍵字_未映射.csv`
+  - `data/pair_rebuild/對針關鍵字_標準化報告.json`
+- 建立並使用症狀標準化資料：
+  - `data/症狀標準詞表.csv`
+  - `data/症狀映射表.csv`
+  - `data/症狀標準詞表_待補穴位.csv`
+- Streamlit UI 調整：
+  - sidebar 只保留搜尋框、`穴位詮解`、`治療析要`、`區位對針`。
+  - sidebar hover 改為右側浮出細項，治療與對針支援兩層分類。
+  - topbar 改為較高的宣紙硃砂風格，右上角保留 `管理員`。
+  - 穴位、症狀、對針首頁皆改為大分類 + 方格入口。
+  - 症狀細項點入後以穴位小方格顯示結果。
+  - 對針搜尋/分類結果改為一列兩格，點卡片直接進對針詳情。
+  - 對針詳情分為第一穴、第二穴、兩穴解析與理論發揮；圖片區先以空白佔位。
+- 專案規則補強：
+  - 新增 `AGENTS.md` 與 `CLAUDE.md`，明定正式開發 repo 是 `/Users/samue11in/Projects/TungsAcu-DB`。
+  - SynologyDrive 同名資料夾僅作歷史/來源參考，不寫入程式、CSV、spec、plan 或工作日誌。
+
+驗證與版本：
+- 本機 Streamlit `http://localhost:8501` 可回應 HTTP 200。
+- `app.py`、`data_loader.py` 以 AST parse 做只讀語法檢查通過。
+- 已 commit 並 push 到 GitHub `main`：
+  - `39a0b65 重建對針資料並調整檢索 UI`
+- GitHub push 時發現本機 `main` 與遠端分叉；已用臨時 worktree 將本次成果套到最新 `origin/main` 後推送，避免覆蓋遠端既有 CSV/圖片/筆記更新。
+- 2026-06-09 已同步本機 `main` 到 `origin/main`。
+  - 同步前備份分支：`local-main-before-sync-20260609-004027`
+  - 同步前未提交雜項 stash：`stash@{0}`，訊息為 `pre-sync leftover docs backups 2026-06-09`
+
+後續注意：
+- 公開 Streamlit Cloud 需等待 GitHub main 部署完成後再做外部測試。
+- 仍需人工校對 `data/症狀標準詞表_待補穴位.csv` 中目前無推薦穴位的正式症狀詞。
+- 若要整理舊 docs 刪除、`.bak` 備份與 `docs/archive/`，應另開一次文件整理 commit，不混入 UI/資料功能 commit。
+
+====================================================
 Active TODO
 ====================================================
 
