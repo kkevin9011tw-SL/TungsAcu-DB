@@ -177,7 +177,8 @@ html, body, [class*="css"], .stApp {
 .sidebar-nav-caret { display: none; }
 .sidebar-flyout {
   display: block; position: absolute; left: 168px; top: -8px; width: 260px;
-  overflow: visible;
+  max-height: calc(100vh - 160px); overflow-y: auto;
+  overscroll-behavior: contain; scrollbar-gutter: stable;
   visibility: hidden; opacity: 0; pointer-events: none;
   transition: opacity .12s ease, visibility 0s linear .12s;
   background: rgba(255,252,244,.98); border: 1px solid var(--divider);
@@ -208,7 +209,8 @@ html, body, [class*="css"], .stApp {
   content: "›"; color: var(--gold); font-family: 'Noto Sans TC', sans-serif;
 }
 .sidebar-subflyout {
-  display: block; position: absolute; left: calc(100% - 1px); top: -7px; width: 270px;
+  /* 初始即 fixed（JS 顯示前會重新定位），避免在可捲動的第一層內被裁切 */
+  display: block; position: fixed; left: 0; top: 0; width: 270px;
   max-height: calc(100vh - 48px); overflow-y: auto;
   overscroll-behavior: contain; scrollbar-gutter: stable;
   visibility: hidden; opacity: 0; pointer-events: none;
@@ -706,6 +708,26 @@ def _render_sidebar_nav(active_mode: str):
   let activeRow = null;
   let closeTimer = null;
 
+  function placeFlyout(navItem) {
+    const flyout = navItem?.querySelector(":scope > .sidebar-flyout");
+    if (!flyout) return;
+
+    const navRect = navItem.getBoundingClientRect();
+    const maxHeight = Math.max(180, host.innerHeight - TOP_GAP - BOTTOM_GAP);
+
+    flyout.style.position = "fixed";
+    flyout.style.left = `${Math.round(navRect.left + 168)}px`;
+    flyout.style.right = "auto";
+    flyout.style.bottom = "auto";
+    flyout.style.maxHeight = `${Math.floor(maxHeight)}px`;
+
+    const panelHeight = Math.min(flyout.scrollHeight, maxHeight);
+    const desiredTop = navRect.top - 8;
+    const latestTop = host.innerHeight - BOTTOM_GAP - panelHeight;
+    const top = Math.max(TOP_GAP, Math.min(desiredTop, latestTop));
+    flyout.style.top = `${Math.round(top)}px`;
+  }
+
   function place(row) {
     const submenu = row?.querySelector(":scope > .sidebar-subflyout");
     const flyout = row?.closest(".sidebar-flyout");
@@ -756,6 +778,7 @@ def _render_sidebar_nav(active_mode: str):
       activeRow = null;
     }
     activeNavItem = navItem;
+    placeFlyout(activeNavItem);
     activeNavItem.classList.add("is-menu-open");
   }
 
@@ -818,6 +841,7 @@ def _render_sidebar_nav(active_mode: str):
   }
 
   function onResize() {
+    if (activeNavItem?.isConnected) placeFlyout(activeNavItem);
     if (activeRow?.isConnected) place(activeRow);
   }
 
