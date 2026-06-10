@@ -522,6 +522,11 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   padding: 12px 16px; margin: 10px 0; font-size: .9em; color: var(--ink-lt); line-height: 1.75;
 }
 .src-block b { color: var(--ink); }
+.ap-xref {
+  color: var(--vermillion); text-decoration: none !important;
+  border-bottom: 1px dotted var(--gold);
+}
+.ap-xref:hover { color: var(--vermillion-dk); border-bottom-color: var(--vermillion); }
 .src-book-title {
   font-family: 'Noto Serif TC', serif; font-size: .92em; color: var(--vermillion);
   font-weight: 600; margin: 18px 0 6px;
@@ -562,6 +567,42 @@ def _img_to_data_uri(path: Path) -> str:
 
 def _html_text(value: str) -> str:
     return _html.escape(str(value or "")).replace("\n", "<br>")
+
+
+# 穴名 → 詳情頁連結（穴位互連）。pattern 依穴名長度遞減排序，
+# 確保「天皇副穴」優先於「天皇穴」匹配。資料筆數變動時自動重建。
+_AP_LINK_CACHE = {"key": None, "pattern": None, "mapping": None}
+
+
+def _ap_link_data():
+    df = dl.load_acupoints_df()
+    key = len(df)
+    if _AP_LINK_CACHE["key"] != key:
+        pairs = sorted(
+            ((str(r["穴名"]).strip(), int(r["id"])) for _, r in df.iterrows()
+             if str(r["穴名"]).strip()),
+            key=lambda x: -len(x[0]),
+        )
+        _AP_LINK_CACHE["key"] = key
+        _AP_LINK_CACHE["mapping"] = dict(pairs)
+        _AP_LINK_CACHE["pattern"] = re.compile("|".join(re.escape(n) for n, _ in pairs))
+    return _AP_LINK_CACHE["pattern"], _AP_LINK_CACHE["mapping"]
+
+
+def _linkify_ap_names(html_text: str, exclude: str = "") -> str:
+    """把內文中出現的其他穴名換成該穴詳情頁連結。exclude 為當前穴名（不自連）。"""
+    if not html_text:
+        return html_text
+    pattern, mapping = _ap_link_data()
+
+    def _rep(m):
+        nm = m.group(0)
+        if nm == exclude:
+            return nm
+        return (f"<a class='ap-xref' href='{_nav_href('acupoint', ap=mapping[nm])}'"
+                f" target='_self'>{nm}</a>")
+
+    return pattern.sub(_rep, html_text)
 
 
 def _nav_href(nav: str, **params) -> str:
@@ -1041,14 +1082,14 @@ def show_detail(ap_id: int):
             "<div class='location-grid'>"
             "<section class='location-panel'>"
             "<div class='section-label'>位置</div>"
-            f"<div class='section-body'>{_html_text(loc) if loc else '此穴暫無位置資料'}</div>"
+            f"<div class='section-body'>{_linkify_ap_names(_html_text(loc), name) if loc else '此穴暫無位置資料'}</div>"
         )
         if needle:
             location_html += (
                 "<div class='section-label'>針法</div>"
                 "<div class='needle-card'>"
                 "<div class='needle-row'><span class='needle-lbl'>針法</span>"
-                f"<span class='needle-val'>{_html_text(needle)}</span></div></div>"
+                f"<span class='needle-val'>{_linkify_ap_names(_html_text(needle), name)}</span></div></div>"
             )
         location_html += (
             "</section>"
@@ -1071,7 +1112,7 @@ def show_detail(ap_id: int):
             st.markdown(
                 "<div class='location-caution'>"
                 "<div class='section-label'>備註</div>"
-                f"<div class='section-body'>{_html_text(caution)}</div></div>",
+                f"<div class='section-body'>{_linkify_ap_names(_html_text(caution), name)}</div></div>",
                 unsafe_allow_html=True,
             )
 
@@ -1080,7 +1121,7 @@ def show_detail(ap_id: int):
         if anatomy:
             st.markdown(
                 "<div class='section-label'>現代解剖</div>"
-                f"<div class='section-body'>{anatomy}</div>",
+                f"<div class='section-body'>{_linkify_ap_names(anatomy, name)}</div>",
                 unsafe_allow_html=True,
             )
 
@@ -1132,7 +1173,7 @@ def show_detail(ap_id: int):
         if dy:
             st.markdown(
                 "<div class='section-label'>董楊思維</div>"
-                f"<div class='section-body'>{dy}</div>",
+                f"<div class='section-body'>{_linkify_ap_names(dy, name)}</div>",
                 unsafe_allow_html=True,
             )
 
@@ -1162,7 +1203,7 @@ def show_detail(ap_id: int):
         if parts:
             blocks = "".join(
                 f"<div class='principle-tag'>{lbl}</div>"
-                f"<div class='section-body'>{body}</div>"
+                f"<div class='section-body'>{_linkify_ap_names(body, name)}</div>"
                 for lbl, body in parts
             )
             st.markdown(
@@ -1208,7 +1249,7 @@ def show_detail(ap_id: int):
                 pg_s = f" <small style='color:var(--ink-mute)'>p.{pg}</small>" if pg else ""
                 parts.append(
                     f"<div class='src-block'>🩺 <b>{r['症狀']}</b>{pg_s}"
-                    f"<br>推薦穴位：{r['推薦穴位']}</div>"
+                    f"<br>推薦穴位：{_linkify_ap_names(r['推薦穴位'], name)}</div>"
                 )
             return "".join(parts)
 
