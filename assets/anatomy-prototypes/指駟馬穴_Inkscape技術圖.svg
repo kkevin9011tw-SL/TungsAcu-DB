@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#d9e0df" stroke-width="1"/>
+    </pattern>
+    <pattern id="majorGrid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid)"/>
+      <path d="M100 0H0V100" fill="none" stroke="#bdc9c7" stroke-width="1.4"/>
+    </pattern>
+    <style>
+      .serif{font-family:"Noto Serif TC","PingFang TC",serif}
+      .sans{font-family:"Noto Sans TC","PingFang TC",sans-serif}
+      .outline{fill:#f5d9b8;stroke:#694f42;stroke-width:3}
+      .bone{fill:#fbf7ec;stroke:#9ba8a5;stroke-width:2}
+      .axis{fill:none;stroke:#397777;stroke-width:2;stroke-dasharray:8 6}
+      .dimension{fill:none;stroke:#334b4b;stroke-width:2}
+      .construction{fill:none;stroke:#9aa9a6;stroke-width:1.5;stroke-dasharray:5 5}
+      .label{fill:#fff;stroke:#758e8a;stroke-width:1.5}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M8 4L0 0V8Z" fill="#334b4b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#f8faf9"/>
+  <rect x="40" y="40" width="1320" height="820" fill="url(#majorGrid)" opacity=".48"/>
+
+  <g inkscape:groupmode="layer" inkscape:label="標題" id="title-layer">
+    <rect x="40" y="40" width="1320" height="78" fill="#244f50"/>
+    <text x="72" y="84" class="serif" font-size="30" font-weight="700" fill="#fff">指駟馬穴 · 比例定位技術圖</text>
+    <text x="72" y="107" class="sans" font-size="14" fill="#dceceb">Inkscape 相容 SVG · 食指第二節背面</text>
+    <text x="1308" y="87" text-anchor="end" class="sans" font-size="17" fill="#dceceb">I.P.a.5</text>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="皮膚輪廓" id="skin-layer">
+    <path class="outline" d="M325 780
+      C301 718 293 654 298 583
+      L331 205 C337 145 376 118 421 124
+      C466 130 488 166 482 221
+      L447 584
+      C443 629 457 671 481 708
+      L526 780Z"/>
+    <path d="M333 207 C373 224 425 225 473 210" fill="none" stroke="#bb8261" stroke-width="2"/>
+    <path d="M307 449 C344 465 406 468 458 451" fill="none" stroke="#bb8261" stroke-width="2"/>
+    <path d="M298 584 C339 601 405 604 447 584" fill="none" stroke="#bb8261" stroke-width="2"/>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="骨骼透視" id="bone-layer" opacity=".62">
+    <path class="bone" d="M365 158 C386 140 419 144 435 166 L428 289
+      C412 307 379 305 363 285Z"/>
+    <path class="bone" d="M359 307 C376 289 414 289 431 309 L418 435
+      C397 453 367 448 351 428Z"/>
+    <path class="bone" d="M348 470 C369 447 402 450 418 472 L402 579
+      C381 600 348 593 334 571Z"/>
+    <path class="bone" d="M337 611 C354 590 390 592 407 614 L417 720
+      C398 742 365 742 346 720Z"/>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="基準與等分" id="construction-layer">
+    <line x1="389" y1="303" x2="389" y2="452" class="axis"/>
+    <line x1="431" y1="303" x2="431" y2="452" class="axis"/>
+    <line x1="340" y1="303" x2="488" y2="303" class="construction"/>
+    <line x1="328" y1="452" x2="474" y2="452" class="construction"/>
+    <line x1="389" y1="340" x2="431" y2="340" class="construction"/>
+    <line x1="389" y1="377" x2="431" y2="377" class="construction"/>
+    <line x1="389" y1="414" x2="431" y2="414" class="construction"/>
+    <text x="274" y="298" class="sans" font-size="15" fill="#657876">遠端關節線</text>
+    <text x="262" y="458" class="sans" font-size="15" fill="#657876">近端關節線</text>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="穴位" id="points-layer">
+    <g fill="#b23434" stroke="#fff" stroke-width="3">
+      <circle cx="431" cy="340" r="9"/>
+      <circle cx="431" cy="377" r="9"/>
+      <circle cx="431" cy="414" r="9"/>
+    </g>
+    <g fill="none" stroke="#b23434" stroke-width="2" opacity=".45">
+      <circle cx="431" cy="340" r="16"/>
+      <circle cx="431" cy="377" r="16"/>
+      <circle cx="431" cy="414" r="16"/>
+    </g>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="尺寸標註" id="dimensions-layer">
+    <line x1="389" y1="274" x2="431" y2="274" class="dimension"
+          marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="389" y1="280" x2="389" y2="303" class="dimension"/>
+    <line x1="431" y1="280" x2="431" y2="303" class="dimension"/>
+    <text x="410" y="262" text-anchor="middle" class="sans" font-size="18" fill="#334b4b">0.3 寸</text>
+
+    <line x1="508" y1="340" x2="508" y2="377" class="dimension"
+          marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="508" y1="377" x2="508" y2="414" class="dimension"
+          marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="447" y1="340" x2="520" y2="340" class="dimension"/>
+    <line x1="447" y1="377" x2="520" y2="377" class="dimension"/>
+    <line x1="447" y1="414" x2="520" y2="414" class="dimension"/>
+    <text x="528" y="363" class="sans" font-size="17" fill="#334b4b">0.25 寸</text>
+    <text x="528" y="400" class="sans" font-size="17" fill="#334b4b">0.25 寸</text>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="文字標籤" id="labels-layer">
+    <path d="M447 340H680" class="dimension"/>
+    <path d="M447 377H680" class="dimension"/>
+    <path d="M447 414H680" class="dimension"/>
+    <g class="sans" font-size="22" fill="#273737">
+      <rect x="680" y="317" width="246" height="46" rx="4" class="label"/>
+      <text x="700" y="347">指駟馬三穴</text>
+      <rect x="680" y="354" width="246" height="46" rx="4" class="label"/>
+      <text x="700" y="384">指駟馬二穴</text>
+      <rect x="680" y="391" width="246" height="46" rx="4" class="label"/>
+      <text x="700" y="421">指駟馬一穴</text>
+    </g>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="計算說明" id="formula-layer">
+    <rect x="990" y="188" width="300" height="405" rx="10" fill="#fff" stroke="#78918d" stroke-width="2"/>
+    <text x="1020" y="231" class="serif" font-size="23" font-weight="700" fill="#244f50">定位計算</text>
+    <line x1="1020" y1="248" x2="1260" y2="248" stroke="#b9c7c4"/>
+    <text x="1020" y="286" class="sans" font-size="17" fill="#334b4b">基準段：</text>
+    <text x="1020" y="316" class="sans" font-size="16" fill="#667a77">第二節兩關節線之間</text>
+    <text x="1020" y="363" class="sans" font-size="17" fill="#334b4b">橫向：</text>
+    <text x="1020" y="393" class="sans" font-size="16" fill="#667a77">正中線外開 0.3 寸</text>
+    <text x="1020" y="440" class="sans" font-size="17" fill="#334b4b">縱向：</text>
+    <text x="1020" y="470" class="sans" font-size="16" fill="#667a77">二穴置於段中央</text>
+    <text x="1020" y="500" class="sans" font-size="16" fill="#667a77">三穴向上 0.25 寸</text>
+    <text x="1020" y="530" class="sans" font-size="16" fill="#667a77">一穴向下 0.25 寸</text>
+    <line x1="1020" y1="553" x2="1260" y2="553" stroke="#b9c7c4"/>
+    <text x="1020" y="578" class="sans" font-size="13" fill="#8a9a97">比例示意，不替代臨床觸診</text>
+  </g>
+
+  <g inkscape:groupmode="layer" inkscape:label="頁尾" id="footer-layer">
+    <text x="70" y="824" class="serif" font-size="23" font-weight="700" fill="#244f50">左手食指背面 · 表面解剖與骨骼透視</text>
+    <text x="70" y="850" class="sans" font-size="14" fill="#687b78">原創技術圖原型，可在 Inkscape 中使用網格、節點與圖層精修</text>
+  </g>
+</svg>

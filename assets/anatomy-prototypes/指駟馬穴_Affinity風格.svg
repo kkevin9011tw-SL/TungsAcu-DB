@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9dfc3"/>
+      <stop offset="0.55" stop-color="#efc89f"/>
+      <stop offset="1" stop-color="#dca97c"/>
+    </linearGradient>
+    <linearGradient id="bone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#eadbc9"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#70462f" flood-opacity=".16"/>
+    </filter>
+    <filter id="labelShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#432a1e" flood-opacity=".12"/>
+    </filter>
+    <style>
+      .title{font-family:"Noto Serif TC","PingFang TC",serif;fill:#6f2f25}
+      .sans{font-family:"Noto Sans TC","PingFang TC",sans-serif}
+      .measure{fill:none;stroke:#8d6d58;stroke-width:2;stroke-linecap:round}
+      .guide{fill:none;stroke:#b28c72;stroke-width:1.5;stroke-dasharray:6 6}
+      .leader{fill:none;stroke:#806c60;stroke-width:2}
+      .joint{fill:none;stroke:#c28e68;stroke-width:2;opacity:.55}
+    </style>
+  </defs>
+
+  <rect width="1400" height="900" fill="#fffdf9"/>
+  <path d="M0 104H1400" stroke="#7f392b" stroke-width="8"/>
+
+  <g id="header">
+    <text x="70" y="65" class="title" font-size="30" font-weight="700">指駟馬穴定位示意</text>
+    <text x="70" y="91" class="sans" font-size="15" fill="#94766a">Affinity Designer 相容向量原型 · 左手背面</text>
+    <g transform="translate(1160 37)">
+      <rect width="170" height="42" rx="21" fill="#f4e9dc" stroke="#c9a78d"/>
+      <text x="85" y="27" text-anchor="middle" class="sans" font-size="16" fill="#7b4938">I.P.a.5</text>
+    </g>
+  </g>
+
+  <g id="skin-layer" filter="url(#softShadow)">
+    <path d="M379 801
+      C333 735 306 666 302 590
+      L285 384 C281 334 300 309 328 307
+      C357 305 374 329 381 368 L398 497
+      L407 259 C409 208 431 183 461 185
+      C492 187 507 213 507 259 L509 474
+      L535 124 C539 73 565 51 599 55
+      C632 59 648 85 646 132 L635 461
+      L674 235 C682 190 708 172 737 178
+      C766 184 779 211 772 252 L738 492
+      L785 350 C799 309 826 296 853 308
+      C882 321 887 350 872 387 L814 548
+      C792 608 782 658 783 716
+      L785 801 Z"
+      fill="url(#skin)" stroke="#d2a477" stroke-width="3"/>
+    <path d="M378 801 C420 733 490 701 570 706 C657 711 727 748 785 801"
+      fill="#e7b98e" opacity=".45"/>
+    <path d="M302 591 C326 572 356 571 389 589" class="joint"/>
+    <path d="M408 494 C435 478 474 480 506 500" class="joint"/>
+    <path d="M518 462 C548 446 601 447 635 467" class="joint"/>
+    <path d="M739 492 C716 477 690 476 661 487" class="joint"/>
+  </g>
+
+  <g id="bone-layer" opacity=".55">
+    <g stroke="#cbb9a8" stroke-width="2" fill="url(#bone)">
+      <rect x="557" y="83" width="58" height="128" rx="28"/>
+      <rect x="552" y="221" width="64" height="126" rx="28"/>
+      <rect x="544" y="357" width="72" height="133" rx="30"/>
+      <path d="M547 497 C536 538 527 587 526 659 C540 680 574 687 598 671
+        C610 611 616 554 614 500 C594 482 566 482 547 497Z"/>
+      <path d="M422 508 C425 550 432 602 451 680 C470 694 499 685 509 665
+        C503 595 497 549 489 508 C470 491 440 493 422 508Z"/>
+      <path d="M658 510 C651 552 647 602 651 674 C671 691 704 689 721 669
+        C731 603 737 555 739 515 C720 495 678 494 658 510Z"/>
+      <path d="M763 555 C747 593 733 631 721 682 C736 699 759 702 779 689
+        C799 640 812 605 824 570 C812 550 784 543 763 555Z"/>
+    </g>
+    <g fill="#d6c5b5">
+      <ellipse cx="586" cy="216" rx="28" ry="11"/>
+      <ellipse cx="584" cy="352" rx="30" ry="11"/>
+      <ellipse cx="580" cy="494" rx="34" ry="12"/>
+    </g>
+  </g>
+
+  <g id="landmarks">
+    <path d="M536 220 C560 211 591 211 617 221" class="guide"/>
+    <path d="M529 349 C554 340 592 340 621 351" class="guide"/>
+    <line x1="585" y1="220" x2="585" y2="350" class="guide"/>
+    <line x1="625" y1="220" x2="625" y2="350" class="guide"/>
+  </g>
+
+  <g id="acupoints">
+    <circle cx="625" cy="253" r="8" fill="#b53632" stroke="#fff" stroke-width="3"/>
+    <circle cx="625" cy="285" r="8" fill="#b53632" stroke="#fff" stroke-width="3"/>
+    <circle cx="625" cy="317" r="8" fill="#b53632" stroke="#fff" stroke-width="3"/>
+    <circle cx="625" cy="253" r="13" fill="none" stroke="#b53632" opacity=".22" stroke-width="4"/>
+    <circle cx="625" cy="285" r="13" fill="none" stroke="#b53632" opacity=".22" stroke-width="4"/>
+    <circle cx="625" cy="317" r="13" fill="none" stroke="#b53632" opacity=".22" stroke-width="4"/>
+  </g>
+
+  <g id="labels" filter="url(#labelShadow)">
+    <path d="M633 253 H902" class="leader"/>
+    <path d="M633 285 H902" class="leader"/>
+    <path d="M633 317 H902" class="leader"/>
+    <g class="sans" font-size="22" fill="#3e332e">
+      <rect x="902" y="226" width="250" height="48" rx="8" fill="#fff" stroke="#baa89b"/>
+      <text x="922" y="258">指駟馬三穴</text>
+      <rect x="902" y="260" width="250" height="48" rx="8" fill="#fff" stroke="#baa89b"/>
+      <text x="922" y="292">指駟馬二穴</text>
+      <rect x="902" y="294" width="250" height="48" rx="8" fill="#fff" stroke="#baa89b"/>
+      <text x="922" y="326">指駟馬一穴</text>
+    </g>
+  </g>
+
+  <g id="dimensions">
+    <g transform="translate(928 420)">
+      <rect width="342" height="278" rx="18" fill="#fffaf4" stroke="#dcc9b6" filter="url(#labelShadow)"/>
+      <text x="24" y="38" class="title" font-size="20" font-weight="700">比例定位</text>
+      <text x="24" y="67" class="sans" font-size="14" fill="#8d7466">食指第二節，以關節線作基準</text>
+      <line x1="78" y1="100" x2="78" y2="232" class="measure"/>
+      <line x1="154" y1="100" x2="154" y2="232" class="measure"/>
+      <line x1="78" y1="100" x2="154" y2="100" class="measure"/>
+      <line x1="78" y1="232" x2="154" y2="232" class="measure"/>
+      <line x1="116" y1="100" x2="116" y2="232" class="guide"/>
+      <circle cx="154" cy="133" r="6" fill="#b53632"/>
+      <circle cx="154" cy="166" r="6" fill="#b53632"/>
+      <circle cx="154" cy="199" r="6" fill="#b53632"/>
+      <line x1="116" y1="82" x2="154" y2="82" class="measure"/>
+      <path d="M116 76 V88 M154 76 V88" class="measure"/>
+      <text x="174" y="88" class="sans" font-size="15" fill="#725849">0.3 寸</text>
+      <line x1="175" y1="133" x2="175" y2="166" class="measure"/>
+      <path d="M169 133 H181 M169 166 H181" class="measure"/>
+      <text x="192" y="154" class="sans" font-size="15" fill="#725849">0.25 寸</text>
+      <line x1="175" y1="166" x2="175" y2="199" class="measure"/>
+      <path d="M169 199 H181" class="measure"/>
+      <text x="192" y="189" class="sans" font-size="15" fill="#725849">0.25 寸</text>
+      <text x="24" y="259" class="sans" font-size="13" fill="#9a8172">示意比例，臨床定位仍以原典與觸診為準</text>
+    </g>
+  </g>
+
+  <g id="caption">
+    <text x="70" y="842" class="title" font-size="24" font-weight="700">左手背面 · 表面解剖透視</text>
+    <text x="70" y="872" class="sans" font-size="14" fill="#94766a">原創向量原型，可在 Affinity Designer 中調整節點、顏色與尺寸標註</text>
+  </g>
+</svg>

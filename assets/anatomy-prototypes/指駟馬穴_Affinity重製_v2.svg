@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1600" height="1000" viewBox="0 0 1600 1000">
+  <title>指駟馬穴定位示意圖</title>
+  <desc>右手背面表面解剖與骨骼透視，標示食指第二節指駟馬一、二、三穴及比例定位。</desc>
+  <metadata>
+    Bone layer adapted from "202110 Posterior view of bones of right hand",
+    DataBase Center for Life Science (DBCLS), CC BY 4.0.
+    https://commons.wikimedia.org/wiki/File:202110_Posterior_view_of_bones_of_right_hand.svg
+  </metadata>
+
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffdfa"/>
+      <stop offset="1" stop-color="#faf5ed"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7d6b2" stop-opacity=".61"/>
+      <stop offset=".55" stop-color="#efbd8d" stop-opacity=".54"/>
+      <stop offset="1" stop-color="#dfa36f" stop-opacity=".60"/>
+    </linearGradient>
+    <linearGradient id="nail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8ee" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#e9c9ad" stop-opacity=".75"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#563324" flood-opacity=".14"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#563324" flood-opacity=".13"/>
+    </filter>
+    <marker id="arrowStart" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M8 0 0 4 8 8Z" fill="#735445"/>
+    </marker>
+    <marker id="arrowEnd" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 8 4 0 8Z" fill="#735445"/>
+    </marker>
+    <clipPath id="handClip">
+      <path d="M190 500
+        C166 455 145 412 130 370
+        C112 332 87 297 61 266
+        C45 248 45 229 56 217
+        C68 205 84 210 99 224
+        C119 244 131 273 145 300
+        L158 318
+        C166 312 166 298 163 282
+        L155 180
+        C152 151 159 129 179 124
+        C198 120 210 136 212 160
+        L220 275
+        C221 284 228 284 229 271
+        L225 90
+        C224 62 235 45 256 44
+        C278 44 289 62 288 91
+        L286 266
+        C286 276 293 279 298 271
+        L315 112
+        C318 85 332 72 351 76
+        C370 80 378 98 374 124
+        L354 286
+        C353 296 360 299 365 291
+        L394 180
+        C401 154 416 145 434 151
+        C452 157 457 175 450 199
+        L412 335
+        C402 373 398 411 398 452
+        L395 500Z"/>
+    </clipPath>
+    <style>
+      .serif { font-family: "Noto Serif TC", "Songti TC", "PingFang TC", serif; }
+      .sans { font-family: "Noto Sans TC", "PingFang TC", sans-serif; }
+      .ink { fill: #36251f; }
+      .brown { fill: #73382c; }
+      .muted { fill: #8d7466; }
+      .guide { fill: none; stroke: #a98974; stroke-width: 1.7; stroke-dasharray: 7 7; }
+      .leader { fill: none; stroke: #775f51; stroke-width: 2; }
+      .dimension { fill: none; stroke: #735445; stroke-width: 1.8; }
+      .joint { fill: none; stroke: #b77655; stroke-width: 2; opacity: .65; stroke-linecap: round; }
+      .tendon { fill: none; stroke: #c68a68; stroke-width: 1.6; opacity: .34; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#paper)"/>
+
+  <g id="header">
+    <rect x="0" y="0" width="1600" height="112" fill="#7b3529"/>
+    <text x="72" y="62" class="serif" font-size="34" font-weight="700" fill="#fff8ed">指駟馬穴</text>
+    <text x="72" y="91" class="sans" font-size="16" letter-spacing="1.8" fill="#e8cbbc">右手背面 · 表面解剖與比例定位</text>
+    <g transform="translate(1390 34)">
+      <rect width="140" height="44" rx="22" fill="none" stroke="#d9aa91" stroke-width="1.5"/>
+      <text x="70" y="29" text-anchor="middle" class="sans" font-size="17" fill="#f4ddd1">I.P.a.5</text>
+    </g>
+  </g>
+
+  <g id="main-hand" transform="translate(116 136) scale(1.42)" filter="url(#shadow)">
+    <g id="bone-layer" clip-path="url(#handClip)" opacity=".46" style="mix-blend-mode:multiply">
+      <image x="-130" y="25" width="742.4" height="476.2"
+             xlink:href="指駟馬穴_手骨底圖_CC-BY.png"
+             preserveAspectRatio="none"/>
+    </g>
+
+    <path id="skin-silhouette" d="M190 500
+      C166 455 145 412 130 370
+      C112 332 87 297 61 266
+      C45 248 45 229 56 217
+      C68 205 84 210 99 224
+      C119 244 131 273 145 300
+      L158 318
+      C166 312 166 298 163 282
+      L155 180
+      C152 151 159 129 179 124
+      C198 120 210 136 212 160
+      L220 275
+      C221 284 228 284 229 271
+      L225 90
+      C224 62 235 45 256 44
+      C278 44 289 62 288 91
+      L286 266
+      C286 276 293 279 298 271
+      L315 112
+      C318 85 332 72 351 76
+      C370 80 378 98 374 124
+      L354 286
+      C353 296 360 299 365 291
+      L394 180
+      C401 154 416 145 434 151
+      C452 157 457 175 450 199
+      L412 335
+      C402 373 398 411 398 452
+      L395 500Z"
+      fill="url(#skin)" stroke="#b87850" stroke-width="2.5"/>
+
+    <g id="surface-anatomy">
+      <path d="M157 281 C174 274 198 274 218 283" class="joint"/>
+      <path d="M155 180 C171 174 197 174 213 181" class="joint"/>
+      <path d="M225 274 C244 268 270 268 286 276" class="joint"/>
+      <path d="M225 154 C244 148 271 148 288 155" class="joint"/>
+      <path d="M354 285 C336 279 317 278 298 286" class="joint"/>
+      <path d="M366 291 C383 285 400 288 415 299" class="joint"/>
+      <path d="M151 330 C205 307 315 307 406 344" class="tendon"/>
+      <path d="M184 482 C207 405 218 337 218 288" class="tendon"/>
+      <path d="M258 486 C260 394 261 315 258 276" class="tendon"/>
+      <path d="M326 480 C323 400 331 341 344 294" class="tendon"/>
+      <path d="M382 461 C375 405 384 360 405 318" class="tendon"/>
+    </g>
+
+    <g id="nails" fill="url(#nail)" stroke="#c99776" stroke-width="1.5">
+      <path d="M164 139 C170 128 194 126 203 139 L204 162 C196 170 174 171 165 162Z"/>
+      <path d="M236 60 C243 49 269 48 278 61 L278 87 C270 96 244 97 236 87Z"/>
+      <path d="M324 91 C331 81 355 81 365 94 L362 117 C352 125 331 123 324 114Z"/>
+      <path d="M408 162 C415 153 437 155 445 168 L440 189 C431 196 414 191 408 182Z"/>
+      <path d="M57 224 C67 214 84 218 94 230 L91 249 C82 255 66 251 59 242Z"/>
+    </g>
+
+    <g id="landmarks">
+      <line x1="183" y1="180" x2="183" y2="281" class="guide"/>
+      <line x1="203" y1="180" x2="203" y2="281" class="guide"/>
+      <line x1="155" y1="180" x2="220" y2="180" class="guide"/>
+      <line x1="158" y1="281" x2="220" y2="281" class="guide"/>
+    </g>
+
+    <g id="acupoints">
+      <g fill="#ad302f" stroke="#fffaf4" stroke-width="3">
+        <circle cx="203" cy="205" r="7.5"/>
+        <circle cx="203" cy="230.5" r="7.5"/>
+        <circle cx="203" cy="256" r="7.5"/>
+      </g>
+      <g fill="none" stroke="#ad302f" stroke-width="3" opacity=".24">
+        <circle cx="203" cy="205" r="13"/>
+        <circle cx="203" cy="230.5" r="13"/>
+        <circle cx="203" cy="256" r="13"/>
+      </g>
+    </g>
+  </g>
+
+  <g id="main-labels" filter="url(#softShadow)">
+    <path d="M414 427 H760" class="leader"/>
+    <path d="M414 463 H760" class="leader"/>
+    <path d="M414 499 H760" class="leader"/>
+    <g class="sans" font-size="24" fill="#3b2a24">
+      <rect x="760" y="402" width="250" height="50" rx="9" fill="#fffdf9" stroke="#bca89a"/>
+      <text x="783" y="435">指駟馬三穴</text>
+      <rect x="760" y="438" width="250" height="50" rx="9" fill="#fffdf9" stroke="#bca89a"/>
+      <text x="783" y="471">指駟馬二穴</text>
+      <rect x="760" y="474" width="250" height="50" rx="9" fill="#fffdf9" stroke="#bca89a"/>
+      <text x="783" y="507">指駟馬一穴</text>
+    </g>
+  </g>
+
+  <g id="detail-card" transform="translate(1055 176)" filter="url(#softShadow)">
+    <rect width="475" height="650" rx="20" fill="#fffdf9" stroke="#d9c2b0" stroke-width="1.5"/>
+    <text x="32" y="52" class="serif brown" font-size="27" font-weight="700">比例定位</text>
+    <text x="32" y="82" class="sans muted" font-size="16">食指第二節 · 尺側取穴</text>
+    <line x1="32" y1="103" x2="443" y2="103" stroke="#decfc3"/>
+
+    <g id="finger-detail" transform="translate(45 135)">
+      <path d="M86 0
+        C57 1 44 21 44 50
+        L40 326
+        C40 351 57 369 84 370
+        C111 370 128 352 128 326
+        L132 50
+        C132 20 116 0 86 0Z"
+        fill="#f2c99f" fill-opacity=".78" stroke="#b87850" stroke-width="2.5"/>
+      <g opacity=".42" fill="#ded5c7" stroke="#918675" stroke-width="1.4">
+        <path d="M70 76 C74 68 99 68 104 77 L105 116 C100 124 75 124 69 116Z"/>
+        <path d="M67 132 C72 124 103 124 108 134 L108 202 C102 213 73 213 66 202Z"/>
+        <path d="M64 217 C72 208 106 208 113 219 L111 281 C103 292 73 292 64 281Z"/>
+      </g>
+      <path d="M57 20 C67 8 103 8 117 22 L116 72 C104 85 68 85 56 72Z"
+            fill="url(#nail)" stroke="#c99776" stroke-width="1.5"/>
+      <path d="M43 124 C65 116 108 116 130 126" class="joint"/>
+      <path d="M41 291 C65 282 106 283 128 293" class="joint"/>
+      <line x1="86" y1="124" x2="86" y2="292" class="guide"/>
+      <line x1="112" y1="124" x2="112" y2="292" class="guide"/>
+
+      <g fill="#ad302f" stroke="#fffaf4" stroke-width="3">
+        <circle cx="112" cy="166" r="8"/>
+        <circle cx="112" cy="208" r="8"/>
+        <circle cx="112" cy="250" r="8"/>
+      </g>
+      <path d="M86 108 V128 M112 108 V128 M86 116 H112"
+            class="dimension" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+      <text x="99" y="101" text-anchor="middle" class="sans" font-size="16" fill="#654d40">0.2 寸</text>
+
+      <path d="M145 166 H165 M145 208 H165 M155 166 V208"
+            class="dimension" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+      <text x="176" y="193" class="sans" font-size="16" fill="#654d40">0.3 寸</text>
+      <path d="M145 250 H165 M155 208 V250"
+            class="dimension" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+      <text x="176" y="235" class="sans" font-size="16" fill="#654d40">0.3 寸</text>
+
+      <text x="3" y="214" text-anchor="end" class="sans" font-size="15" fill="#836b5d">中央線</text>
+      <path d="M8 208 H78" class="leader"/>
+      <text x="233" y="345" text-anchor="middle" class="sans" font-size="14" fill="#90786a">遠端指間關節線</text>
+      <path d="M132 124 H220" class="guide"/>
+      <text x="233" y="375" text-anchor="middle" class="sans" font-size="14" fill="#90786a">近端指間關節線</text>
+      <path d="M128 291 H220" class="guide"/>
+    </g>
+
+    <g transform="translate(32 555)">
+      <text class="sans" font-size="16" fill="#604b40">
+        <tspan x="0" y="0">中央線向尺側外開二分；中點取二穴，</tspan>
+        <tspan x="0" y="28">向上、向下各三分，分別取三穴與一穴。</tspan>
+      </text>
+      <text x="0" y="70" class="sans" font-size="13" fill="#9a8478">尺寸為比例示意，臨床仍以原典與觸診為準。</text>
+    </g>
+  </g>
+
+  <g id="footer">
+    <text x="72" y="907" class="serif brown" font-size="27" font-weight="700">右手背面</text>
+    <text x="72" y="940" class="sans muted" font-size="16">半透明皮膚層 · 骨骼透視 · 比例定位</text>
+    <line x1="72" y1="958" x2="1528" y2="958" stroke="#ddcbbd"/>
+    <text x="72" y="982" class="sans" font-size="11.5" fill="#a18e82">
+      骨骼層改作自 DBCLS「Posterior view of bones of right hand」(CC BY 4.0)；穴位位置依專案資料庫重製。
+    </text>
+  </g>
+</svg>
