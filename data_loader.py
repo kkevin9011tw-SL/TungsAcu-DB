@@ -140,6 +140,7 @@ def search_acupoints_df(keyword: str) -> pd.DataFrame:
         | df["主治關鍵字"].str.contains(keyword, na=False)
         | df["董楊思維"].str.contains(keyword, na=False)
         | df["穴號"].str.contains(keyword, na=False)
+        | df["備註"].str.contains(keyword, na=False)  # 別名（又名腎關、內九、肺叉…）寫在備註
     )
     return df[mask].head(80)
 
