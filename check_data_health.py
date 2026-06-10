@@ -92,9 +92,9 @@ def check_acupoints(regions):
         if c > 1:
             err(f"穴位表：穴名「{n}」出現 {c} 次（含標點變體）")
 
-    # 疑似截斷重複：穴號（圖號）空白，且穴名片段含在另一個更長的穴名內。
-    # 先比同部位，找不到再比全表（如八八的「解穴」對二二的「手解穴」）。
-    # 註：穴號欄位放的是書中圖號（如「圖1-8」），兩穴共用一張圖時重複屬正常。
+    # 疑似截斷重複：穴號（TEAS 編號）空白，且穴名片段含在另一個更長的穴名內。
+    # 先比同部位，找不到再比全表。有 TEAS 編號的穴（如木穴 11.17、解穴 88.28）
+    # 是正式穴位，不會被誤判。
     all_stems = {stem(r["穴名"].strip()) for r in rows if r["穴名"].strip()}
     for region, rs in by_region.items():
         region_stems = {stem(r["穴名"].strip()) for r in rs}
@@ -112,9 +112,23 @@ def check_acupoints(regions):
                 host_names = "、".join(f"{h}穴" for h in sorted(hosts)[:3])
                 warn(f"穴位表 穴名「{name}」（{region}，無穴號）疑似{scope}「{host_names}」的截斷重複列，請人工比對後合併或刪除")
 
+    # TEAS 編號前綴應對應部位（11→一一 … CA→胸腹；A 開頭為增補，不限部位）
+    prefix_region = {
+        "11": "一一", "22": "二二", "33": "三三", "44": "四四", "55": "五五",
+        "66": "六六", "77": "七七", "88": "八八", "99": "九九",
+        "1010": "十十", "1111": "背腰", "CA": "胸腹",
+    }
+    for r in rows:
+        code = r["穴號"].strip()
+        if not code or code.startswith("A."):
+            continue
+        expect = prefix_region.get(code.split(".")[0])
+        if expect and expect != r["部位代碼"] and r["部位代碼"] != "增補":
+            warn(f"穴位表 穴名「{r['穴名']}」：TEAS 編號 {code} 屬「{expect}」部位，資料卻在「{r['部位代碼']}」")
+
     blank_num = sum(1 for r in rows if not r["穴號"].strip())
     if blank_num:
-        warn(f"穴位表：{blank_num} 筆穴號空白（共 {len(rows)} 筆）")
+        warn(f"穴位表：{blank_num} 筆穴號（TEAS 編號）空白（共 {len(rows)} 筆）")
 
 
 def check_pairs():
