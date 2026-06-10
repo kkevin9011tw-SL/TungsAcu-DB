@@ -1000,3 +1000,15 @@ Later：
 - [ ] 依 `docs/specs/2026-06-10-真人照片與3D骨骼穴位圖方案.md` 製作指駟馬穴概念驗證圖。
 - [ ] 建立桌機 heavy-worker 腳本或 runbook：MinerU、OCR、本地 LLM、批次轉檔。
 - [ ] 視需要補 admin 內 notes/Markdown 編輯能力。
+
+====================================================
+【2026-06-10】公開站隱藏管理員入口
+====================================================
+
+安全修正：
+- 新增 `_admin_enabled()`：只有 secrets.toml 設 `admin_enabled = true` 的環境才開放管理員功能。
+- 公開 Streamlit Cloud 不設此 secret → topbar 管理員連結、`?admin=1`、登入面板全部隱藏。
+- 移除 `admin123` 預設密碼；`admin_password` 未設定時一律拒絕登入。
+- 本機 `.streamlit/secrets.toml`（已 gitignore）設 `admin_enabled = true` 與隨機密碼。
+
+提醒：雲端容器的 CSV 編輯本就是暫存、重啟即消失；正式編輯流程一律在本機完成後 push。

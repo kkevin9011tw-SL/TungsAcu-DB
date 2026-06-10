@@ -586,7 +586,21 @@ def _apply_nav_query():
         pass
 
 
+def _admin_enabled() -> bool:
+    """管理員功能開關：只有 secrets.toml 設 admin_enabled = true 的環境（本機）才開放。
+
+    公開 Streamlit Cloud 不設此 secret，管理員入口完全隱藏；
+    且雲端容器的 CSV 編輯是暫存、重啟即消失，本就不該在公開站編輯。
+    """
+    try:
+        return st.secrets.get("admin_enabled", False) is True
+    except Exception:
+        return False
+
+
 def _apply_admin_query():
+    if not _admin_enabled():
+        return
     params = st.query_params
     if not _query_value(params, "admin"):
         return
@@ -1338,6 +1352,8 @@ def render_sidebar():
 
 
 def render_admin_panel():
+    if not _admin_enabled():
+        return
     if not st.session_state.get("admin_panel_open") and not st.session_state.get("admin_mode"):
         return
 
@@ -1367,7 +1383,8 @@ def render_admin_panel():
             login = c1.form_submit_button("登入", use_container_width=True)
             close = c2.form_submit_button("取消", use_container_width=True)
             if login:
-                if pw == st.secrets.get("admin_password", "admin123"):
+                admin_pw = st.secrets.get("admin_password", "")
+                if admin_pw and pw == admin_pw:
                     st.session_state.admin_mode = True
                     st.session_state.admin_panel_open = True
                     st.rerun()
@@ -1677,6 +1694,10 @@ def main():
     _inject_css()
     logo_uri = _img_to_data_uri(LOGO_PATH)
     logo_html = f"<img class='app-logo' src='{logo_uri}' alt='董氏奇穴印章'>" if logo_uri else ""
+    admin_link_html = (
+        '<a class="app-admin-link" href="?admin=1" target="_self">管理員</a>'
+        if _admin_enabled() else ""
+    )
     st.markdown(f"""
 <div class="app-topbar">
   <div class="app-brand">
@@ -1686,7 +1707,7 @@ def main():
       <div class="app-title-en">Tung's Acupuncture Points Reference</div>
     </div>
   </div>
-  <a class="app-admin-link" href="?admin=1" target="_self">管理員</a>
+  {admin_link_html}
 </div>
 """, unsafe_allow_html=True)
 
