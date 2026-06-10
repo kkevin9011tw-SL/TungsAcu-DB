@@ -43,11 +43,13 @@ st.set_page_config(
 def _inject_css():
     st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
 
 :root {
   --parchment:    #F7EDD8;
   --parchment-dk: #EDD9A3;
+  --surface:      rgba(255,255,255,.62);
+  --surface-hover:rgba(196,147,58,.14);
   --gold:         #C4933A;
   --gold-lt:      #DBA84C;
   --vermillion:   #7B2D1E;
@@ -65,14 +67,22 @@ html, body, [class*="css"], .stApp {
   background-color: var(--parchment) !important;
   color: var(--ink) !important;
 }
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+  background: var(--parchment) !important;
+}
 
 #MainMenu, footer, [data-testid="stToolbar"] { display: none !important; }
 [data-testid="stDecoration"] { display: none !important; }
 [data-testid="stHeader"] {
   position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important;
-  height: 96px !important;
-  background: linear-gradient(90deg, var(--vermillion-dk) 0%, var(--vermillion) 52%, #8C3825 100%) !important;
-  box-shadow: 0 2px 14px rgba(44,28,16,.18) !important;
+  height: 120px !important;
+  background-color: var(--vermillion) !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' seed='17' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 48% 35%, #8C3825 0%, #7B2D1E 52%, #5F2116 100%) !important;
+  background-blend-mode: soft-light, normal !important;
+  box-shadow: 0 2px 14px rgba(69,20,16,.25) !important;
   z-index: 1002 !important;
 }
 [data-testid="stSidebarCollapseButton"],
@@ -80,8 +90,8 @@ html, body, [class*="css"], .stApp {
 
 .app-topbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1003;
-  height: 96px; display: flex; align-items: center; justify-content: space-between;
-  gap: 18px; padding: 12px 28px 12px 22px; pointer-events: none;
+  height: 120px; display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; padding: 16px 30px 16px 24px; pointer-events: none;
 }
 .app-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .app-logo {
@@ -90,16 +100,18 @@ html, body, [class*="css"], .stApp {
 }
 .app-title-wrap { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
 .app-title-zh {
-  font-family: 'Noto Serif TC', serif; font-size: 1.55em; font-weight: 700;
+  font-family: BiauKai, DFKai-SB, STKaiti, KaiTi, serif;
+  font-size: 1.72em; font-weight: 400;
   color: #F7EDD8; line-height: 1.02; white-space: nowrap;
 }
 .app-title-en {
-  font-size: .58em; letter-spacing: .08em; color: rgba(247,237,216,.8);
-  margin-top: 2px; white-space: nowrap;
+  font-family: 'Allura', 'Brush Script MT', cursive;
+  font-size: .92em; letter-spacing: .04em; color: rgba(247,237,216,.86);
+  margin-top: 1px; white-space: nowrap;
 }
 .app-admin-link {
   pointer-events: auto;
-  background: rgba(247,237,216,.14); border: 1px solid rgba(247,237,216,.26);
+  background: rgba(247,237,216,.14); border: 1px solid rgba(247,237,216,.3);
   border-radius: 999px; padding: 5px 14px; font-size: .82em; color: #F7EDD8;
   line-height: 1.4; flex-shrink: 0; text-decoration: none !important;
 }
@@ -109,27 +121,41 @@ html, body, [class*="css"], .stApp {
 
 [data-testid="stSidebar"] {
   background-color: var(--parchment-dk) !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720'%3E%3Cfilter id='cloud'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .045' numOctaves='4' seed='23' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='1.2'/%3E%3C/filter%3E%3Cfilter id='vein'%3E%3CfeTurbulence type='turbulence' baseFrequency='.008 .032' numOctaves='3' seed='41' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='54' xChannelSelector='R' yChannelSelector='B'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cloud)' opacity='.16'/%3E%3Cg filter='url(%23vein)' fill='none' stroke-linecap='round'%3E%3Cpath d='M-40 120 C70 60 110 230 220 160 S350 90 410 150' stroke='%23A78A5D' stroke-width='2.2' opacity='.28'/%3E%3Cpath d='M-70 345 C45 285 125 430 245 355 S365 300 420 370' stroke='%23BDA67D' stroke-width='5' opacity='.16'/%3E%3Cpath d='M-30 565 C80 500 150 650 255 575 S365 525 410 590' stroke='%238D704B' stroke-width='1.5' opacity='.22'/%3E%3Cpath d='M35 -40 C5 120 150 185 105 340 S185 600 145 760' stroke='%23FFF8E8' stroke-width='8' opacity='.18'/%3E%3Cpath d='M-55 55 C50 20 135 115 230 72 S345 40 415 88' stroke='%23947A55' stroke-width='1.1' opacity='.19'/%3E%3Cpath d='M-35 205 C85 145 145 285 250 218 S355 180 405 225' stroke='%23C2AA80' stroke-width='2.8' opacity='.14'/%3E%3Cpath d='M-60 275 C40 245 130 335 225 292 S340 250 420 315' stroke='%238B704D' stroke-width='1.2' opacity='.18'/%3E%3Cpath d='M-45 435 C65 375 135 495 240 448 S350 405 415 455' stroke='%23B49A70' stroke-width='2' opacity='.16'/%3E%3Cpath d='M-70 500 C55 455 125 550 235 510 S350 470 425 525' stroke='%23977B54' stroke-width='.9' opacity='.2'/%3E%3Cpath d='M-40 650 C65 600 145 705 255 662 S360 625 415 680' stroke='%23C5AE86' stroke-width='3.5' opacity='.13'/%3E%3Cpath d='M250 -45 C205 90 330 180 275 315 S325 565 285 760' stroke='%23A68B63' stroke-width='1.3' opacity='.17'/%3E%3Cpath d='M165 -55 C120 85 230 155 180 290 S245 530 205 755' stroke='%23FFF8E8' stroke-width='4.5' opacity='.12'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-size: 360px 720px !important;
+  background-repeat: repeat !important;
+  background-blend-mode: multiply !important;
   border-right: 1px solid var(--divider) !important;
   display: block !important;
-  min-width: 280px !important; max-width: 340px !important; z-index: 1000 !important;
+  width: 200px !important; min-width: 200px !important; max-width: 200px !important;
+  z-index: 1000 !important;
   transform: translateX(0) !important;
   visibility: visible !important;
   overflow: visible !important;
 }
 [data-testid="stSidebar"][aria-expanded="false"] {
-  width: 300px !important;
-  min-width: 280px !important;
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
   transform: translateX(0) !important;
   visibility: visible !important;
 }
 [data-testid="stSidebar"] > div:first-child {
-  padding-top: 6.2rem !important;
+  padding-top: 7.7rem !important;
   display: block !important;
   overflow: visible !important;
+  background: transparent !important;
+}
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] summary {
+  color: var(--ink) !important;
+  text-align: center !important;
 }
 [data-testid="block-container"] {
   background-color: var(--parchment) !important;
-  padding: 7.8rem 2rem 1.5rem !important; max-width: 900px !important;
+  padding: 9.3rem 2rem 1.5rem !important; max-width: 900px !important;
 }
 
 .sidebar-layout-anchor { height: 22vh; min-height: 130px; }
@@ -138,10 +164,10 @@ html, body, [class*="css"], .stApp {
 .sidebar-nav-item { position: relative; }
 .sidebar-nav-item + .sidebar-nav-item { border-top: none; margin-top: 34px; }
 .sidebar-nav-main {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0 24px; color: var(--ink); text-decoration: none !important;
-  font-family: 'Noto Serif TC', serif; font-size: 1.18em; font-weight: 700;
-  letter-spacing: .06em;
+  display: flex; justify-content: center; align-items: center;
+  padding: 0 8px; color: var(--ink) !important; text-decoration: none !important;
+  font-family: 'Noto Serif TC', serif; font-size: 1.28em; font-weight: 700;
+  letter-spacing: .04em; text-align: center;
 }
 .sidebar-nav-main span:first-child { border-bottom: 2px solid transparent; line-height: 1.35; }
 .sidebar-nav-item:hover .sidebar-nav-main span:first-child,
@@ -150,7 +176,7 @@ html, body, [class*="css"], .stApp {
 }
 .sidebar-nav-caret { display: none; }
 .sidebar-flyout {
-  display: block; position: absolute; left: 118px; top: -8px; width: 260px;
+  display: block; position: absolute; left: 168px; top: -8px; width: 260px;
   overflow: visible;
   visibility: hidden; opacity: 0; pointer-events: none;
   transition: opacity .12s ease, visibility 0s linear .12s;
@@ -205,12 +231,12 @@ html, body, [class*="css"], .stApp {
 .pair-result-card {
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   width: 100%; min-height: 76px; padding: 12px 18px; text-align: center;
-  background: rgba(255,255,255,.62); border: 1px solid var(--divider);
+  background: var(--surface); border: 1px solid var(--divider);
   border-radius: 7px; color: var(--vermillion); text-decoration: none !important;
   font-family: 'Noto Serif TC', serif; box-shadow: none;
 }
 .pair-result-card:hover {
-  background: rgba(196,147,58,.14); border-color: var(--gold); color: var(--vermillion-dk);
+  background: var(--surface-hover); border-color: var(--gold); color: var(--vermillion-dk);
 }
 .pair-result-title {
   font-size: clamp(.95rem, 1.15vw, 1.08rem); font-weight: 700; line-height: 1.35;
@@ -231,13 +257,13 @@ html, body, [class*="css"], .stApp {
 .catalog-card {
   min-height: 48px; display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 2px;
-  padding: 10px 12px; text-align: center; background: rgba(255,255,255,.62);
+  padding: 10px 12px; text-align: center; background: var(--surface);
   border: 1px solid var(--divider); border-radius: 7px; color: var(--vermillion);
   text-decoration: none !important; font-family: 'Noto Serif TC', serif;
   font-size: clamp(.86rem, 1vw, .98rem); font-weight: 600; line-height: 1.35;
 }
 .catalog-card:hover {
-  background: rgba(196,147,58,.14); border-color: var(--gold); color: var(--vermillion-dk);
+  background: var(--surface-hover); border-color: var(--gold); color: var(--vermillion-dk);
 }
 .catalog-card small {
   display: block; color: var(--ink-mute); font-family: 'Noto Sans TC', sans-serif;
@@ -265,7 +291,7 @@ html, body, [class*="css"], .stApp {
   opacity: .78 !important;
 }
 [data-testid="stSidebar"] [data-testid="stTextInput"] div[data-baseweb="input"] {
-  background: rgba(255,255,255,.72) !important;
+  background: #fff !important;
   border: 1px solid var(--divider) !important;
   border-radius: 22px !important;
   box-shadow: none !important;
@@ -277,11 +303,11 @@ html, body, [class*="css"], .stApp {
 [data-testid="stSidebar"] [data-testid="stTextInput"] input {
   background: transparent !important;
   border: none !important;
-  color: var(--ink) !important;
+  color: #000 !important;
   box-shadow: none !important;
 }
 [data-testid="stSidebar"] [data-testid="stTextInput"] input::placeholder {
-  color: rgba(92,61,37,.55) !important;
+  color: rgba(0,0,0,.58) !important;
 }
 [data-testid="stTextInput"] > div > div > input:focus {
   border-color: var(--gold) !important; box-shadow: 0 0 0 2px rgba(196,147,58,.2) !important;
@@ -314,7 +340,7 @@ html, body, [class*="css"], .stApp {
 [data-testid="stFormSubmitButton"] > button,
 [data-testid="baseButton-secondary"],
 [data-testid="baseButton-primary"] {
-  background-color: rgba(255,255,255,.62) !important;
+  background-color: var(--surface) !important;
   border: 1px solid var(--divider) !important;
   border-radius: 6px !important;
   box-shadow: none !important;
@@ -330,7 +356,7 @@ html, body, [class*="css"], .stApp {
 [data-testid="stButton"] > button:hover,
 [data-testid="stFormSubmitButton"] > button:hover,
 [data-testid="baseButton-secondary"]:hover {
-  background-color: rgba(196,147,58,.14) !important;
+  background-color: var(--surface-hover) !important;
   border-color: var(--gold) !important;
   color: var(--vermillion) !important;
 }
@@ -410,7 +436,7 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
 .kw-pill:hover { background: var(--gold-lt, #DBA84C); color: white; }
 
 .needle-card {
-  background: rgba(255,255,255,.6); border: 1px solid var(--divider); border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--divider); border-radius: 8px;
   padding: 14px 18px; margin: 8px 0 14px;
 }
 .needle-row { display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid rgba(212,184,135,.3); }
@@ -465,18 +491,20 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
 [data-testid="stSidebar"] button[kind="secondary"] {
   background: transparent !important; border: none !important;
   border-bottom: 1px solid rgba(212,184,135,.4) !important; border-radius: 0 !important;
-  color: var(--ink-lt) !important; text-align: left !important; padding: 6px 10px !important;
-  font-family: 'Noto Sans TC', sans-serif !important; font-size: .9em !important; width: 100% !important;
+  color: var(--ink-lt) !important; text-align: center !important; padding: 8px !important;
+  font-family: 'Noto Serif TC', serif !important; font-size: 1.05em !important;
+  font-weight: 600 !important; width: 100% !important;
 }
 [data-testid="stSidebar"] button[kind="secondary"]:hover {
-  color: var(--vermillion) !important; background: rgba(196,147,58,.1) !important;
+  color: var(--vermillion) !important; background: rgba(247,237,216,.42) !important;
 }
 .sidebar-section-title {
-  font-family: 'Noto Serif TC', serif; font-size: .76em; font-weight: 700;
-  letter-spacing: .08em; color: var(--ink-mute); margin: 4px 0 8px;
+  font-family: 'Noto Serif TC', serif; font-size: .92em; font-weight: 700;
+  letter-spacing: .08em; color: var(--ink); margin: 4px 0 8px; text-align: center;
 }
 .sidebar-preview {
-  font-size: .8em; color: var(--ink-mute); line-height: 1.7; padding: 0 4px 6px;
+  font-size: .9em; color: var(--ink-lt); line-height: 1.7;
+  padding: 0 4px 6px; text-align: center;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -657,7 +685,7 @@ def _render_sidebar_nav(active_mode: str):
   const KEY = "__tungsacuFlyoutPositioner";
   if (host[KEY]?.cleanup) host[KEY].cleanup();
 
-  const TOP_GAP = 112;
+  const TOP_GAP = 136;
   const BOTTOM_GAP = 24;
   const CLOSE_DELAY = 300;
   let activeNavItem = null;
