@@ -153,7 +153,8 @@ html, body, [class*="css"], .stApp {
   color: var(--ink) !important;
   text-align: center !important;
 }
-[data-testid="block-container"] {
+[data-testid="block-container"],
+[data-testid="stMainBlockContainer"] {
   background-color: var(--parchment) !important;
   padding: 9.3rem 2rem 1.5rem !important; max-width: 900px !important;
 }
@@ -511,7 +512,7 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   .sidebar-flyout { display: none !important; }
 
   [data-testid="block-container"],
-  [data-testid="stMainBlockContainer"] { padding: 11rem 1rem 1.5rem !important; }
+  [data-testid="stMainBlockContainer"] { padding: 12.5rem 1rem 1.5rem !important; }
   .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .catalog-grid.two-col { grid-template-columns: 1fr; }
   .pair-result-list { grid-template-columns: 1fr; }
