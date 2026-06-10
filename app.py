@@ -16,6 +16,7 @@ if str(_BASE_DIR) not in sys.path:
     sys.path.insert(0, str(_BASE_DIR))
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 import data_loader as dl
 
@@ -149,16 +150,20 @@ html, body, [class*="css"], .stApp {
 }
 .sidebar-nav-caret { display: none; }
 .sidebar-flyout {
-  display: none; position: absolute; left: 126px; top: -8px; width: 260px; max-height: none;
-  overflow: visible; background: rgba(255,252,244,.98); border: 1px solid var(--divider);
+  display: block; position: absolute; left: 118px; top: -8px; width: 260px;
+  overflow: visible;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  transition: opacity .12s ease, visibility 0s linear .12s;
+  background: rgba(255,252,244,.98); border: 1px solid var(--divider);
   border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
   box-shadow: 8px 10px 24px rgba(44,28,16,.16); padding: 6px 0; z-index: 1004;
 }
 .sidebar-flyout::before {
-  content: ""; position: absolute; left: -22px; top: -16px; width: 22px; height: calc(100% + 32px);
+  content: ""; position: absolute; left: -42px; top: -16px; width: 42px; height: calc(100% + 32px);
 }
-.sidebar-nav-main:hover + .sidebar-flyout,
-.sidebar-flyout:hover { display: block; }
+.sidebar-nav-item.is-menu-open > .sidebar-flyout {
+  visibility: visible; opacity: 1; pointer-events: auto;
+}
 .sidebar-flyout a,
 .sidebar-flyout-main {
   display: block; padding: 10px 18px; color: var(--ink-lt); text-decoration: none !important;
@@ -177,16 +182,21 @@ html, body, [class*="css"], .stApp {
   content: "›"; color: var(--gold); font-family: 'Noto Sans TC', sans-serif;
 }
 .sidebar-subflyout {
-  display: none; position: absolute; left: 100%; top: -7px; width: 270px; max-height: 58vh;
-  overflow-y: auto; background: rgba(255,252,244,.98); border: 1px solid var(--divider);
+  display: block; position: absolute; left: calc(100% - 1px); top: -7px; width: 270px;
+  max-height: calc(100vh - 48px); overflow-y: auto;
+  overscroll-behavior: contain; scrollbar-gutter: stable;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  background: rgba(255,252,244,.98); border: 1px solid var(--divider);
   border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
   box-shadow: 8px 10px 24px rgba(44,28,16,.14); padding: 6px 0;
+  z-index: 1005;
 }
 .sidebar-subflyout::before {
-  content: ""; position: absolute; left: -32px; top: -12px; width: 32px; height: calc(100% + 24px);
+  content: ""; position: absolute; left: -34px; top: -12px; width: 34px; height: calc(100% + 24px);
 }
-.sidebar-flyout-row:hover > .sidebar-subflyout,
-.sidebar-subflyout:hover { display: block; }
+.sidebar-flyout-row.is-submenu-open > .sidebar-subflyout {
+  visibility: visible; opacity: 1; pointer-events: auto;
+}
 
 .pair-result-list {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -408,6 +418,38 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
 .needle-lbl { font-size: .8em; color: var(--gold); font-weight: 600; min-width: 44px; }
 .needle-val { font-size: .92em; color: var(--ink); line-height: 1.7; }
 
+.location-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem; align-items: stretch;
+}
+.location-panel {
+  display: flex; flex-direction: column; min-width: 0;
+}
+.location-panel > .section-label {
+  margin-top: 26px;
+}
+.location-image-frame {
+  position: relative; flex: 1 1 auto; min-height: 0; height: 0;
+  display: flex; align-items: flex-start; justify-content: center;
+  overflow: hidden; border-radius: 8px;
+}
+.location-image-frame img {
+  display: block; width: auto; height: auto;
+  max-width: 100%; max-height: 100%; object-fit: contain; object-position: center top;
+  border-radius: 8px;
+}
+.location-image-empty {
+  color: var(--ink-mute); font-size: .82em; padding-top: 8px;
+}
+.location-caution {
+  width: calc(50% - 1rem);
+}
+@media (max-width: 760px) {
+  .location-grid { grid-template-columns: 1fr; gap: 0; }
+  .location-image-frame { height: auto; max-height: 52vh; min-height: 220px; }
+  .location-caution { width: 100%; }
+}
+
 .src-block {
   background: rgba(255,255,255,.4); border: 1px solid var(--divider); border-radius: 6px;
   padding: 12px 16px; margin: 10px 0; font-size: .9em; color: var(--ink-lt); line-height: 1.75;
@@ -447,6 +489,10 @@ def _img_to_data_uri(path: Path) -> str:
     ext = path.suffix.lower().lstrip(".") or "png"
     mime = "image/png" if ext == "png" else f"image/{ext}"
     return f"data:{mime};base64,{_b64.b64encode(path.read_bytes()).decode('ascii')}"
+
+
+def _html_text(value: str) -> str:
+    return _html.escape(str(value or "")).replace("\n", "<br>")
 
 
 def _nav_href(nav: str, **params) -> str:
@@ -576,7 +622,7 @@ def _render_sidebar_nav(active_mode: str):
                     for child_text, child_href in children
                 )
                 + "</div></div>"
-                for text, href, children in items
+                for idx, (text, href, children) in enumerate(items)
             )
         else:
             links = "\n".join(
@@ -601,6 +647,160 @@ def _render_sidebar_nav(active_mode: str):
   </div>
 </div>
 """, unsafe_allow_html=True)
+
+    components.html(
+        """
+<script>
+(() => {
+  const host = window.parent;
+  const doc = host.document;
+  const KEY = "__tungsacuFlyoutPositioner";
+  if (host[KEY]?.cleanup) host[KEY].cleanup();
+
+  const TOP_GAP = 112;
+  const BOTTOM_GAP = 24;
+  const CLOSE_DELAY = 300;
+  let activeNavItem = null;
+  let activeRow = null;
+  let closeTimer = null;
+
+  function place(row) {
+    const submenu = row?.querySelector(":scope > .sidebar-subflyout");
+    const flyout = row?.closest(".sidebar-flyout");
+    if (!submenu || !flyout) return;
+
+    const rowRect = row.getBoundingClientRect();
+    const flyoutRect = flyout.getBoundingClientRect();
+    const maxHeight = Math.max(180, host.innerHeight - TOP_GAP - BOTTOM_GAP);
+
+    submenu.style.position = "fixed";
+    submenu.style.left = `${Math.round(flyoutRect.right - 1)}px`;
+    submenu.style.right = "auto";
+    submenu.style.bottom = "auto";
+    submenu.style.maxHeight = `${Math.floor(maxHeight)}px`;
+
+    const panelHeight = Math.min(submenu.scrollHeight, maxHeight);
+    const desiredTop = rowRect.top - 7;
+    const latestTop = host.innerHeight - BOTTOM_GAP - panelHeight;
+    const top = Math.max(TOP_GAP, Math.min(desiredTop, latestTop));
+    submenu.style.top = `${Math.round(top)}px`;
+  }
+
+  function cancelClose() {
+    if (closeTimer !== null) {
+      host.clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+  }
+
+  function closeMenus() {
+    cancelClose();
+    activeRow?.classList.remove("is-submenu-open");
+    activeNavItem?.classList.remove("is-menu-open");
+    activeRow = null;
+    activeNavItem = null;
+  }
+
+  function scheduleClose() {
+    cancelClose();
+    closeTimer = host.setTimeout(closeMenus, CLOSE_DELAY);
+  }
+
+  function activateNavItem(navItem) {
+    cancelClose();
+    if (activeNavItem && activeNavItem !== navItem) {
+      activeRow?.classList.remove("is-submenu-open");
+      activeNavItem.classList.remove("is-menu-open");
+      activeRow = null;
+    }
+    activeNavItem = navItem;
+    activeNavItem.classList.add("is-menu-open");
+  }
+
+  function activateRow(row) {
+    const navItem = row.closest(".sidebar-nav-item");
+    if (!navItem) return;
+    activateNavItem(navItem);
+    if (activeRow && activeRow !== row) {
+      activeRow.classList.remove("is-submenu-open");
+    }
+    activeRow = row;
+    place(row);
+    row.classList.add("is-submenu-open");
+  }
+
+  function onPointerOver(event) {
+    const target = event.target;
+    if (!(target instanceof host.Element)) return;
+    const row = target.closest(".sidebar-flyout-row");
+    if (row) {
+      activateRow(row);
+      return;
+    }
+    const navItem = target.closest(".sidebar-nav-item");
+    if (navItem) activateNavItem(navItem);
+  }
+
+  function onPointerOut(event) {
+    const target = event.target;
+    if (!(target instanceof host.Element)) return;
+    const navItem = target.closest(".sidebar-nav-item");
+    if (!navItem || navItem !== activeNavItem) return;
+
+    const related = event.relatedTarget;
+    if (related instanceof host.Node && navItem.contains(related)) return;
+    scheduleClose();
+  }
+
+  function onFocusIn(event) {
+    const target = event.target;
+    if (!(target instanceof host.Element)) return;
+    const row = target.closest(".sidebar-flyout-row");
+    if (row) {
+      activateRow(row);
+      return;
+    }
+    const navItem = target.closest(".sidebar-nav-item");
+    if (navItem) activateNavItem(navItem);
+  }
+
+  function onFocusOut(event) {
+    const target = event.target;
+    if (!(target instanceof host.Element)) return;
+    const navItem = target.closest(".sidebar-nav-item");
+    if (!navItem || navItem !== activeNavItem) return;
+
+    const related = event.relatedTarget;
+    if (related instanceof host.Node && navItem.contains(related)) return;
+    scheduleClose();
+  }
+
+  function onResize() {
+    if (activeRow?.isConnected) place(activeRow);
+  }
+
+  doc.addEventListener("pointerover", onPointerOver, true);
+  doc.addEventListener("pointerout", onPointerOut, true);
+  doc.addEventListener("focusin", onFocusIn, true);
+  doc.addEventListener("focusout", onFocusOut, true);
+  host.addEventListener("resize", onResize);
+
+  host[KEY] = {
+    cleanup() {
+      closeMenus();
+      doc.removeEventListener("pointerover", onPointerOver, true);
+      doc.removeEventListener("pointerout", onPointerOut, true);
+      doc.removeEventListener("focusin", onFocusIn, true);
+      doc.removeEventListener("focusout", onFocusOut, true);
+      host.removeEventListener("resize", onResize);
+    }
+  };
+})();
+</script>
+""",
+        height=0,
+        width=0,
+    )
 
 
 def _render_symptom_grid(groups):
@@ -698,10 +898,8 @@ def show_detail(ap_id: int):
     fig = d.get("穴號", "") or ""
     rname = d.get("部位", "")
     rbody = d.get("身體分區", "") or ""
-    page = d.get("頁碼", "")
 
     badge_region = f"<span class='detail-badge'>📍 {rname}{('　'+rbody) if rbody else ''}</span>"
-    badge_page = f"<span class='detail-badge'>《穴位詮釋解》p.{page}</span>" if page else ""
     st.markdown(f"""
 <div class="detail-header">
   <div class="detail-code-circle">
@@ -710,7 +908,7 @@ def show_detail(ap_id: int):
   </div>
   <div>
     <div class="detail-title">{name}</div>
-    <div class="detail-badges">{badge_region}{badge_page}</div>
+    <div class="detail-badges">{badge_region}</div>
   </div>
 </div>""", unsafe_allow_html=True)
 
@@ -734,36 +932,43 @@ def show_detail(ap_id: int):
 
     # ── Tab 0：取穴定位 ──
     with tabs[0]:
-        col_text, col_img = st.columns([1, 1], gap="large")
-        with col_text:
-            if loc:
-                st.markdown(
-                    "<div class='section-label'>位置</div>"
-                    f"<div class='section-body'>{loc}</div>",
-                    unsafe_allow_html=True,
-                )
-            if needle:
-                st.markdown(
-                    "<div class='section-label'>針法</div>"
-                    f"<div class='needle-card'>"
-                    f"<div class='needle-row'><span class='needle-lbl'>針法</span>"
-                    f"<span class='needle-val'>{needle}</span></div></div>",
-                    unsafe_allow_html=True,
-                )
-            if caution:
-                st.markdown(
-                    "<div class='section-label'>備註</div>"
-                    f"<div class='section-body'>{caution}</div>",
-                    unsafe_allow_html=True,
-                )
-        with col_img:
-            st.markdown("<div class='section-label'>穴位圖</div>", unsafe_allow_html=True)
-            if img_abs:
-                st.image(str(img_abs), width=320)
-                if fig:
-                    st.caption(fig)
-            else:
-                st.caption("此穴尚無圖")
+        location_html = (
+            "<div class='location-grid'>"
+            "<section class='location-panel'>"
+            "<div class='section-label'>位置</div>"
+            f"<div class='section-body'>{_html_text(loc) if loc else '此穴暫無位置資料'}</div>"
+        )
+        if needle:
+            location_html += (
+                "<div class='section-label'>針法</div>"
+                "<div class='needle-card'>"
+                "<div class='needle-row'><span class='needle-lbl'>針法</span>"
+                f"<span class='needle-val'>{_html_text(needle)}</span></div></div>"
+            )
+        location_html += (
+            "</section>"
+            "<section class='location-panel'>"
+            "<div class='section-label'>穴位圖</div>"
+        )
+        if img_abs:
+            image_uri = _img_to_data_uri(img_abs)
+            location_html += (
+                "<div class='location-image-frame'>"
+                f"<img src='{image_uri}' alt='{_html.escape(name)}穴位圖'>"
+                + "</div>"
+            )
+        else:
+            location_html += "<div class='location-image-empty'>此穴尚無圖</div>"
+        location_html += "</section></div>"
+        st.markdown(location_html, unsafe_allow_html=True)
+
+        if caution:
+            st.markdown(
+                "<div class='location-caution'>"
+                "<div class='section-label'>備註</div>"
+                f"<div class='section-body'>{_html_text(caution)}</div></div>",
+                unsafe_allow_html=True,
+            )
 
         # 現代解剖（從 note 抽）
         anatomy = dl.extract_md_section(note_md, "現代解剖")
