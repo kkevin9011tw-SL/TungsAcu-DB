@@ -478,6 +478,45 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   .location-caution { width: 100%; }
 }
 
+/* ── 手機版（≤768px）：topbar 縮小、sidebar 變頂部導航列、flyout 停用 ── */
+@media (max-width: 768px) {
+  [data-testid="stHeader"] { height: 64px !important; }
+  .app-topbar { height: 64px; padding: 8px 14px; gap: 10px; }
+  .app-logo { width: 34px; height: 34px; }
+  .app-title-zh { font-size: 1.18em; }
+  .app-title-en { display: none; }
+  .app-admin-link { padding: 3px 10px; font-size: .74em; }
+
+  [data-testid="stSidebar"] {
+    position: fixed !important; top: 64px !important; left: 0 !important;
+    width: 100vw !important; min-width: 100vw !important; max-width: 100vw !important;
+    height: auto !important; min-height: 0 !important;
+    border-right: none !important; border-bottom: 1px solid var(--divider) !important;
+    box-shadow: 0 2px 10px rgba(44,28,16,.1) !important;
+  }
+  [data-testid="stSidebar"] > div:first-child {
+    padding: 8px 12px 4px !important;
+    height: auto !important; min-height: 0 !important; width: 100% !important;
+  }
+  [data-testid="stSidebarHeader"], [data-testid="stLogoSpacer"] { display: none !important; }
+  [data-testid="stSidebarContent"] { padding: 0 !important; }
+  [data-testid="stSidebarUserContent"] { padding: 6px 12px 4px !important; }
+  [data-testid="stSidebar"] [data-testid="stVerticalBlock"] { gap: 4px !important; }
+  .sidebar-layout-anchor { display: none; height: 0; min-height: 0; }
+  .sidebar-nav-shell { margin: 4px 0 2px; }
+  .sidebar-nav { display: flex; flex-direction: row; justify-content: space-around; align-items: center; }
+  .sidebar-nav-item + .sidebar-nav-item { margin-top: 0; }
+  .sidebar-nav-main { font-size: 1.05em; padding: 2px 6px; }
+  /* 觸控裝置沒有 hover，導航改為點擊進頁（首頁部位區塊即完整清單） */
+  .sidebar-flyout { display: none !important; }
+
+  [data-testid="block-container"],
+  [data-testid="stMainBlockContainer"] { padding: 11rem 1rem 1.5rem !important; }
+  .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .catalog-grid.two-col { grid-template-columns: 1fr; }
+  .pair-result-list { grid-template-columns: 1fr; }
+}
+
 .src-block {
   background: rgba(255,255,255,.4); border: 1px solid var(--divider); border-radius: 6px;
   padding: 12px 16px; margin: 10px 0; font-size: .9em; color: var(--ink-lt); line-height: 1.75;
