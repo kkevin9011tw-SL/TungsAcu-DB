@@ -257,6 +257,26 @@ html, body, [class*="css"], .stApp {
   gap: 12px 14px; margin-bottom: 22px;
 }
 .catalog-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* 主頁分類摺疊區塊（桌面預設展開，手機由 JS 收合） */
+.catalog-acc {
+  margin-bottom: 14px; border: 1px solid var(--divider); border-radius: 8px;
+  background: var(--surface);
+}
+.catalog-acc > summary {
+  cursor: pointer; list-style: none; padding: 12px 18px;
+  font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 1.06em;
+  color: var(--vermillion); letter-spacing: .04em;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.catalog-acc > summary::-webkit-details-marker { display: none; }
+.catalog-acc > summary::after {
+  content: "›"; color: var(--gold); font-size: 1.2em;
+  transition: transform .15s ease;
+}
+.catalog-acc[open] > summary { border-bottom: 1px solid var(--divider); }
+.catalog-acc[open] > summary::after { transform: rotate(90deg); }
+.catalog-acc > .catalog-grid { padding: 12px 14px; margin-bottom: 0; }
 .catalog-card {
   min-height: 48px; display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 2px;
@@ -488,10 +508,15 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   .app-title-en { display: none; }
   .app-admin-link { padding: 3px 10px; font-size: .74em; }
 
-  [data-testid="stSidebar"] {
+  /* 真機上 Streamlit 會把 sidebar 切成 aria-expanded="false"，
+     桌面那條 200px 鎖定規則特異性較高，這裡必須連同該狀態一起覆蓋 */
+  [data-testid="stSidebar"],
+  [data-testid="stSidebar"][aria-expanded="false"],
+  [data-testid="stSidebar"][aria-expanded="true"] {
     position: fixed !important; top: 64px !important; left: 0 !important;
     width: 100vw !important; min-width: 100vw !important; max-width: 100vw !important;
     height: auto !important; min-height: 0 !important;
+    transform: none !important; visibility: visible !important;
     border-right: none !important; border-bottom: 1px solid var(--divider) !important;
     box-shadow: 0 2px 10px rgba(44,28,16,.1) !important;
   }
@@ -501,7 +526,7 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   }
   [data-testid="stSidebarHeader"], [data-testid="stLogoSpacer"] { display: none !important; }
   [data-testid="stSidebarContent"] { padding: 0 !important; }
-  [data-testid="stSidebarUserContent"] { padding: 6px 12px 4px !important; }
+  [data-testid="stSidebarUserContent"] { padding: 6px 12px 14px !important; }
   [data-testid="stSidebar"] [data-testid="stVerticalBlock"] { gap: 4px !important; }
   .sidebar-layout-anchor { display: none; height: 0; min-height: 0; }
   .sidebar-nav-shell { margin: 4px 0 2px; }
@@ -516,6 +541,16 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .catalog-grid.two-col { grid-template-columns: 1fr; }
   .pair-result-list { grid-template-columns: 1fr; }
+  /* 症狀／清單卡片：手機一列兩個，字多縮小不換行 */
+  .catalog-card { font-size: .82rem; padding: 10px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  [data-testid="stColumn"] {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    min-width: calc(50% - 0.5rem) !important;
+  }
+  [data-testid="stMainBlockContainer"] button p {
+    font-size: .82rem !important; white-space: nowrap !important;
+    overflow: hidden !important; text-overflow: ellipsis !important;
+  }
 }
 
 .src-block {
@@ -932,6 +967,15 @@ def _render_sidebar_nav(active_mode: str):
   doc.addEventListener("focusout", onFocusOut, true);
   host.addEventListener("resize", onResize);
 
+  // 手機：主頁分類摺疊區塊預設收合（只收一次，使用者再展開不干涉）
+  function collapseAccordions() {
+    if (host.innerWidth > 768) return;
+    doc.querySelectorAll("details.catalog-acc[open]").forEach(d => {
+      if (!d.dataset.accInit) { d.dataset.accInit = "1"; d.removeAttribute("open"); }
+    });
+  }
+  [0, 250, 600, 1200].forEach(ms => host.setTimeout(collapseAccordions, ms));
+
   host[KEY] = {
     cleanup() {
       closeMenus();
@@ -951,23 +995,12 @@ def _render_sidebar_nav(active_mode: str):
 
 
 def _render_symptom_grid(groups):
-    for section, items in groups:
-        st.markdown(f"<div class='catalog-section-title'>{section}</div>", unsafe_allow_html=True)
-        for row_start in range(0, len(items), 4):
-            chunk = items[row_start:row_start + 4]
-            cols = st.columns(len(chunk))
-            for idx, symptom in enumerate(chunk):
-                with cols[idx]:
-                    if st.button(
-                        symptom,
-                        key=f"sym_grid_{section}_{row_start}_{idx}",
-                        use_container_width=True,
-                    ):
-                        st.session_state._pending_mode = "💊 症狀"
-                        st.session_state._pending_symptom = symptom
-                        st.session_state._set_search_kw = symptom
-                        st.session_state.selected_ap = None
-                        st.rerun()
+    # 與 catalog 同樣的摺疊清單；症狀點擊走 ?nav=symptom&sub=<症狀> 查詢路徑
+    _render_catalog_grid(
+        [(section, [(item, item) for item in items]) for section, items in groups],
+        "symptom",
+        param="sub",
+    )
 
 
 def _render_catalog_grid(groups, nav: str, param: str = "sub"):
@@ -979,8 +1012,10 @@ def _render_catalog_grid(groups, nav: str, param: str = "sub"):
                 f"{_html.escape(label)}</a>"
             )
         st.markdown(
-            f"<div class='catalog-section-title'>{_html.escape(section)}</div>"
-            f"<div class='catalog-grid'>{''.join(cards)}</div>",
+            # 桌面預設展開；手機（≤768px）由 sidebar 的 positioner script 收合
+            f"<details class='catalog-acc' open><summary>{_html.escape(section)}"
+            f"<small style='color:var(--ink-mute);font-weight:400'>{len(items)} 項</small></summary>"
+            f"<div class='catalog-grid'>{''.join(cards)}</div></details>",
             unsafe_allow_html=True,
         )
 
