@@ -543,7 +543,8 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   .pair-result-list { grid-template-columns: 1fr; }
   /* 症狀／清單卡片：手機一列兩個，字多縮小不換行 */
   .catalog-card { font-size: .82rem; padding: 10px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  [data-testid="stColumn"] {
+  /* 只壓含按鈕的欄位（主治關鍵字格等）成兩欄，不動比例式內容欄位 */
+  [data-testid="stColumn"]:has([data-testid="stButton"]) {
     flex: 1 1 calc(50% - 0.5rem) !important;
     min-width: calc(50% - 0.5rem) !important;
   }
