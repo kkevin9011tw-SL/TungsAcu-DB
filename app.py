@@ -536,8 +536,10 @@ hr { border: none !important; border-top: 1px solid var(--divider) !important; m
   /* 觸控裝置沒有 hover，導航改為點擊進頁（首頁部位區塊即完整清單） */
   .sidebar-flyout { display: none !important; }
 
+  /* 底部留 7rem：iOS Safari 工具列常駐蓋住內層捲動容器的最下方 ~100px，
+     不留白的話最後一個分類永遠捲不出來 */
   [data-testid="block-container"],
-  [data-testid="stMainBlockContainer"] { padding: 12.5rem 1rem 1.5rem !important; }
+  [data-testid="stMainBlockContainer"] { padding: 12.5rem 1rem 7rem !important; }
   .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .catalog-grid.two-col { grid-template-columns: 1fr; }
   .pair-result-list { grid-template-columns: 1fr; }
