@@ -20,6 +20,7 @@ CSV_SYMPTOMS = DATA_DIR / "症狀治療.csv"
 CSV_REGIONS = DATA_DIR / "部位表.csv"
 CSV_SYMPTOM_STANDARDS = DATA_DIR / "症狀標準詞表.csv"
 CSV_SYMPTOM_MAPPINGS = DATA_DIR / "症狀映射表.csv"
+CSV_TEAS_CATALOG = DATA_DIR / "治療析要目錄候選.csv"
 IMG_DIR = DATA_DIR / "images"
 NOTES_DIR = DATA_DIR / "notes"
 
@@ -65,6 +66,28 @@ def load_symptom_mappings_df() -> pd.DataFrame:
     return pd.read_csv(CSV_SYMPTOM_MAPPINGS, dtype=str).fillna("")
 
 
+@st.cache_data
+def load_teas_catalog_df() -> pd.DataFrame:
+    df = pd.read_csv(CSV_TEAS_CATALOG, dtype=str).fillna("")
+    df["目錄排序"] = pd.to_numeric(df["目錄排序"], errors="coerce").fillna(9999).astype(int)
+    return df
+
+
+def get_teas_entry(symptom_name: str) -> dict | None:
+    """依症狀名稱（標準症狀或目錄症狀）查 TEAS 詳情。找不到回傳 None。"""
+    df = load_teas_catalog_df()
+    # 先試精確匹配「匹配標準症狀」
+    row = df[df["匹配標準症狀"] == symptom_name]
+    if row.empty:
+        row = df[df["目錄症狀"] == symptom_name]
+    if row.empty:
+        # 部分匹配（目錄症狀可能含括號注釋）
+        row = df[df["目錄症狀"].str.startswith(symptom_name)]
+    if row.empty:
+        return None
+    return row.iloc[0].to_dict()
+
+
 def invalidate_cache():
     load_acupoints_df.clear()
     load_regions_df.clear()
@@ -72,6 +95,7 @@ def invalidate_cache():
     load_symptoms_df.clear()
     load_symptom_standards_df.clear()
     load_symptom_mappings_df.clear()
+    load_teas_catalog_df.clear()
     load_note.clear()
 
 

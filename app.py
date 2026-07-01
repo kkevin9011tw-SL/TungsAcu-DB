@@ -122,10 +122,11 @@ html, body, [class*="css"], .stApp {
 [data-testid="stSidebar"] {
   background-color: var(--parchment-dk) !important;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720'%3E%3Cfilter id='cloud'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .045' numOctaves='4' seed='23' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='1.2'/%3E%3C/filter%3E%3Cfilter id='vein'%3E%3CfeTurbulence type='turbulence' baseFrequency='.008 .032' numOctaves='3' seed='41' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='54' xChannelSelector='R' yChannelSelector='B'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cloud)' opacity='.16'/%3E%3Cg filter='url(%23vein)' fill='none' stroke-linecap='round'%3E%3Cpath d='M-40 120 C70 60 110 230 220 160 S350 90 410 150' stroke='%23A78A5D' stroke-width='2.2' opacity='.28'/%3E%3Cpath d='M-70 345 C45 285 125 430 245 355 S365 300 420 370' stroke='%23BDA67D' stroke-width='5' opacity='.16'/%3E%3Cpath d='M-30 565 C80 500 150 650 255 575 S365 525 410 590' stroke='%238D704B' stroke-width='1.5' opacity='.22'/%3E%3Cpath d='M35 -40 C5 120 150 185 105 340 S185 600 145 760' stroke='%23FFF8E8' stroke-width='8' opacity='.18'/%3E%3Cpath d='M-55 55 C50 20 135 115 230 72 S345 40 415 88' stroke='%23947A55' stroke-width='1.1' opacity='.19'/%3E%3Cpath d='M-35 205 C85 145 145 285 250 218 S355 180 405 225' stroke='%23C2AA80' stroke-width='2.8' opacity='.14'/%3E%3Cpath d='M-60 275 C40 245 130 335 225 292 S340 250 420 315' stroke='%238B704D' stroke-width='1.2' opacity='.18'/%3E%3Cpath d='M-45 435 C65 375 135 495 240 448 S350 405 415 455' stroke='%23B49A70' stroke-width='2' opacity='.16'/%3E%3Cpath d='M-70 500 C55 455 125 550 235 510 S350 470 425 525' stroke='%23977B54' stroke-width='.9' opacity='.2'/%3E%3Cpath d='M-40 650 C65 600 145 705 255 662 S360 625 415 680' stroke='%23C5AE86' stroke-width='3.5' opacity='.13'/%3E%3Cpath d='M250 -45 C205 90 330 180 275 315 S325 565 285 760' stroke='%23A68B63' stroke-width='1.3' opacity='.17'/%3E%3Cpath d='M165 -55 C120 85 230 155 180 290 S245 530 205 755' stroke='%23FFF8E8' stroke-width='4.5' opacity='.12'/%3E%3C/g%3E%3C/svg%3E") !important;
-  background-size: 360px 720px !important;
-  background-repeat: repeat !important;
-  background-blend-mode: multiply !important;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720'%3E%3Cfilter id='cloud'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .045' numOctaves='4' seed='23' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='1.2'/%3E%3C/filter%3E%3Cfilter id='vein'%3E%3CfeTurbulence type='turbulence' baseFrequency='.008 .032' numOctaves='3' seed='41' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='54' xChannelSelector='R' yChannelSelector='B'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cloud)' opacity='.16'/%3E%3Cg filter='url(%23vein)' fill='none' stroke-linecap='round'%3E%3Cpath d='M-40 120 C70 60 110 230 220 160 S350 90 410 150' stroke='%23A78A5D' stroke-width='2.2' opacity='.28'/%3E%3Cpath d='M-70 345 C45 285 125 430 245 355 S365 300 420 370' stroke='%23BDA67D' stroke-width='5' opacity='.16'/%3E%3Cpath d='M-30 565 C80 500 150 650 255 575 S365 525 410 590' stroke='%238D704B' stroke-width='1.5' opacity='.22'/%3E%3Cpath d='M35 -40 C5 120 150 185 105 340 S185 600 145 760' stroke='%23FFF8E8' stroke-width='8' opacity='.18'/%3E%3Cpath d='M-55 55 C50 20 135 115 230 72 S345 40 415 88' stroke='%23947A55' stroke-width='1.1' opacity='.19'/%3E%3Cpath d='M-35 205 C85 145 145 285 250 218 S355 180 405 225' stroke='%23C2AA80' stroke-width='2.8' opacity='.14'/%3E%3Cpath d='M-60 275 C40 245 130 335 225 292 S340 250 420 315' stroke='%238B704D' stroke-width='1.2' opacity='.18'/%3E%3Cpath d='M-45 435 C65 375 135 495 240 448 S350 405 415 455' stroke='%23B49A70' stroke-width='2' opacity='.16'/%3E%3Cpath d='M-70 500 C55 455 125 550 235 510 S350 470 425 525' stroke='%23977B54' stroke-width='.9' opacity='.2'/%3E%3Cpath d='M-40 650 C65 600 145 705 255 662 S360 625 415 680' stroke='%23C5AE86' stroke-width='3.5' opacity='.13'/%3E%3Cpath d='M250 -45 C205 90 330 180 275 315 S325 565 285 760' stroke='%23A68B63' stroke-width='1.3' opacity='.17'/%3E%3Cpath d='M165 -55 C120 85 230 155 180 290 S245 530 205 755' stroke='%23FFF8E8' stroke-width='4.5' opacity='.12'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 38% 28%, #F9EDCA 0%, #EDD9A3 58%, #DFC58A 100%) !important;
+  background-size: 360px 720px, cover !important;
+  background-repeat: repeat, no-repeat !important;
+  background-blend-mode: multiply, normal !important;
   border-right: 1px solid var(--divider) !important;
   display: block !important;
   width: 200px !important; min-width: 200px !important; max-width: 200px !important;
@@ -622,14 +623,28 @@ def _ap_link_data():
              if str(r["穴名"]).strip()),
             key=lambda x: -len(x[0]),
         )
+        # 加入缺穴字尾的別名（如「靈骨穴」→ 也匹配「靈骨」）
+        existing = {n for n, _ in pairs}
+        aliases = [
+            (name[:-1], id_)
+            for name, id_ in pairs
+            if name.endswith("穴") and len(name) > 2 and name[:-1] not in existing
+        ]
+        # 手動別名：腎關 = 天皇副穴（id=119）
+        manual_aliases = [("腎關", 119)]
+        all_pairs = sorted(pairs + aliases + manual_aliases, key=lambda x: -len(x[0]))
         _AP_LINK_CACHE["key"] = key
-        _AP_LINK_CACHE["mapping"] = dict(pairs)
-        _AP_LINK_CACHE["pattern"] = re.compile("|".join(re.escape(n) for n, _ in pairs))
+        _AP_LINK_CACHE["mapping"] = {n: i for n, i in all_pairs}
+        _AP_LINK_CACHE["pattern"] = re.compile(
+            "|".join(re.escape(n) for n, _ in all_pairs)
+        )
     return _AP_LINK_CACHE["pattern"], _AP_LINK_CACHE["mapping"]
 
 
-def _linkify_ap_names(html_text: str, exclude: str = "") -> str:
-    """把內文中出現的其他穴名換成該穴詳情頁連結。exclude 為當前穴名（不自連）。"""
+def _linkify_ap_names(html_text: str, exclude: str = "", from_sym: str = "") -> str:
+    """把內文中出現的其他穴名換成詳情頁連結。
+    from_sym：若非空，連結加入 from_sym 參數供返回用。
+    """
     if not html_text:
         return html_text
     pattern, mapping = _ap_link_data()
@@ -638,10 +653,61 @@ def _linkify_ap_names(html_text: str, exclude: str = "") -> str:
         nm = m.group(0)
         if nm == exclude:
             return nm
-        return (f"<a class='ap-xref' href='{_nav_href('acupoint', ap=mapping[nm])}'"
-                f" target='_self'>{nm}</a>")
+        href = _nav_href("acupoint", ap=mapping[nm],
+                         **{"from_sym": from_sym} if from_sym else {})
+        return f"<a class='ap-xref' href='{href}' target='_self'>{nm}</a>"
 
     return pattern.sub(_rep, html_text)
+
+
+def _dong_to_text(raw: str) -> str:
+    """把董師原書設穴統一轉成「**症狀名稱** \\n 穴位（每部位代號一行）」格式。
+    表格與非表格皆支援。
+    """
+    lines = [ln.strip() for ln in raw.strip().splitlines()]
+    is_table = any(ln.startswith("|") and ln.endswith("|") for ln in lines)
+
+    def _split_points(pts: str) -> str:
+        """把 '22. 穴A;66. 穴B;...' 拆成每代號一行。"""
+        return "\n".join(p.strip() for p in re.split(r";(?=\d+\.)", pts) if p.strip())
+
+    if is_table:
+        parts = []
+        for ln in lines:
+            if re.match(r"^\|[-:\s|]+\|$", ln):
+                continue
+            if ln.startswith("|") and ln.endswith("|"):
+                cells = [c.strip() for c in ln[1:-1].split("|")]
+                if len(cells) >= 2 and cells[0]:
+                    parts.append(f"**{cells[0]}**\n{_split_points(cells[1])}")
+                elif len(cells) >= 1 and cells[0]:
+                    parts.append(f"**{cells[0]}**")
+        return "\n\n".join(parts)
+    else:
+        # 非表格：第一個非空、非數字開頭的行是症狀名稱
+        parts = []
+        cur_label = ""
+        cur_points: list[str] = []
+
+        for ln in lines:
+            if not ln:
+                continue
+            if re.match(r"^\d+\.", ln):
+                cur_points.extend(
+                    p.strip() for p in re.split(r";(?=\d+\.)", ln) if p.strip()
+                )
+            else:
+                if cur_label or cur_points:
+                    block = (f"**{cur_label}**\n" if cur_label else "") + "\n".join(cur_points)
+                    parts.append(block.strip())
+                cur_label = ln
+                cur_points = []
+
+        if cur_label or cur_points:
+            block = (f"**{cur_label}**\n" if cur_label else "") + "\n".join(cur_points)
+            parts.append(block.strip())
+
+        return "\n\n".join(parts) if parts else raw
 
 
 def _nav_href(nav: str, **params) -> str:
@@ -674,6 +740,11 @@ def _apply_nav_query():
     if nav == "acupoint":
         st.session_state.search_kw = ""
         st.session_state.pop("_pending_symptom", None)
+        from_sym = _query_value(params, "from_sym")
+        if from_sym:
+            st.session_state._teas_back_symptom = from_sym
+        else:
+            st.session_state.pop("_teas_back_symptom", None)
         ap_id = _query_value(params, "ap")
         if ap_id:
             try:
@@ -1078,6 +1149,15 @@ def show_detail(ap_id: int):
     if not d:
         st.error("找不到此穴位")
         return
+
+    back_sym = st.session_state.get("_teas_back_symptom", "")
+    if back_sym:
+        if st.button(f"← 返回「{back_sym}」", key="teas_ap_back"):
+            st.session_state._pending_symptom = back_sym
+            st.session_state._set_search_kw = back_sym
+            st.session_state.selected_ap = None
+            st.session_state.pop("_teas_back_symptom", None)
+            st.rerun()
 
     name = d.get("穴名", "")
     fig = d.get("穴號", "") or ""
@@ -1737,6 +1817,87 @@ def render_create_acupoint():
                 st.rerun()
 
 
+# ── 治療析要詳情頁 ──────────────────────────────────────────────────────────
+def render_teas_detail(symptom_name: str):
+    entry = dl.get_teas_entry(symptom_name)
+    if not entry:
+        # 無 TEAS 條目 → 降級為穴位搜尋結果
+        results = dl.search_symptoms_in_acupoints(symptom_name)
+        st.markdown(f"**「{symptom_name}」— 找到 {len(results)} 個穴位**")
+        _render_acupoint_cards_grid(results)
+        return
+
+    display_name = entry.get("目錄症狀", symptom_name)
+    chapter = entry.get("章", "")
+    section = entry.get("節", "")
+    badge_parts = [p for p in (chapter, section) if p]
+    badge_html = "".join(
+        f"<span class='detail-badge'>📂 {_html.escape(p)}</span>" for p in badge_parts
+    )
+    st.markdown(
+        f"""<div class="detail-header">
+  <div>
+    <div class="detail-title">{_html.escape(display_name)}</div>
+    <div class="detail-badges">{badge_html}</div>
+  </div>
+</div>""",
+        unsafe_allow_html=True,
+    )
+
+    sym = symptom_name  # 用於 from_sym 參數
+
+    overview = entry.get("概述", "")
+    if overview:
+        st.markdown(
+            "<div class='section-label'>概述</div>"
+            f"<div class='section-body'>{_linkify_ap_names(overview, from_sym=sym)}</div>",
+            unsafe_allow_html=True,
+        )
+
+    dong_raw = entry.get("董師原書設穴", "")
+    jiexi = entry.get("解析", "")
+    linchuang = entry.get("臨床常用選穴", "")
+    jieshou = entry.get("解說", "")
+
+    tab_labels = ["原書設穴與解析", "臨床常用選穴與解說"]
+    tabs = st.tabs(tab_labels)
+
+    with tabs[0]:
+        if dong_raw:
+            st.markdown(
+                "<div class='section-label'>董師原書設穴</div>",
+                unsafe_allow_html=True,
+            )
+            dong_fmt = _dong_to_text(dong_raw)
+            st.markdown(_linkify_ap_names(dong_fmt, from_sym=sym), unsafe_allow_html=True)
+        else:
+            st.caption("董師原書未設此症之穴")
+
+        if jiexi:
+            st.markdown(
+                "<div class='section-label'>解析（董師設穴）</div>"
+                f"<div class='section-body'>{_linkify_ap_names(jiexi, from_sym=sym)}</div>",
+                unsafe_allow_html=True,
+            )
+
+    with tabs[1]:
+        if linchuang:
+            st.markdown(
+                "<div class='section-label'>臨床常用選穴</div>",
+                unsafe_allow_html=True,
+            )
+            st.markdown(_linkify_ap_names(linchuang, from_sym=sym), unsafe_allow_html=True)
+        else:
+            st.caption("臨床常用選穴資料待補")
+
+        if jieshou:
+            st.markdown(
+                "<div class='section-label'>解說</div>"
+                f"<div class='section-body'>{_linkify_ap_names(jieshou, from_sym=sym)}</div>",
+                unsafe_allow_html=True,
+            )
+
+
 # ── 主區域 ────────────────────────────────────────────────────────────────
 def render_main():
     if st.session_state.get("admin_mode") and st.session_state.get("create_ap_open"):
@@ -1756,21 +1917,14 @@ def render_main():
 
     if mode == "💊 症狀":
         kw = search or st.session_state.get("_pending_symptom", "")
-        st.markdown("<div class='section-label'>按症狀查穴位</div>", unsafe_allow_html=True)
         if kw:
-            resolved_terms = dl.resolve_symptom_query(kw)
-            results = dl.search_symptoms_in_acupoints(kw)
-            st.markdown(f"**「{kw}」— 找到 {len(results)} 個穴位**")
-            if resolved_terms[1:]:
-                st.caption(f"對應標準詞／別名：{'、'.join(resolved_terms[1:8])}")
-            else:
-                st.caption("此詞目前尚未對齊標準症狀，先以原始關鍵字搜尋。")
             if st.button("← 返回症狀清單", key="symptom_back"):
                 st.session_state._set_search_kw = ""
                 st.session_state.pop("_pending_symptom", None)
                 st.rerun()
-            _render_acupoint_cards_grid(results)
+            render_teas_detail(kw)
         else:
+            st.markdown("<div class='section-label'>治療析要</div>", unsafe_allow_html=True)
             groups = dl.default_symptom_groups()
             _render_symptom_grid(groups)
         return
