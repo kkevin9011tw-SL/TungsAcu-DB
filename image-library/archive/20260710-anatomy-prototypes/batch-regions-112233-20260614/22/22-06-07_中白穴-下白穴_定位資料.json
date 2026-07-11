@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.06-07",
+  "title": "中白穴、下白穴",
+  "covered_points": [
+    "中白穴",
+    "下白穴"
+  ],
+  "view": "dorsal_hand",
+  "location_summary": "第四、五掌骨間；中白距掌指關節五分，下白再近腕一寸。",
+  "review_note": "原定位要求握拳，本版先依 WHO 開掌骨間隙建立相對位置。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "中白穴",
+        "pixel": [
+          300,
+          650
+        ]
+      },
+      {
+        "name": "下白穴",
+        "pixel": [
+          275,
+          790
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_第一輪審核.svg"
+  }
+}

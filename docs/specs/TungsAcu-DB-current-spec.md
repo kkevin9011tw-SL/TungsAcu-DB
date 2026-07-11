@@ -21,11 +21,17 @@ TungsAcu-DB/
 ├── app.py                       主程式
 ├── data_loader.py               pandas 查詢層 + @st.cache_data
 ├── migrate_to_csv.py            一次性遷移腳本（從 archive/ DB 重產 data/）
-├── extract_images_v2.py         從 MinerU 輸出抽穴位圖到 extracted_images/
+├── extract_images_v2.py         從 MinerU 輸出抽穴位圖到 image-library/extracted_images/
 ├── requirements.txt             Streamlit Cloud 相依
 ├── .streamlit/config.toml       固定 light theme
 ├── README_LOCAL_WORKSPACE.md    本機正式工作區說明
-├── assets/
+├── image-library/               圖庫與製圖素材
+│   ├── production/              人工驗收後的正式候選圖
+│   ├── extracted_images/        圖片審核中介與 manifest
+│   ├── marked-figures/          人工標定成果與 marker-tool
+│   ├── anatomy-sources/         可重用解剖來源素材
+│   ├── experiments/             套皮／表面圖／製圖試驗
+│   ├── archive/                 舊 POC 與封存素材
 │   └── logo-seal.png            topbar 印章 logo
 ├── data/                        ★ 正式後端
 │   ├── 穴位表.csv               234 列 × 13 欄
@@ -40,7 +46,6 @@ TungsAcu-DB/
 │   ├── specs/
 │   │   └── TungsAcu-DB-current-spec.md
 │   └── archive/                 歷史 spec/plan
-└── extracted_images/            圖片審核中介，.gitignore 不上傳
 ```
 
 ---
@@ -224,7 +229,7 @@ sidebar 最下方「🔐 管理員」展開 → 輸入密碼（本機 fallback `
 ### 三個 admin 功能
 
 1. **➕ 新增穴位**（sidebar 按鈕 → 表單頁）：填穴名 / 部位代碼 / 穴號 + 五個短欄位 → 寫一列到 `data/穴位表.csv`，跳到新穴詳情
-2. **🖼 圖片審核**（sidebar 按鈕 → 審核頁）：讀 `extracted_images/manifest.json`，逐張過濾、採用、跳過、重置；採用會複製到 `data/images/` 並更新 CSV「穴位圖」欄
+2. **🖼 圖片審核**（sidebar 按鈕 → 審核頁）：讀 `image-library/extracted_images/manifest.json`，逐張過濾、採用、跳過、重置；採用會複製到 `data/images/` 並更新 CSV「穴位圖」欄
 3. **✏️ 編輯 + 🗑 刪除**（詳情頁第 4 tab）：改 6 個短欄位寫回 CSV；底部「危險區」勾選確認後刪整列
 
 長文編輯（notes/*.md）目前**不在 admin tab 內**，請直接用文字編輯器開檔案改。
@@ -274,7 +279,7 @@ python migrate_to_csv.py
 
 ### 加更多穴位圖
 1. PDF 用 MinerU 跑 OCR → 4 個 part 的 content_list.json
-2. `python extract_images_v2.py` → 寫 `extracted_images/manifest.json`
+2. `python extract_images_v2.py` → 寫 `image-library/extracted_images/manifest.json`
 3. admin 圖片審核介面逐張採用
 
 ---
@@ -294,7 +299,7 @@ opencc-python-reimplemented>=0.1.7,<0.2.0
 
 ## 9. 不在這份 spec 範圍但已有的東西
 
-- `assets/logo-seal.png` 印章 logo
+- `image-library/logo-seal.png` 印章 logo
 - `.streamlit/config.toml` 強制宣紙淺色主題
 - `.streamlit/secrets.toml`（gitignore）放 admin 密碼
 - `archive/` 歷史 SQLite 備份

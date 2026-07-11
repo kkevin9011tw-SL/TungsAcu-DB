@@ -1,0 +1,100 @@
+
+===== 01_hand-palmar =====
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/01_hand-palmar_final.png
+  QC: 缺皮膚 107368px / 溢出 37980px / 補色 30 輪 / 未補 52px
+  ⚠ 缺皮膚像素偏多,請人工看 QC 圖,必要時換 seed 重生成
+
+===== 02_hand-dorsal =====
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/02_hand-dorsal_final.png
+  QC: 缺皮膚 53011px / 溢出 6751px / 補色 21 輪 / 未補 0px
+
+===== 03_upper-arm-anterior =====
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/03_upper-arm-anterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 04_forearm-anterior =====
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/04_forearm-anterior_final.png
+  QC: 缺皮膚 48296px / 溢出 32680px / 補色 24 輪 / 未補 0px
+
+===== 05_upper-arm-posterior =====
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/05_upper-arm-posterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 06_forearm-posterior =====
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/06_forearm-posterior_final.png
+  QC: 缺皮膚 36637px / 溢出 13387px / 補色 20 輪 / 未補 0px
+
+===== 07_head-anterior =====
+  work_box 未設,採用建議 [-1, 0, 960, 1368](bucket (832, 1184))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/07_head-anterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 08_head-posterior =====
+  work_box 未設,採用建議 [-1, 0, 859, 1470](bucket (768, 1312))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/08_head-posterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 09_chest-abdomen =====
+  work_box 未設,採用建議 [-18, 0, 1427, 1590](bucket (960, 1056))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/09_chest-abdomen_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 10_back =====
+  work_box 未設,採用建議 [5, 0, 1418, 2580](bucket (736, 1344))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/10_back_final.png
+  QC: 缺皮膚 2460px / 溢出 0px / 補色 5 輪 / 未補 0px
+
+===== 11_foot-plantar =====
+  work_box 未設,採用建議 [-5, 0, 778, 1464](bucket (736, 1376))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/11_foot-plantar_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 12_foot-dorsal =====
+  work_box 未設,採用建議 [6, 0, 804, 1458](bucket (736, 1344))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/12_foot-dorsal_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 13_lower-leg-anterior =====
+  work_box 未設,採用建議 [-9, 0, 837, 1446](bucket (768, 1312))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/13_lower-leg-anterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 14_lower-leg-posterior =====
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/14_lower-leg-posterior_final.png
+  QC: 缺皮膚 31378px / 溢出 3128px / 補色 29 輪 / 未補 0px
+
+===== 15_thigh-anterior =====
+  work_box 未設,採用建議 [5, 0, 823, 1494](bucket (736, 1344))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/15_thigh-anterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 16_thigh-posterior =====
+  work_box 未設,採用建議 [-2, 0, 680, 1494](bucket (672, 1472))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/16_thigh-posterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px
+
+===== 17_shoulder-joint-posterior =====
+  work_box 未設,採用建議 [-5, 0, 1049, 1500](bucket (832, 1184))
+  --reuse:沿用既有生成圖
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/17_shoulder-joint-posterior_final.png
+  QC: 缺皮膚 0px / 溢出 0px / 補色 0 輪 / 未補 0px

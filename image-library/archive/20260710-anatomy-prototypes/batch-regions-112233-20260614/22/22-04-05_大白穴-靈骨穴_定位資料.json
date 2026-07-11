@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.04-05",
+  "title": "大白穴、靈骨穴",
+  "covered_points": [
+    "大白穴",
+    "靈骨穴"
+  ],
+  "view": "dorsal_hand",
+  "location_summary": "第一、二掌骨間；大白近掌指關節，靈骨近第一、二掌骨接合處。",
+  "review_note": "臨床以握拳、立掌取穴；WHO 無相同姿勢，本版為開掌骨位對照。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "大白穴",
+        "pixel": [
+          705,
+          715
+        ]
+      },
+      {
+        "name": "靈骨穴",
+        "pixel": [
+          645,
+          870
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_第一輪審核.svg"
+  }
+}

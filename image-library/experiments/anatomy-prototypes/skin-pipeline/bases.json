@@ -1,0 +1,149 @@
+{
+  "defaults": {
+    "guidance": 30,
+    "steps": 50,
+    "seed": 42,
+    "replicate_attempts": 6,
+    "bone_alpha": 0.45,
+    "outline_alpha": 0.6,
+    "outline_thresh": 80,
+    "bones_lo": 80,
+    "bones_hi": 248,
+    "fill_warm_min": 12,
+    "fill_sum_min": 340,
+    "fill_sum_max": 740,
+    "fill_max_iters": 30,
+    "qc_todo_warn": 60000,
+    "prompt_template": "Soft realistic medical illustration of the {subject}, smooth photorealistic warm light skin with gentle airbrushed shading, subtle natural surface anatomy, pure white background, delicate acupuncture atlas style, soft even lighting, high resolution"
+  },
+  "bases": {
+    "01_hand-palmar": {
+      "subject": "palmar side of a left human hand and wrist, natural palm creases",
+      "work_box": [0, 0, 985, 1440],
+      "open_sides": ["bottom"],
+      "status": "pending"
+    },
+    "02_hand-dorsal": {
+      "subject": "dorsal side of a left human hand and wrist, soft natural knuckle creases and subtle tendon shadows on the back of the hand, natural pink fingernails",
+      "open_sides": ["bottom"],
+      "work_box": [35, 0, 1020, 1440],
+      "status": "validated 2026-07-03(黃金樣本)"
+    },
+    "03_upper-arm-anterior": {
+      "subject": "anterior view of a human upper arm from shoulder to elbow",
+      "prompt": "Clinical acupuncture atlas illustration of an anterior upper arm anatomical surface segment from shoulder to elbow, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "mask_strategy": "span",
+      "open_sides": ["top", "bottom"],
+      "status": "pending"
+    },
+    "04_forearm-anterior": {
+      "subject": "anterior view of a human forearm from elbow to wrist, palm side up",
+      "open_sides": ["top"],
+      "status": "pending"
+    },
+    "05_upper-arm-posterior": {
+      "subject": "posterior view of a human upper arm from shoulder to elbow",
+      "prompt": "Clinical acupuncture atlas illustration of a posterior upper arm anatomical surface segment from shoulder to elbow, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "mask_strategy": "span",
+      "open_sides": ["top", "bottom"],
+      "status": "pending"
+    },
+    "06_forearm-posterior": {
+      "subject": "posterior view of a human forearm from elbow to wrist",
+      "open_sides": ["top"],
+      "status": "pending"
+    },
+    "07_head-anterior": {
+      "subject": "front view of a human head and face with calm neutral expression, short hair",
+      "open_sides": ["bottom"],
+      "status": "pending",
+      "note": "頭髮深色會撞 fill_sum_min,跑完 QC 視情況調 fill 參數"
+    },
+    "08_head-posterior": {
+      "subject": "back view of a human head and neck, short hair",
+      "open_sides": ["bottom"],
+      "status": "pending",
+      "note": "同 07,深色頭髮需注意"
+    },
+    "09_chest-abdomen": {
+      "subject": "front view of a human torso, chest and abdomen",
+      "open_sides": ["top", "bottom"],
+      "seal_strategy": "full_span",
+      "status": "pending"
+    },
+    "10_back": {
+      "subject": "back view of a human torso from shoulders to waist",
+      "prompt": "Clinical acupuncture atlas illustration of a posterior torso surface from shoulders to waist, neutral educational medical diagram, smooth warm skin-toned anatomical surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "outline_thresh": 160,
+      "bones_lo": 249,
+      "mask_strategy": "source_nonwhite",
+      "mask_thresh": 250,
+      "open_sides": ["top", "bottom"],
+      "status": "pending"
+    },
+    "11_foot-plantar": {
+      "subject": "sole of a human foot, plantar view",
+      "prompt": "Clinical acupuncture atlas illustration of the sole of a human foot, plantar anatomical surface, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "open_sides": ["top"],
+      "status": "pending"
+    },
+    "12_foot-dorsal": {
+      "subject": "top dorsal view of a human foot with natural toenails",
+      "prompt": "Clinical acupuncture atlas illustration of the dorsal surface of a human foot with natural toenails, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "open_sides": ["top"],
+      "status": "pending"
+    },
+    "13_lower-leg-anterior": {
+      "subject": "anterior view of a human lower leg from knee to ankle",
+      "prompt": "Clinical acupuncture atlas illustration of an anterior lower leg anatomical surface segment from knee to ankle, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "open_sides": ["top", "bottom"],
+      "status": "pending"
+    },
+    "14_lower-leg-posterior": {
+      "subject": "posterior view of a human lower leg from knee to heel, calf muscles gently defined",
+      "work_box": [14, 0, 809, 1488],
+      "open_sides": ["top"],
+      "status": "pending"
+    },
+    "15_thigh-anterior": {
+      "subject": "anterior view of a human thigh from hip to knee",
+      "prompt": "Clinical acupuncture atlas illustration of an anterior thigh anatomical surface segment from hip to knee, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "open_sides": ["top", "bottom"],
+      "status": "pending"
+    },
+    "16_thigh-posterior": {
+      "subject": "posterior view of a human thigh from hip to knee",
+      "prompt": "Clinical acupuncture atlas illustration of a posterior thigh anatomical surface segment from hip to knee, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "open_sides": ["top", "bottom"],
+      "status": "pending"
+    },
+    "17_shoulder-joint-posterior": {
+      "subject": "posterior view of a human shoulder joint and upper back area",
+      "prompt": "Clinical acupuncture atlas illustration of a posterior shoulder joint and upper back anatomical surface, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text",
+      "replicate_attempts": 1,
+      "open_sides": ["bottom", "left"],
+      "status": "pending",
+      "note": "開放邊方向待 plan 確認"
+    },
+    "18_upper-back-skeleton": {
+      "skip": true,
+      "note": "骨骼圖底圖,不套皮,維持原線稿",
+      "subject": "",
+      "open_sides": []
+    },
+    "19_lower-back-skeleton": {
+      "skip": true,
+      "note": "骨骼圖底圖,不套皮,維持原線稿",
+      "subject": "",
+      "open_sides": []
+    }
+  }
+}

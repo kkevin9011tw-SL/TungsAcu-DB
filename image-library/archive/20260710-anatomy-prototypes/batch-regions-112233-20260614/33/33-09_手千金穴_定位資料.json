@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "33",
+  "code": "33.09",
+  "title": "手千金穴",
+  "covered_points": [
+    "手千金穴"
+  ],
+  "view": "forearm_posterior",
+  "location_summary": "尺骨外側，距腕部豌豆骨約八寸，筋下骨前。",
+  "review_note": "八寸比例可靠；筋下骨前的橫向位置需人工校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1116,
+      1620
+    ],
+    "axis": [
+      [
+        535.68,
+        1069.2
+      ],
+      [
+        479.88,
+        307.8
+      ]
+    ],
+    "points": [
+      {
+        "name": "手千金穴",
+        "cun": 8,
+        "offset": -80,
+        "pixel": [
+          578.266027707582,
+          555.7527970237943
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_第一輪審核.svg"
+  }
+}

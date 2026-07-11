@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.08-09",
+  "title": "腕順一穴、腕順二穴",
+  "covered_points": [
+    "腕順一穴",
+    "腕順二穴"
+  ],
+  "view": "dorsal_hand",
+  "location_summary": "第五掌骨尺側；腕順二距腕橫紋一寸五分，腕順一二寸五分。",
+  "review_note": "需校正第五掌骨外側骨緣與腕橫紋起點。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "腕順二穴",
+        "pixel": [
+          180,
+          785
+        ]
+      },
+      {
+        "name": "腕順一穴",
+        "pixel": [
+          165,
+          875
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_第一輪審核.svg"
+  }
+}

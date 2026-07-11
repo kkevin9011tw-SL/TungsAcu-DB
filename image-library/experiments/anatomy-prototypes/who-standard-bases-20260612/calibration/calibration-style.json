@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "status": "approved_pending_final_forearm_review",
+  "layout": {
+    "ruler_placement": "outside_anatomy",
+    "preferred_side": "side_with_more_available_space",
+    "must_not_overlap_anatomy": true,
+    "boundary_labels_must_not_overlap_anatomy": true
+  },
+  "ruler": {
+    "show_every_cun_tick": true,
+    "label_major_ticks": true,
+    "major_tick_interval_cun": 3,
+    "label_endpoint_values": false,
+    "direction": "distal_origin_to_proximal_end_when_clinically_conventional",
+    "extent_defined_by_anatomical_boundary_lines": true,
+    "draw_separate_endpoint_connector_lines": false
+  },
+  "boundary_lines": {
+    "style": "dashed",
+    "remain_visible": true,
+    "endpoint_alignment": "parallel_to_anatomical_axis",
+    "alignment_guides_visible": false,
+    "priority": "aligned_endpoints_over_exact_equal_length"
+  },
+  "point_correspondence": {
+    "point_position_source": "anatomical_landmark_and_written_location_rule",
+    "ruler_role": "proportional_reference_only",
+    "connector_style": "dashed",
+    "connector_must_not_change_point_position": true
+  },
+  "calibration_workflow": {
+    "store_anatomical_axis_in_data": true,
+    "display_anatomical_axis": false,
+    "display_external_ruler": true,
+    "require_human_review_per_anatomical_region": true,
+    "require_manual_markup_for_every_image": false
+  }
+}

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>董氏穴位標記工具</title>
+<style>
+  :root{--paper:#fbf6ea;--ink:#2c1c10;--muted:#75695f;--gold:#c4933a;--red:#b3261e;--blue:#0081a5;--green:#1f8a4c;--line:#d9cdb6;--panel:#fffdf7;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;font-family:"PingFang TC","Heiti TC",system-ui,sans-serif;color:var(--ink);background:#efe7d4;}
+  #app{display:flex;height:100vh;}
+  #stageWrap{flex:1;position:relative;overflow:hidden;background:#e7ddc6;}
+  #stage{position:absolute;inset:0;width:100%;height:100%;touch-action:none;}
+  #hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;color:var(--muted);font-size:15px;line-height:1.9;pointer-events:none;}
+  #coordTag,#zoomTag{position:absolute;bottom:10px;background:rgba(44,28,16,.82);color:#fff;font:12px/1.4 ui-monospace,monospace;padding:4px 8px;border-radius:6px;pointer-events:none;}
+  #coordTag{left:10px;}#zoomTag{right:10px;}
+  #toolTag{position:absolute;left:10px;top:10px;background:rgba(196,147,58,.95);color:#fff;font:13px/1.4 inherit;padding:5px 12px;border-radius:8px;pointer-events:none;font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  #zoomBtns{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px;}
+  #zoomBtns button{width:38px;height:38px;font-size:18px;line-height:1;border-radius:9px;background:rgba(255,253,247,.95);border:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.12);cursor:pointer;}
+  #zoomBtns button:hover{background:#f3ecda;}
+  #panel{width:344px;flex-shrink:0;background:var(--panel);border-left:1px solid var(--line);overflow-y:auto;padding:14px 16px 60px;}
+  #panel h1{font-size:17px;margin:0 0 2px;}
+  #panel .sub{font-size:12px;color:var(--muted);margin:0 0 12px;}
+  .sec{margin:13px 0;border-top:1px solid var(--line);padding-top:11px;}
+  .sec:first-of-type{border-top:none;padding-top:0;}
+  .sec h2{font-size:13px;margin:0 0 8px;color:var(--gold);letter-spacing:.5px;}
+  label.row{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0;}
+  label.row span{flex-shrink:0;color:var(--muted);}
+  input[type=text],input[type=number],select{font:13px inherit;padding:6px 7px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);width:100%;}
+  input[type=number]{width:66px;flex:none;}
+  input[type=range]{flex:1;}
+  button{font:13px inherit;padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);cursor:pointer;}
+  button:hover{background:#f3ecda;}
+  button.primary{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600;}
+  .btnrow{display:flex;gap:8px;flex-wrap:wrap;}
+  .btnrow button{flex:1;}
+  .tools{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+  .tool{display:flex;align-items:center;gap:7px;padding:8px 9px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:#fff;font-size:12.5px;}
+  .tool:hover{background:#f6efdd;}
+  .tool.active{border-color:var(--gold);background:#fdf3dc;box-shadow:0 0 0 2px rgba(196,147,58,.25) inset;}
+  .tool .sw{width:18px;height:0;border-top-width:3px;border-top-style:solid;flex-shrink:0;}
+  .tool .sw.dot{height:12px;width:12px;border-top:none;border-radius:50%;}
+  .tool.full{grid-column:1/3;}
+  .sub-opt{margin:6px 0 2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;}
+  .seg button{border:none;border-radius:0;border-right:1px solid var(--line);padding:5px 9px;min-width:28px;}
+  .seg button:last-child{border-right:none;}
+  .seg button.on{background:var(--blue);color:#fff;}
+  #props{background:#f6efdd;border-radius:8px;padding:10px;font-size:13px;}
+  #props .t{font-weight:600;margin-bottom:6px;}
+  #annoList{display:flex;flex-direction:column;gap:4px;max-height:170px;overflow:auto;}
+  .anno{display:flex;align-items:center;gap:8px;padding:6px 9px;border:1px solid var(--line);border-radius:7px;font-size:12px;background:#fff;cursor:pointer;}
+  .anno.sel{border-color:var(--gold);background:#fdf3dc;}
+  .anno .lbl{flex:1;}.anno .tag{color:var(--muted);font-size:11px;}
+  .anno .x{cursor:pointer;color:var(--red);font-weight:bold;padding:0 4px;}
+  .note{font-size:12px;color:var(--muted);line-height:1.7;}
+  .locbox{font-size:12px;line-height:1.7;background:#f6efdd;border-radius:6px;padding:8px;max-height:110px;overflow:auto;white-space:pre-wrap;}
+  kbd{font:11px ui-monospace,monospace;background:#eadfc6;border-radius:4px;padding:1px 5px;border:1px solid #d8c9a6;}
+  .badge{display:inline-block;background:var(--red);color:#fff;border-radius:5px;padding:1px 7px;font-size:12px;margin-left:4px;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stageWrap">
+    <svg id="stage" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="hint">尚未載入底圖<br>請按右側「載入底圖 SVG」選擇 clean-bases 內的檔案<br><br>
+      <span style="font-size:13px">雙指滑動平移 · 雙指捏合縮放 · 選工具標記 · 選取工具可移動元素</span></div>
+    <div id="toolTag" style="display:none"></div>
+    <div id="coordTag" style="display:none"></div>
+    <div id="zoomTag" style="display:none"></div>
+    <div id="zoomBtns" style="display:none">
+      <button id="btnZoomIn" title="放大">＋</button><button id="btnZoomOut" title="縮小">－</button><button id="btnZoomFit" title="重置視圖">⤢</button>
+    </div>
+  </div>
+
+  <div id="panel">
+    <h1>董氏穴位標記工具</h1>
+    <p class="sub">人工標記為真值 · 可移動排版 · 固定像素輸出</p>
+
+    <div class="sec">
+      <h2>底圖</h2>
+      <label class="row"><span>選底圖</span><select id="selBase"></select></label>
+      <input type="file" id="fileSvg" accept=".svg" style="display:none">
+      <div class="btnrow" style="margin-top:6px"><button id="btnLoad">或載入其他 SVG…</button></div>
+      <p class="note" id="baseInfo" style="margin-top:8px">尚未載入。</p>
+    </div>
+
+    <div class="sec">
+      <h2>① 選穴位</h2>
+      <label class="row"><span>部位</span><select id="selRegion"></select></label>
+      <label class="row"><span>穴位</span><select id="selPoint"></select></label>
+      <div class="locbox" id="locBox" style="margin-top:6px">選穴位後顯示取穴定位。</div>
+      <p class="note" style="margin-top:6px">目前穴位:<span class="badge" id="curPoint">未選</span></p>
+    </div>
+
+    <div class="sec">
+      <h2>② 工具</h2>
+      <div class="tools">
+        <div class="tool full active" data-tool="select"><span class="sw" style="border:none;width:16px">⬚</span>選取／移動(預設)</div>
+        <div class="tool" data-tool="line"><span class="sw" style="border-top-color:var(--blue);border-top-style:dashed"></span>A–E 線</div>
+        <div class="tool" data-tool="point"><span class="sw dot" style="background:var(--red)"></span>穴位紅點</div>
+        <div class="tool" data-tool="pointHollow"><span class="sw dot" style="background:transparent;border:2px solid var(--red)"></span>空心紅點</div>
+        <div class="tool" data-tool="boundary"><span class="sw" style="border-top-color:var(--red);border-top-style:dashed"></span>界線(紅虛)</div>
+        <div class="tool" data-tool="projection"><span class="sw" style="border-top-color:var(--green);border-top-style:dashed"></span>投影線(綠虛)</div>
+        <div class="tool" data-tool="ruler"><span class="sw" style="border-top-color:var(--blue)"></span>比例尺</div>
+        <div class="tool" data-tool="cunmark"><span class="sw" style="border-top-color:var(--ink);border-top-style:dashed"></span>寸投影</div>
+        <div class="tool" data-tool="loupe"><span class="sw" style="border:1.5px solid var(--gold);width:13px;height:13px;border-radius:50%"></span>放大鏡</div>
+        <div class="tool" data-tool="callout"><span class="sw" style="border:none;width:16px">↳T</span>引線標註</div>
+        <div class="tool" data-tool="text"><span class="sw" style="border:none;width:16px">T</span>文字</div>
+      </div>
+      <div class="sub-opt" id="colorRow">
+        <span>顏色:</span><span class="seg" id="colorSwatches"></span>
+      </div>
+      <div class="sub-opt" id="lineOpts" style="display:none">
+        <span>畫哪條:</span><span class="seg" id="lineLetters"></span>
+        <button id="btnAutoBCD" style="flex:none">依 A、E 補 B C D</button>
+      </div>
+      <div class="sub-opt" id="rulerOpts" style="display:none">
+        <span>等分:</span><input type="number" id="rulerDiv" value="12" min="1" max="30" step="1">
+        <span>頭值:</span><input type="number" id="rulerHead" value="12" step="0.5" style="width:56px">
+        <span>尾值:</span><input type="number" id="rulerTail" value="0" step="0.5" style="width:56px">
+        <span>標示寸數:</span><input type="text" id="rulerMarks" placeholder="如 1,3" style="width:90px">
+      </div>
+      <div class="btnrow" style="margin-top:8px">
+        <button id="btnUndo" title="Cmd+Z">↶ 返回</button>
+        <button id="btnCopySel" title="Cmd+C">複製</button>
+        <button id="btnPaste" title="Cmd+V">貼上</button>
+      </div>
+      <p class="note" style="margin-top:8px">線類:<b>點起點→點終點</b>。畫完自動切「選取」並選中,可拖移/拖端點縮放。<kbd>Esc</kbd> 取消、<kbd>Del</kbd> 刪除、<kbd>Cmd+Z</kbd> 返回、<kbd>Cmd+C/V</kbd> 複製貼上選取元素。</p>
+    </div>
+
+    <div class="sec">
+      <h2>③ 屬性 <span class="note" id="propHint">(選取一個元素來編輯)</span></h2>
+      <div id="props" style="display:none"></div>
+    </div>
+
+    <div class="sec">
+      <h2>④ 已標記 <span class="note" id="annoCount"></span></h2>
+      <div id="annoList"></div>
+      <div class="btnrow" style="margin-top:8px"><button id="btnClear">全部清除</button></div>
+    </div>
+
+    <div class="sec">
+      <h2>⑤ 輸出</h2>
+      <label class="row"><span>左右手/側</span><input type="text" id="sideNote" placeholder="如:左手掌面"></label>
+      <div class="btnrow" style="margin-top:6px">
+        <button id="btnSaveJson" class="primary">下載 JSON</button>
+        <button id="btnSaveSvg">下載 SVG 圖</button>
+        <button id="btnSavePng">下載 PNG 圖</button>
+      </div>
+      <div class="btnrow" style="margin-top:8px">
+        <button id="btnCopy">複製 JSON</button>
+        <button id="btnImport">載入 JSON 續編</button>
+        <input type="file" id="fileJson" accept=".json" style="display:none">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="acupoints-data.js"></script>
+<script src="bases-data.js"></script>
+<script>
+"use strict";
+const SVGNS="http://www.w3.org/2000/svg";
+const stage=document.getElementById("stage");
+const COL={line:"#0081a5",point:"#b3261e",boundary:"#b3261e",projection:"#1f8a4c",ruler:"#0081a5",text:"#2c1c10",callout:"#2c1c10",cunmark:"#2c1c10",loupe:"#c4933a"};
+const SWATCHES=[["預設",""],["紅","#b3261e"],["藍","#0081a5"],["綠","#1f8a4c"],["粉","#d6468f"],["黑","#2c1c10"]];
+const EXPORT_SCALE=6;            // 輸出像素 = viewBox 單位 × 6(手部 → 1020×1440)
+const DEF={w:4, r:11, fs:24};    // 預設:線粗 px、點半徑 px、字級 px(皆為輸出像素)
+
+let baseEl=null, baseVB=null, baseName="", baseInner="", overlay=null;
+let view={x:0,y:0,w:100,h:100};
+let annos=[], annoId=0;
+let tool="select", lineLetter="A", curColor="";
+let pending=null, lastUser=[0,0];
+let sel=null, drag=null;
+let undoStack=[], redoStack=[], clip=null, editPending=false;
+function capture(id){try{stage.setPointerCapture(id);}catch(e){}}
+
+// ---- 返回 / 複製 / 貼上 ----
+function snapshot(){return JSON.stringify(annos);}
+function pushHistory(){undoStack.push(snapshot());if(undoStack.length>80)undoStack.shift();redoStack.length=0;}
+function restore(json){annos=JSON.parse(json);annos.forEach(a=>{if(a.id==null)a.id=++annoId;});annoId=Math.max(annoId,0,...annos.map(a=>a.id||0));select(null);redraw();}
+function undo(){if(!undoStack.length)return;redoStack.push(snapshot());restore(undoStack.pop());}
+function redo(){if(!redoStack.length)return;undoStack.push(snapshot());restore(redoStack.pop());}
+function copySel(){if(sel)clip=JSON.parse(JSON.stringify(sel));}
+function pasteClip(){if(!clip)return;pushHistory();const b=JSON.parse(JSON.stringify(clip));b.id=++annoId;for(const k of["xy","p1","p2","anchor","pos","from","src","dst"])if(b[k])b[k]=[b[k][0]+8,b[k][1]+8];annos.push(b);setTool("select");select(b);}
+
+// ---- 幾何 ----
+const lerp=(p,q,t)=>[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];
+const mid=(p,q)=>lerp(p,q,0.5);
+const dist=(p,q)=>Math.hypot(p[0]-q[0],p[1]-q[1]);
+function distSeg(p,a,b){const vx=b[0]-a[0],vy=b[1]-a[1],wx=p[0]-a[0],wy=p[1]-a[1];const c=vx*vx+vy*vy;let t=c?((wx*vx+wy*vy)/c):0;t=Math.max(0,Math.min(1,t));return Math.hypot(p[0]-(a[0]+t*vx),p[1]-(a[1]+t*vy));}
+// 兩圓外公切線(回傳 0 或 2 條 {x1,y1,x2,y2})
+function outerTangents(c0,r0,c1,r1){const dx=c1[0]-c0[0],dy=c1[1]-c0[1],d=Math.hypot(dx,dy);if(d===0||Math.abs(r0-r1)>d)return[];const g=Math.atan2(dy,dx),b=Math.acos((r0-r1)/d),out=[];for(const s of[1,-1]){const a=g+s*b;out.push({x1:c0[0]+r0*Math.cos(a),y1:c0[1]+r0*Math.sin(a),x2:c1[0]+r1*Math.cos(a),y2:c1[1]+r1*Math.sin(a)});}return out;}
+// 找 cunmark 綁定的比例尺,算出尺上對應座標
+function cunTick(cm){const r=annos.find(x=>x.id===cm.rulerId&&x.type==="ruler");if(!r)return null;const head=(r.headValue!=null?r.headValue:(r.divisions||1)),tail=(r.tailValue!=null?r.tailValue:0);const den=(head-tail)||1;const frac=(cm.cun-tail)/den;return lerp(r.p2,r.p1,frac);}
+function nearestRuler(){return annos.filter(a=>a.type==="ruler").pop()||null;}
+const parseMarks=s=>String(s||"").split(/[,，\s]+/).map(x=>parseFloat(x)).filter(v=>!isNaN(v));
+// 放大鏡放大圓的預設位置:放在底圖外側空白,不擋原圖
+// 手:1–3 指(拇食中)放拇指側、4–5 指(無名小)放尺側;其他底圖依 src 左右半邊
+function loupeDst(src,srcR){
+  const dstR=srcR*2, gap=Math.max(10,baseVB[2]*0.06);
+  const leftX=baseVB[0]-gap-dstR, rightX=baseVB[0]+baseVB[2]+gap+dstR;
+  const name=baseName.toLowerCase();
+  let goLeft;
+  if(name.includes("hand")){
+    const radialLeft=!name.includes("dorsal");        // 掌面拇指在左;手背在右
+    const t=baseVB[0]+baseVB[2]*(radialLeft?0.56:0.44);
+    const srcRadial=radialLeft?(src[0]<t):(src[0]>t); // src 是否落在 1–3 指(拇指)半邊
+    goLeft=srcRadial?radialLeft:!radialLeft;          // 1–3→拇指側、4–5→尺側
+  }else{
+    goLeft=src[0]<baseVB[0]+baseVB[2]/2;
+  }
+  return{dst:[goLeft?leftX:rightX, src[1]], dstR};
+}
+// 比例尺數字位置:沿刻度法線推到刻度外側,避免壓在尺上
+function rulerLabelXY(a,frac,w){
+  let nx=(a.p2[1]-a.p1[1]),ny=-(a.p2[0]-a.p1[0]);const nl=Math.hypot(nx,ny)||1;nx/=nl;ny/=nl;
+  const p=lerp(a.p2,a.p1,frac),off=7*w;
+  return{x:p[0]+nx*off,y:p[1]+ny*off,anchor:nx>=0?"start":"end"};
+}
+
+// ---- 座標 ----
+function clientToUser(cx,cy){const pt=stage.createSVGPoint();pt.x=cx;pt.y=cy;const u=pt.matrixTransform(stage.getScreenCTM().inverse());return[u.x,u.y];}
+function upp(){return view.w/stage.getBoundingClientRect().width;}
+function applyView(){stage.setAttribute("viewBox",`${view.x} ${view.y} ${view.w} ${view.h}`);document.getElementById("zoomTag").textContent=`view ${view.w.toFixed(1)}×${view.h.toFixed(1)}`;}
+function el(t,a){const e=document.createElementNS(SVGNS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+
+// ---- 把元素畫進指定 group(live 與匯出共用,寬度以輸出像素 ÷scale 換成 user 單位)----
+const S=EXPORT_SCALE;
+function paintOne(g,a){
+  const c=a.color||COL[a.type];
+  const w=(a.w||DEF.w)/S, fs=(a.fs||DEF.fs)/S;
+  if(a.type==="line"||a.type==="boundary"||a.type==="projection"||a.type==="ruler"){
+    const o={x1:a.p1[0],y1:a.p1[1],x2:a.p2[0],y2:a.p2[1],stroke:c,"stroke-width":w,"stroke-linecap":"round"};
+    if(a.type!=="ruler") o["stroke-dasharray"]=`${w*2.5} ${w*1.8}`;
+    g.appendChild(el("line",o));
+    if(a.type==="ruler"){
+      const n=a.divisions||1, nx=(a.p2[1]-a.p1[1]),ny=-(a.p2[0]-a.p1[0]),nl=Math.hypot(nx,ny)||1;
+      for(let i=0;i<=n;i++){const p=lerp(a.p1,a.p2,i/n),tk=(i===0||i===n?2.4:1.6)*w*2;
+        g.appendChild(el("line",{x1:p[0]-nx/nl*tk,y1:p[1]-ny/nl*tk,x2:p[0]+nx/nl*tk,y2:p[1]+ny/nl*tk,stroke:c,"stroke-width":w*0.8,"stroke-linecap":"round"}));}
+      // 頭尾數值
+      {const head=(a.headValue!=null?a.headValue:(a.divisions||1)),tail=(a.tailValue!=null?a.tailValue:0),den=(head-tail)||1;
+       const addLbl=(frac,txt)=>{const L=rulerLabelXY(a,frac,w);const t=el("text",{x:L.x,y:L.y,"font-size":fs,fill:c,"font-weight":"bold","text-anchor":L.anchor,"dominant-baseline":"central"});t.textContent=txt;g.appendChild(t);};
+       if(a.headValue!=null)addLbl(1,a.headValue);
+       if(a.tailValue!=null)addLbl(0,a.tailValue);
+       if(a.marks)for(const v of a.marks)addLbl((v-tail)/den,v);
+       if(a.label)addLbl(0.5,a.label);}
+    }
+    if(a.type==="line"&&a.showLabel!==false){const t=el("text",{x:a.p1[0],y:a.p1[1]-1.2*fs,"font-size":fs,fill:c,"font-weight":"bold","text-anchor":"middle"});t.textContent=(a.label||a.line);g.appendChild(t);}
+  }else if(a.type==="point"){
+    const pr=(a.r||DEF.r)/S;
+    if(a.hollow) g.appendChild(el("circle",{cx:a.xy[0],cy:a.xy[1],r:pr,fill:"none",stroke:c,"stroke-width":Math.max(w,pr*0.3)}));
+    else g.appendChild(el("circle",{cx:a.xy[0],cy:a.xy[1],r:pr,fill:c,stroke:"#fff","stroke-width":w*0.5}));
+  }else if(a.type==="text"){
+    const t=el("text",{x:a.xy[0],y:a.xy[1],"font-size":fs,fill:c,"font-weight":"600"});t.textContent=a.text||"";g.appendChild(t);
+  }else if(a.type==="callout"){
+    g.appendChild(el("line",{x1:a.pos[0],y1:a.pos[1],x2:a.anchor[0],y2:a.anchor[1],stroke:c,"stroke-width":w}));
+    g.appendChild(el("circle",{cx:a.anchor[0],cy:a.anchor[1],r:w*1.2,fill:c}));
+    const t=el("text",{x:a.pos[0],y:a.pos[1],"font-size":fs,fill:c,"font-weight":"600"});t.textContent=a.text||"";g.appendChild(t);
+  }else if(a.type==="cunmark"){
+    const tick=cunTick(a); if(!tick)return;
+    g.appendChild(el("line",{x1:a.from[0],y1:a.from[1],x2:tick[0],y2:tick[1],stroke:c,"stroke-width":w,"stroke-dasharray":`${w*2.5} ${w*1.8}`}));
+    const t=el("text",{x:tick[0]+3*w,y:tick[1]+fs*0.35,"font-size":fs,fill:c,"font-weight":"bold"});t.textContent=a.cun;g.appendChild(t);
+  }
+}
+function paintLoupe(g,a){
+  if(!a.src||!a.dst||!a.srcR||!a.dstR)return;
+  const k=a.dstR/a.srcR, w=(a.w||DEF.w)/S;
+  const cid="lc"+a.id;
+  const defs=el("defs"); const cp=el("clipPath",{id:cid}); cp.appendChild(el("circle",{cx:a.dst[0],cy:a.dst[1],r:a.dstR})); defs.appendChild(cp); g.appendChild(defs);
+  const cont=el("g",{"clip-path":`url(#${cid})`});
+  const tg=el("g",{transform:`translate(${a.dst[0]} ${a.dst[1]}) scale(${k}) translate(${-a.src[0]} ${-a.src[1]})`});
+  if(baseEl){const bg=baseEl.cloneNode(true);bg.removeAttribute("id");tg.appendChild(bg);}
+  for(const x of annos){if(x.type!=="loupe")paintOne(tg,x);}
+  cont.appendChild(tg); g.appendChild(cont);
+  g.appendChild(el("circle",{cx:a.dst[0],cy:a.dst[1],r:a.dstR,fill:"none",stroke:COL.loupe,"stroke-width":w}));
+  g.appendChild(el("circle",{cx:a.src[0],cy:a.src[1],r:a.srcR,fill:"none",stroke:COL.loupe,"stroke-width":w*0.7,"stroke-dasharray":`${a.srcR*0.08} ${a.srcR*0.05}`,opacity:.85}));
+  for(const seg of outerTangents(a.src,a.srcR,a.dst,a.dstR))g.appendChild(el("line",{...seg,stroke:COL.loupe,"stroke-width":w*0.8}));
+}
+function paintElements(g){for(const a of annos){if(a.type==="loupe")paintLoupe(g,a);else paintOne(g,a);}}
+
+// ---- live 重繪(元素 + 預覽 + 選取控制點)----
+function redraw(){
+  if(!overlay) return;
+  while(overlay.firstChild) overlay.removeChild(overlay.firstChild);
+  paintElements(overlay);
+  const u=upp();
+  // 畫一半預覽
+  if(pending&&tool!=="select"&&tool!=="point"&&tool!=="text"){
+    const c=COL[tool]||"#000";
+    overlay.appendChild(el("line",{x1:pending[0],y1:pending[1],x2:lastUser[0],y2:lastUser[1],stroke:c,"stroke-width":1.2*u,"stroke-dasharray":`${3*u} ${2*u}`}));
+    overlay.appendChild(el("circle",{cx:pending[0],cy:pending[1],r:3*u,fill:c}));
+  }
+  // 選取控制點
+  if(sel){
+    const hs=5*u;
+    const handles=selHandles(sel);
+    for(const h of handles){
+      overlay.appendChild(el("rect",{x:h.xy[0]-hs,y:h.xy[1]-hs,width:hs*2,height:hs*2,fill:"#fff",stroke:"#c4933a","stroke-width":1.6*u,rx:1*u}));
+    }
+    // 選取外框(線類)
+    if(sel.p1&&sel.p2){
+      overlay.appendChild(el("line",{x1:sel.p1[0],y1:sel.p1[1],x2:sel.p2[0],y2:sel.p2[1],stroke:"#c4933a","stroke-width":2.5*u,opacity:.25}));
+    }
+  }
+  renderAnnoList();
+}
+function selHandles(a){
+  if(a.type==="loupe") return [{part:"srcC",xy:a.src},{part:"srcEdge",xy:[a.src[0]+a.srcR,a.src[1]]},{part:"dstC",xy:a.dst},{part:"dstEdge",xy:[a.dst[0]+a.dstR,a.dst[1]]}];
+  if(a.type==="callout") return [{part:"anchor",xy:a.anchor},{part:"pos",xy:a.pos}];
+  if(a.type==="cunmark") return [{part:"from",xy:a.from}];
+  if(a.p1&&a.p2) return [{part:"p1",xy:a.p1},{part:"p2",xy:a.p2}];
+  if(a.xy) return [{part:"center",xy:a.xy}];
+  return [];
+}
+function setHandle(a,part,xy){
+  if(part==="p1")a.p1=xy; else if(part==="p2")a.p2=xy; else if(part==="center")a.xy=xy;
+  else if(part==="anchor")a.anchor=xy; else if(part==="pos")a.pos=xy; else if(part==="from")a.from=xy;
+  else if(part==="srcC")a.src=xy; else if(part==="dstC")a.dst=xy;
+  else if(part==="srcEdge")a.srcR=Math.max(1,dist(a.src,xy)); else if(part==="dstEdge")a.dstR=Math.max(1,dist(a.dst,xy));
+}
+
+// ---- 命中測試 ----
+function hitBody(a,uxy,thr){
+  if(a.type==="loupe") return dist(uxy,a.dst)<a.dstR || dist(uxy,a.src)<a.srcR;
+  if(a.type==="callout") return dist(uxy,a.anchor)<thr*1.4||dist(uxy,a.pos)<thr*1.4||distSeg(uxy,a.pos,a.anchor)<thr;
+  if(a.type==="cunmark"){const t=cunTick(a);return dist(uxy,a.from)<thr*1.4||(t&&distSeg(uxy,a.from,t)<thr);}
+  if(a.type==="point") return dist(uxy,a.xy)<(a.r||DEF.r)/S+thr;  // 至少涵蓋整顆點再加邊界
+  if(a.xy) return dist(uxy,a.xy)<thr*1.5;
+  if(a.p1&&a.p2) return distSeg(uxy,a.p1,a.p2)<thr;
+  return false;
+}
+function hitTest(uxy){
+  const thr=8*upp();
+  if(sel){for(const h of selHandles(sel)){if(dist(uxy,h.xy)<thr) return {el:sel,part:h.part};}}
+  // 先找非放大鏡元素 → 被放大鏡覆蓋的紅點/比例尺仍可直接選取
+  for(let i=annos.length-1;i>=0;i--){const a=annos[i];if(a.type==="loupe")continue;if(hitBody(a,uxy,thr)) return {el:a,part:"body"};}
+  // 沒壓到其他元素時,才輪到放大鏡(空白處可拖移)
+  for(let i=annos.length-1;i>=0;i--){const a=annos[i];if(a.type!=="loupe")continue;
+    if(dist(uxy,a.dst)<a.dstR) return {el:a,part:"dstMove"};   // 拖放大圓 → 只動放大圓
+    if(dist(uxy,a.src)<a.srcR) return {el:a,part:"srcMove"};   // 拖來源圈 → 只動來源圈
+  }
+  return null;
+}
+function moveEl(a,dx,dy){for(const k of["xy","p1","p2","anchor","pos","from","src","dst"])if(a[k])a[k]=[a[k][0]+dx,a[k][1]+dy];}
+
+// ---- 標記清單 ----
+function typeLabel(a){return a.type==="line"?`${a.line} 線`:a.type==="boundary"?"界線":a.type==="projection"?"投影線(綠)":a.type==="ruler"?`比例尺 ${a.divisions}等分`:a.type==="point"?(a.hollow?"空心紅點":"紅點"):a.type==="text"?`文字「${a.text||""}」`:a.type==="callout"?`引線「${a.text||""}」`:a.type==="cunmark"?`寸投影 ${a.cun}寸`:a.type==="loupe"?`放大鏡 ×${(a.dstR/a.srcR).toFixed(1)}`:a.type;}
+function renderAnnoList(){
+  const box=document.getElementById("annoList");box.innerHTML="";
+  document.getElementById("annoCount").textContent=annos.length?`(${annos.length})`:"";
+  for(const a of annos){const row=document.createElement("div");row.className="anno"+(a===sel?" sel":"");
+    row.innerHTML=`<span class="lbl">${typeLabel(a)}</span><span class="x" title="刪除">✕</span>`;
+    row.querySelector(".x").onclick=ev=>{ev.stopPropagation();pushHistory();annos=annos.filter(x=>x!==a);if(sel===a)select(null);redraw();};
+    row.onclick=()=>{select(a);};
+    box.appendChild(row);}
+}
+
+// ---- 選取 + 屬性面板 ----
+function select(a){sel=a;renderProps();redraw();}
+function renderProps(){
+  const box=document.getElementById("props");
+  document.getElementById("propHint").textContent=sel?"":"(選取一個元素來編輯)";
+  if(!sel){box.style.display="none";return;}
+  box.style.display="";
+  const a=sel; let h=`<div class="t">${typeLabel(a)}</div>`;
+  const hasW=["line","boundary","projection","ruler","callout","cunmark","loupe"].includes(a.type);
+  const hasFs=["line","ruler","point","text","callout","cunmark"].includes(a.type);
+  const hasColor=["line","boundary","projection","callout","text","cunmark","ruler"].includes(a.type);
+  if(hasW) h+=`<label class="row"><span>線粗</span><input type="range" id="pW" min="1" max="20" value="${a.w||DEF.w}"><input type="number" id="pWn" value="${a.w||DEF.w}"></label>`;
+  if(a.type==="point") h+=`<label class="row"><span>點大小</span><input type="range" id="pR" min="3" max="40" value="${a.r||DEF.r}"><input type="number" id="pRn" value="${a.r||DEF.r}"></label>`;
+  if(hasFs) h+=`<label class="row"><span>字級</span><input type="range" id="pFs" min="8" max="80" value="${a.fs||DEF.fs}"><input type="number" id="pFsn" value="${a.fs||DEF.fs}"></label>`;
+  if(hasColor) h+=`<label class="row"><span>顏色</span><input type="color" id="pColor" value="${a.color||COL[a.type]||'#2c1c10'}" style="width:46px;padding:2px"></label>`;
+  if(a.type==="line") h+=`<label class="row"><span>標示</span><input type="text" id="pLabel" value="${a.label||a.line}"></label><label class="row"><span>顯示標示</span><input type="checkbox" id="pShow" ${a.showLabel!==false?"checked":""}></label>`;
+  if(a.type==="ruler") h+=`<label class="row"><span>等分</span><input type="number" id="pDiv" value="${a.divisions||1}" min="1" max="30"></label><label class="row"><span>頭值</span><input type="number" id="pHead" value="${a.headValue!=null?a.headValue:''}" step="0.5"></label><label class="row"><span>尾值</span><input type="number" id="pTail" value="${a.tailValue!=null?a.tailValue:''}" step="0.5"></label><label class="row"><span>標示寸數</span><input type="text" id="pMarks" value="${(a.marks||[]).join(',')}" placeholder="如 1,3"></label><label class="row"><span>標示</span><input type="text" id="pRlbl" value="${a.label||""}" placeholder="如 12寸"></label>`;
+  if(a.type==="point") h+=`<label class="row"><span>空心</span><input type="checkbox" id="pHollow" ${a.hollow?"checked":""}></label>`;
+  if(a.type==="text") h+=`<label class="row"><span>文字</span><input type="text" id="pText" value="${a.text||""}"></label>`;
+  if(a.type==="callout") h+=`<label class="row"><span>文字</span><input type="text" id="pText" value="${a.text||""}"></label>`;
+  if(a.type==="cunmark"){const ok=!!cunTick(a);h+=`<label class="row"><span>寸數</span><input type="number" id="pCun" value="${a.cun}" step="0.5"></label><p class="note">${ok?"已綁定比例尺":"⚠ 找不到比例尺,投影不顯示"}</p>`;}
+  if(a.type==="loupe") h+=`<label class="row"><span>來源半徑</span><input type="number" id="pSrcR" value="${a.srcR.toFixed(1)}" step="0.5"></label><label class="row"><span>放大半徑</span><input type="number" id="pDstR" value="${a.dstR.toFixed(1)}" step="0.5"></label><p class="note">放大倍率 ×${(a.dstR/a.srcR).toFixed(2)}</p>`;
+  h+=`<div class="btnrow" style="margin-top:8px"><button id="pDel">刪除此元素</button></div>`;
+  box.innerHTML=h;
+  const bind=(id,fn)=>{const e=document.getElementById(id);if(e)e.oninput=()=>{fn(e);redraw();};};
+  const sync=(rid,nid,key)=>{const r=document.getElementById(rid),n=document.getElementById(nid);if(!r)return;const f=src=>{a[key]=+src.value;r.value=a[key];n.value=a[key];redraw();};r.oninput=()=>f(r);n.oninput=()=>f(n);};
+  sync("pW","pWn","w"); sync("pR","pRn","r"); sync("pFs","pFsn","fs");
+  bind("pColor",e=>a.color=e.value);
+  bind("pLabel",e=>a.label=e.value);
+  bind("pShow",e=>a.showLabel=e.checked);
+  bind("pDiv",e=>a.divisions=+e.value);
+  bind("pHead",e=>a.headValue=e.value===""?null:+e.value);
+  bind("pTail",e=>a.tailValue=e.value===""?null:+e.value);
+  bind("pMarks",e=>a.marks=parseMarks(e.value));
+  bind("pHollow",e=>a.hollow=e.checked);
+  bind("pRlbl",e=>a.label=e.value);
+  bind("pText",e=>a.text=e.value);
+  bind("pCun",e=>a.cun=+e.value);
+  bind("pSrcR",e=>a.srcR=Math.max(1,+e.value));
+  bind("pDstR",e=>a.dstR=Math.max(1,+e.value));
+  const del=document.getElementById("pDel");if(del)del.onclick=()=>{pushHistory();annos=annos.filter(x=>x!==a);select(null);redraw();};
+}
+
+// ---- 穴位下拉 ----
+function fillRegions(){const sel=document.getElementById("selRegion");sel.innerHTML='<option value="">— 選部位 —</option>';for(const r of REGIONS){const o=document.createElement("option");o.value=r.code;o.textContent=`${r.region}(${r.zone})`;sel.appendChild(o);}}
+function fillPoints(){const rc=document.getElementById("selRegion").value,s=document.getElementById("selPoint");s.innerHTML='<option value="">— 選穴位 —</option>';for(const p of ACUPOINTS.filter(p=>p.region_code===rc)){const o=document.createElement("option");o.value=p.code;o.textContent=`${p.code} ${p.name}`;s.appendChild(o);}document.getElementById("locBox").textContent="選穴位後顯示取穴定位。";document.getElementById("curPoint").textContent="未選";}
+function onPointChange(){const code=document.getElementById("selPoint").value,p=ACUPOINTS.find(x=>x.code===code);document.getElementById("locBox").textContent=p?(p.loc||"(無)"):"選穴位後顯示取穴定位。";document.getElementById("curPoint").textContent=p?`${p.code} ${p.name}`:"未選";}
+function curMeta(){const p=ACUPOINTS.find(x=>x.code===document.getElementById("selPoint").value);return p?{code:p.code,name:p.name,tag:`${p.code} ${p.name}`}:{code:"",name:"",tag:""};}
+
+// ---- 工具 ----
+function setTool(t){tool=t;pending=null;
+  document.querySelectorAll(".tool").forEach(e=>e.classList.toggle("active",e.dataset.tool===t));
+  document.getElementById("lineOpts").style.display=(t==="line")?"":"none";
+  document.getElementById("rulerOpts").style.display=(t==="ruler")?"":"none";
+  const nm={select:"選取／移動",line:`A–E 線(${lineLetter})`,point:"穴位紅點",pointHollow:"空心紅點",boundary:"界線(紅虛)",projection:"投影線(綠虛)",ruler:"比例尺",cunmark:"寸投影",loupe:"放大鏡",callout:"引線標註",text:"文字"};
+  const tag=document.getElementById("toolTag");tag.style.display="";tag.textContent="工具:"+nm[t];
+  stage.style.cursor=(t==="select")?"default":"crosshair";
+  redraw();
+}
+function buildLetterSeg(){const box=document.getElementById("lineLetters");box.innerHTML="";for(const L of["A","B","C","D","E"]){const b=document.createElement("button");b.textContent=L;b.className=(L===lineLetter?"on":"");b.onclick=()=>{lineLetter=L;buildLetterSeg();if(tool==="line")setTool("line");};box.appendChild(b);}}
+function buildSwatches(){const box=document.getElementById("colorSwatches");box.innerHTML="";for(const[nm,hex]of SWATCHES){const b=document.createElement("button");b.textContent=nm;b.className=(hex===curColor?"on":"");if(hex)b.style.cssText=`color:#fff;background:${hex}`;b.onclick=()=>{curColor=hex;buildSwatches();};box.appendChild(b);}}
+
+// ---- 載入底圖 ----
+function loadBase(svgText,name){
+  const doc=new DOMParser().parseFromString(svgText,"image/svg+xml"),src=doc.querySelector("svg");
+  if(!src){alert("不是有效 SVG");return;}
+  const vb=src.getAttribute("viewBox");
+  baseVB=vb?vb.split(/[ ,]+/).map(Number):[0,0,parseFloat(src.getAttribute("width"))||100,parseFloat(src.getAttribute("height"))||100];
+  baseInner=src.innerHTML;
+  stage.innerHTML="";
+  const g=document.createElementNS(SVGNS,"g");Array.from(src.childNodes).forEach(n=>g.appendChild(document.importNode(n,true)));
+  stage.appendChild(g);baseEl=g;
+  overlay=document.createElementNS(SVGNS,"g");overlay.id="overlay";stage.appendChild(overlay);
+  view={x:baseVB[0],y:baseVB[1],w:baseVB[2],h:baseVB[3]};applyView();
+  baseName=name;
+  document.getElementById("hint").style.display="none";
+  ["coordTag","zoomTag","zoomBtns"].forEach(id=>document.getElementById(id).style.display="");
+  document.getElementById("baseInfo").textContent=`${name}　viewBox ${baseVB.join(" ")}　輸出畫布自動涵蓋全部標記(${EXPORT_SCALE}×)`;
+  setTool("select");redraw();
+}
+
+// ---- 縮放/平移 ----
+function zoomAt(k,cx,cy){const[ux,uy]=clientToUser(cx,cy);view.w*=k;view.h*=k;view.x=ux-(ux-view.x)*k;view.y=uy-(uy-view.y)*k;applyView();redraw();}
+function centerXY(){const r=stage.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2];}
+stage.addEventListener("wheel",e=>{if(!baseEl)return;e.preventDefault();if(e.ctrlKey||e.altKey)zoomAt(Math.pow(1.0018,e.deltaY),e.clientX,e.clientY);else{const u=upp();view.x+=e.deltaX*u;view.y+=e.deltaY*u;applyView();}},{passive:false});
+
+// ---- 互動 ----
+stage.addEventListener("pointerdown",e=>{
+  if(!baseEl)return;
+  if(e.button===1||e.button===2||e.shiftKey){drag={mode:"pan",sx:e.clientX,sy:e.clientY,vx:view.x,vy:view.y};capture(e.pointerId);e.preventDefault();return;}
+  const xy=clientToUser(e.clientX,e.clientY);
+  if(tool==="select"){
+    const hit=hitTest(xy);
+    if(hit){select(hit.el);pushHistory();
+      let mode="handle";
+      if(hit.part==="body")mode="move";
+      else if(hit.part==="dstMove"||hit.part==="srcMove")mode="movePart";
+      drag={mode,part:hit.part,key:hit.part==="dstMove"?"dst":hit.part==="srcMove"?"src":null,last:xy};
+      capture(e.pointerId);}
+    else{select(null);}
+    return;
+  }
+  if(tool==="point"){pushHistory();const a={id:++annoId,type:"point",xy,r:DEF.r};annos.push(a);setTool("select");select(a);return;}
+  if(tool==="pointHollow"){pushHistory();const a={id:++annoId,type:"point",hollow:true,xy,r:DEF.r,color:curColor||undefined};annos.push(a);setTool("select");select(a);return;}
+  if(tool==="text"){const txt=prompt("輸入文字:","");if(txt===null)return;pushHistory();const a={id:++annoId,type:"text",text:txt,xy,fs:DEF.fs,color:curColor||undefined};annos.push(a);setTool("select");select(a);return;}
+  if(tool==="cunmark"){const r=nearestRuler();if(!r){alert("請先畫一條比例尺");return;}const cs=prompt("此穴位於幾寸?","");if(cs===null)return;const cun=parseFloat(cs);if(isNaN(cun)){alert("請輸入數字");return;}pushHistory();const a={id:++annoId,type:"cunmark",from:xy,rulerId:r.id,cun,w:DEF.w,fs:DEF.fs};annos.push(a);setTool("select");select(a);return;}
+  // 兩點/兩階段工具
+  if(!pending){pending=xy;redraw();}
+  else{let a;
+    if(tool==="line")a={id:++annoId,type:"line",line:lineLetter,label:lineLetter,showLabel:true,p1:pending,p2:xy,w:DEF.w,fs:DEF.fs,color:curColor||undefined};
+    else if(tool==="boundary")a={id:++annoId,type:"boundary",p1:pending,p2:xy,w:DEF.w,color:curColor||undefined};
+    else if(tool==="projection")a={id:++annoId,type:"projection",p1:pending,p2:xy,w:DEF.w,color:curColor||undefined};
+    else if(tool==="ruler")a={id:++annoId,type:"ruler",divisions:parseInt(document.getElementById("rulerDiv").value)||1,headValue:parseFloat(document.getElementById("rulerHead").value),tailValue:parseFloat(document.getElementById("rulerTail").value),marks:parseMarks(document.getElementById("rulerMarks").value),p1:pending,p2:xy,w:DEF.w,fs:DEF.fs};
+    else if(tool==="callout"){const txt=prompt("標註文字:","");if(txt===null){pending=null;redraw();return;}a={id:++annoId,type:"callout",anchor:pending,pos:xy,text:txt,w:DEF.w,fs:DEF.fs,color:curColor||"#2c1c10"};}
+    else if(tool==="loupe"){const srcR=Math.max(2,dist(pending,xy));const ld=loupeDst(pending,srcR);a={id:++annoId,type:"loupe",src:pending,srcR,dst:ld.dst,dstR:ld.dstR,w:DEF.w};}
+    pushHistory();annos.push(a);pending=null;setTool("select");select(a);}
+});
+stage.addEventListener("pointermove",e=>{
+  if(!baseEl)return;
+  if(drag&&drag.mode==="pan"){const u=upp();view.x=drag.vx-(e.clientX-drag.sx)*u;view.y=drag.vy-(e.clientY-drag.sy)*u;applyView();return;}
+  const xy=clientToUser(e.clientX,e.clientY);lastUser=xy;
+  document.getElementById("coordTag").textContent=`x ${xy[0].toFixed(2)}　y ${xy[1].toFixed(2)}`;
+  if(drag&&drag.mode==="move"){const dx=xy[0]-drag.last[0],dy=xy[1]-drag.last[1];moveEl(sel,dx,dy);drag.last=xy;redraw();}
+  else if(drag&&drag.mode==="movePart"){const dx=xy[0]-drag.last[0],dy=xy[1]-drag.last[1],k=drag.key;sel[k]=[sel[k][0]+dx,sel[k][1]+dy];drag.last=xy;redraw();}
+  else if(drag&&drag.mode==="handle"){setHandle(sel,drag.part,xy);redraw();}
+  else if(pending)redraw();
+});
+stage.addEventListener("pointerup",()=>{if(drag&&drag.mode!=="pan")renderProps();drag=null;});
+stage.addEventListener("contextmenu",e=>e.preventDefault());
+window.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT")return;   // 輸入框內用系統原生行為
+  const mod=e.metaKey||e.ctrlKey;
+  if(mod&&(e.key==="z"||e.key==="Z")){e.preventDefault();e.shiftKey?redo():undo();return;}
+  if(mod&&(e.key==="c"||e.key==="C")){e.preventDefault();copySel();return;}
+  if(mod&&(e.key==="v"||e.key==="V")){e.preventDefault();pasteClip();return;}
+  if(mod)return;
+  if(e.key==="Escape"){pending=null;select(null);redraw();}
+  if((e.key==="Delete"||e.key==="Backspace")&&sel){pushHistory();annos=annos.filter(x=>x!==sel);select(null);redraw();}
+  if(e.key==="v"||e.key==="V")setTool("select");
+});
+
+document.getElementById("btnAutoBCD").onclick=()=>{
+  const A=annos.filter(a=>a.type==="line"&&a.line==="A").pop(),E=annos.filter(a=>a.type==="line"&&a.line==="E").pop();
+  if(!A||!E){alert("請先畫好 A、E 線");return;}
+  pushHistory();
+  const C=[mid(A.p1,E.p1),mid(A.p2,E.p2)],B=[mid(A.p1,C[0]),mid(A.p2,C[1])],D=[mid(C[0],E.p1),mid(C[1],E.p2)];
+  annos=annos.filter(a=>!(a.type==="line"&&["B","C","D"].includes(a.line)));
+  for(const[L,seg]of[["B",B],["C",C],["D",D]])annos.push({id:++annoId,type:"line",line:L,label:L,showLabel:true,p1:seg[0],p2:seg[1],w:DEF.w,fs:DEF.fs});
+  redraw();
+};
+
+// ---- 按鈕 ----
+function fillBases(){const s=document.getElementById("selBase");if(typeof BASES==="undefined"){s.innerHTML='<option>(找不到 bases-data.js)</option>';return;}s.innerHTML='<option value="">— 選底圖 —</option>';BASES.forEach((b,i)=>{const o=document.createElement("option");o.value=i;o.textContent=b.label;s.appendChild(o);});}
+document.getElementById("selBase").onchange=e=>{const i=e.target.value;if(i==="")return;const b=BASES[+i];loadBase(b.svg,b.file);};
+document.getElementById("btnLoad").onclick=()=>document.getElementById("fileSvg").click();
+document.getElementById("fileSvg").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>loadBase(r.result,f.name);r.readAsText(f);};
+document.getElementById("selRegion").onchange=fillPoints;
+document.getElementById("selPoint").onchange=onPointChange;
+document.querySelectorAll(".tool").forEach(e=>e.onclick=()=>setTool(e.dataset.tool));
+document.getElementById("btnClear").onclick=()=>{if(confirm("清除所有標記?")){pushHistory();annos=[];pending=null;select(null);redraw();}};
+document.getElementById("btnUndo").onclick=undo;
+document.getElementById("btnCopySel").onclick=copySel;
+document.getElementById("btnPaste").onclick=pasteClip;
+// 屬性面板:focus 時記住改前狀態,第一次變更時才存入歷史(一次編輯=一步返回)
+{let pendingSnap=null;const pb=document.getElementById("props");
+ pb.addEventListener("focusin",()=>{pendingSnap=snapshot();});
+ pb.addEventListener("input",()=>{if(pendingSnap!=null){undoStack.push(pendingSnap);if(undoStack.length>80)undoStack.shift();redoStack.length=0;pendingSnap=null;}});}
+document.getElementById("btnZoomIn").onclick=()=>{const c=centerXY();zoomAt(0.8,c[0],c[1]);};
+document.getElementById("btnZoomOut").onclick=()=>{const c=centerXY();zoomAt(1.25,c[0],c[1]);};
+document.getElementById("btnZoomFit").onclick=()=>{if(!baseVB)return;const vb=contentBounds();view={x:vb[0],y:vb[1],w:vb[2],h:vb[3]};applyView();redraw();};
+
+// ---- 輸出 ----
+// 畫布範圍 = 底圖 ∪ 所有標記範圍 + 留白(避免放大圓等跑到圖外被切)
+function contentBounds(){
+  let x0=baseVB[0],y0=baseVB[1],x1=baseVB[0]+baseVB[2],y1=baseVB[1]+baseVB[3];
+  const ext=(x,y)=>{if(x<x0)x0=x;if(y<y0)y0=y;if(x>x1)x1=x;if(y>y1)y1=y;};
+  for(const a of annos){
+    for(const k of["xy","p1","p2","anchor","pos","from"])if(a[k])ext(a[k][0],a[k][1]);
+    if(a.type==="loupe"){ext(a.src[0]-a.srcR,a.src[1]-a.srcR);ext(a.src[0]+a.srcR,a.src[1]+a.srcR);ext(a.dst[0]-a.dstR,a.dst[1]-a.dstR);ext(a.dst[0]+a.dstR,a.dst[1]+a.dstR);}
+    if(a.type==="cunmark"){const t=cunTick(a);if(t)ext(t[0],t[1]);}
+  }
+  const m=Math.max(8,baseVB[2]*0.05);
+  return[x0-m,y0-m,(x1-x0)+2*m,(y1-y0)+2*m];
+}
+// 此圖涉及的穴位(去重),供命名與 JSON 索引
+function pointsInUse(){
+  // 命名/索引一律以「目前下拉選的穴位」為準,不從元素推(沿用元素才不會帶錯穴位)
+  const m=curMeta();
+  return m.code?[{code:m.code,name:m.name}]:[];
+}
+function buildJSON(){const rc=document.getElementById("selRegion").value,r=REGIONS.find(x=>x.code===rc);const vb=contentBounds();
+  return{tool:"tungsacu-marker",schema:4,base_file:baseName,base_viewbox:baseVB,export_scale:EXPORT_SCALE,
+    export_viewbox:vb.map(v=>+v.toFixed(2)),export_size:[Math.round(vb[2]*EXPORT_SCALE),Math.round(vb[3]*EXPORT_SCALE)],
+    region_code:rc,region:r?r.region:"",zone:r?r.zone:"",points:pointsInUse(),side_note:document.getElementById("sideNote").value.trim(),
+    annotations:annos.map(a=>({...a}))};}
+function jsonText(){return JSON.stringify(buildJSON(),null,2);}
+function fname(ext){const pts=pointsInUse(),s=document.getElementById("sideNote").value.trim();
+  let base;
+  if(pts.length)base=pts.map(p=>p.code).join("+")+"_"+pts.map(p=>p.name).join("-");
+  else{const r=REGIONS.find(x=>x.code===document.getElementById("selRegion").value);base=r?r.region:"標記";}
+  return`${base}${s?"_"+s:""}.${ext}`;}
+function dl(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();}
+// 組出固定像素、自含底圖+標記的 SVG 字串(畫布自動涵蓋全部標記)
+function exportSvgString(){const vb=contentBounds(),W=Math.round(vb[2]*EXPORT_SCALE),H=Math.round(vb[3]*EXPORT_SCALE);
+  const g=document.createElementNS(SVGNS,"g");paintElements(g);
+  return`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="${vb.join(' ')}"><g>${baseInner}</g>${g.outerHTML}</svg>`;}
+document.getElementById("btnSaveJson").onclick=()=>dl(new Blob([jsonText()],{type:"application/json"}),fname("json"));
+document.getElementById("btnSaveSvg").onclick=()=>{if(!baseEl)return;dl(new Blob([exportSvgString()],{type:"image/svg+xml"}),fname("svg"));};
+document.getElementById("btnSavePng").onclick=()=>{if(!baseEl)return;
+  const vb=contentBounds(),W=Math.round(vb[2]*EXPORT_SCALE),H=Math.round(vb[3]*EXPORT_SCALE);
+  const img=new Image();const svg=exportSvgString();
+  img.onload=()=>{const cv=document.createElement("canvas");cv.width=W;cv.height=H;const ctx=cv.getContext("2d");ctx.fillStyle="#ffffff";ctx.fillRect(0,0,W,H);ctx.drawImage(img,0,0,W,H);cv.toBlob(b=>dl(b,fname("png")),"image/png");};
+  img.onerror=()=>alert("PNG 轉檔失敗,可改用 SVG");
+  img.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);};
+document.getElementById("btnCopy").onclick=async()=>{try{await navigator.clipboard.writeText(jsonText());alert("已複製 JSON");}catch{prompt("手動複製:",jsonText());}};
+document.getElementById("btnImport").onclick=()=>document.getElementById("fileJson").click();
+document.getElementById("fileJson").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.region_code){document.getElementById("selRegion").value=d.region_code;fillPoints();}if(d.side_note)document.getElementById("sideNote").value=d.side_note;annos=(d.annotations||[]).map(a=>({...a}));annos.forEach(a=>{if(a.id==null)a.id=++annoId;});annoId=Math.max(annoId,0,...annos.map(a=>a.id||0));select(null);redraw();alert("已載入");}catch(err){alert("解析失敗:"+err.message);}};r.readAsText(f);};
+
+fillRegions();fillBases();buildLetterSeg();buildSwatches();renderAnnoList();
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "33",
+  "code": "33.10-12",
+  "title": "腸門穴、肝門穴、心門穴",
+  "covered_points": [
+    "腸門穴",
+    "肝門穴",
+    "心門穴"
+  ],
+  "view": "forearm_posterior",
+  "location_summary": "尺骨內側線；腸門三寸、肝門六寸、心門距肘尖一寸五分。",
+  "review_note": "心門已有核可原型；本合併圖仍需統一尺骨內側貼骨線。",
+  "geometry": {
+    "base_pixel_size": [
+      1116,
+      1620
+    ],
+    "axis": [
+      [
+        535.68,
+        1069.2
+      ],
+      [
+        479.88,
+        307.8
+      ]
+    ],
+    "points": [
+      {
+        "name": "腸門穴",
+        "cun": 3,
+        "offset": -105,
+        "pixel": [
+          626.4491613662015,
+          871.17554609373
+        ]
+      },
+      {
+        "name": "肝門穴",
+        "cun": 6,
+        "offset": -105,
+        "pixel": [
+          612.4991613662014,
+          680.8255460937299
+        ]
+      },
+      {
+        "name": "心門穴",
+        "cun": 10.5,
+        "offset": -105,
+        "pixel": [
+          591.5741613662015,
+          395.30054609372985
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_第一輪審核.svg"
+  }
+}

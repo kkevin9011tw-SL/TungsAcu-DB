@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "spec": {
+    "number": 2,
+    "slug": "upper-arm-posterior",
+    "title": "上臂／後面",
+    "base_stem": "02_upper-arm-posterior",
+    "total_cun": 9,
+    "proximal_name": "腋橫紋",
+    "distal_name": "肘橫紋",
+    "proximal_line": [
+      [
+        0.1631,
+        0.4279
+      ],
+      [
+        0.7485,
+        0.3482
+      ]
+    ],
+    "distal_line": [
+      [
+        0.2742,
+        0.8271
+      ],
+      [
+        0.8596,
+        0.7475
+      ]
+    ],
+    "axis_proximal": [
+      0.56,
+      0.38
+    ],
+    "axis_distal": [
+      0.58,
+      0.78
+    ],
+    "ruler_offset": 0.34,
+    "guide_offset": -0.48,
+    "major_interval": 3,
+    "evidence": "WHO p.12: posterior axillary fold to cubital crease = 9 B-cun",
+    "review_note": "已依使用者紅線重建；確認腋橫紋與肘橫紋。",
+    "boundary_trim": 0.18
+  },
+  "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/02_upper-arm-posterior.svg",
+  "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/02_upper-arm-posterior.png",
+  "source_viewbox": [
+    326.0,
+    100.0,
+    174.0,
+    257.0
+  ],
+  "output_viewbox": [
+    326.0,
+    100.0,
+    191.452,
+    270.0
+  ],
+  "anatomical_axis": {
+    "distal": [
+      435.45,
+      300.165
+    ],
+    "proximal": [
+      414.879,
+      197.804
+    ],
+    "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+    "points_svg": {
+      "0": [
+        435.45,
+        300.165
+      ],
+      "1": [
+        433.165,
+        288.792
+      ],
+      "2": [
+        430.879,
+        277.418
+      ],
+      "3": [
+        428.593,
+        266.045
+      ],
+      "4": [
+        426.308,
+        254.671
+      ],
+      "5": [
+        424.022,
+        243.298
+      ],
+      "6": [
+        421.736,
+        231.925
+      ],
+      "7": [
+        419.451,
+        220.551
+      ],
+      "8": [
+        417.165,
+        209.178
+      ],
+      "9": [
+        414.879,
+        197.804
+      ]
+    }
+  },
+  "display_ruler": {
+    "distal": [
+      493.452,
+      288.516
+    ],
+    "proximal": [
+      472.878,
+      186.141
+    ],
+    "method": "best_common_normal_to_user_boundaries",
+    "boundary_left_trim_fraction": 0.18,
+    "extent_defined_by_anatomical_boundaries": true,
+    "endpoint_values_visible": false
+  },
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/upper-arm-posterior/upper-arm-posterior-9cun-calibration.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/upper-arm-posterior/upper-arm-posterior-9cun-calibration.png"
+}

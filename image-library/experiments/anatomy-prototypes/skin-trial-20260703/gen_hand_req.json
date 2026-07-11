@@ -1,0 +1,10 @@
+{
+  "input": {
+    "prompt": "Professional medical anatomy illustration of the dorsal side of a left human hand and wrist, photorealistic soft warm skin, bones of the hand faintly visible beneath translucent skin as a subtle anatomical overlay, natural fingernails, clean pure white background, soft even studio lighting, anatomy textbook plate style, high detail",
+    "control_image": "https://api.replicate.com/v1/files/ODM3MTM3MGItOTUzNi00MGVlLWE2NGYtZGU2OGQzYjg0Mjll.png",
+    "guidance": 30,
+    "steps": 50,
+    "output_format": "png",
+    "safety_tolerance": 2
+  }
+}

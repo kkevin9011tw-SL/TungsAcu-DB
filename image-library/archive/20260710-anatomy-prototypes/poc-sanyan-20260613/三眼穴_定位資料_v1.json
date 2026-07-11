@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "status": "awaiting_user_review",
+  "point": "三眼穴",
+  "code": "11.21",
+  "source_page": 168,
+  "view": "left_palm",
+  "inset_method": "original_local_crop; no bone reconstruction",
+  "finger": "ring",
+  "segment": "proximal",
+  "lines_source_coordinates": {
+    "A": {
+      "top": [
+        414.45,
+        176.43
+      ],
+      "bottom": [
+        423.16,
+        210.8
+      ]
+    },
+    "B": {
+      "top": [
+        418.63,
+        175.625
+      ],
+      "bottom": [
+        427.57000000000005,
+        209.95
+      ]
+    },
+    "C": {
+      "top": [
+        422.81,
+        174.82
+      ],
+      "bottom": [
+        431.98,
+        209.1
+      ]
+    },
+    "D": {
+      "top": [
+        426.345,
+        174.14
+      ],
+      "bottom": [
+        435.435,
+        208.435
+      ]
+    },
+    "E": {
+      "top": [
+        429.88,
+        173.46
+      ],
+      "bottom": [
+        438.89,
+        207.77
+      ]
+    }
+  },
+  "construction": {
+    "geometry": "ring-finger A line measured from user correction; C/E retained from WHO PIP/MCP geometry",
+    "B": "midpoint line between A and C",
+    "D": "midpoint line between C and E",
+    "longitudinal_method": "三分點法",
+    "point_fractions_from_distal_boundary": [
+      0.3333333333333333
+    ],
+    "point_placement": "palmar B line on radial side"
+  },
+  "points_source_coordinates": [
+    [
+      421.61,
+      187.0667
+    ]
+  ],
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-sanyan-20260613/三眼穴_正式評估版_v1_WHO-p168左手掌面.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-sanyan-20260613/三眼穴_正式評估版_v1_WHO-p168左手掌面.svg"
+  }
+}

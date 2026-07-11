@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "11",
+  "code": "11.16",
+  "title": "火膝穴",
+  "covered_points": [
+    "火膝穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "小指甲外側角後約二分；需依甲角與黑白肉際校正。",
+  "review_note": "WHO 手背圖可見指甲，但甲角後二分仍需人工確認。",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "little",
+    "segment": "distal",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          354.3243394747403,
+          150.22110733916955
+        ],
+        [
+          354.5003394747403,
+          166.06110733916955
+        ]
+      ],
+      "B": [
+        [
+          359.824,
+          150.16
+        ],
+        [
+          360.0,
+          166.0
+        ]
+      ],
+      "A": [
+        [
+          365.3236605252597,
+          150.09889266083044
+        ],
+        [
+          365.4996605252597,
+          165.93889266083045
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "火膝穴",
+        "line": "C",
+        "fraction": 0.18,
+        "source": [
+          354.3560194747403,
+          153.07230733916956
+        ]
+      }
+    ],
+    "division": 0
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_第一輪審核.svg"
+  }
+}

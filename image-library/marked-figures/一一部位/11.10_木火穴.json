@@ -1,0 +1,56 @@
+{
+  "tool": "tungsacu-marker",
+  "schema": 4,
+  "base_file": "02_hand-dorsal.svg",
+  "base_viewbox": [
+    322,
+    112,
+    170,
+    240
+  ],
+  "export_scale": 6,
+  "export_viewbox": [
+    313.5,
+    103.5,
+    187,
+    257
+  ],
+  "export_size": [
+    1122,
+    1542
+  ],
+  "region_code": "一一",
+  "region": "一一部位",
+  "zone": "手指穴位",
+  "points": [
+    {
+      "code": "11.10",
+      "name": "木火穴"
+    }
+  ],
+  "side_note": "",
+  "annotations": [
+    {
+      "id": 25,
+      "type": "boundary",
+      "p1": [
+        406.91314697265625,
+        146.02166748046875
+      ],
+      "p2": [
+        433.2087097167969,
+        151.983154296875
+      ],
+      "w": 4
+    },
+    {
+      "id": 26,
+      "type": "point",
+      "xy": [
+        418.9549560546875,
+        148.78176879882812
+      ],
+      "r": 10
+    }
+  ]
+}

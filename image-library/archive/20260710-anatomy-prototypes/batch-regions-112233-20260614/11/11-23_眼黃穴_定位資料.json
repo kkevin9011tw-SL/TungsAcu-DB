@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "status": "review_ready",
+  "region": "11",
+  "code": "11.23",
+  "title": "眼黃穴",
+  "covered_points": [
+    "眼黃穴"
+  ],
+  "view": "palmar",
+  "location_summary": "小指陰掌第二節 C 線中點。",
+  "review_note": "",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "little",
+    "segment": "middle",
+    "lines_source_coordinates": {
+      "A": [
+        [
+          447.80038268061634,
+          165.93111536311795
+        ],
+        [
+          447.60038268061635,
+          183.93111536311795
+        ]
+      ],
+      "B": [
+        [
+          450.9001913403082,
+          165.96555768155898
+        ],
+        [
+          450.7001913403082,
+          183.96555768155898
+        ]
+      ],
+      "C": [
+        [
+          454.0,
+          166.0
+        ],
+        [
+          453.8,
+          184.0
+        ]
+      ],
+      "D": [
+        [
+          457.0998086596918,
+          166.03444231844102
+        ],
+        [
+          456.8998086596918,
+          184.03444231844102
+        ]
+      ],
+      "E": [
+        [
+          460.19961731938366,
+          166.06888463688205
+        ],
+        [
+          459.9996173193837,
+          184.06888463688205
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "眼黃穴",
+        "line": "C",
+        "fraction": 0.5,
+        "source": [
+          453.9,
+          175.0
+        ]
+      }
+    ],
+    "division": 2
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_第一輪審核.svg"
+  }
+}

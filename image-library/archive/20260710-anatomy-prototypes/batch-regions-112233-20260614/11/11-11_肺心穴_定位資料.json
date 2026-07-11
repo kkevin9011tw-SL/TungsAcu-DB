@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "status": "review_ready",
+  "region": "11",
+  "code": "11.11",
+  "title": "肺心穴",
+  "covered_points": [
+    "肺心穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "中指陽掌第二節 B 線，三分點法取二穴。",
+  "review_note": "",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "middle",
+    "segment": "middle",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          409.1343425270459,
+          147.56792912119082
+        ],
+        [
+          403.83434252704586,
+          175.56792912119082
+        ]
+      ],
+      "B": [
+        [
+          416.7,
+          149.0
+        ],
+        [
+          411.4,
+          177.0
+        ]
+      ],
+      "A": [
+        [
+          424.2656574729541,
+          150.43207087880918
+        ],
+        [
+          418.9656574729541,
+          178.43207087880918
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.3333333333333333,
+        "source": [
+          414.93333333333334,
+          158.33333333333334
+        ]
+      },
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.6666666666666666,
+        "source": [
+          413.16666666666663,
+          167.66666666666666
+        ]
+      }
+    ],
+    "division": 3
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_第一輪審核.svg"
+  }
+}

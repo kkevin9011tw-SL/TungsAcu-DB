@@ -1,0 +1,2732 @@
+{
+  "version": 1,
+  "generated_at": "2026-06-14",
+  "scope": "regions 11, 22, 33 plus special clenched-fist prototype",
+  "plate_count": 39,
+  "covered_point_count": 56,
+  "covered_points": [
+    "三叉一穴",
+    "三叉三穴",
+    "三叉二穴",
+    "三眼穴",
+    "上白穴",
+    "下白穴",
+    "中白穴",
+    "中間穴",
+    "二角明穴",
+    "五虎穴",
+    "人士穴",
+    "其正穴",
+    "其角穴",
+    "其門穴",
+    "制汙穴",
+    "土水穴",
+    "地士穴",
+    "外間穴",
+    "大白穴",
+    "大間穴",
+    "天士穴",
+    "婦科穴",
+    "小間穴",
+    "復原穴",
+    "心常穴",
+    "心膝穴",
+    "心門穴",
+    "手千金穴",
+    "手解穴",
+    "指三重穴",
+    "指五金、指千金穴",
+    "指腎穴",
+    "指駟馬穴",
+    "曲陵穴",
+    "木火穴",
+    "木炎穴",
+    "木穴",
+    "止涎穴",
+    "浮間穴",
+    "火串穴",
+    "火山穴",
+    "火腑海穴",
+    "火膝穴",
+    "火陵穴",
+    "眼黃穴",
+    "肝門穴",
+    "肺心穴",
+    "脾腫穴",
+    "腕順一穴",
+    "腕順二穴",
+    "腸門穴",
+    "膽穴",
+    "還巢穴",
+    "重仙穴",
+    "重子穴",
+    "靈骨穴"
+  ],
+  "status_counts": {
+    "approved_existing": 5,
+    "review_ready": 7,
+    "needs_anatomy_review": 27
+  },
+  "contact_sheets": {
+    "11": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/一一部位_第一輪總覽.png",
+    "22": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/二二部位_第一輪總覽.png",
+    "33": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/三三部位_第一輪總覽.png",
+    "special": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/特殊視角_第一輪總覽.png"
+  },
+  "plates": [
+    {
+      "region": "11",
+      "code": "11.17",
+      "title": "木穴",
+      "covered_points": [
+        "木穴"
+      ],
+      "view": "palmar",
+      "status": "approved_existing",
+      "source": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-muxue-20260612/木穴_精簡評估版_v4_WHO左手掌面線稿.png",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-17_木穴_已核可.png",
+      "review_note": "沿用先前核可版本。"
+    },
+    {
+      "region": "11",
+      "code": "11.19",
+      "title": "心常穴",
+      "covered_points": [
+        "心常穴"
+      ],
+      "view": "palmar",
+      "status": "approved_existing",
+      "source": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-xinchang-20260613/心常穴_正式評估版_v5_WHO-p168左手掌面.png",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-19_心常穴_已核可.png",
+      "review_note": "沿用先前核可版本。"
+    },
+    {
+      "region": "11",
+      "code": "11.21",
+      "title": "三眼穴",
+      "covered_points": [
+        "三眼穴"
+      ],
+      "view": "palmar",
+      "status": "approved_existing",
+      "source": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-sanyan-20260613/三眼穴_正式評估版_v1_WHO-p168左手掌面.png",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-21_三眼穴_已核可.png",
+      "review_note": "沿用先前核可版本。"
+    },
+    {
+      "region": "11",
+      "code": "11.22",
+      "title": "復原穴",
+      "covered_points": [
+        "復原穴"
+      ],
+      "view": "palmar",
+      "status": "approved_existing",
+      "source": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-fuyuan-20260613/復原穴_正式評估版_v1_WHO-p168左手掌面.png",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-22_復原穴_已核可.png",
+      "review_note": "沿用先前核可版本。"
+    },
+    {
+      "region": "11",
+      "code": "11.20",
+      "title": "木炎穴",
+      "covered_points": [
+        "木炎穴"
+      ],
+      "view": "palmar",
+      "status": "approved_existing",
+      "source": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-muyan-20260613/木炎穴_正式評估版_v1_WHO-p168左手掌面.png",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-20_木炎穴_已核可.png",
+      "review_note": "沿用先前核可版本。"
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-01-02_大間穴-小間穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-01-02_大間穴-小間穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-01-02_大間穴-小間穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.01-02",
+      "title": "大間穴、小間穴",
+      "covered_points": [
+        "大間穴",
+        "小間穴"
+      ],
+      "view": "palmar",
+      "location_summary": "食指陰掌第一節 B 線；小間取上 1/4，大間取中點。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "index",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              371.16398134468744,
+              188.71019715909276
+            ],
+            [
+              377.16398134468744,
+              219.71019715909276
+            ]
+          ],
+          "B": [
+            [
+              375.58199067234375,
+              187.85509857954636
+            ],
+            [
+              381.58199067234375,
+              218.85509857954636
+            ]
+          ],
+          "C": [
+            [
+              380.0,
+              187.0
+            ],
+            [
+              386.0,
+              218.0
+            ]
+          ],
+          "D": [
+            [
+              384.41800932765625,
+              186.14490142045364
+            ],
+            [
+              390.41800932765625,
+              217.14490142045364
+            ]
+          ],
+          "E": [
+            [
+              388.83601865531256,
+              185.28980284090724
+            ],
+            [
+              394.83601865531256,
+              216.28980284090724
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "小間穴",
+            "line": "B",
+            "fraction": 0.25,
+            "source": [
+              377.08199067234375,
+              195.60509857954636
+            ]
+          },
+          {
+            "name": "大間穴",
+            "line": "B",
+            "fraction": 0.5,
+            "source": [
+              378.58199067234375,
+              203.35509857954636
+            ]
+          }
+        ],
+        "division": 4
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-01-02_大間穴-小間穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-01-02_大間穴-小間穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-03-04_浮間穴-外間穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-03-04_浮間穴-外間穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-03-04_浮間穴-外間穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.03-04",
+      "title": "浮間穴、外間穴",
+      "covered_points": [
+        "浮間穴",
+        "外間穴"
+      ],
+      "view": "palmar",
+      "location_summary": "食指陰掌第二節 B 線，三分點法取二穴。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "index",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              366.4538474849844,
+              164.9083329728167
+            ],
+            [
+              372.9538474849844,
+              188.9083329728167
+            ]
+          ],
+          "B": [
+            [
+              369.9769237424922,
+              163.95416648640835
+            ],
+            [
+              376.4769237424922,
+              187.95416648640835
+            ]
+          ],
+          "C": [
+            [
+              373.5,
+              163.0
+            ],
+            [
+              380.0,
+              187.0
+            ]
+          ],
+          "D": [
+            [
+              377.0230762575078,
+              162.04583351359165
+            ],
+            [
+              383.5230762575078,
+              186.04583351359165
+            ]
+          ],
+          "E": [
+            [
+              380.5461525150156,
+              161.0916670271833
+            ],
+            [
+              387.0461525150156,
+              185.0916670271833
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "浮間穴",
+            "line": "B",
+            "fraction": 0.3333333333333333,
+            "source": [
+              372.1435904091589,
+              171.95416648640835
+            ]
+          },
+          {
+            "name": "外間穴",
+            "line": "B",
+            "fraction": 0.6666666666666666,
+            "source": [
+              374.3102570758255,
+              179.95416648640835
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-03-04_浮間穴-外間穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-03-04_浮間穴-外間穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.05",
+      "title": "中間穴",
+      "covered_points": [
+        "中間穴"
+      ],
+      "view": "palmar",
+      "location_summary": "食指陰掌第一節 C 線中點。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "index",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              371.16398134468744,
+              188.71019715909276
+            ],
+            [
+              377.16398134468744,
+              219.71019715909276
+            ]
+          ],
+          "B": [
+            [
+              375.58199067234375,
+              187.85509857954636
+            ],
+            [
+              381.58199067234375,
+              218.85509857954636
+            ]
+          ],
+          "C": [
+            [
+              380.0,
+              187.0
+            ],
+            [
+              386.0,
+              218.0
+            ]
+          ],
+          "D": [
+            [
+              384.41800932765625,
+              186.14490142045364
+            ],
+            [
+              390.41800932765625,
+              217.14490142045364
+            ]
+          ],
+          "E": [
+            [
+              388.83601865531256,
+              185.28980284090724
+            ],
+            [
+              394.83601865531256,
+              216.28980284090724
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "中間穴",
+            "line": "C",
+            "fraction": 0.5,
+            "source": [
+              383.0,
+              202.5
+            ]
+          }
+        ],
+        "division": 2
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-18_脾腫穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-18_脾腫穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-18_脾腫穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.18",
+      "title": "脾腫穴",
+      "covered_points": [
+        "脾腫穴"
+      ],
+      "view": "palmar",
+      "location_summary": "中指陰掌第二節 C 線，三分點法取二穴。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "middle",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              389.7343425270459,
+              150.43207087880918
+            ],
+            [
+              395.0343425270459,
+              178.43207087880918
+            ]
+          ],
+          "B": [
+            [
+              393.5171712635229,
+              149.71603543940458
+            ],
+            [
+              398.81717126352294,
+              177.71603543940458
+            ]
+          ],
+          "C": [
+            [
+              397.3,
+              149.0
+            ],
+            [
+              402.6,
+              177.0
+            ]
+          ],
+          "D": [
+            [
+              401.0828287364771,
+              148.28396456059542
+            ],
+            [
+              406.3828287364771,
+              176.28396456059542
+            ]
+          ],
+          "E": [
+            [
+              404.8656574729541,
+              147.56792912119082
+            ],
+            [
+              410.16565747295414,
+              175.56792912119082
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.3333333333333333,
+            "source": [
+              399.06666666666666,
+              158.33333333333334
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.6666666666666666,
+            "source": [
+              400.83333333333337,
+              167.66666666666666
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-18_脾腫穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-18_脾腫穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-06_還巢穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-06_還巢穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-06_還巢穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.06",
+      "title": "還巢穴",
+      "covered_points": [
+        "還巢穴"
+      ],
+      "view": "palmar",
+      "location_summary": "無名指陰掌第二節 E 線中點，應以側視確認貼骨下緣。",
+      "review_note": "E 線穴位依規範需側視圖；本版先用正視局部放大建立比例。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "ring",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              410.30374144761015,
+              151.2347514473275
+            ],
+            [
+              414.7037414476101,
+              177.2347514473275
+            ]
+          ],
+          "B": [
+            [
+              413.9518707238051,
+              150.61737572366377
+            ],
+            [
+              418.35187072380506,
+              176.61737572366377
+            ]
+          ],
+          "C": [
+            [
+              417.6,
+              150.0
+            ],
+            [
+              422.0,
+              176.0
+            ]
+          ],
+          "D": [
+            [
+              421.24812927619496,
+              149.38262427633623
+            ],
+            [
+              425.64812927619494,
+              175.38262427633623
+            ]
+          ],
+          "E": [
+            [
+              424.8962585523899,
+              148.7652485526725
+            ],
+            [
+              429.2962585523899,
+              174.7652485526725
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "還巢穴",
+            "line": "E",
+            "fraction": 0.5,
+            "source": [
+              427.0962585523899,
+              161.7652485526725
+            ]
+          }
+        ],
+        "division": 2
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-06_還巢穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-06_還巢穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.23",
+      "title": "眼黃穴",
+      "covered_points": [
+        "眼黃穴"
+      ],
+      "view": "palmar",
+      "location_summary": "小指陰掌第二節 C 線中點。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "little",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              447.80038268061634,
+              165.93111536311795
+            ],
+            [
+              447.60038268061635,
+              183.93111536311795
+            ]
+          ],
+          "B": [
+            [
+              450.9001913403082,
+              165.96555768155898
+            ],
+            [
+              450.7001913403082,
+              183.96555768155898
+            ]
+          ],
+          "C": [
+            [
+              454.0,
+              166.0
+            ],
+            [
+              453.8,
+              184.0
+            ]
+          ],
+          "D": [
+            [
+              457.0998086596918,
+              166.03444231844102
+            ],
+            [
+              456.8998086596918,
+              184.03444231844102
+            ]
+          ],
+          "E": [
+            [
+              460.19961731938366,
+              166.06888463688205
+            ],
+            [
+              459.9996173193837,
+              184.06888463688205
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "眼黃穴",
+            "line": "C",
+            "fraction": 0.5,
+            "source": [
+              453.9,
+              175.0
+            ]
+          }
+        ],
+        "division": 2
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-23_眼黃穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.16",
+      "title": "火膝穴",
+      "covered_points": [
+        "火膝穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "小指甲外側角後約二分；需依甲角與黑白肉際校正。",
+      "review_note": "WHO 手背圖可見指甲，但甲角後二分仍需人工確認。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "little",
+        "segment": "distal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              354.3243394747403,
+              150.22110733916955
+            ],
+            [
+              354.5003394747403,
+              166.06110733916955
+            ]
+          ],
+          "B": [
+            [
+              359.824,
+              150.16
+            ],
+            [
+              360.0,
+              166.0
+            ]
+          ],
+          "A": [
+            [
+              365.3236605252597,
+              150.09889266083044
+            ],
+            [
+              365.4996605252597,
+              165.93889266083045
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "火膝穴",
+            "line": "C",
+            "fraction": 0.18,
+            "source": [
+              354.3560194747403,
+              153.07230733916956
+            ]
+          }
+        ],
+        "division": 0
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-16_火膝穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.15",
+      "title": "指腎穴",
+      "covered_points": [
+        "指腎穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "無名指陽掌第一節小側，四分點法取三穴；側視貼骨確認。",
+      "review_note": "陽掌側線穴位依規範需側視圖。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "ring",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              383.92477481769293,
+              174.57496026194582
+            ],
+            [
+              377.92477481769293,
+              208.57496026194582
+            ]
+          ],
+          "B": [
+            [
+              392.0,
+              176.0
+            ],
+            [
+              386.0,
+              210.0
+            ]
+          ],
+          "A": [
+            [
+              400.07522518230707,
+              177.42503973805418
+            ],
+            [
+              394.07522518230707,
+              211.42503973805418
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.25,
+            "source": [
+              382.42477481769293,
+              183.07496026194582
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.5,
+            "source": [
+              380.92477481769293,
+              191.57496026194582
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.75,
+            "source": [
+              379.42477481769293,
+              200.07496026194582
+            ]
+          }
+        ],
+        "division": 4
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.14",
+      "title": "指三重穴",
+      "covered_points": [
+        "指三重穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "無名指陽掌第二節小側，四分點法取三穴；側視貼骨確認。",
+      "review_note": "陽掌側線穴位依規範需側視圖。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "ring",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              389.1037414476101,
+              148.7652485526725
+            ],
+            [
+              384.7037414476101,
+              174.7652485526725
+            ]
+          ],
+          "B": [
+            [
+              396.4,
+              150.0
+            ],
+            [
+              392.0,
+              176.0
+            ]
+          ],
+          "A": [
+            [
+              403.69625855238985,
+              151.2347514473275
+            ],
+            [
+              399.2962585523899,
+              177.2347514473275
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.25,
+            "source": [
+              388.0037414476101,
+              155.2652485526725
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.5,
+            "source": [
+              386.9037414476101,
+              161.7652485526725
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.75,
+            "source": [
+              385.80374144761015,
+              168.2652485526725
+            ]
+          }
+        ],
+        "division": 4
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.09",
+      "title": "心膝穴",
+      "covered_points": [
+        "心膝穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "中指陽掌第二節大側、小側各中點；兩側均需側視貼骨確認。",
+      "review_note": "陽掌 A、C 側線穴位依規範需側視圖。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "middle",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              409.1343425270459,
+              147.56792912119082
+            ],
+            [
+              403.83434252704586,
+              175.56792912119082
+            ]
+          ],
+          "B": [
+            [
+              416.7,
+              149.0
+            ],
+            [
+              411.4,
+              177.0
+            ]
+          ],
+          "A": [
+            [
+              424.2656574729541,
+              150.43207087880918
+            ],
+            [
+              418.9656574729541,
+              178.43207087880918
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "A",
+            "fraction": 0.5,
+            "source": [
+              421.6156574729541,
+              164.43207087880918
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.5,
+            "source": [
+              406.4843425270459,
+              161.56792912119082
+            ]
+          }
+        ],
+        "division": 2
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.11",
+      "title": "肺心穴",
+      "covered_points": [
+        "肺心穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "中指陽掌第二節 B 線，三分點法取二穴。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "middle",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              409.1343425270459,
+              147.56792912119082
+            ],
+            [
+              403.83434252704586,
+              175.56792912119082
+            ]
+          ],
+          "B": [
+            [
+              416.7,
+              149.0
+            ],
+            [
+              411.4,
+              177.0
+            ]
+          ],
+          "A": [
+            [
+              424.2656574729541,
+              150.43207087880918
+            ],
+            [
+              418.9656574729541,
+              178.43207087880918
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.3333333333333333,
+            "source": [
+              414.93333333333334,
+              158.33333333333334
+            ]
+          },
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.6666666666666666,
+            "source": [
+              413.16666666666663,
+              167.66666666666666
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-11_肺心穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-10_木火穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-10_木火穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-10_木火穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.10",
+      "title": "木火穴",
+      "covered_points": [
+        "木火穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "中指末節與第二節交界橫紋中央。",
+      "review_note": "WHO 圖顯示骨關節，皮膚橫紋位置需人工校正。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "middle",
+        "segment": "distal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              414.6826401537548,
+              123.09531402910359
+            ],
+            [
+              410.0186401537548,
+              147.7353140291036
+            ]
+          ],
+          "B": [
+            [
+              421.364,
+              124.36
+            ],
+            [
+              416.7,
+              149.0
+            ]
+          ],
+          "A": [
+            [
+              428.04535984624516,
+              125.62468597089641
+            ],
+            [
+              423.3813598462452,
+              150.2646859708964
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "木火穴",
+            "line": "B",
+            "fraction": 1.0,
+            "source": [
+              416.7,
+              149.0
+            ]
+          }
+        ],
+        "division": 0
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-10_木火穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-10_木火穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-08_指五金-指千金穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-08_指五金-指千金穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-08_指五金-指千金穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.08",
+      "title": "指五金、指千金穴",
+      "covered_points": [
+        "指五金、指千金穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "食指陽掌第一節小側，三分點法取二穴；貼骨旁。",
+      "review_note": "陽掌側線穴位依規範需側視圖。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "index",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              425.16398134468744,
+              185.28980284090724
+            ],
+            [
+              419.16398134468744,
+              216.28980284090724
+            ]
+          ],
+          "B": [
+            [
+              434.0,
+              187.0
+            ],
+            [
+              428.0,
+              218.0
+            ]
+          ],
+          "A": [
+            [
+              442.83601865531256,
+              188.71019715909276
+            ],
+            [
+              436.83601865531256,
+              219.71019715909276
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "指千金",
+            "line": "C",
+            "fraction": 0.3333333333333333,
+            "source": [
+              423.16398134468744,
+              195.62313617424059
+            ]
+          },
+          {
+            "name": "指五金",
+            "line": "C",
+            "fraction": 0.6666666666666666,
+            "source": [
+              421.16398134468744,
+              205.9564695075739
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-08_指五金-指千金穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-08_指五金-指千金穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-07_指駟馬穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-07_指駟馬穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-07_指駟馬穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.07",
+      "title": "指駟馬穴",
+      "covered_points": [
+        "指駟馬穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "食指陽掌第二節小側，四分點法取三穴；貼骨旁。",
+      "review_note": "沿用既有指駟馬原型，但側線仍需側視校正。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "index",
+        "segment": "middle",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              433.4538474849844,
+              161.0916670271833
+            ],
+            [
+              426.9538474849844,
+              185.0916670271833
+            ]
+          ],
+          "B": [
+            [
+              440.5,
+              163.0
+            ],
+            [
+              434.0,
+              187.0
+            ]
+          ],
+          "A": [
+            [
+              447.5461525150156,
+              164.9083329728167
+            ],
+            [
+              441.0461525150156,
+              188.9083329728167
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.25,
+            "source": [
+              431.8288474849844,
+              167.0916670271833
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.5,
+            "source": [
+              430.2038474849844,
+              173.0916670271833
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.75,
+            "source": [
+              428.5788474849844,
+              179.0916670271833
+            ]
+          }
+        ],
+        "division": 4
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-07_指駟馬穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-07_指駟馬穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-24_婦科穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-24_婦科穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-24_婦科穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.24",
+      "title": "婦科穴",
+      "covered_points": [
+        "婦科穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "大指陽掌第一節小側，三分點法取二穴；貼骨旁。",
+      "review_note": "拇指角度與側線由 WHO 圖估算，需人工校正。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "thumb",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              445.24506593825384,
+              254.82193580699234
+            ],
+            [
+              418.24506593825384,
+              273.8219358069923
+            ]
+          ],
+          "B": [
+            [
+              451.0,
+              263.0
+            ],
+            [
+              424.0,
+              282.0
+            ]
+          ],
+          "A": [
+            [
+              456.75493406174616,
+              271.1780641930077
+            ],
+            [
+              429.75493406174616,
+              290.1780641930077
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.3333333333333333,
+            "source": [
+              436.24506593825384,
+              261.1552691403257
+            ]
+          },
+          {
+            "name": "",
+            "line": "C",
+            "fraction": 0.6666666666666666,
+            "source": [
+              427.24506593825384,
+              267.488602473659
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-24_婦科穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-24_婦科穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.26",
+      "title": "制汙穴",
+      "covered_points": [
+        "制汙穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "大指陽掌第一節中央線，四分點法取三穴。",
+      "review_note": "拇指指節邊界由 WHO 骨關節估算，需人工校正皮膚橫紋。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "thumb",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              445.24506593825384,
+              254.82193580699234
+            ],
+            [
+              418.24506593825384,
+              273.8219358069923
+            ]
+          ],
+          "B": [
+            [
+              451.0,
+              263.0
+            ],
+            [
+              424.0,
+              282.0
+            ]
+          ],
+          "A": [
+            [
+              456.75493406174616,
+              271.1780641930077
+            ],
+            [
+              429.75493406174616,
+              290.1780641930077
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.25,
+            "source": [
+              444.25,
+              267.75
+            ]
+          },
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.5,
+            "source": [
+              437.5,
+              272.5
+            ]
+          },
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.75,
+            "source": [
+              430.75,
+              277.25
+            ]
+          }
+        ],
+        "division": 4
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-25_止涎穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-25_止涎穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-25_止涎穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.25",
+      "title": "止涎穴",
+      "covered_points": [
+        "止涎穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "大指陽掌第一節橈側，三分點法取二穴；貼骨旁。",
+      "review_note": "陽掌側線穴位需側視圖校正。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "thumb",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              445.24506593825384,
+              254.82193580699234
+            ],
+            [
+              418.24506593825384,
+              273.8219358069923
+            ]
+          ],
+          "B": [
+            [
+              451.0,
+              263.0
+            ],
+            [
+              424.0,
+              282.0
+            ]
+          ],
+          "A": [
+            [
+              456.75493406174616,
+              271.1780641930077
+            ],
+            [
+              429.75493406174616,
+              290.1780641930077
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "A",
+            "fraction": 0.3333333333333333,
+            "source": [
+              447.75493406174616,
+              277.511397526341
+            ]
+          },
+          {
+            "name": "",
+            "line": "A",
+            "fraction": 0.6666666666666666,
+            "source": [
+              438.75493406174616,
+              283.84473085967437
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-25_止涎穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-25_止涎穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-27_五虎穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-27_五虎穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-27_五虎穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.27",
+      "title": "五虎穴",
+      "covered_points": [
+        "五虎穴"
+      ],
+      "view": "palmar",
+      "location_summary": "大指陰掌第一節 A 線，六分點法取五穴。",
+      "review_note": "陰掌 A 線穴位需側視貼骨校正。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "thumb",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              357.24506593825384,
+              271.1780641930077
+            ],
+            [
+              384.24506593825384,
+              290.1780641930077
+            ]
+          ],
+          "B": [
+            [
+              360.12253296912695,
+              267.08903209650384
+            ],
+            [
+              387.12253296912695,
+              286.08903209650384
+            ]
+          ],
+          "C": [
+            [
+              363.0,
+              263.0
+            ],
+            [
+              390.0,
+              282.0
+            ]
+          ],
+          "D": [
+            [
+              365.87746703087305,
+              258.91096790349616
+            ],
+            [
+              392.87746703087305,
+              277.91096790349616
+            ]
+          ],
+          "E": [
+            [
+              368.75493406174616,
+              254.82193580699234
+            ],
+            [
+              395.75493406174616,
+              273.8219358069923
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "五虎1",
+            "line": "A",
+            "fraction": 0.16666666666666666,
+            "source": [
+              361.74506593825384,
+              274.34473085967437
+            ]
+          },
+          {
+            "name": "五虎2",
+            "line": "A",
+            "fraction": 0.3333333333333333,
+            "source": [
+              366.24506593825384,
+              277.511397526341
+            ]
+          },
+          {
+            "name": "五虎3",
+            "line": "A",
+            "fraction": 0.5,
+            "source": [
+              370.74506593825384,
+              280.6780641930077
+            ]
+          },
+          {
+            "name": "五虎4",
+            "line": "A",
+            "fraction": 0.6666666666666666,
+            "source": [
+              375.24506593825384,
+              283.84473085967437
+            ]
+          },
+          {
+            "name": "五虎5",
+            "line": "A",
+            "fraction": 0.8333333333333334,
+            "source": [
+              379.74506593825384,
+              287.011397526341
+            ]
+          }
+        ],
+        "division": 6
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-27_五虎穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-27_五虎穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-13_膽穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-13_膽穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-13_膽穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "11",
+      "code": "11.13",
+      "title": "膽穴",
+      "covered_points": [
+        "膽穴"
+      ],
+      "view": "palmar",
+      "location_summary": "中指陰掌第一節大側、小側各中點。",
+      "review_note": "陰掌 A、E 線穴位需側視貼骨校正。",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "middle",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "A": [
+            [
+              393.77477391878176,
+              178.76504521624364
+            ],
+            [
+              400.3747739187817,
+              211.76504521624364
+            ]
+          ],
+          "B": [
+            [
+              398.1873869593909,
+              177.88252260812183
+            ],
+            [
+              404.78738695939086,
+              210.88252260812183
+            ]
+          ],
+          "C": [
+            [
+              402.6,
+              177.0
+            ],
+            [
+              409.2,
+              210.0
+            ]
+          ],
+          "D": [
+            [
+              407.01261304060915,
+              176.11747739187817
+            ],
+            [
+              413.6126130406091,
+              209.11747739187817
+            ]
+          ],
+          "E": [
+            [
+              411.4252260812183,
+              175.23495478375636
+            ],
+            [
+              418.02522608121825,
+              208.23495478375636
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "A",
+            "fraction": 0.5,
+            "source": [
+              397.0747739187817,
+              195.26504521624364
+            ]
+          },
+          {
+            "name": "",
+            "line": "E",
+            "fraction": 0.5,
+            "source": [
+              414.72522608121824,
+              191.73495478375636
+            ]
+          }
+        ],
+        "division": 2
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-13_膽穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-13_膽穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_定位資料.json",
+      "version": 1,
+      "status": "review_ready",
+      "region": "11",
+      "code": "11.12",
+      "title": "二角明穴",
+      "covered_points": [
+        "二角明穴"
+      ],
+      "view": "dorsal",
+      "location_summary": "中指陽掌第一節 B 線，三分點法取二穴。",
+      "review_note": "",
+      "geometry": {
+        "source_box": [
+          322.0,
+          112.0,
+          492.0,
+          352.0
+        ],
+        "finger": "middle",
+        "segment": "proximal",
+        "lines_source_coordinates": {
+          "C": [
+            [
+              402.5747739187817,
+              175.23495478375636
+            ],
+            [
+              395.97477391878175,
+              208.23495478375636
+            ]
+          ],
+          "B": [
+            [
+              411.4,
+              177.0
+            ],
+            [
+              404.8,
+              210.0
+            ]
+          ],
+          "A": [
+            [
+              420.22522608121824,
+              178.76504521624364
+            ],
+            [
+              413.6252260812183,
+              211.76504521624364
+            ]
+          ]
+        },
+        "points": [
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.3333333333333333,
+            "source": [
+              409.2,
+              188.0
+            ]
+          },
+          {
+            "name": "",
+            "line": "B",
+            "fraction": 0.6666666666666666,
+            "source": [
+              407.0,
+              199.0
+            ]
+          }
+        ],
+        "division": 3
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.01-02",
+      "title": "重子穴、重仙穴",
+      "covered_points": [
+        "重子穴",
+        "重仙穴"
+      ],
+      "view": "palmar_hand",
+      "location_summary": "第一、二掌骨間；重子約虎口下一寸，重仙沿掌緣方向再下一寸。",
+      "review_note": "以 WHO 開掌骨位推估，需校正食指 C 線延長線與大指高骨垂線。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "重子穴",
+            "pixel": [
+              410,
+              790
+            ]
+          },
+          {
+            "name": "重仙穴",
+            "pixel": [
+              455,
+              920
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.04-05",
+      "title": "大白穴、靈骨穴",
+      "covered_points": [
+        "大白穴",
+        "靈骨穴"
+      ],
+      "view": "dorsal_hand",
+      "location_summary": "第一、二掌骨間；大白近掌指關節，靈骨近第一、二掌骨接合處。",
+      "review_note": "臨床以握拳、立掌取穴；WHO 無相同姿勢，本版為開掌骨位對照。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "大白穴",
+            "pixel": [
+              705,
+              715
+            ]
+          },
+          {
+            "name": "靈骨穴",
+            "pixel": [
+              645,
+              870
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-04-05_大白穴-靈骨穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.03",
+      "title": "上白穴",
+      "covered_points": [
+        "上白穴"
+      ],
+      "view": "dorsal_hand",
+      "location_summary": "食指與中指掌骨間，距掌指關節下約五分。",
+      "review_note": "掌骨間距與五分位置需依原書圖校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "上白穴",
+            "pixel": [
+              560,
+              655
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.06-07",
+      "title": "中白穴、下白穴",
+      "covered_points": [
+        "中白穴",
+        "下白穴"
+      ],
+      "view": "dorsal_hand",
+      "location_summary": "第四、五掌骨間；中白距掌指關節五分，下白再近腕一寸。",
+      "review_note": "原定位要求握拳，本版先依 WHO 開掌骨間隙建立相對位置。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "中白穴",
+            "pixel": [
+              300,
+              650
+            ]
+          },
+          {
+            "name": "下白穴",
+            "pixel": [
+              275,
+              790
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-06-07_中白穴-下白穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.08-09",
+      "title": "腕順一穴、腕順二穴",
+      "covered_points": [
+        "腕順一穴",
+        "腕順二穴"
+      ],
+      "view": "dorsal_hand",
+      "location_summary": "第五掌骨尺側；腕順二距腕橫紋一寸五分，腕順一二寸五分。",
+      "review_note": "需校正第五掌骨外側骨緣與腕橫紋起點。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "腕順二穴",
+            "pixel": [
+              180,
+              785
+            ]
+          },
+          {
+            "name": "腕順一穴",
+            "pixel": [
+              165,
+              875
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-08-09_腕順一穴-腕順二穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.10",
+      "title": "手解穴",
+      "covered_points": [
+        "手解穴"
+      ],
+      "view": "palmar_hand",
+      "location_summary": "第四、五掌骨間，握拳時小指尖所觸掌處。",
+      "review_note": "WHO 無握拳掌面圖，本版以少府區域骨位暫定。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "手解穴",
+            "pixel": [
+              720,
+              775
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "22",
+      "code": "22.11",
+      "title": "土水穴",
+      "covered_points": [
+        "土水穴"
+      ],
+      "view": "palmar_hand",
+      "location_summary": "第一掌骨內側黑白肉際三穴；中央近魚際，上下各取相鄰中點。",
+      "review_note": "黑白肉際不在骨骼圖中，需依體表邊界校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1020,
+          1440
+        ],
+        "points_base_pixels": [
+          {
+            "name": "土水上",
+            "pixel": [
+              330,
+              855
+            ]
+          },
+          {
+            "name": "土水中",
+            "pixel": [
+              305,
+              945
+            ]
+          },
+          {
+            "name": "土水下",
+            "pixel": [
+              285,
+              1040
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "33",
+      "code": "33.01-03",
+      "title": "其門穴、其角穴、其正穴",
+      "covered_points": [
+        "其門穴",
+        "其角穴",
+        "其正穴"
+      ],
+      "view": "forearm_posterior",
+      "location_summary": "橈骨外側，自腕橫紋起二、四、六寸。",
+      "review_note": "寸位可靠；橈骨外側貼骨線需人工校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1116,
+          1620
+        ],
+        "axis": [
+          [
+            535.68,
+            1069.2
+          ],
+          [
+            479.88,
+            307.8
+          ]
+        ],
+        "points": [
+          {
+            "name": "其門穴",
+            "cun": 2,
+            "offset": 85,
+            "pixel": [
+              441.60734556069406,
+              948.5126531622187
+            ]
+          },
+          {
+            "name": "其角穴",
+            "cun": 4,
+            "offset": 85,
+            "pixel": [
+              432.307345560694,
+              821.6126531622187
+            ]
+          },
+          {
+            "name": "其正穴",
+            "cun": 6,
+            "offset": 85,
+            "pixel": [
+              423.00734556069403,
+              694.7126531622187
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "33",
+      "code": "33.04-07",
+      "title": "火串穴、火陵穴、火山穴、火腑海穴",
+      "covered_points": [
+        "火串穴",
+        "火陵穴",
+        "火山穴",
+        "火腑海穴"
+      ],
+      "view": "forearm_posterior",
+      "location_summary": "前臂後面中央線附近，自腕橫紋三、五、六點五、八點五寸。",
+      "review_note": "比例位置已建立；手撫胸造成的旋臂表面線需人工校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1116,
+          1620
+        ],
+        "axis": [
+          [
+            535.68,
+            1069.2
+          ],
+          [
+            479.88,
+            307.8
+          ]
+        ],
+        "points": [
+          {
+            "name": "火串穴",
+            "cun": 3,
+            "offset": 5,
+            "pixel": [
+              516.7433732682762,
+              879.2154501860128
+            ]
+          },
+          {
+            "name": "火陵穴",
+            "cun": 5,
+            "offset": 5,
+            "pixel": [
+              507.44337326827605,
+              752.3154501860129
+            ]
+          },
+          {
+            "name": "火山穴",
+            "cun": 6.5,
+            "offset": 5,
+            "pixel": [
+              500.4683732682761,
+              657.1404501860129
+            ]
+          },
+          {
+            "name": "火腑海穴",
+            "cun": 8.5,
+            "offset": 5,
+            "pixel": [
+              491.16837326827607,
+              530.2404501860128
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "33",
+      "code": "33.09",
+      "title": "手千金穴",
+      "covered_points": [
+        "手千金穴"
+      ],
+      "view": "forearm_posterior",
+      "location_summary": "尺骨外側，距腕部豌豆骨約八寸，筋下骨前。",
+      "review_note": "八寸比例可靠；筋下骨前的橫向位置需人工校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1116,
+          1620
+        ],
+        "axis": [
+          [
+            535.68,
+            1069.2
+          ],
+          [
+            479.88,
+            307.8
+          ]
+        ],
+        "points": [
+          {
+            "name": "手千金穴",
+            "cun": 8,
+            "offset": -80,
+            "pixel": [
+              578.266027707582,
+              555.7527970237943
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-09_手千金穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "33",
+      "code": "33.10-12",
+      "title": "腸門穴、肝門穴、心門穴",
+      "covered_points": [
+        "腸門穴",
+        "肝門穴",
+        "心門穴"
+      ],
+      "view": "forearm_posterior",
+      "location_summary": "尺骨內側線；腸門三寸、肝門六寸、心門距肘尖一寸五分。",
+      "review_note": "心門已有核可原型；本合併圖仍需統一尺骨內側貼骨線。",
+      "geometry": {
+        "base_pixel_size": [
+          1116,
+          1620
+        ],
+        "axis": [
+          [
+            535.68,
+            1069.2
+          ],
+          [
+            479.88,
+            307.8
+          ]
+        ],
+        "points": [
+          {
+            "name": "腸門穴",
+            "cun": 3,
+            "offset": -105,
+            "pixel": [
+              626.4491613662015,
+              871.17554609373
+            ]
+          },
+          {
+            "name": "肝門穴",
+            "cun": 6,
+            "offset": -105,
+            "pixel": [
+              612.4991613662014,
+              680.8255460937299
+            ]
+          },
+          {
+            "name": "心門穴",
+            "cun": 10.5,
+            "offset": -105,
+            "pixel": [
+              591.5741613662015,
+              395.30054609372985
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-10-12_腸門穴-肝門穴-心門穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "33",
+      "code": "33.13-15",
+      "title": "人士穴、地士穴、天士穴",
+      "covered_points": [
+        "人士穴",
+        "地士穴",
+        "天士穴"
+      ],
+      "view": "forearm_anterior",
+      "location_summary": "前臂橈骨內側，自腕橫紋四、七、十寸。",
+      "review_note": "寸位可靠；橈骨內側與肺經貼骨線需人工校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1044,
+          1626
+        ],
+        "axis": [
+          [
+            430.127,
+            1007.84
+          ],
+          [
+            583.483,
+            299.917
+          ]
+        ],
+        "points": [
+          {
+            "name": "人士穴",
+            "cun": 4,
+            "offset": -75,
+            "pixel": [
+              554.5454874654342,
+              787.7444660818796
+            ]
+          },
+          {
+            "name": "地士穴",
+            "cun": 7,
+            "offset": -75,
+            "pixel": [
+              592.8844874654342,
+              610.7637160818796
+            ]
+          },
+          {
+            "name": "天士穴",
+            "cun": 10,
+            "offset": -75,
+            "pixel": [
+              631.2234874654341,
+              433.78296608187964
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "33",
+      "code": "33.16",
+      "title": "曲陵穴",
+      "covered_points": [
+        "曲陵穴"
+      ],
+      "view": "forearm_anterior",
+      "location_summary": "肘窩橫紋上，大筋外側，屈肘時貼筋取穴。",
+      "review_note": "WHO 為伸肘圖；大筋隆起位置需以屈肘姿勢校正。",
+      "geometry": {
+        "base_pixel_size": [
+          1044,
+          1626
+        ],
+        "axis": [
+          [
+            430.127,
+            1007.84
+          ],
+          [
+            583.483,
+            299.917
+          ]
+        ],
+        "points": [
+          {
+            "name": "曲陵穴",
+            "cun": 12,
+            "offset": -65,
+            "pixel": [
+              647.0095113589318,
+              313.67862615985126
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_第一輪審核.svg"
+      }
+    },
+    {
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_第一輪審核.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_第一輪審核.svg",
+      "json": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_定位資料.json",
+      "version": 1,
+      "status": "needs_anatomy_review",
+      "region": "special",
+      "code": "A.02-04",
+      "title": "三叉一穴、三叉二穴、三叉三穴",
+      "covered_points": [
+        "三叉一穴",
+        "三叉二穴",
+        "三叉三穴"
+      ],
+      "view": "dorsal_clenched_fist_front",
+      "location_summary": "握拳取穴；依序位於二三、三四、四五指縫接合處。三叉三緊貼第四指，筋下骨旁。",
+      "review_note": "WHO 無握拳手背正視骨骼圖，本版直接保留原書姿勢作定位基準。",
+      "geometry": {
+        "source_pixel_size": [
+          626,
+          979
+        ],
+        "source_points": [
+          {
+            "name": "三叉一穴",
+            "pixel": [
+              244,
+              494
+            ]
+          },
+          {
+            "name": "三叉二穴",
+            "pixel": [
+              398,
+              485
+            ]
+          },
+          {
+            "name": "三叉三穴",
+            "pixel": [
+              529,
+              475
+            ]
+          }
+        ],
+        "mapped": [
+          {
+            "name": "三叉一穴",
+            "pixel": [
+              244,
+              494
+            ],
+            "canvas": [
+              792.5111821086261,
+              1218.6414708886618
+            ]
+          },
+          {
+            "name": "三叉二穴",
+            "pixel": [
+              398,
+              485
+            ],
+            "canvas": [
+              1088.2108626198083,
+              1201.3585291113382
+            ]
+          },
+          {
+            "name": "三叉三穴",
+            "pixel": [
+              529,
+              475
+            ],
+            "canvas": [
+              1339.747603833866,
+              1182.1552604698672
+            ]
+          }
+        ]
+      },
+      "outputs": {
+        "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_第一輪審核.png",
+        "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_第一輪審核.svg"
+      }
+    }
+  ]
+}

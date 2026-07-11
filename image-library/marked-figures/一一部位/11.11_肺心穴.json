@@ -1,0 +1,70 @@
+{
+  "tool": "tungsacu-marker",
+  "schema": 4,
+  "base_file": "02_hand-dorsal.svg",
+  "base_viewbox": [
+    322,
+    112,
+    170,
+    240
+  ],
+  "export_scale": 6,
+  "export_viewbox": [
+    313.5,
+    103.5,
+    187,
+    257
+  ],
+  "export_size": [
+    1122,
+    1542
+  ],
+  "region_code": "一一",
+  "region": "一一部位",
+  "zone": "手指穴位",
+  "points": [
+    {
+      "code": "11.11",
+      "name": "肺心穴"
+    }
+  ],
+  "side_note": "",
+  "annotations": [
+    {
+      "id": 1,
+      "type": "point",
+      "xy": [
+        416.6088562011719,
+        156.7715301513672
+      ],
+      "r": 8
+    },
+    {
+      "id": 19,
+      "type": "point",
+      "xy": [
+        414.7051696777344,
+        166.0093231201172
+      ],
+      "r": 8
+    },
+    {
+      "id": 20,
+      "type": "ruler",
+      "divisions": 3,
+      "headValue": null,
+      "tailValue": null,
+      "marks": [],
+      "p1": [
+        432.7913513183594,
+        151.39999389648438
+      ],
+      "p2": [
+        424.1674499511719,
+        178.248291015625
+      ],
+      "w": 4,
+      "fs": 24
+    }
+  ]
+}

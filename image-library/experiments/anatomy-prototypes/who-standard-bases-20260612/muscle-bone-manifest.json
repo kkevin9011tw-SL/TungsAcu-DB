@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "locked": false,
+  "count": 8,
+  "items": [
+    {
+      "number": 1,
+      "slug": "upper-arm-anterior",
+      "title": "上臂／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 36,
+      "crop": [
+        326,
+        100,
+        500,
+        357
+      ],
+      "note": "肱二頭肌、肱骨與肩肘骨性標誌",
+      "output_png": "muscle-bone-bases/01_upper-arm-anterior.png",
+      "output_svg": "muscle-bone-bases/01_upper-arm-anterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 2,
+      "slug": "upper-arm-posterior",
+      "title": "上臂／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 173,
+      "crop": [
+        326,
+        100,
+        500,
+        357
+      ],
+      "note": "三角肌、肩胛骨與肱骨；原書未提供完整肱三頭肌透視",
+      "output_png": "muscle-bone-bases/02_upper-arm-posterior.png",
+      "output_svg": "muscle-bone-bases/02_upper-arm-posterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 3,
+      "slug": "forearm-anterior",
+      "title": "前臂／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 163,
+      "crop": [
+        326,
+        100,
+        500,
+        357
+      ],
+      "note": "掌長肌與橈側腕屈肌肌腱、橈尺骨",
+      "output_png": "muscle-bone-bases/03_forearm-anterior.png",
+      "output_svg": "muscle-bone-bases/03_forearm-anterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 4,
+      "slug": "forearm-posterior",
+      "title": "前臂／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 100,
+      "crop": [
+        326,
+        100,
+        500,
+        357
+      ],
+      "note": "尺側腕屈肌與橈尺骨",
+      "output_png": "muscle-bone-bases/04_forearm-posterior.png",
+      "output_svg": "muscle-bone-bases/04_forearm-posterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 5,
+      "slug": "thigh-anterior",
+      "title": "大腿／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 70,
+      "crop": [
+        337,
+        108,
+        475,
+        357
+      ],
+      "note": "闊筋膜張肌、股直肌、縫匠肌與股骨",
+      "output_png": "muscle-bone-bases/05_thigh-anterior.png",
+      "output_svg": "muscle-bone-bases/05_thigh-anterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 6,
+      "slug": "thigh-posterior",
+      "title": "大腿／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 127,
+      "crop": [
+        337,
+        108,
+        450,
+        357
+      ],
+      "note": "股二頭肌、半腱肌與股骨",
+      "output_png": "muscle-bone-bases/06_thigh-posterior.png",
+      "output_svg": "muscle-bone-bases/06_thigh-posterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 7,
+      "slug": "lower-leg-anterior",
+      "title": "小腿／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 74,
+      "crop": [
+        337,
+        116,
+        475,
+        357
+      ],
+      "note": "脛前肌、脛腓骨與踝部",
+      "output_png": "muscle-bone-bases/07_lower-leg-anterior.png",
+      "output_svg": "muscle-bone-bases/07_lower-leg-anterior.svg",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 8,
+      "slug": "lower-leg-posterior",
+      "title": "小腿／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "source_page": 137,
+      "crop": [
+        337,
+        107,
+        474,
+        355
+      ],
+      "note": "腓腸肌、脛腓骨與跟骨",
+      "output_png": "muscle-bone-bases/08_lower-leg-posterior.png",
+      "output_svg": "muscle-bone-bases/08_lower-leg-posterior.svg",
+      "artwork_type": "vector"
+    }
+  ]
+}

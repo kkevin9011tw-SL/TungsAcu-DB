@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.10",
+  "title": "手解穴",
+  "covered_points": [
+    "手解穴"
+  ],
+  "view": "palmar_hand",
+  "location_summary": "第四、五掌骨間，握拳時小指尖所觸掌處。",
+  "review_note": "WHO 無握拳掌面圖，本版以少府區域骨位暫定。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "手解穴",
+        "pixel": [
+          720,
+          775
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-10_手解穴_第一輪審核.svg"
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "status": "awaiting_joint_and_crease_review",
+  "source": "WHO p.168 TE3 dorsal hand vector artwork",
+  "rules": {
+    "dorsal": "retain nails and skeleton",
+    "palmar": "remove nails; retain identical skeleton",
+    "orange_dashes": "bone-joint candidates, not palmar creases"
+  },
+  "items": [
+    {
+      "finger": "index",
+      "title": "食指",
+      "view": "dorsal",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/clean-bases/02_hand-dorsal.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_dorsal_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/index_dorsal.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/index_dorsal.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          440.5,
+          163.0
+        ],
+        "PIP_joint": [
+          434.0,
+          187.0
+        ],
+        "MCP_joint": [
+          428.0,
+          218.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          180.823,
+          213.497
+        ],
+        "PIP_joint": [
+          171.543,
+          412.197
+        ],
+        "MCP_joint": [
+          178.271,
+          664.71
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "middle",
+      "title": "中指",
+      "view": "dorsal",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/clean-bases/02_hand-dorsal.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_dorsal_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/middle_dorsal.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/middle_dorsal.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          416.7,
+          149.0
+        ],
+        "PIP_joint": [
+          411.4,
+          177.0
+        ],
+        "MCP_joint": [
+          404.8,
+          210.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          180.551,
+          261.503
+        ],
+        "PIP_joint": [
+          180.885,
+          489.48
+        ],
+        "MCP_joint": [
+          178.501,
+          758.698
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "ring",
+      "title": "無名指",
+      "view": "dorsal",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/clean-bases/02_hand-dorsal.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_dorsal_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/ring_dorsal.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/ring_dorsal.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          396.4,
+          150.0
+        ],
+        "PIP_joint": [
+          392.0,
+          176.0
+        ],
+        "MCP_joint": [
+          386.0,
+          210.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          180.237,
+          212.141
+        ],
+        "PIP_joint": [
+          180.394,
+          423.098
+        ],
+        "MCP_joint": [
+          178.659,
+          699.295
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "little",
+      "title": "小指",
+      "view": "dorsal",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/clean-bases/02_hand-dorsal.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_dorsal_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/little_dorsal.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/little_dorsal.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          360.0,
+          166.0
+        ],
+        "PIP_joint": [
+          360.2,
+          184.0
+        ],
+        "MCP_joint": [
+          360.5,
+          213.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          179.716,
+          170.002
+        ],
+        "PIP_joint": [
+          179.923,
+          314.011
+        ],
+        "MCP_joint": [
+          180.077,
+          546.024
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "index",
+      "title": "食指",
+      "view": "palmar",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/who_palmar_from_dorsal_evaluation.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_palmar_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/index_palmar.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/index_palmar.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          440.5,
+          163.0
+        ],
+        "PIP_joint": [
+          434.0,
+          187.0
+        ],
+        "MCP_joint": [
+          428.0,
+          218.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          179.177,
+          213.497
+        ],
+        "PIP_joint": [
+          188.457,
+          412.197
+        ],
+        "MCP_joint": [
+          181.729,
+          664.71
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "middle",
+      "title": "中指",
+      "view": "palmar",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/who_palmar_from_dorsal_evaluation.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_palmar_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/middle_palmar.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/middle_palmar.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          416.7,
+          149.0
+        ],
+        "PIP_joint": [
+          411.4,
+          177.0
+        ],
+        "MCP_joint": [
+          404.8,
+          210.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          179.449,
+          261.503
+        ],
+        "PIP_joint": [
+          179.115,
+          489.48
+        ],
+        "MCP_joint": [
+          181.499,
+          758.698
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "ring",
+      "title": "無名指",
+      "view": "palmar",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/who_palmar_from_dorsal_evaluation.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_palmar_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/ring_palmar.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/ring_palmar.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          396.4,
+          150.0
+        ],
+        "PIP_joint": [
+          392.0,
+          176.0
+        ],
+        "MCP_joint": [
+          386.0,
+          210.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          179.763,
+          212.141
+        ],
+        "PIP_joint": [
+          179.606,
+          423.098
+        ],
+        "MCP_joint": [
+          181.341,
+          699.295
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    },
+    {
+      "finger": "little",
+      "title": "小指",
+      "view": "palmar",
+      "source_page": 168,
+      "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/who_palmar_from_dorsal_evaluation.svg",
+      "source_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/who_p168_palmar_bones_only.png",
+      "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/little_palmar.svg",
+      "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/finger-standard-templates-20260613/little_palmar.png",
+      "joint_candidates_source": {
+        "DIP_joint": [
+          360.0,
+          166.0
+        ],
+        "PIP_joint": [
+          360.2,
+          184.0
+        ],
+        "MCP_joint": [
+          360.5,
+          213.0
+        ]
+      },
+      "joint_candidates_canvas": {
+        "DIP_joint": [
+          180.284,
+          170.002
+        ],
+        "PIP_joint": [
+          180.077,
+          314.011
+        ],
+        "MCP_joint": [
+          179.923,
+          546.024
+        ]
+      },
+      "crease_status": "not_defined; user calibration required for palmar creases"
+    }
+  ]
+}

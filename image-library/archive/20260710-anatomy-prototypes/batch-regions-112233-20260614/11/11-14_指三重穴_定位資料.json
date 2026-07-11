@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "11",
+  "code": "11.14",
+  "title": "指三重穴",
+  "covered_points": [
+    "指三重穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "無名指陽掌第二節小側，四分點法取三穴；側視貼骨確認。",
+  "review_note": "陽掌側線穴位依規範需側視圖。",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "ring",
+    "segment": "middle",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          389.1037414476101,
+          148.7652485526725
+        ],
+        [
+          384.7037414476101,
+          174.7652485526725
+        ]
+      ],
+      "B": [
+        [
+          396.4,
+          150.0
+        ],
+        [
+          392.0,
+          176.0
+        ]
+      ],
+      "A": [
+        [
+          403.69625855238985,
+          151.2347514473275
+        ],
+        [
+          399.2962585523899,
+          177.2347514473275
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.25,
+        "source": [
+          388.0037414476101,
+          155.2652485526725
+        ]
+      },
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.5,
+        "source": [
+          386.9037414476101,
+          161.7652485526725
+        ]
+      },
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.75,
+        "source": [
+          385.80374144761015,
+          168.2652485526725
+        ]
+      }
+    ],
+    "division": 4
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-14_指三重穴_第一輪審核.svg"
+  }
+}

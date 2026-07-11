@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "11",
+  "code": "11.26",
+  "title": "制汙穴",
+  "covered_points": [
+    "制汙穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "大指陽掌第一節中央線，四分點法取三穴。",
+  "review_note": "拇指指節邊界由 WHO 骨關節估算，需人工校正皮膚橫紋。",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "thumb",
+    "segment": "proximal",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          445.24506593825384,
+          254.82193580699234
+        ],
+        [
+          418.24506593825384,
+          273.8219358069923
+        ]
+      ],
+      "B": [
+        [
+          451.0,
+          263.0
+        ],
+        [
+          424.0,
+          282.0
+        ]
+      ],
+      "A": [
+        [
+          456.75493406174616,
+          271.1780641930077
+        ],
+        [
+          429.75493406174616,
+          290.1780641930077
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.25,
+        "source": [
+          444.25,
+          267.75
+        ]
+      },
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.5,
+        "source": [
+          437.5,
+          272.5
+        ]
+      },
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.75,
+        "source": [
+          430.75,
+          277.25
+        ]
+      }
+    ],
+    "division": 4
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-26_制汙穴_第一輪審核.svg"
+  }
+}

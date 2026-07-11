@@ -21,8 +21,9 @@ import streamlit.components.v1 as components
 import data_loader as dl
 
 BASE = Path(__file__).parent
-LOGO_PATH = BASE / "assets/logo-seal.png"
-EXTRACTED_DIR = BASE / "extracted_images"
+IMAGE_LIBRARY = BASE / "image-library"
+EXTRACTED_DIR = IMAGE_LIBRARY / "extracted_images"
+LOGO_PATH = IMAGE_LIBRARY / "logo-seal.png"
 
 MODES = ["📍 穴位", "💊 症狀", "🔗 對針"]
 NAV_MODE = {

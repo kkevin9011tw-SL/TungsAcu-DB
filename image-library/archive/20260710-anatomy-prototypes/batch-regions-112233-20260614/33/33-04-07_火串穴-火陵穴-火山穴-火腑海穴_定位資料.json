@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "33",
+  "code": "33.04-07",
+  "title": "火串穴、火陵穴、火山穴、火腑海穴",
+  "covered_points": [
+    "火串穴",
+    "火陵穴",
+    "火山穴",
+    "火腑海穴"
+  ],
+  "view": "forearm_posterior",
+  "location_summary": "前臂後面中央線附近，自腕橫紋三、五、六點五、八點五寸。",
+  "review_note": "比例位置已建立；手撫胸造成的旋臂表面線需人工校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1116,
+      1620
+    ],
+    "axis": [
+      [
+        535.68,
+        1069.2
+      ],
+      [
+        479.88,
+        307.8
+      ]
+    ],
+    "points": [
+      {
+        "name": "火串穴",
+        "cun": 3,
+        "offset": 5,
+        "pixel": [
+          516.7433732682762,
+          879.2154501860128
+        ]
+      },
+      {
+        "name": "火陵穴",
+        "cun": 5,
+        "offset": 5,
+        "pixel": [
+          507.44337326827605,
+          752.3154501860129
+        ]
+      },
+      {
+        "name": "火山穴",
+        "cun": 6.5,
+        "offset": 5,
+        "pixel": [
+          500.4683732682761,
+          657.1404501860129
+        ]
+      },
+      {
+        "name": "火腑海穴",
+        "cun": 8.5,
+        "offset": 5,
+        "pixel": [
+          491.16837326827607,
+          530.2404501860128
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-04-07_火串穴-火陵穴-火山穴-火腑海穴_第一輪審核.svg"
+  }
+}

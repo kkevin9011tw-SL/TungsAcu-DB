@@ -1,0 +1,262 @@
+{
+  "01_hand-palmar": {
+    "todo_px": 62910,
+    "spill_px": 7780,
+    "fill_iters": 29,
+    "unfilled_px": 0,
+    "seals": {
+      "bottom": [
+        [
+          587,
+          1427
+        ],
+        [
+          959,
+          1428
+        ]
+      ]
+    },
+    "status": "generated",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/01_hand-palmar_final.png"
+  },
+  "02_hand-dorsal": {
+    "todo_px": 53011,
+    "spill_px": 6751,
+    "fill_iters": 21,
+    "unfilled_px": 0,
+    "seals": {
+      "bottom": [
+        [
+          60,
+          1428
+        ],
+        [
+          430,
+          1427
+        ]
+      ]
+    },
+    "status": "generated",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/02_hand-dorsal_final.png"
+  },
+  "03_upper-arm-anterior": {
+    "todo_px": 13270,
+    "spill_px": 540960,
+    "fill_iters": 30,
+    "unfilled_px": 1906,
+    "seals": {
+      "top": [
+        [
+          546,
+          271
+        ],
+        [
+          776,
+          176
+        ]
+      ],
+      "bottom": [
+        [
+          218,
+          1254
+        ],
+        [
+          442,
+          1252
+        ]
+      ]
+    },
+    "status": "mask-risk",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/03_upper-arm-anterior_final.png"
+  },
+  "04_forearm-anterior": {
+    "todo_px": 48296,
+    "spill_px": 32680,
+    "fill_iters": 24,
+    "unfilled_px": 0,
+    "seals": {
+      "top": [
+        [
+          467,
+          71
+        ],
+        [
+          722,
+          117
+        ]
+      ]
+    },
+    "status": "generated",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/04_forearm-anterior_final.png"
+  },
+  "06_forearm-posterior": {
+    "todo_px": 36637,
+    "spill_px": 13387,
+    "fill_iters": 20,
+    "unfilled_px": 0,
+    "seals": {
+      "top": [
+        [
+          130,
+          100
+        ],
+        [
+          384,
+          68
+        ]
+      ]
+    },
+    "status": "generated",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/06_forearm-posterior_final.png"
+  },
+  "07_head-anterior": {
+    "todo_px": 210119,
+    "spill_px": 36535,
+    "fill_iters": 30,
+    "unfilled_px": 125569,
+    "seals": {
+      "bottom": [
+        [
+          174,
+          1290
+        ],
+        [
+          792,
+          1293
+        ]
+      ]
+    },
+    "status": "mask-risk",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/07_head-anterior_final.png"
+  },
+  "08_head-posterior": {
+    "todo_px": 478950,
+    "spill_px": 132598,
+    "fill_iters": 30,
+    "unfilled_px": 283171,
+    "seals": {
+      "bottom": [
+        [
+          134,
+          1324
+        ],
+        [
+          795,
+          1322
+        ]
+      ]
+    },
+    "status": "mask-risk",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/08_head-posterior_final.png"
+  },
+  "09_chest-abdomen": {
+    "todo_px": 177336,
+    "spill_px": 6971,
+    "fill_iters": 30,
+    "unfilled_px": 2521,
+    "seals": {
+      "top": [
+        [
+          0,
+          173
+        ],
+        [
+          1410,
+          173
+        ]
+      ],
+      "bottom": [
+        [
+          0,
+          1587
+        ],
+        [
+          1410,
+          1587
+        ]
+      ]
+    },
+    "status": "minor-risk",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/09_chest-abdomen_final.png"
+  },
+  "10_back": {
+    "todo_px": 49,
+    "spill_px": 2517085,
+    "fill_iters": 3,
+    "unfilled_px": 15,
+    "seals": {
+      "top": [
+        [
+          138,
+          869
+        ],
+        [
+          1218,
+          911
+        ]
+      ],
+      "bottom": [
+        [
+          1188,
+          1654
+        ],
+        [
+          1242,
+          1924
+        ]
+      ]
+    },
+    "status": "mask-risk",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/10_back_final.png"
+  },
+  "14_lower-leg-posterior": {
+    "todo_px": 24540,
+    "spill_px": 3496,
+    "fill_iters": 27,
+    "unfilled_px": 0,
+    "seals": {
+      "top": [
+        [
+          291,
+          0
+        ],
+        [
+          592,
+          0
+        ]
+      ]
+    },
+    "status": "generated",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/14_lower-leg-posterior_final.png"
+  },
+  "17_shoulder-joint-posterior": {
+    "todo_px": 12823,
+    "spill_px": 743560,
+    "fill_iters": 30,
+    "unfilled_px": 171,
+    "seals": {
+      "bottom": [
+        [
+          584,
+          1295
+        ],
+        [
+          640,
+          1120
+        ]
+      ],
+      "left": [
+        [
+          246,
+          239
+        ],
+        [
+          246,
+          250
+        ]
+      ]
+    },
+    "status": "mask-risk",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/17_shoulder-joint-posterior_final.png"
+  }
+}

@@ -1,0 +1,18 @@
+{
+ "todo_px": 53011,
+ "spill_px": 6751,
+ "fill_iters": 21,
+ "unfilled_px": 0,
+ "seals": {
+  "bottom": [
+   [
+    60,
+    1428
+   ],
+   [
+    430,
+    1427
+   ]
+  ]
+ }
+}

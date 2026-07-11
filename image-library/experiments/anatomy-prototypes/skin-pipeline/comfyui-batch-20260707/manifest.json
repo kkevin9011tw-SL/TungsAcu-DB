@@ -1,0 +1,393 @@
+{
+  "created_for": "TungsAcu-DB skin-pipeline desktop ComfyUI handoff",
+  "output_contract": "Save generated/<base>_gen.png, copy to skin-pipeline/cache/<base>_gen.png, then run pipeline.py run <base> --reuse.",
+  "usable_existing_outputs": [
+    "01_hand-palmar",
+    "02_hand-dorsal",
+    "04_forearm-anterior",
+    "06_forearm-posterior",
+    "14_lower-leg-posterior"
+  ],
+  "items": [
+    {
+      "base": "03_upper-arm-anterior",
+      "source_png": "source/03_upper-arm-anterior_source.png",
+      "control_png": "control/03_upper-arm-anterior_control.png",
+      "prompt_txt": "prompts/03_upper-arm-anterior.txt",
+      "generated_png": "generated/03_upper-arm-anterior_gen.png",
+      "cache_destination": "cache/03_upper-arm-anterior_gen.png",
+      "original_size": [
+        1044,
+        1542
+      ],
+      "work_box": [
+        -6,
+        0,
+        1049,
+        1542
+      ],
+      "control_size": [
+        1055,
+        1542
+      ],
+      "suggested_flux_bucket": [
+        832,
+        1216
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of an anterior upper arm anatomical surface segment from shoulder to elbow, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "05_upper-arm-posterior",
+      "source_png": "source/05_upper-arm-posterior_source.png",
+      "control_png": "control/05_upper-arm-posterior_control.png",
+      "prompt_txt": "prompts/05_upper-arm-posterior.txt",
+      "generated_png": "generated/05_upper-arm-posterior_gen.png",
+      "cache_destination": "cache/05_upper-arm-posterior_gen.png",
+      "original_size": [
+        1044,
+        1542
+      ],
+      "work_box": [
+        -6,
+        0,
+        1049,
+        1542
+      ],
+      "control_size": [
+        1055,
+        1542
+      ],
+      "suggested_flux_bucket": [
+        832,
+        1216
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of a posterior upper arm anatomical surface segment from shoulder to elbow, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "07_head-anterior",
+      "source_png": "source/07_head-anterior_source.png",
+      "control_png": "control/07_head-anterior_control.png",
+      "prompt_txt": "prompts/07_head-anterior.txt",
+      "generated_png": "generated/07_head-anterior_gen.png",
+      "cache_destination": "cache/07_head-anterior_gen.png",
+      "original_size": [
+        960,
+        1368
+      ],
+      "work_box": [
+        -1,
+        0,
+        960,
+        1368
+      ],
+      "control_size": [
+        961,
+        1368
+      ],
+      "suggested_flux_bucket": [
+        832,
+        1184
+      ],
+      "open_sides": [
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Soft realistic medical illustration of the front view of a human head and face with calm neutral expression, short hair, smooth photorealistic warm light skin with gentle airbrushed shading, subtle natural surface anatomy, pure white background, delicate acupuncture atlas style, soft even lighting, high resolution"
+    },
+    {
+      "base": "08_head-posterior",
+      "source_png": "source/08_head-posterior_source.png",
+      "control_png": "control/08_head-posterior_control.png",
+      "prompt_txt": "prompts/08_head-posterior.txt",
+      "generated_png": "generated/08_head-posterior_gen.png",
+      "cache_destination": "cache/08_head-posterior_gen.png",
+      "original_size": [
+        858,
+        1470
+      ],
+      "work_box": [
+        -1,
+        0,
+        859,
+        1470
+      ],
+      "control_size": [
+        860,
+        1470
+      ],
+      "suggested_flux_bucket": [
+        768,
+        1312
+      ],
+      "open_sides": [
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Soft realistic medical illustration of the back view of a human head and neck, short hair, smooth photorealistic warm light skin with gentle airbrushed shading, subtle natural surface anatomy, pure white background, delicate acupuncture atlas style, soft even lighting, high resolution"
+    },
+    {
+      "base": "09_chest-abdomen",
+      "source_png": "source/09_chest-abdomen_source.png",
+      "control_png": "control/09_chest-abdomen_control.png",
+      "prompt_txt": "prompts/09_chest-abdomen.txt",
+      "generated_png": "generated/09_chest-abdomen_gen.png",
+      "cache_destination": "cache/09_chest-abdomen_gen.png",
+      "original_size": [
+        1410,
+        1590
+      ],
+      "work_box": [
+        -18,
+        0,
+        1427,
+        1590
+      ],
+      "control_size": [
+        1445,
+        1590
+      ],
+      "suggested_flux_bucket": [
+        960,
+        1056
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Soft realistic medical illustration of the front view of a human torso, chest and abdomen, smooth photorealistic warm light skin with gentle airbrushed shading, subtle natural surface anatomy, pure white background, delicate acupuncture atlas style, soft even lighting, high resolution"
+    },
+    {
+      "base": "10_back",
+      "source_png": "source/10_back_source.png",
+      "control_png": "control/10_back_control.png",
+      "prompt_txt": "prompts/10_back.txt",
+      "generated_png": "generated/10_back_gen.png",
+      "cache_destination": "cache/10_back_gen.png",
+      "original_size": [
+        1422,
+        2580
+      ],
+      "work_box": [
+        5,
+        0,
+        1418,
+        2580
+      ],
+      "control_size": [
+        1413,
+        2580
+      ],
+      "suggested_flux_bucket": [
+        736,
+        1344
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 160,
+      "prompt": "Clinical acupuncture atlas illustration of a posterior torso surface from shoulders to waist, neutral educational medical diagram, smooth warm skin-toned anatomical surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "11_foot-plantar",
+      "source_png": "source/11_foot-plantar_source.png",
+      "control_png": "control/11_foot-plantar_control.png",
+      "prompt_txt": "prompts/11_foot-plantar.txt",
+      "generated_png": "generated/11_foot-plantar_gen.png",
+      "cache_destination": "cache/11_foot-plantar_gen.png",
+      "original_size": [
+        774,
+        1464
+      ],
+      "work_box": [
+        -5,
+        0,
+        778,
+        1464
+      ],
+      "control_size": [
+        783,
+        1464
+      ],
+      "suggested_flux_bucket": [
+        736,
+        1376
+      ],
+      "open_sides": [
+        "top"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of the sole of a human foot, plantar anatomical surface, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "12_foot-dorsal",
+      "source_png": "source/12_foot-dorsal_source.png",
+      "control_png": "control/12_foot-dorsal_control.png",
+      "prompt_txt": "prompts/12_foot-dorsal.txt",
+      "generated_png": "generated/12_foot-dorsal_gen.png",
+      "cache_destination": "cache/12_foot-dorsal_gen.png",
+      "original_size": [
+        810,
+        1458
+      ],
+      "work_box": [
+        6,
+        0,
+        804,
+        1458
+      ],
+      "control_size": [
+        798,
+        1458
+      ],
+      "suggested_flux_bucket": [
+        736,
+        1344
+      ],
+      "open_sides": [
+        "top"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of the dorsal surface of a human foot with natural toenails, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "13_lower-leg-anterior",
+      "source_png": "source/13_lower-leg-anterior_source.png",
+      "control_png": "control/13_lower-leg-anterior_control.png",
+      "prompt_txt": "prompts/13_lower-leg-anterior.txt",
+      "generated_png": "generated/13_lower-leg-anterior_gen.png",
+      "cache_destination": "cache/13_lower-leg-anterior_gen.png",
+      "original_size": [
+        828,
+        1446
+      ],
+      "work_box": [
+        -9,
+        0,
+        837,
+        1446
+      ],
+      "control_size": [
+        846,
+        1446
+      ],
+      "suggested_flux_bucket": [
+        768,
+        1312
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of an anterior lower leg anatomical surface segment from knee to ankle, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "15_thigh-anterior",
+      "source_png": "source/15_thigh-anterior_source.png",
+      "control_png": "control/15_thigh-anterior_control.png",
+      "prompt_txt": "prompts/15_thigh-anterior.txt",
+      "generated_png": "generated/15_thigh-anterior_gen.png",
+      "cache_destination": "cache/15_thigh-anterior_gen.png",
+      "original_size": [
+        828,
+        1494
+      ],
+      "work_box": [
+        5,
+        0,
+        823,
+        1494
+      ],
+      "control_size": [
+        818,
+        1494
+      ],
+      "suggested_flux_bucket": [
+        736,
+        1344
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of an anterior thigh anatomical surface segment from hip to knee, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "16_thigh-posterior",
+      "source_png": "source/16_thigh-posterior_source.png",
+      "control_png": "control/16_thigh-posterior_control.png",
+      "prompt_txt": "prompts/16_thigh-posterior.txt",
+      "generated_png": "generated/16_thigh-posterior_gen.png",
+      "cache_destination": "cache/16_thigh-posterior_gen.png",
+      "original_size": [
+        678,
+        1494
+      ],
+      "work_box": [
+        -2,
+        0,
+        680,
+        1494
+      ],
+      "control_size": [
+        682,
+        1494
+      ],
+      "suggested_flux_bucket": [
+        672,
+        1472
+      ],
+      "open_sides": [
+        "top",
+        "bottom"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of a posterior thigh anatomical surface segment from hip to knee, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    },
+    {
+      "base": "17_shoulder-joint-posterior",
+      "source_png": "source/17_shoulder-joint-posterior_source.png",
+      "control_png": "control/17_shoulder-joint-posterior_control.png",
+      "prompt_txt": "prompts/17_shoulder-joint-posterior.txt",
+      "generated_png": "generated/17_shoulder-joint-posterior_gen.png",
+      "cache_destination": "cache/17_shoulder-joint-posterior_gen.png",
+      "original_size": [
+        1044,
+        1500
+      ],
+      "work_box": [
+        -5,
+        0,
+        1049,
+        1500
+      ],
+      "control_size": [
+        1054,
+        1500
+      ],
+      "suggested_flux_bucket": [
+        832,
+        1184
+      ],
+      "open_sides": [
+        "bottom",
+        "left"
+      ],
+      "outline_thresh": 80,
+      "prompt": "Clinical acupuncture atlas illustration of a posterior shoulder joint and upper back anatomical surface, neutral educational medical diagram, smooth warm skin-toned surface, pure white background, soft even lighting, non-photographic clinical reference style, no clothing, no text"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "status": "review_ready",
+  "region": "11",
+  "code": "11.12",
+  "title": "二角明穴",
+  "covered_points": [
+    "二角明穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "中指陽掌第一節 B 線，三分點法取二穴。",
+  "review_note": "",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "middle",
+    "segment": "proximal",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          402.5747739187817,
+          175.23495478375636
+        ],
+        [
+          395.97477391878175,
+          208.23495478375636
+        ]
+      ],
+      "B": [
+        [
+          411.4,
+          177.0
+        ],
+        [
+          404.8,
+          210.0
+        ]
+      ],
+      "A": [
+        [
+          420.22522608121824,
+          178.76504521624364
+        ],
+        [
+          413.6252260812183,
+          211.76504521624364
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.3333333333333333,
+        "source": [
+          409.2,
+          188.0
+        ]
+      },
+      {
+        "name": "",
+        "line": "B",
+        "fraction": 0.6666666666666666,
+        "source": [
+          407.0,
+          199.0
+        ]
+      }
+    ],
+    "division": 3
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-12_二角明穴_第一輪審核.svg"
+  }
+}

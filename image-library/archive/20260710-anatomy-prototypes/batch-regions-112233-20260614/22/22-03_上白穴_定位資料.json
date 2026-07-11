@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.03",
+  "title": "上白穴",
+  "covered_points": [
+    "上白穴"
+  ],
+  "view": "dorsal_hand",
+  "location_summary": "食指與中指掌骨間，距掌指關節下約五分。",
+  "review_note": "掌骨間距與五分位置需依原書圖校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "上白穴",
+        "pixel": [
+          560,
+          655
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-03_上白穴_第一輪審核.svg"
+  }
+}

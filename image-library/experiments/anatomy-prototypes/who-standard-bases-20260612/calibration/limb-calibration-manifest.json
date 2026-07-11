@@ -1,0 +1,1044 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "approved": [
+    "forearm-anterior"
+  ],
+  "generated": [
+    "upper-arm-anterior",
+    "upper-arm-posterior",
+    "forearm-posterior",
+    "thigh-anterior",
+    "thigh-posterior",
+    "lower-leg-anterior",
+    "lower-leg-posterior"
+  ],
+  "items": [
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 1,
+        "slug": "upper-arm-anterior",
+        "title": "上臂／前面",
+        "base_stem": "01_upper-arm-anterior",
+        "total_cun": 9,
+        "proximal_name": "腋橫紋",
+        "distal_name": "肘橫紋",
+        "proximal_line": [
+          [
+            0.0538,
+            0.3381
+          ],
+          [
+            0.8587,
+            0.3766
+          ]
+        ],
+        "distal_line": [
+          [
+            0.18,
+            0.7
+          ],
+          [
+            0.67,
+            0.72
+          ]
+        ],
+        "axis_proximal": [
+          0.43,
+          0.26
+        ],
+        "axis_distal": [
+          0.42,
+          0.71
+        ],
+        "ruler_offset": 0.38,
+        "guide_offset": -0.43,
+        "major_interval": 3,
+        "evidence": "WHO p.12: anterior axillary fold to cubital crease = 9 B-cun",
+        "review_note": "已依使用者紅線重建；確認腋橫紋與肘橫紋。",
+        "boundary_trim": 0.18
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/01_upper-arm-anterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/01_upper-arm-anterior.png",
+      "source_viewbox": [
+        326.0,
+        100.0,
+        174.0,
+        257.0
+      ],
+      "output_viewbox": [
+        326.0,
+        100.0,
+        174.0,
+        270.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          396.179,
+          282.243
+        ],
+        "proximal": [
+          402.113,
+          191.608
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            396.179,
+            282.243
+          ],
+          "1": [
+            396.839,
+            272.172
+          ],
+          "2": [
+            397.498,
+            262.102
+          ],
+          "3": [
+            398.157,
+            252.031
+          ],
+          "4": [
+            398.816,
+            241.96
+          ],
+          "5": [
+            399.476,
+            231.89
+          ],
+          "6": [
+            400.135,
+            221.819
+          ],
+          "7": [
+            400.794,
+            211.749
+          ],
+          "8": [
+            401.454,
+            201.678
+          ],
+          "9": [
+            402.113,
+            191.608
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          462.18,
+          286.222
+        ],
+        "proximal": [
+          468.069,
+          196.267
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.18,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/upper-arm-anterior/upper-arm-anterior-9cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/upper-arm-anterior/upper-arm-anterior-9cun-calibration.png"
+    },
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 2,
+        "slug": "upper-arm-posterior",
+        "title": "上臂／後面",
+        "base_stem": "02_upper-arm-posterior",
+        "total_cun": 9,
+        "proximal_name": "腋橫紋",
+        "distal_name": "肘橫紋",
+        "proximal_line": [
+          [
+            0.1631,
+            0.4279
+          ],
+          [
+            0.7485,
+            0.3482
+          ]
+        ],
+        "distal_line": [
+          [
+            0.2742,
+            0.8271
+          ],
+          [
+            0.8596,
+            0.7475
+          ]
+        ],
+        "axis_proximal": [
+          0.56,
+          0.38
+        ],
+        "axis_distal": [
+          0.58,
+          0.78
+        ],
+        "ruler_offset": 0.34,
+        "guide_offset": -0.48,
+        "major_interval": 3,
+        "evidence": "WHO p.12: posterior axillary fold to cubital crease = 9 B-cun",
+        "review_note": "已依使用者紅線重建；確認腋橫紋與肘橫紋。",
+        "boundary_trim": 0.18
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/02_upper-arm-posterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/02_upper-arm-posterior.png",
+      "source_viewbox": [
+        326.0,
+        100.0,
+        174.0,
+        257.0
+      ],
+      "output_viewbox": [
+        326.0,
+        100.0,
+        191.452,
+        270.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          435.45,
+          300.165
+        ],
+        "proximal": [
+          414.879,
+          197.804
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            435.45,
+            300.165
+          ],
+          "1": [
+            433.165,
+            288.792
+          ],
+          "2": [
+            430.879,
+            277.418
+          ],
+          "3": [
+            428.593,
+            266.045
+          ],
+          "4": [
+            426.308,
+            254.671
+          ],
+          "5": [
+            424.022,
+            243.298
+          ],
+          "6": [
+            421.736,
+            231.925
+          ],
+          "7": [
+            419.451,
+            220.551
+          ],
+          "8": [
+            417.165,
+            209.178
+          ],
+          "9": [
+            414.879,
+            197.804
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          493.452,
+          288.516
+        ],
+        "proximal": [
+          472.878,
+          186.141
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.18,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/upper-arm-posterior/upper-arm-posterior-9cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/upper-arm-posterior/upper-arm-posterior-9cun-calibration.png"
+    },
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 4,
+        "slug": "forearm-posterior",
+        "title": "前臂／後面",
+        "base_stem": "04_forearm-posterior",
+        "total_cun": 12,
+        "proximal_name": "肘橫紋",
+        "distal_name": "腕橫紋",
+        "proximal_line": [
+          [
+            0.0123,
+            0.2199
+          ],
+          [
+            0.5164,
+            0.1361
+          ]
+        ],
+        "distal_line": [
+          [
+            0.1831,
+            0.6769
+          ],
+          [
+            0.6248,
+            0.5943
+          ]
+        ],
+        "axis_proximal": [
+          0.43,
+          0.19
+        ],
+        "axis_distal": [
+          0.48,
+          0.66
+        ],
+        "ruler_offset": 0.34,
+        "guide_offset": -0.46,
+        "major_interval": 3,
+        "evidence": "WHO p.12: cubital crease to wrist crease = 12 B-cun",
+        "review_note": "已依使用者紅線重建；確認肘橫紋與腕橫紋。",
+        "boundary_trim": 0.18
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/04_forearm-posterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/04_forearm-posterior.png",
+      "source_viewbox": [
+        326.0,
+        100.0,
+        174.0,
+        257.0
+      ],
+      "output_viewbox": [
+        314.21,
+        100.0,
+        185.79,
+        270.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          417.741,
+          257.424
+        ],
+        "proximal": [
+          387.614,
+          141.912
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            417.741,
+            257.424
+          ],
+          "1": [
+            415.23,
+            247.798
+          ],
+          "2": [
+            412.72,
+            238.172
+          ],
+          "3": [
+            410.209,
+            228.546
+          ],
+          "4": [
+            407.698,
+            218.92
+          ],
+          "5": [
+            405.188,
+            209.294
+          ],
+          "6": [
+            402.677,
+            199.668
+          ],
+          "7": [
+            400.167,
+            190.042
+          ],
+          "8": [
+            397.656,
+            180.416
+          ],
+          "9": [
+            395.146,
+            170.79
+          ],
+          "10": [
+            392.635,
+            161.164
+          ],
+          "11": [
+            390.124,
+            151.538
+          ],
+          "12": [
+            387.614,
+            141.912
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          474.771,
+          241.671
+        ],
+        "proximal": [
+          445.073,
+          127.803
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.18,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/forearm-posterior/forearm-posterior-12cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/forearm-posterior/forearm-posterior-12cun-calibration.png"
+    },
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 5,
+        "slug": "thigh-anterior",
+        "title": "大腿／前面",
+        "base_stem": "05_thigh-anterior",
+        "total_cun": 19,
+        "proximal_name": "大轉子",
+        "distal_name": "膝中",
+        "proximal_line": [
+          [
+            0.23,
+            0.29
+          ],
+          [
+            0.86,
+            0.3
+          ]
+        ],
+        "distal_line": [
+          [
+            0.0728,
+            0.8408
+          ],
+          [
+            0.8872,
+            0.8371
+          ]
+        ],
+        "axis_proximal": [
+          0.64,
+          0.3
+        ],
+        "axis_distal": [
+          0.51,
+          0.81
+        ],
+        "ruler_offset": 0.43,
+        "guide_offset": -0.52,
+        "major_interval": 3,
+        "evidence": "使用者校正：大轉子至膝中 = 19 寸",
+        "review_note": "已依使用者紅線重建；確認大轉子與膝中。",
+        "boundary_trim": 0.0
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/05_thigh-anterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/05_thigh-anterior.png",
+      "source_viewbox": [
+        337.0,
+        108.0,
+        138.0,
+        249.0
+      ],
+      "output_viewbox": [
+        323.859,
+        108.0,
+        176.477,
+        262.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          415.629,
+          316.797
+        ],
+        "proximal": [
+          417.01,
+          181.592
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            415.629,
+            316.797
+          ],
+          "1": [
+            415.701,
+            309.681
+          ],
+          "2": [
+            415.774,
+            302.565
+          ],
+          "3": [
+            415.847,
+            295.449
+          ],
+          "4": [
+            415.919,
+            288.333
+          ],
+          "5": [
+            415.992,
+            281.217
+          ],
+          "6": [
+            416.065,
+            274.101
+          ],
+          "7": [
+            416.138,
+            266.985
+          ],
+          "8": [
+            416.21,
+            259.869
+          ],
+          "9": [
+            416.283,
+            252.753
+          ],
+          "10": [
+            416.356,
+            245.637
+          ],
+          "11": [
+            416.428,
+            238.521
+          ],
+          "12": [
+            416.501,
+            231.405
+          ],
+          "13": [
+            416.574,
+            224.289
+          ],
+          "14": [
+            416.647,
+            217.173
+          ],
+          "15": [
+            416.719,
+            210.057
+          ],
+          "16": [
+            416.792,
+            202.941
+          ],
+          "17": [
+            416.865,
+            195.825
+          ],
+          "18": [
+            416.937,
+            188.709
+          ],
+          "19": [
+            417.01,
+            181.592
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          474.977,
+          316.31
+        ],
+        "proximal": [
+          476.336,
+          183.292
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.0,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-anterior/thigh-anterior-19cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-anterior/thigh-anterior-19cun-calibration.png"
+    },
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 6,
+        "slug": "thigh-posterior",
+        "title": "大腿／後面",
+        "base_stem": "06_thigh-posterior",
+        "total_cun": 14,
+        "proximal_name": "臀橫紋",
+        "distal_name": "膝中",
+        "proximal_line": [
+          [
+            0.24,
+            0.22
+          ],
+          [
+            0.86,
+            0.23
+          ]
+        ],
+        "distal_line": [
+          [
+            0.23,
+            0.78
+          ],
+          [
+            0.88,
+            0.79
+          ]
+        ],
+        "axis_proximal": [
+          0.62,
+          0.23
+        ],
+        "axis_distal": [
+          0.65,
+          0.79
+        ],
+        "ruler_offset": 0.43,
+        "guide_offset": -0.5,
+        "major_interval": 3,
+        "evidence": "使用者校正：臀橫紋至膝中 = 14 寸",
+        "review_note": "確認臀橫紋與膝中。",
+        "boundary_trim": 0.0
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/06_thigh-posterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/06_thigh-posterior.png",
+      "source_viewbox": [
+        337.0,
+        108.0,
+        113.0,
+        249.0
+      ],
+      "output_viewbox": [
+        329.902,
+        108.0,
+        153.861,
+        262.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          406.37,
+          303.691
+        ],
+        "proximal": [
+          411.204,
+          164.453
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            406.37,
+            303.691
+          ],
+          "1": [
+            406.715,
+            293.745
+          ],
+          "2": [
+            407.06,
+            283.8
+          ],
+          "3": [
+            407.406,
+            273.854
+          ],
+          "4": [
+            407.751,
+            263.909
+          ],
+          "5": [
+            408.096,
+            253.963
+          ],
+          "6": [
+            408.442,
+            244.018
+          ],
+          "7": [
+            408.787,
+            234.072
+          ],
+          "8": [
+            409.132,
+            224.126
+          ],
+          "9": [
+            409.478,
+            214.181
+          ],
+          "10": [
+            409.823,
+            204.235
+          ],
+          "11": [
+            410.168,
+            194.29
+          ],
+          "12": [
+            410.513,
+            184.344
+          ],
+          "13": [
+            410.859,
+            174.399
+          ],
+          "14": [
+            411.204,
+            164.453
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          454.932,
+          305.337
+        ],
+        "proximal": [
+          459.763,
+          166.179
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.0,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-posterior/thigh-posterior-14cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-posterior/thigh-posterior-14cun-calibration.png"
+    },
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 7,
+        "slug": "lower-leg-anterior",
+        "title": "小腿／前面",
+        "base_stem": "07_lower-leg-anterior",
+        "total_cun": 16,
+        "proximal_name": "膝中",
+        "distal_name": "外踝尖",
+        "proximal_line": [
+          [
+            0.1191,
+            0.147
+          ],
+          [
+            0.7407,
+            0.1508
+          ]
+        ],
+        "distal_line": [
+          [
+            0.0137,
+            0.8726
+          ],
+          [
+            0.8456,
+            0.8821
+          ]
+        ],
+        "axis_proximal": [
+          0.43,
+          0.22
+        ],
+        "axis_distal": [
+          0.56,
+          0.89
+        ],
+        "ruler_offset": 0.39,
+        "guide_offset": -0.49,
+        "major_interval": 4,
+        "evidence": "使用者校正：膝中至外踝尖 = 16 寸",
+        "review_note": "已依使用者紅線重建；確認膝中與外踝尖。",
+        "boundary_trim": 0.18
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/07_lower-leg-anterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/07_lower-leg-anterior.png",
+      "source_viewbox": [
+        337.0,
+        116.0,
+        138.0,
+        241.0
+      ],
+      "output_viewbox": [
+        337.0,
+        116.0,
+        147.624,
+        254.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          404.118,
+          327.597
+        ],
+        "proximal": [
+          406.807,
+          151.997
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            404.118,
+            327.597
+          ],
+          "1": [
+            404.286,
+            316.622
+          ],
+          "2": [
+            404.454,
+            305.647
+          ],
+          "3": [
+            404.622,
+            294.672
+          ],
+          "4": [
+            404.79,
+            283.697
+          ],
+          "5": [
+            404.958,
+            272.722
+          ],
+          "6": [
+            405.126,
+            261.747
+          ],
+          "7": [
+            405.294,
+            250.772
+          ],
+          "8": [
+            405.462,
+            239.797
+          ],
+          "9": [
+            405.63,
+            228.822
+          ],
+          "10": [
+            405.798,
+            217.847
+          ],
+          "11": [
+            405.967,
+            206.872
+          ],
+          "12": [
+            406.135,
+            195.897
+          ],
+          "13": [
+            406.303,
+            184.922
+          ],
+          "14": [
+            406.471,
+            173.947
+          ],
+          "15": [
+            406.639,
+            162.972
+          ],
+          "16": [
+            406.807,
+            151.997
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          457.928,
+          328.671
+        ],
+        "proximal": [
+          460.624,
+          152.571
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.18,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-anterior/lower-leg-anterior-16cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-anterior/lower-leg-anterior-16cun-calibration.png"
+    },
+    {
+      "version": 1,
+      "status": "awaiting_anatomy_review",
+      "spec": {
+        "number": 8,
+        "slug": "lower-leg-posterior",
+        "title": "小腿／後面",
+        "base_stem": "08_lower-leg-posterior",
+        "total_cun": 13,
+        "proximal_name": "脛骨內髁下緣",
+        "distal_name": "內踝尖",
+        "proximal_line": [
+          [
+            0.2252,
+            0.2581
+          ],
+          [
+            0.7832,
+            0.2672
+          ]
+        ],
+        "distal_line": [
+          [
+            0.182,
+            0.7857
+          ],
+          [
+            0.74,
+            0.795
+          ]
+        ],
+        "axis_proximal": [
+          0.52,
+          0.21
+        ],
+        "axis_distal": [
+          0.58,
+          0.84
+        ],
+        "ruler_offset": 0.4,
+        "guide_offset": -0.49,
+        "major_interval": 3,
+        "evidence": "使用者校正：脛骨內髁下緣至內踝尖 = 13 寸",
+        "review_note": "已依使用者紅線重建；確認脛骨內髁下緣與內踝尖。",
+        "boundary_trim": 0.18
+      },
+      "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/08_lower-leg-posterior.svg",
+      "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/08_lower-leg-posterior.png",
+      "source_viewbox": [
+        337.0,
+        107.0,
+        137.0,
+        248.0
+      ],
+      "output_viewbox": [
+        335.215,
+        107.0,
+        157.846,
+        261.0
+      ],
+      "anatomical_axis": {
+        "distal": [
+          410.377,
+          303.315
+        ],
+        "proximal": [
+          414.285,
+          172.38
+        ],
+        "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+        "points_svg": {
+          "0": [
+            410.377,
+            303.315
+          ],
+          "1": [
+            410.677,
+            293.243
+          ],
+          "2": [
+            410.978,
+            283.171
+          ],
+          "3": [
+            411.279,
+            273.099
+          ],
+          "4": [
+            411.579,
+            263.027
+          ],
+          "5": [
+            411.88,
+            252.955
+          ],
+          "6": [
+            412.18,
+            242.883
+          ],
+          "7": [
+            412.481,
+            232.811
+          ],
+          "8": [
+            412.782,
+            222.739
+          ],
+          "9": [
+            413.082,
+            212.667
+          ],
+          "10": [
+            413.383,
+            202.595
+          ],
+          "11": [
+            413.683,
+            192.523
+          ],
+          "12": [
+            413.984,
+            182.452
+          ],
+          "13": [
+            414.285,
+            172.38
+          ]
+        }
+      },
+      "display_ruler": {
+        "distal": [
+          465.152,
+          304.968
+        ],
+        "proximal": [
+          469.061,
+          173.997
+        ],
+        "method": "best_common_normal_to_user_boundaries",
+        "boundary_left_trim_fraction": 0.18,
+        "extent_defined_by_anatomical_boundaries": true,
+        "endpoint_values_visible": false
+      },
+      "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-posterior/lower-leg-posterior-13cun-calibration.svg",
+      "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-posterior/lower-leg-posterior-13cun-calibration.png"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "status": "awaiting_user_review",
+  "point": "心常穴",
+  "code": "11.19",
+  "source_page": 168,
+  "view": "left_palm",
+  "inset_method": "original_local_crop; no bone reconstruction",
+  "segment": "middle_finger_proximal_segment",
+  "lines_source_coordinates": {
+    "A": {
+      "top": [
+        389.5,
+        178.5
+      ],
+      "bottom": [
+        396.0,
+        212.5
+      ]
+    },
+    "C": {
+      "top": [
+        402.5,
+        176.0
+      ],
+      "bottom": [
+        409.0,
+        210.0
+      ]
+    },
+    "D": {
+      "top": [
+        409.0,
+        174.75
+      ],
+      "bottom": [
+        415.5,
+        208.75
+      ]
+    },
+    "E": {
+      "top": [
+        415.5,
+        173.5
+      ],
+      "bottom": [
+        422.0,
+        207.5
+      ]
+    }
+  },
+  "construction": {
+    "C": "middle line between A and E",
+    "D": "midpoint line between C and E",
+    "longitudinal_method": "three-part method",
+    "point_placement": "bone-adjacent on ulnar side"
+  },
+  "points_source_coordinates": [
+    [
+      411.1667,
+      186.0833
+    ],
+    [
+      413.3333,
+      197.4167
+    ]
+  ],
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-xinchang-20260613/心常穴_正式評估版_v2_WHO-p168左手掌面.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-xinchang-20260613/心常穴_正式評估版_v2_WHO-p168左手掌面.svg"
+  }
+}

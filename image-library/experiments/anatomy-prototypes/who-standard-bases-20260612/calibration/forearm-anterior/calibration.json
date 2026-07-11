@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "base_image": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/03_forearm-anterior.png",
+  "markup_reference": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/forearm-anterior/user-markup-reference.png",
+  "coordinate_system": {
+    "pixel_size": [
+      1044,
+      1542
+    ],
+    "svg_viewbox": [
+      326.0,
+      100.0,
+      174.0,
+      257.0
+    ],
+    "output_svg_viewbox": [
+      326.0,
+      100.0,
+      174.0,
+      271.0
+    ]
+  },
+  "bone_proportion": {
+    "region": "anterior_forearm",
+    "origin": "palmar_wrist_crease",
+    "origin_display_name": "腕橫紋",
+    "origin_cun": 0,
+    "end": "cubital_crease",
+    "end_cun": 12,
+    "axis": {
+      "wrist_pixel": [
+        430.127,
+        1007.84
+      ],
+      "elbow_pixel": [
+        583.483,
+        299.917
+      ]
+    },
+    "display_ruler": {
+      "placement": "outside_anatomy_right",
+      "wrist_svg": [
+        424.645,
+        274.018
+      ],
+      "elbow_svg": [
+        450.498,
+        154.676
+      ],
+      "extent_defined_by": [
+        "palmar_wrist_crease",
+        "cubital_crease"
+      ],
+      "endpoint_connector_lines": false
+    },
+    "formula": "P(cun) = wrist + (cun / 12) * (elbow - wrist)",
+    "points": {
+      "0": {
+        "pixel": [
+          430.127,
+          1007.84
+        ],
+        "svg": [
+          397.688,
+          267.973
+        ]
+      },
+      "1": {
+        "pixel": [
+          442.906,
+          948.847
+        ],
+        "svg": [
+          399.818,
+          258.141
+        ]
+      },
+      "2": {
+        "pixel": [
+          455.686,
+          889.853
+        ],
+        "svg": [
+          401.948,
+          248.309
+        ]
+      },
+      "3": {
+        "pixel": [
+          468.466,
+          830.859
+        ],
+        "svg": [
+          404.078,
+          238.477
+        ]
+      },
+      "4": {
+        "pixel": [
+          481.246,
+          771.866
+        ],
+        "svg": [
+          406.208,
+          228.644
+        ]
+      },
+      "5": {
+        "pixel": [
+          494.025,
+          712.872
+        ],
+        "svg": [
+          408.338,
+          218.812
+        ]
+      },
+      "6": {
+        "pixel": [
+          506.805,
+          653.879
+        ],
+        "svg": [
+          410.468,
+          208.98
+        ]
+      },
+      "7": {
+        "pixel": [
+          519.585,
+          594.885
+        ],
+        "svg": [
+          412.597,
+          199.147
+        ]
+      },
+      "8": {
+        "pixel": [
+          532.364,
+          535.891
+        ],
+        "svg": [
+          414.727,
+          189.315
+        ]
+      },
+      "9": {
+        "pixel": [
+          545.144,
+          476.898
+        ],
+        "svg": [
+          416.857,
+          179.483
+        ]
+      },
+      "10": {
+        "pixel": [
+          557.924,
+          417.904
+        ],
+        "svg": [
+          418.987,
+          169.651
+        ]
+      },
+      "11": {
+        "pixel": [
+          570.704,
+          358.91
+        ],
+        "svg": [
+          421.117,
+          159.818
+        ]
+      },
+      "12": {
+        "pixel": [
+          583.483,
+          299.917
+        ],
+        "svg": [
+          423.247,
+          149.986
+        ]
+      }
+    }
+  },
+  "display_policy": {
+    "ruler_must_not_overlap_anatomy": true,
+    "ruler_default_placement": "outside_anatomy",
+    "point_to_ruler_connector": {
+      "style": "dashed",
+      "purpose": "show proportional correspondence only"
+    },
+    "anatomical_point_position_has_priority": true,
+    "boundary_endpoints": {
+      "alignment": "parallel_to_anatomical_axis",
+      "left_axis_shift_screen_px": -400.0,
+      "right_axis_shift_screen_px": 0.0,
+      "alignment_guides_visible": false
+    }
+  },
+  "detected_markup_lines": {
+    "elbow_boundary": {
+      "equation": "y = m*x + b",
+      "m": 0.17182007,
+      "b": 211.41072569
+    },
+    "wrist_boundary": {
+      "equation": "y = m*x + b",
+      "m": 0.22389076,
+      "b": 965.76582068
+    },
+    "dimension_axis": {
+      "equation": "x = m*y + b",
+      "m": -0.2169643,
+      "b": 868.20607127
+    }
+  },
+  "axis_inward_shift_screen_px": -180.0
+}

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "special",
+  "code": "A.02-04",
+  "title": "三叉一穴、三叉二穴、三叉三穴",
+  "covered_points": [
+    "三叉一穴",
+    "三叉二穴",
+    "三叉三穴"
+  ],
+  "view": "dorsal_clenched_fist_front",
+  "location_summary": "握拳取穴；依序位於二三、三四、四五指縫接合處。三叉三緊貼第四指，筋下骨旁。",
+  "review_note": "WHO 無握拳手背正視骨骼圖，本版直接保留原書姿勢作定位基準。",
+  "geometry": {
+    "source_pixel_size": [
+      626,
+      979
+    ],
+    "source_points": [
+      {
+        "name": "三叉一穴",
+        "pixel": [
+          244,
+          494
+        ]
+      },
+      {
+        "name": "三叉二穴",
+        "pixel": [
+          398,
+          485
+        ]
+      },
+      {
+        "name": "三叉三穴",
+        "pixel": [
+          529,
+          475
+        ]
+      }
+    ],
+    "mapped": [
+      {
+        "name": "三叉一穴",
+        "pixel": [
+          244,
+          494
+        ],
+        "canvas": [
+          792.5111821086261,
+          1218.6414708886618
+        ]
+      },
+      {
+        "name": "三叉二穴",
+        "pixel": [
+          398,
+          485
+        ],
+        "canvas": [
+          1088.2108626198083,
+          1201.3585291113382
+        ]
+      },
+      {
+        "name": "三叉三穴",
+        "pixel": [
+          529,
+          475
+        ],
+        "canvas": [
+          1339.747603833866,
+          1182.1552604698672
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/special/A-02-04_三叉一穴-三叉二穴-三叉三穴_第一輪審核.svg"
+  }
+}

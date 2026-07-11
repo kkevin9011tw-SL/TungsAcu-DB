@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "spec": {
+    "number": 4,
+    "slug": "forearm-posterior",
+    "title": "前臂／後面",
+    "base_stem": "04_forearm-posterior",
+    "total_cun": 12,
+    "proximal_name": "肘橫紋",
+    "distal_name": "腕橫紋",
+    "proximal_line": [
+      [
+        0.0123,
+        0.2199
+      ],
+      [
+        0.5164,
+        0.1361
+      ]
+    ],
+    "distal_line": [
+      [
+        0.1831,
+        0.6769
+      ],
+      [
+        0.6248,
+        0.5943
+      ]
+    ],
+    "axis_proximal": [
+      0.43,
+      0.19
+    ],
+    "axis_distal": [
+      0.48,
+      0.66
+    ],
+    "ruler_offset": 0.34,
+    "guide_offset": -0.46,
+    "major_interval": 3,
+    "evidence": "WHO p.12: cubital crease to wrist crease = 12 B-cun",
+    "review_note": "已依使用者紅線重建；確認肘橫紋與腕橫紋。",
+    "boundary_trim": 0.18
+  },
+  "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/04_forearm-posterior.svg",
+  "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/04_forearm-posterior.png",
+  "source_viewbox": [
+    326.0,
+    100.0,
+    174.0,
+    257.0
+  ],
+  "output_viewbox": [
+    314.21,
+    100.0,
+    185.79,
+    270.0
+  ],
+  "anatomical_axis": {
+    "distal": [
+      417.741,
+      257.424
+    ],
+    "proximal": [
+      387.614,
+      141.912
+    ],
+    "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+    "points_svg": {
+      "0": [
+        417.741,
+        257.424
+      ],
+      "1": [
+        415.23,
+        247.798
+      ],
+      "2": [
+        412.72,
+        238.172
+      ],
+      "3": [
+        410.209,
+        228.546
+      ],
+      "4": [
+        407.698,
+        218.92
+      ],
+      "5": [
+        405.188,
+        209.294
+      ],
+      "6": [
+        402.677,
+        199.668
+      ],
+      "7": [
+        400.167,
+        190.042
+      ],
+      "8": [
+        397.656,
+        180.416
+      ],
+      "9": [
+        395.146,
+        170.79
+      ],
+      "10": [
+        392.635,
+        161.164
+      ],
+      "11": [
+        390.124,
+        151.538
+      ],
+      "12": [
+        387.614,
+        141.912
+      ]
+    }
+  },
+  "display_ruler": {
+    "distal": [
+      474.771,
+      241.671
+    ],
+    "proximal": [
+      445.073,
+      127.803
+    ],
+    "method": "best_common_normal_to_user_boundaries",
+    "boundary_left_trim_fraction": 0.18,
+    "extent_defined_by_anatomical_boundaries": true,
+    "endpoint_values_visible": false
+  },
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/forearm-posterior/forearm-posterior-12cun-calibration.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/forearm-posterior/forearm-posterior-12cun-calibration.png"
+}

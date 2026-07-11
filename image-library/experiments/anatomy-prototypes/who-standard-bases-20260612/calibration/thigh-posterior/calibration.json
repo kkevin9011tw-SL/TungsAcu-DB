@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "spec": {
+    "number": 6,
+    "slug": "thigh-posterior",
+    "title": "大腿／後面",
+    "base_stem": "06_thigh-posterior",
+    "total_cun": 14,
+    "proximal_name": "臀橫紋",
+    "distal_name": "膝中",
+    "proximal_line": [
+      [
+        0.24,
+        0.22
+      ],
+      [
+        0.86,
+        0.23
+      ]
+    ],
+    "distal_line": [
+      [
+        0.23,
+        0.78
+      ],
+      [
+        0.88,
+        0.79
+      ]
+    ],
+    "axis_proximal": [
+      0.62,
+      0.23
+    ],
+    "axis_distal": [
+      0.65,
+      0.79
+    ],
+    "ruler_offset": 0.43,
+    "guide_offset": -0.5,
+    "major_interval": 3,
+    "evidence": "使用者校正：臀橫紋至膝中 = 14 寸",
+    "review_note": "確認臀橫紋與膝中。",
+    "boundary_trim": 0.0
+  },
+  "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/06_thigh-posterior.svg",
+  "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/06_thigh-posterior.png",
+  "source_viewbox": [
+    337.0,
+    108.0,
+    113.0,
+    249.0
+  ],
+  "output_viewbox": [
+    329.902,
+    108.0,
+    153.861,
+    262.0
+  ],
+  "anatomical_axis": {
+    "distal": [
+      406.37,
+      303.691
+    ],
+    "proximal": [
+      411.204,
+      164.453
+    ],
+    "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+    "points_svg": {
+      "0": [
+        406.37,
+        303.691
+      ],
+      "1": [
+        406.715,
+        293.745
+      ],
+      "2": [
+        407.06,
+        283.8
+      ],
+      "3": [
+        407.406,
+        273.854
+      ],
+      "4": [
+        407.751,
+        263.909
+      ],
+      "5": [
+        408.096,
+        253.963
+      ],
+      "6": [
+        408.442,
+        244.018
+      ],
+      "7": [
+        408.787,
+        234.072
+      ],
+      "8": [
+        409.132,
+        224.126
+      ],
+      "9": [
+        409.478,
+        214.181
+      ],
+      "10": [
+        409.823,
+        204.235
+      ],
+      "11": [
+        410.168,
+        194.29
+      ],
+      "12": [
+        410.513,
+        184.344
+      ],
+      "13": [
+        410.859,
+        174.399
+      ],
+      "14": [
+        411.204,
+        164.453
+      ]
+    }
+  },
+  "display_ruler": {
+    "distal": [
+      454.932,
+      305.337
+    ],
+    "proximal": [
+      459.763,
+      166.179
+    ],
+    "method": "best_common_normal_to_user_boundaries",
+    "boundary_left_trim_fraction": 0.0,
+    "extent_defined_by_anatomical_boundaries": true,
+    "endpoint_values_visible": false
+  },
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-posterior/thigh-posterior-14cun-calibration.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-posterior/thigh-posterior-14cun-calibration.png"
+}

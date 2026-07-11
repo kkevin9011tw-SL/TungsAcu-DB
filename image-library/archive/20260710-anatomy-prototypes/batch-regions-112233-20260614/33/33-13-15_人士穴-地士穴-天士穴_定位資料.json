@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "33",
+  "code": "33.13-15",
+  "title": "人士穴、地士穴、天士穴",
+  "covered_points": [
+    "人士穴",
+    "地士穴",
+    "天士穴"
+  ],
+  "view": "forearm_anterior",
+  "location_summary": "前臂橈骨內側，自腕橫紋四、七、十寸。",
+  "review_note": "寸位可靠；橈骨內側與肺經貼骨線需人工校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1044,
+      1626
+    ],
+    "axis": [
+      [
+        430.127,
+        1007.84
+      ],
+      [
+        583.483,
+        299.917
+      ]
+    ],
+    "points": [
+      {
+        "name": "人士穴",
+        "cun": 4,
+        "offset": -75,
+        "pixel": [
+          554.5454874654342,
+          787.7444660818796
+        ]
+      },
+      {
+        "name": "地士穴",
+        "cun": 7,
+        "offset": -75,
+        "pixel": [
+          592.8844874654342,
+          610.7637160818796
+        ]
+      },
+      {
+        "name": "天士穴",
+        "cun": 10,
+        "offset": -75,
+        "pixel": [
+          631.2234874654341,
+          433.78296608187964
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-13-15_人士穴-地士穴-天士穴_第一輪審核.svg"
+  }
+}

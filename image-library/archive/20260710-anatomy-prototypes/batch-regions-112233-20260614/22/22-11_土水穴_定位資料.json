@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.11",
+  "title": "土水穴",
+  "covered_points": [
+    "土水穴"
+  ],
+  "view": "palmar_hand",
+  "location_summary": "第一掌骨內側黑白肉際三穴；中央近魚際，上下各取相鄰中點。",
+  "review_note": "黑白肉際不在骨骼圖中，需依體表邊界校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "土水上",
+        "pixel": [
+          330,
+          855
+        ]
+      },
+      {
+        "name": "土水中",
+        "pixel": [
+          305,
+          945
+        ]
+      },
+      {
+        "name": "土水下",
+        "pixel": [
+          285,
+          1040
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-11_土水穴_第一輪審核.svg"
+  }
+}

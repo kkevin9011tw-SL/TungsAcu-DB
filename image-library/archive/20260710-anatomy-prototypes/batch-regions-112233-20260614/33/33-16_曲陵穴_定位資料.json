@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "33",
+  "code": "33.16",
+  "title": "曲陵穴",
+  "covered_points": [
+    "曲陵穴"
+  ],
+  "view": "forearm_anterior",
+  "location_summary": "肘窩橫紋上，大筋外側，屈肘時貼筋取穴。",
+  "review_note": "WHO 為伸肘圖；大筋隆起位置需以屈肘姿勢校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1044,
+      1626
+    ],
+    "axis": [
+      [
+        430.127,
+        1007.84
+      ],
+      [
+        583.483,
+        299.917
+      ]
+    ],
+    "points": [
+      {
+        "name": "曲陵穴",
+        "cun": 12,
+        "offset": -65,
+        "pixel": [
+          647.0095113589318,
+          313.67862615985126
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-16_曲陵穴_第一輪審核.svg"
+  }
+}

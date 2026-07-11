@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "awaiting_user_review",
+  "point": "心門穴",
+  "code": "33.12",
+  "variant": "董師原穴",
+  "view": "left_forearm_posterior",
+  "source_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/04_forearm-posterior.svg",
+  "source_viewbox": [
+    326.0,
+    100.0,
+    174.0,
+    257.0
+  ],
+  "landmarks_svg": {
+    "olecranon_tip": [
+      365.2,
+      145.2
+    ],
+    "ulnar_direction_reference": [
+      388.0,
+      258.2
+    ],
+    "xinmen": [
+      368.151,
+      159.827
+    ]
+  },
+  "measurement": {
+    "forearm_total_cun": 12,
+    "forearm_axis_length_svg": 119.376,
+    "one_cun_svg": 9.948,
+    "distance_from_olecranon_cun": 1.5,
+    "distance_from_olecranon_svg": 14.922,
+    "method": "1.5 / 12 of calibrated forearm length, projected distally along the ulnar border"
+  },
+  "note": "This plate shows the original 1.5-cun Xinmen point. The 2-cun Yang Weijie variant is intentionally omitted.",
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-xinmen-20260613/心門穴_正式評估版_v1_WHO左前臂後側.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-xinmen-20260613/心門穴_正式評估版_v1_WHO左前臂後側.png"
+}

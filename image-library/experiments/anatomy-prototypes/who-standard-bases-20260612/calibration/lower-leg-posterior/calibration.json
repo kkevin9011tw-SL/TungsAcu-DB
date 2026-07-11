@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "spec": {
+    "number": 8,
+    "slug": "lower-leg-posterior",
+    "title": "小腿／後面",
+    "base_stem": "08_lower-leg-posterior",
+    "total_cun": 13,
+    "proximal_name": "脛骨內髁下緣",
+    "distal_name": "內踝尖",
+    "proximal_line": [
+      [
+        0.2252,
+        0.2581
+      ],
+      [
+        0.7832,
+        0.2672
+      ]
+    ],
+    "distal_line": [
+      [
+        0.182,
+        0.7857
+      ],
+      [
+        0.74,
+        0.795
+      ]
+    ],
+    "axis_proximal": [
+      0.52,
+      0.21
+    ],
+    "axis_distal": [
+      0.58,
+      0.84
+    ],
+    "ruler_offset": 0.4,
+    "guide_offset": -0.49,
+    "major_interval": 3,
+    "evidence": "使用者校正：脛骨內髁下緣至內踝尖 = 13 寸",
+    "review_note": "已依使用者紅線重建；確認脛骨內髁下緣與內踝尖。",
+    "boundary_trim": 0.18
+  },
+  "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/08_lower-leg-posterior.svg",
+  "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/08_lower-leg-posterior.png",
+  "source_viewbox": [
+    337.0,
+    107.0,
+    137.0,
+    248.0
+  ],
+  "output_viewbox": [
+    335.215,
+    107.0,
+    157.846,
+    261.0
+  ],
+  "anatomical_axis": {
+    "distal": [
+      410.377,
+      303.315
+    ],
+    "proximal": [
+      414.285,
+      172.38
+    ],
+    "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+    "points_svg": {
+      "0": [
+        410.377,
+        303.315
+      ],
+      "1": [
+        410.677,
+        293.243
+      ],
+      "2": [
+        410.978,
+        283.171
+      ],
+      "3": [
+        411.279,
+        273.099
+      ],
+      "4": [
+        411.579,
+        263.027
+      ],
+      "5": [
+        411.88,
+        252.955
+      ],
+      "6": [
+        412.18,
+        242.883
+      ],
+      "7": [
+        412.481,
+        232.811
+      ],
+      "8": [
+        412.782,
+        222.739
+      ],
+      "9": [
+        413.082,
+        212.667
+      ],
+      "10": [
+        413.383,
+        202.595
+      ],
+      "11": [
+        413.683,
+        192.523
+      ],
+      "12": [
+        413.984,
+        182.452
+      ],
+      "13": [
+        414.285,
+        172.38
+      ]
+    }
+  },
+  "display_ruler": {
+    "distal": [
+      465.152,
+      304.968
+    ],
+    "proximal": [
+      469.061,
+      173.997
+    ],
+    "method": "best_common_normal_to_user_boundaries",
+    "boundary_left_trim_fraction": 0.18,
+    "extent_defined_by_anatomical_boundaries": true,
+    "endpoint_values_visible": false
+  },
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-posterior/lower-leg-posterior-13cun-calibration.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-posterior/lower-leg-posterior-13cun-calibration.png"
+}

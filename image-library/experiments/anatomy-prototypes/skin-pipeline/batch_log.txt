@@ -1,0 +1,133 @@
+=== 01_hand-palmar ===
+  work_box 未設,採用建議 [4, 0, 1016, 1440](bucket (832, 1184))
+  呼叫 flux-canny-pro …
+  ⚠ 輸出比例 0.6842 與 work_box 0.7028 不符,有拉伸,建議改 work_box
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/01_hand-palmar_final.png
+  QC: 缺皮膚 66909px / 溢出 5669px / 補色 30 輪 / 未補 3546px
+  ⚠ 缺皮膚像素偏多,請人工看 QC 圖,必要時換 seed 重生成
+=== 03_upper-arm-anterior ===
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: failed
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+03_upper-arm-anterior: 生成失敗,詳見 cache/03_upper-arm-anterior_pred.json
+=== 04_forearm-anterior ===
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  呼叫 flux-canny-pro …
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/04_forearm-anterior_final.png
+  QC: 缺皮膚 21798px / 溢出 282768px / 補色 30 輪 / 未補 9972px
+=== 05_upper-arm-posterior ===
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: failed
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+05_upper-arm-posterior: 生成失敗,詳見 cache/05_upper-arm-posterior_pred.json
+=== 06_forearm-posterior ===
+  work_box 未設,採用建議 [-6, 0, 1049, 1542](bucket (832, 1216))
+  呼叫 flux-canny-pro …
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/06_forearm-posterior_final.png
+  QC: 缺皮膚 23239px / 溢出 273174px / 補色 30 輪 / 未補 10152px
+=== 07_head-anterior ===
+  work_box 未設,採用建議 [-1, 0, 960, 1368](bucket (832, 1184))
+  呼叫 flux-canny-pro …
+  ⚠ 輸出比例 0.6842 與 work_box 0.7025 不符,有拉伸,建議改 work_box
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/07_head-anterior_final.png
+  QC: 缺皮膚 212307px / 溢出 32362px / 補色 30 輪 / 未補 127334px
+  ⚠ 缺皮膚像素偏多,請人工看 QC 圖,必要時換 seed 重生成
+=== 08_head-posterior ===
+  work_box 未設,採用建議 [-1, 0, 859, 1470](bucket (768, 1312))
+  呼叫 flux-canny-pro …
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/08_head-posterior_final.png
+  QC: 缺皮膚 480071px / 溢出 128254px / 補色 30 輪 / 未補 283855px
+  ⚠ 缺皮膚像素偏多,請人工看 QC 圖,必要時換 seed 重生成
+=== 09_chest-abdomen ===
+  work_box 未設,採用建議 [-18, 0, 1427, 1590](bucket (960, 1056))
+  呼叫 flux-canny-pro …
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/09_chest-abdomen_final.png
+  QC: 缺皮膚 189190px / 溢出 925px / 補色 30 輪 / 未補 11828px
+  ⚠ 缺皮膚像素偏多,請人工看 QC 圖,必要時換 seed 重生成
+=== 10_back ===
+  work_box 未設,採用建議 [5, 0, 1418, 2580](bucket (736, 1344))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: failed
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+10_back: 生成失敗,詳見 cache/10_back_pred.json
+=== 11_foot-plantar ===
+  work_box 未設,採用建議 [-5, 0, 778, 1464](bucket (736, 1376))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: starting
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+11_foot-plantar: 生成失敗,詳見 cache/11_foot-plantar_pred.json
+=== 12_foot-dorsal ===
+  work_box 未設,採用建議 [6, 0, 804, 1458](bucket (736, 1344))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: starting
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+12_foot-dorsal: 生成失敗,詳見 cache/12_foot-dorsal_pred.json
+=== 13_lower-leg-anterior ===
+  work_box 未設,採用建議 [-9, 0, 837, 1446](bucket (768, 1312))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: starting
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+13_lower-leg-anterior: 生成失敗,詳見 cache/13_lower-leg-anterior_pred.json
+=== 14_lower-leg-posterior ===
+  work_box 未設,採用建議 [4, 0, 819, 1488](bucket (736, 1344))
+  呼叫 flux-canny-pro …
+  ⚠ 輸出比例 0.5349 與 work_box 0.5477 不符,有拉伸,建議改 work_box
+  完成 → /Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/skin-pipeline/output/14_lower-leg-posterior_final.png
+  QC: 缺皮膚 32278px / 溢出 1811px / 補色 30 輪 / 未補 6588px
+=== 15_thigh-anterior ===
+  work_box 未設,採用建議 [5, 0, 823, 1494](bucket (736, 1344))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: failed
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+15_thigh-anterior: 生成失敗,詳見 cache/15_thigh-anterior_pred.json
+=== 16_thigh-posterior ===
+  work_box 未設,採用建議 [-2, 0, 680, 1494](bucket (672, 1472))
+  呼叫 flux-canny-pro …
+  attempt 1: starting
+  attempt 2: failed
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+16_thigh-posterior: 生成失敗,詳見 cache/16_thigh-posterior_pred.json
+=== 17_shoulder-joint-posterior ===
+  work_box 未設,採用建議 [-5, 0, 1049, 1500](bucket (832, 1184))
+  呼叫 flux-canny-pro …
+  attempt 1: failed
+  attempt 2: failed
+  attempt 3: failed
+  attempt 4: failed
+  attempt 5: failed
+  attempt 6: failed
+17_shoulder-joint-posterior: 生成失敗,詳見 cache/17_shoulder-joint-posterior_pred.json
+ALL DONE

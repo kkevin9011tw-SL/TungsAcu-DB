@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "22",
+  "code": "22.01-02",
+  "title": "重子穴、重仙穴",
+  "covered_points": [
+    "重子穴",
+    "重仙穴"
+  ],
+  "view": "palmar_hand",
+  "location_summary": "第一、二掌骨間；重子約虎口下一寸，重仙沿掌緣方向再下一寸。",
+  "review_note": "以 WHO 開掌骨位推估，需校正食指 C 線延長線與大指高骨垂線。",
+  "geometry": {
+    "base_pixel_size": [
+      1020,
+      1440
+    ],
+    "points_base_pixels": [
+      {
+        "name": "重子穴",
+        "pixel": [
+          410,
+          790
+        ]
+      },
+      {
+        "name": "重仙穴",
+        "pixel": [
+          455,
+          920
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/22/22-01-02_重子穴-重仙穴_第一輪審核.svg"
+  }
+}

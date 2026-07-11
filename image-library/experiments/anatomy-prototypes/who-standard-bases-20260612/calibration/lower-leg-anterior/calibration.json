@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "spec": {
+    "number": 7,
+    "slug": "lower-leg-anterior",
+    "title": "小腿／前面",
+    "base_stem": "07_lower-leg-anterior",
+    "total_cun": 16,
+    "proximal_name": "膝中",
+    "distal_name": "外踝尖",
+    "proximal_line": [
+      [
+        0.1191,
+        0.147
+      ],
+      [
+        0.7407,
+        0.1508
+      ]
+    ],
+    "distal_line": [
+      [
+        0.0137,
+        0.8726
+      ],
+      [
+        0.8456,
+        0.8821
+      ]
+    ],
+    "axis_proximal": [
+      0.43,
+      0.22
+    ],
+    "axis_distal": [
+      0.56,
+      0.89
+    ],
+    "ruler_offset": 0.39,
+    "guide_offset": -0.49,
+    "major_interval": 4,
+    "evidence": "使用者校正：膝中至外踝尖 = 16 寸",
+    "review_note": "已依使用者紅線重建；確認膝中與外踝尖。",
+    "boundary_trim": 0.18
+  },
+  "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/07_lower-leg-anterior.svg",
+  "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/07_lower-leg-anterior.png",
+  "source_viewbox": [
+    337.0,
+    116.0,
+    138.0,
+    241.0
+  ],
+  "output_viewbox": [
+    337.0,
+    116.0,
+    147.624,
+    254.0
+  ],
+  "anatomical_axis": {
+    "distal": [
+      404.118,
+      327.597
+    ],
+    "proximal": [
+      406.807,
+      151.997
+    ],
+    "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+    "points_svg": {
+      "0": [
+        404.118,
+        327.597
+      ],
+      "1": [
+        404.286,
+        316.622
+      ],
+      "2": [
+        404.454,
+        305.647
+      ],
+      "3": [
+        404.622,
+        294.672
+      ],
+      "4": [
+        404.79,
+        283.697
+      ],
+      "5": [
+        404.958,
+        272.722
+      ],
+      "6": [
+        405.126,
+        261.747
+      ],
+      "7": [
+        405.294,
+        250.772
+      ],
+      "8": [
+        405.462,
+        239.797
+      ],
+      "9": [
+        405.63,
+        228.822
+      ],
+      "10": [
+        405.798,
+        217.847
+      ],
+      "11": [
+        405.967,
+        206.872
+      ],
+      "12": [
+        406.135,
+        195.897
+      ],
+      "13": [
+        406.303,
+        184.922
+      ],
+      "14": [
+        406.471,
+        173.947
+      ],
+      "15": [
+        406.639,
+        162.972
+      ],
+      "16": [
+        406.807,
+        151.997
+      ]
+    }
+  },
+  "display_ruler": {
+    "distal": [
+      457.928,
+      328.671
+    ],
+    "proximal": [
+      460.624,
+      152.571
+    ],
+    "method": "best_common_normal_to_user_boundaries",
+    "boundary_left_trim_fraction": 0.18,
+    "extent_defined_by_anatomical_boundaries": true,
+    "endpoint_values_visible": false
+  },
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-anterior/lower-leg-anterior-16cun-calibration.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/lower-leg-anterior/lower-leg-anterior-16cun-calibration.png"
+}

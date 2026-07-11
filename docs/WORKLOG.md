@@ -2,6 +2,73 @@ TungsAcu-DB 董氏奇穴檢索工具
 建立日期：2026-04-17
 ====================================================
 
+【2026-07-10】圖庫資料夾整理：image-library 正式結構
+====================================================
+
+本輪目標：依使用者指定，先暫停圖像生成本身，改整理目前已產生的套皮／底圖素材位置，統一放到 `image-library/`，避免合格圖、來源圖與失敗實驗混在同一層。
+
+已完成：
+- 建立正式圖庫結構：
+  - `image-library/production/`
+  - `image-library/extracted_images/`
+  - `image-library/marked-figures/`
+  - `image-library/anatomy-sources/`
+  - `image-library/experiments/`
+  - `image-library/archive/`
+- 將原 `extracted_images/` 移入 `image-library/extracted_images/`，不再另設 `book-extracted/`，避免分類過細。
+- 將 topbar 印章 logo 改放 `image-library/logo-seal.png`；`image-library/extracted_images/` 繼續作為圖片審核中介資料夾。
+- 將可重用來源圖移入 `image-library/anatomy-sources/`：
+  - `hand-skeleton-palmar_CC-BY.png`（原 `指駟馬穴_手骨底圖_CC-BY.png`）
+- 將目前使用者標為合格或可接受的底圖候選放到 `image-library/production/`：
+  - `02_hand-dorsal_styleE_final.png`
+  - `02_hand-dorsal_pipeline_final.png`
+  - `04_forearm-anterior_final.png`
+  - `14_lower-leg-posterior_final.png`
+- 將人工穴位標定成果移到 `image-library/marked-figures/`。
+- 將人工穴位標定工具移到 `image-library/marked-figures/marker-tool/`，保留其原 README 與資料檔。
+- 將仍未正式驗收的套皮、表面圖、WHO 底圖流程移到 `image-library/experiments/anatomy-prototypes/`。
+- 將舊 POC 與早期批次資料夾封存到 `image-library/archive/20260710-anatomy-prototypes/`，未刪除，以保留歷史輸出與可追溯性。
+- 移除根目錄 `assets/`，目前圖庫不再以 `assets/` 作為入口。
+
+注意事項：
+- `production/` 目前只是人工驗收後的候選存放區，尚未接入 app 或批次製圖流程。
+- 兩張 02 手背圖先保留為不同版本，尚未決定唯一 canonical。
+- `image-library/anatomy-sources/hand-skeleton-palmar_CC-BY.png` 後續若公開使用，仍需補齊精確授權與 attribution。
+- `image-library/extracted_images/` 作為書籍／PDF 擷取圖入口；目前沒有搬動 app 正在使用的 `data/images/`。
+
+====================================================
+
+【2026-07-10】WHO 01–19 套皮圖像批次：暫停於競品式表面圖／骨骼透視圖階段
+====================================================
+
+本輪目標：將 WHO 01–19 類底圖各產出一張競品式簡化表面圖，以及一張保留解剖線稿的骨骼透視圖；先不疊加穴位點與放大鏡。
+
+已完成：
+- 新增批次產生器：`image-library/experiments/anatomy-prototypes/surface-illustration-trials/2026-07-10/build_all_surface_layers.py`
+- 目前批次輸出位置：
+  `image-library/experiments/anatomy-prototypes/surface-illustration-trials/2026-07-10/all/`
+- 已產出 01–19 共 19 組「表面圖／骨骼透視圖」，另有兩張總覽：
+  - `01-19_表面圖總覽.png`
+  - `01-19_骨骼透視圖總覽.png`
+- 18、19 已納入表面上色與骨骼透視，不再只保留骨架底圖。
+- 10 原清理底圖沒有可用骨骼像素；暫時加入手繪式脊柱、椎體、肩胛與肋骨線，僅作為失敗的驗證版本。
+
+目前驗收結果與問題：
+- 02 為目前唯一明確合格的實際套皮基準；04、06、14 的膚色質地曾達可接受程度。
+- 03、05：目前手動封閉遮罩過寬，皮膚溢出 WHO 原輪廓太多。
+- 07、08：目前雖已補成完整頭部色塊，但尚未取得使用者確認，仍列為待驗收。
+- 15、16：目前遮罩過度簡化，已看不出自然的大腿外形，不能視為合格。
+- 17：目前仍是過度簡化的肩部區塊，未達可用標準。
+- 10：目前骨骼透視看起來像另外繪製的 AI／手繪骨架，不符合原 WHO 視角；後續必須以 18、19 的實際骨骼底圖做幾何對位與拼接，不能再自由繪製。
+- 目前尚未進行穴位標記對位驗證；所有圖像只到「表面／透視層試作」階段。
+
+暫停決策：
+- 使用者要求暫停圖像部分，原因是各輪遮罩與視覺效果反覆，品質不穩定。
+- 暫停期間不要再批次重跑、不要再調膚色參數，也不要把目前輸出視為正式底圖。
+- 恢復時應先重新設計幾何策略，再做單張驗收；優先處理 10 的 18／19 骨骼對位，其次重建 03、05、15、16、17 的原輪廓，不沿用本輪過寬或過度簡化的手動多邊形。
+
+====================================================
+
 【給 Claude 的提示】
 繼續這個專案時，請先讀這兩份文件再動手：
 

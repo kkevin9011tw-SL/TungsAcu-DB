@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "11",
+  "code": "11.09",
+  "title": "心膝穴",
+  "covered_points": [
+    "心膝穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "中指陽掌第二節大側、小側各中點；兩側均需側視貼骨確認。",
+  "review_note": "陽掌 A、C 側線穴位依規範需側視圖。",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "middle",
+    "segment": "middle",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          409.1343425270459,
+          147.56792912119082
+        ],
+        [
+          403.83434252704586,
+          175.56792912119082
+        ]
+      ],
+      "B": [
+        [
+          416.7,
+          149.0
+        ],
+        [
+          411.4,
+          177.0
+        ]
+      ],
+      "A": [
+        [
+          424.2656574729541,
+          150.43207087880918
+        ],
+        [
+          418.9656574729541,
+          178.43207087880918
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "",
+        "line": "A",
+        "fraction": 0.5,
+        "source": [
+          421.6156574729541,
+          164.43207087880918
+        ]
+      },
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.5,
+        "source": [
+          406.4843425270459,
+          161.56792912119082
+        ]
+      }
+    ],
+    "division": 2
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-09_心膝穴_第一輪審核.svg"
+  }
+}

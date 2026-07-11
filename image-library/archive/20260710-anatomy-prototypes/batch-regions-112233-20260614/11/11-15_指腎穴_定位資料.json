@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "11",
+  "code": "11.15",
+  "title": "指腎穴",
+  "covered_points": [
+    "指腎穴"
+  ],
+  "view": "dorsal",
+  "location_summary": "無名指陽掌第一節小側，四分點法取三穴；側視貼骨確認。",
+  "review_note": "陽掌側線穴位依規範需側視圖。",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "ring",
+    "segment": "proximal",
+    "lines_source_coordinates": {
+      "C": [
+        [
+          383.92477481769293,
+          174.57496026194582
+        ],
+        [
+          377.92477481769293,
+          208.57496026194582
+        ]
+      ],
+      "B": [
+        [
+          392.0,
+          176.0
+        ],
+        [
+          386.0,
+          210.0
+        ]
+      ],
+      "A": [
+        [
+          400.07522518230707,
+          177.42503973805418
+        ],
+        [
+          394.07522518230707,
+          211.42503973805418
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.25,
+        "source": [
+          382.42477481769293,
+          183.07496026194582
+        ]
+      },
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.5,
+        "source": [
+          380.92477481769293,
+          191.57496026194582
+        ]
+      },
+      {
+        "name": "",
+        "line": "C",
+        "fraction": 0.75,
+        "source": [
+          379.42477481769293,
+          200.07496026194582
+        ]
+      }
+    ],
+    "division": 4
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-15_指腎穴_第一輪審核.svg"
+  }
+}

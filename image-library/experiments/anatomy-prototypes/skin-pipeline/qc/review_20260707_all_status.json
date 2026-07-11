@@ -1,0 +1,149 @@
+[
+  {
+    "base": "01_hand-palmar",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/01_hand-palmar_final.png",
+    "status": "minor-risk",
+    "todo_px": 62910,
+    "spill_px": 7780,
+    "fill_iters": 29,
+    "unfilled_px": 0
+  },
+  {
+    "base": "02_hand-dorsal",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/02_hand-dorsal_final.png",
+    "status": "generated",
+    "todo_px": 53011,
+    "spill_px": 6751,
+    "fill_iters": 21,
+    "unfilled_px": 0
+  },
+  {
+    "base": "03_upper-arm-anterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/03_upper-arm-anterior_final.png",
+    "status": "mask-risk",
+    "todo_px": 13270,
+    "spill_px": 540960,
+    "fill_iters": 30,
+    "unfilled_px": 1906
+  },
+  {
+    "base": "04_forearm-anterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/04_forearm-anterior_final.png",
+    "status": "generated",
+    "todo_px": 48296,
+    "spill_px": 32680,
+    "fill_iters": 24,
+    "unfilled_px": 0
+  },
+  {
+    "base": "05_upper-arm-posterior",
+    "output": null,
+    "status": "failed",
+    "error": "The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD)"
+  },
+  {
+    "base": "06_forearm-posterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/06_forearm-posterior_final.png",
+    "status": "generated",
+    "todo_px": 36637,
+    "spill_px": 13387,
+    "fill_iters": 20,
+    "unfilled_px": 0
+  },
+  {
+    "base": "07_head-anterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/07_head-anterior_final.png",
+    "status": "mask-risk",
+    "todo_px": 210119,
+    "spill_px": 36535,
+    "fill_iters": 30,
+    "unfilled_px": 125569
+  },
+  {
+    "base": "08_head-posterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/08_head-posterior_final.png",
+    "status": "mask-risk",
+    "todo_px": 478950,
+    "spill_px": 132598,
+    "fill_iters": 30,
+    "unfilled_px": 283171
+  },
+  {
+    "base": "09_chest-abdomen",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/09_chest-abdomen_final.png",
+    "status": "minor-risk",
+    "todo_px": 177336,
+    "spill_px": 6971,
+    "fill_iters": 30,
+    "unfilled_px": 2521
+  },
+  {
+    "base": "10_back",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/10_back_final.png",
+    "status": "mask-risk",
+    "todo_px": 49,
+    "spill_px": 2517085,
+    "fill_iters": 3,
+    "unfilled_px": 15
+  },
+  {
+    "base": "11_foot-plantar",
+    "output": null,
+    "status": "failed",
+    "error": "The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD)"
+  },
+  {
+    "base": "12_foot-dorsal",
+    "output": null,
+    "status": "failed",
+    "error": "The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD)"
+  },
+  {
+    "base": "13_lower-leg-anterior",
+    "output": null,
+    "status": "failed",
+    "error": "The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD)"
+  },
+  {
+    "base": "14_lower-leg-posterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/14_lower-leg-posterior_final.png",
+    "status": "generated",
+    "todo_px": 24540,
+    "spill_px": 3496,
+    "fill_iters": 27,
+    "unfilled_px": 0
+  },
+  {
+    "base": "15_thigh-anterior",
+    "output": null,
+    "status": "failed",
+    "error": "The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD)"
+  },
+  {
+    "base": "16_thigh-posterior",
+    "output": null,
+    "status": "failed",
+    "error": "The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD)"
+  },
+  {
+    "base": "17_shoulder-joint-posterior",
+    "output": "assets/anatomy-prototypes/skin-pipeline/output/17_shoulder-joint-posterior_final.png",
+    "status": "mask-risk",
+    "todo_px": 12823,
+    "spill_px": 743560,
+    "fill_iters": 30,
+    "unfilled_px": 171
+  },
+  {
+    "base": "18_upper-back-skeleton",
+    "output": null,
+    "status": "skip",
+    "note": "骨骼圖底圖,不套皮,維持原線稿"
+  },
+  {
+    "base": "19_lower-back-skeleton",
+    "output": null,
+    "status": "skip",
+    "note": "骨骼圖底圖,不套皮,維持原線稿"
+  }
+]

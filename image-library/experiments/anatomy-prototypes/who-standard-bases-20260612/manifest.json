@@ -1,0 +1,444 @@
+{
+  "version": 1,
+  "locked": true,
+  "count": 19,
+  "items": [
+    {
+      "number": 1,
+      "slug": "hand-palmar",
+      "title": "手掌／掌面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 168,
+          "crop": [
+            322,
+            112,
+            492,
+            352
+          ]
+        }
+      ],
+      "note": "左手，以手背骨架去除指甲重製",
+      "prepared_source": "who_palmar_from_dorsal_evaluation.png",
+      "output_svg": "clean-bases/01_hand-palmar.svg",
+      "output_png": "clean-bases/01_hand-palmar.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 2,
+      "slug": "hand-dorsal",
+      "title": "手掌／手背",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 168,
+          "crop": [
+            322,
+            112,
+            492,
+            352
+          ]
+        }
+      ],
+      "note": "左手，清理後翻為指尖朝上",
+      "prepared_source": null,
+      "output_svg": "clean-bases/02_hand-dorsal.svg",
+      "output_png": "clean-bases/02_hand-dorsal.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 3,
+      "slug": "upper-arm-anterior",
+      "title": "上臂／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 36,
+          "crop": [
+            326,
+            100,
+            500,
+            357
+          ]
+        }
+      ],
+      "note": "肩至肘，骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/03_upper-arm-anterior.svg",
+      "output_png": "clean-bases/03_upper-arm-anterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 4,
+      "slug": "forearm-anterior",
+      "title": "前臂／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 162,
+          "crop": [
+            326,
+            100,
+            500,
+            357
+          ]
+        }
+      ],
+      "note": "肘至手，骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/04_forearm-anterior.svg",
+      "output_png": "clean-bases/04_forearm-anterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 5,
+      "slug": "upper-arm-posterior",
+      "title": "上臂／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 172,
+          "crop": [
+            326,
+            100,
+            500,
+            357
+          ]
+        }
+      ],
+      "note": "肩至肘，骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/05_upper-arm-posterior.svg",
+      "output_png": "clean-bases/05_upper-arm-posterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 6,
+      "slug": "forearm-posterior",
+      "title": "前臂／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 169,
+          "crop": [
+            326,
+            100,
+            500,
+            357
+          ]
+        }
+      ],
+      "note": "肘至手，骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/06_forearm-posterior.svg",
+      "output_png": "clean-bases/06_forearm-posterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 7,
+      "slug": "head-anterior",
+      "title": "頭面／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 55,
+          "crop": [
+            326,
+            116,
+            486,
+            344
+          ]
+        }
+      ],
+      "note": "正面，半側骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/07_head-anterior.svg",
+      "output_png": "clean-bases/07_head-anterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 8,
+      "slug": "head-posterior",
+      "title": "頭面／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 25,
+          "crop": [
+            104,
+            430,
+            247,
+            675
+          ]
+        }
+      ],
+      "note": "後頭正投影",
+      "prepared_source": null,
+      "output_svg": "clean-bases/08_head-posterior.svg",
+      "output_png": "clean-bases/08_head-posterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 9,
+      "slug": "chest-abdomen",
+      "title": "胸腹／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 28,
+          "crop": [
+            55,
+            100,
+            290,
+            365
+          ]
+        }
+      ],
+      "note": "頭至下腹，正中前視向量圖",
+      "prepared_source": null,
+      "output_svg": "clean-bases/09_chest-abdomen.svg",
+      "output_png": "clean-bases/09_chest-abdomen.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 10,
+      "slug": "back",
+      "title": "背部／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 212,
+          "crop": [
+            255,
+            250,
+            492,
+            680
+          ]
+        }
+      ],
+      "note": "肩線至臀部，正中後視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/10_back.svg",
+      "output_png": "clean-bases/10_back.png",
+      "artwork_type": "raster_in_svg"
+    },
+    {
+      "number": 11,
+      "slug": "foot-plantar",
+      "title": "腳掌／足底",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 145,
+          "crop": [
+            337,
+            112,
+            466,
+            356
+          ]
+        }
+      ],
+      "note": "左足，骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/11_foot-plantar.svg",
+      "output_png": "clean-bases/11_foot-plantar.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 12,
+      "slug": "foot-dorsal",
+      "title": "腳掌／足背",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 205,
+          "crop": [
+            337,
+            112,
+            472,
+            355
+          ]
+        }
+      ],
+      "note": "左足，骨骼透視",
+      "prepared_source": null,
+      "output_svg": "clean-bases/12_foot-dorsal.svg",
+      "output_png": "clean-bases/12_foot-dorsal.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 13,
+      "slug": "lower-leg-anterior",
+      "title": "小腿／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 74,
+          "crop": [
+            337,
+            116,
+            475,
+            357
+          ]
+        }
+      ],
+      "note": "膝下至踝，前側骨肌",
+      "prepared_source": null,
+      "output_svg": "clean-bases/13_lower-leg-anterior.svg",
+      "output_png": "clean-bases/13_lower-leg-anterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 14,
+      "slug": "lower-leg-posterior",
+      "title": "小腿／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 137,
+          "crop": [
+            337,
+            107,
+            474,
+            355
+          ]
+        }
+      ],
+      "note": "膝下至跟骨，後側骨肌",
+      "prepared_source": null,
+      "output_svg": "clean-bases/14_lower-leg-posterior.svg",
+      "output_png": "clean-bases/14_lower-leg-posterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 15,
+      "slug": "thigh-anterior",
+      "title": "大腿／前面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 71,
+          "crop": [
+            337,
+            108,
+            475,
+            357
+          ]
+        }
+      ],
+      "note": "髖至膝，前外側骨性圖",
+      "prepared_source": null,
+      "output_svg": "clean-bases/15_thigh-anterior.svg",
+      "output_png": "clean-bases/15_thigh-anterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 16,
+      "slug": "thigh-posterior",
+      "title": "大腿／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 127,
+          "crop": [
+            337,
+            108,
+            450,
+            357
+          ]
+        }
+      ],
+      "note": "臀溝至膝，後側骨肌",
+      "prepared_source": null,
+      "output_svg": "clean-bases/16_thigh-posterior.svg",
+      "output_png": "clean-bases/16_thigh-posterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 17,
+      "slug": "shoulder-joint-posterior",
+      "title": "肩關節／後面",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 102,
+          "crop": [
+            326,
+            100,
+            500,
+            350
+          ]
+        }
+      ],
+      "note": "肩胛骨、肩峰、肱骨頭與胸椎肋骨",
+      "prepared_source": null,
+      "output_svg": "clean-bases/17_shoulder-joint-posterior.svg",
+      "output_png": "clean-bases/17_shoulder-joint-posterior.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 18,
+      "slug": "upper-back-skeleton",
+      "title": "上背／骨骼透視",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 29,
+          "crop": [
+            100,
+            445,
+            195,
+            580
+          ]
+        }
+      ],
+      "note": "頸椎、胸椎與雙側肩胛骨",
+      "prepared_source": null,
+      "output_svg": "clean-bases/18_upper-back-skeleton.svg",
+      "output_png": "clean-bases/18_upper-back-skeleton.png",
+      "artwork_type": "vector"
+    },
+    {
+      "number": 19,
+      "slug": "lower-back-skeleton",
+      "title": "下背／骨骼透視",
+      "status": "cleaned_for_anatomy_review",
+      "source_pdf": "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫/AI_Projects/04-書籍資料庫/WHO standard acupuncture point locations in the Western Pacific region.pdf",
+      "sources": [
+        {
+          "page": 29,
+          "crop": [
+            100,
+            535,
+            225,
+            690
+          ]
+        }
+      ],
+      "note": "腰椎、薦骨與雙側骨盆",
+      "prepared_source": null,
+      "output_svg": "clean-bases/19_lower-back-skeleton.svg",
+      "output_png": "clean-bases/19_lower-back-skeleton.png",
+      "artwork_type": "vector"
+    }
+  ]
+}

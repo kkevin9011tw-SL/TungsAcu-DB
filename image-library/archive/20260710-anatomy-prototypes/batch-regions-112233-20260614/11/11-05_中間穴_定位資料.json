@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "status": "review_ready",
+  "region": "11",
+  "code": "11.05",
+  "title": "中間穴",
+  "covered_points": [
+    "中間穴"
+  ],
+  "view": "palmar",
+  "location_summary": "食指陰掌第一節 C 線中點。",
+  "review_note": "",
+  "geometry": {
+    "source_box": [
+      322.0,
+      112.0,
+      492.0,
+      352.0
+    ],
+    "finger": "index",
+    "segment": "proximal",
+    "lines_source_coordinates": {
+      "A": [
+        [
+          371.16398134468744,
+          188.71019715909276
+        ],
+        [
+          377.16398134468744,
+          219.71019715909276
+        ]
+      ],
+      "B": [
+        [
+          375.58199067234375,
+          187.85509857954636
+        ],
+        [
+          381.58199067234375,
+          218.85509857954636
+        ]
+      ],
+      "C": [
+        [
+          380.0,
+          187.0
+        ],
+        [
+          386.0,
+          218.0
+        ]
+      ],
+      "D": [
+        [
+          384.41800932765625,
+          186.14490142045364
+        ],
+        [
+          390.41800932765625,
+          217.14490142045364
+        ]
+      ],
+      "E": [
+        [
+          388.83601865531256,
+          185.28980284090724
+        ],
+        [
+          394.83601865531256,
+          216.28980284090724
+        ]
+      ]
+    },
+    "points": [
+      {
+        "name": "中間穴",
+        "line": "C",
+        "fraction": 0.5,
+        "source": [
+          383.0,
+          202.5
+        ]
+      }
+    ],
+    "division": 2
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/11/11-05_中間穴_第一輪審核.svg"
+  }
+}

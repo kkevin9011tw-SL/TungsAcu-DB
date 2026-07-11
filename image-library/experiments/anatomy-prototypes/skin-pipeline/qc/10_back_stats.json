@@ -1,0 +1,10 @@
+{
+ "todo_px": 2460,
+ "spill_px": 0,
+ "fill_iters": 5,
+ "unfilled_px": 0,
+ "seals": {
+  "strategy": "source_nonwhite",
+  "thresh": 250
+ }
+}

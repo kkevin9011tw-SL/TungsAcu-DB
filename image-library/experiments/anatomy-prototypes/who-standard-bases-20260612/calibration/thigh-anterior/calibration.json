@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "status": "awaiting_anatomy_review",
+  "spec": {
+    "number": 5,
+    "slug": "thigh-anterior",
+    "title": "大腿／前面",
+    "base_stem": "05_thigh-anterior",
+    "total_cun": 19,
+    "proximal_name": "大轉子",
+    "distal_name": "膝中",
+    "proximal_line": [
+      [
+        0.23,
+        0.29
+      ],
+      [
+        0.86,
+        0.3
+      ]
+    ],
+    "distal_line": [
+      [
+        0.0728,
+        0.8408
+      ],
+      [
+        0.8872,
+        0.8371
+      ]
+    ],
+    "axis_proximal": [
+      0.64,
+      0.3
+    ],
+    "axis_distal": [
+      0.51,
+      0.81
+    ],
+    "ruler_offset": 0.43,
+    "guide_offset": -0.52,
+    "major_interval": 3,
+    "evidence": "使用者校正：大轉子至膝中 = 19 寸",
+    "review_note": "已依使用者紅線重建；確認大轉子與膝中。",
+    "boundary_trim": 0.0
+  },
+  "base_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/05_thigh-anterior.svg",
+  "base_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/muscle-bone-bases/05_thigh-anterior.png",
+  "source_viewbox": [
+    337.0,
+    108.0,
+    138.0,
+    249.0
+  ],
+  "output_viewbox": [
+    323.859,
+    108.0,
+    176.477,
+    262.0
+  ],
+  "anatomical_axis": {
+    "distal": [
+      415.629,
+      316.797
+    ],
+    "proximal": [
+      417.01,
+      181.592
+    ],
+    "formula": "P(cun) = distal + (cun / total_cun) * (proximal - distal)",
+    "points_svg": {
+      "0": [
+        415.629,
+        316.797
+      ],
+      "1": [
+        415.701,
+        309.681
+      ],
+      "2": [
+        415.774,
+        302.565
+      ],
+      "3": [
+        415.847,
+        295.449
+      ],
+      "4": [
+        415.919,
+        288.333
+      ],
+      "5": [
+        415.992,
+        281.217
+      ],
+      "6": [
+        416.065,
+        274.101
+      ],
+      "7": [
+        416.138,
+        266.985
+      ],
+      "8": [
+        416.21,
+        259.869
+      ],
+      "9": [
+        416.283,
+        252.753
+      ],
+      "10": [
+        416.356,
+        245.637
+      ],
+      "11": [
+        416.428,
+        238.521
+      ],
+      "12": [
+        416.501,
+        231.405
+      ],
+      "13": [
+        416.574,
+        224.289
+      ],
+      "14": [
+        416.647,
+        217.173
+      ],
+      "15": [
+        416.719,
+        210.057
+      ],
+      "16": [
+        416.792,
+        202.941
+      ],
+      "17": [
+        416.865,
+        195.825
+      ],
+      "18": [
+        416.937,
+        188.709
+      ],
+      "19": [
+        417.01,
+        181.592
+      ]
+    }
+  },
+  "display_ruler": {
+    "distal": [
+      474.977,
+      316.31
+    ],
+    "proximal": [
+      476.336,
+      183.292
+    ],
+    "method": "best_common_normal_to_user_boundaries",
+    "boundary_left_trim_fraction": 0.0,
+    "extent_defined_by_anatomical_boundaries": true,
+    "endpoint_values_visible": false
+  },
+  "output_svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-anterior/thigh-anterior-19cun-calibration.svg",
+  "output_png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/who-standard-bases-20260612/calibration/thigh-anterior/thigh-anterior-19cun-calibration.png"
+}

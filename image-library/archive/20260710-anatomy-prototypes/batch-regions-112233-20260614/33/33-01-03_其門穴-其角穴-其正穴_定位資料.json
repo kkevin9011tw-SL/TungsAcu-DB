@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "status": "needs_anatomy_review",
+  "region": "33",
+  "code": "33.01-03",
+  "title": "其門穴、其角穴、其正穴",
+  "covered_points": [
+    "其門穴",
+    "其角穴",
+    "其正穴"
+  ],
+  "view": "forearm_posterior",
+  "location_summary": "橈骨外側，自腕橫紋起二、四、六寸。",
+  "review_note": "寸位可靠；橈骨外側貼骨線需人工校正。",
+  "geometry": {
+    "base_pixel_size": [
+      1116,
+      1620
+    ],
+    "axis": [
+      [
+        535.68,
+        1069.2
+      ],
+      [
+        479.88,
+        307.8
+      ]
+    ],
+    "points": [
+      {
+        "name": "其門穴",
+        "cun": 2,
+        "offset": 85,
+        "pixel": [
+          441.60734556069406,
+          948.5126531622187
+        ]
+      },
+      {
+        "name": "其角穴",
+        "cun": 4,
+        "offset": 85,
+        "pixel": [
+          432.307345560694,
+          821.6126531622187
+        ]
+      },
+      {
+        "name": "其正穴",
+        "cun": 6,
+        "offset": 85,
+        "pixel": [
+          423.00734556069403,
+          694.7126531622187
+        ]
+      }
+    ]
+  },
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_第一輪審核.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/batch-regions-112233-20260614/33/33-01-03_其門穴-其角穴-其正穴_第一輪審核.svg"
+  }
+}

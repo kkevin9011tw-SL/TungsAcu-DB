@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "status": "awaiting_user_review",
+  "point": "木炎穴",
+  "code": "11.20",
+  "source_page": 168,
+  "view": "left_palm",
+  "inset_method": "original_local_crop; no bone reconstruction",
+  "finger": "ring",
+  "segment": "middle",
+  "lines_source_coordinates": {
+    "A": {
+      "top": [
+        409.14,
+        153.45
+      ],
+      "bottom": [
+        414.97,
+        178.22
+      ]
+    },
+    "B": {
+      "top": [
+        412.825,
+        152.69
+      ],
+      "bottom": [
+        419.12,
+        177.36
+      ]
+    },
+    "C": {
+      "top": [
+        416.51,
+        151.93
+      ],
+      "bottom": [
+        423.27,
+        176.5
+      ]
+    },
+    "D": {
+      "top": [
+        420.22,
+        151.16500000000002
+      ],
+      "bottom": [
+        426.78,
+        175.775
+      ]
+    },
+    "E": {
+      "top": [
+        423.93,
+        150.4
+      ],
+      "bottom": [
+        430.29,
+        175.05
+      ]
+    }
+  },
+  "construction": {
+    "geometry": "ring-finger A line and DIP/PIP boundaries measured from user correction; C/E axes clipped to corrected boundaries",
+    "B": "midpoint line between A and C",
+    "D": "midpoint line between C and E",
+    "longitudinal_method": "三分點法",
+    "point_fractions_from_distal_boundary": [
+      0.3333333333333333,
+      0.6666666666666666
+    ],
+    "point_placement": "palmar D line on ulnar side"
+  },
+  "points_source_coordinates": [
+    [
+      422.4067,
+      159.3683
+    ],
+    [
+      424.5933,
+      167.5717
+    ]
+  ],
+  "outputs": {
+    "png": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-muyan-20260613/木炎穴_正式評估版_v1_WHO-p168左手掌面.png",
+    "svg": "/Users/samue11in/Projects/TungsAcu-DB/assets/anatomy-prototypes/poc-muyan-20260613/木炎穴_正式評估版_v1_WHO-p168左手掌面.svg"
+  }
+}

@@ -1,27 +1,28 @@
 """
-從 MinerU 輸出（4 個 part 的 content_list.json）抽穴位圖到 extracted_images/，
+從 MinerU 輸出（4 個 part 的 content_list.json）抽穴位圖到 image-library/extracted_images/，
 產出 manifest.json 供 app.py admin tab「🖼 圖片審核」逐張採用。
 
 策略：
 - MinerU 已切好 figure，並提供 caption（常含「图N-X 穴名」）
-- caption 有 figure_ref → 直接 match acupoints.figure_ref（已轉繁體）
-- caption 沒 figure_ref 但同頁文字有 → 用同頁 figure_ref + 穴名雙重比對
+- caption 有「图N-X」→ 對 `data/穴位表.csv` 的 `穴位圖` / `取穴定位` 圖號
+- caption 沒圖號但有穴名 → 對 `data/穴位表.csv` 的 `穴名`
+- caption 沒圖號但同頁文字有 → 用同頁圖號 + 穴名雙重比對
 - 其他歸 noref，待人工選穴
 
 過濾：bbox 寬高 < 60px、寬高比過於極端（< 0.2 或 > 5）視為雜訊。
 
 用法：
-  python extract_images_v2.py [--out extracted_images]
+  python extract_images_v2.py [--out image-library/extracted_images]
 """
 import argparse
+import csv
 import json
 import re
 import shutil
-import sqlite3
 from pathlib import Path
 
 BASE = Path(__file__).parent
-DB_PATH = BASE / "dongzhen_new.db"
+CSV_ACUPOINTS = BASE / "data" / "穴位表.csv"
 
 MINERU_BASE = Path(
     "/Users/samue11in/Library/CloudStorage/SynologyDrive-中醫資料庫"
@@ -39,20 +40,36 @@ MAX_RATIO = 5.0
 
 
 def load_acupoint_indexes():
-    conn = sqlite3.connect(str(DB_PATH))
-    rows = conn.execute(
-        "SELECT id, name, figure_ref FROM acupoints"
-    ).fetchall()
+    if not CSV_ACUPOINTS.exists():
+        raise FileNotFoundError(f"找不到穴位表：{CSV_ACUPOINTS}")
+
     by_fig = {}
     by_name = {}
-    for ap_id, name, ref in rows:
-        if ref:
-            key = re.sub(r"\s", "", ref).replace("圖", "").replace("图", "").lower()
-            by_fig.setdefault(key, []).append({"id": ap_id, "name": name, "ref": ref})
-        if name:
-            by_name.setdefault(name.replace("穴", ""), []).append(
-                {"id": ap_id, "name": name, "ref": ref or ""}
-            )
+
+    with CSV_ACUPOINTS.open("r", encoding="utf-8-sig", newline="") as f:
+        for ap_id, row in enumerate(csv.DictReader(f), start=1):
+            name = (row.get("穴名") or "").strip()
+            code = (row.get("穴號") or "").strip()
+            image_rel = row.get("穴位圖") or ""
+            location = row.get("取穴定位") or ""
+            refs = []
+            for text in (image_rel, location):
+                for fig in FIG_PAT.findall(text):
+                    ref = "圖" + fig
+                    if ref not in refs:
+                        refs.append(ref)
+
+            ref_label = code
+            if refs:
+                ref_label = f"{code} / {refs[0]}" if code else refs[0]
+
+            hit = {"id": ap_id, "name": name, "ref": ref_label}
+            for ref in refs:
+                key = normalize_fig(ref)
+                by_fig.setdefault(key, []).append(hit)
+
+            if name:
+                by_name.setdefault(name.replace("穴", ""), []).append(hit)
     return by_fig, by_name
 
 
@@ -68,16 +85,16 @@ def caption_text(caption):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out", default="extracted_images")
+    parser.add_argument("--out", default="image-library/extracted_images")
     args = parser.parse_args()
 
     out_dir = BASE / args.out
-    out_dir.mkdir(exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
     img_dir = out_dir / "img"
     img_dir.mkdir(exist_ok=True)
 
     by_fig, by_name = load_acupoint_indexes()
-    print(f"DB: {len(by_fig)} figure_ref，{len(by_name)} 穴名")
+    print(f"CSV: {len(by_fig)} figure_ref，{len(by_name)} 穴名")
 
     manifest = []
     stats = {"total": 0, "saved": 0, "skipped": 0, "matched_fig": 0,
